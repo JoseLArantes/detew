@@ -1,0 +1,2618 @@
+{
+  "repository": "JoseLArantes/detew",
+  "baseline": "0a732d37da46571af7e3eeb8e293fd3fd4fa5b74",
+  "issues": {
+    "M00-W01-T01": {
+      "number": 1,
+      "node_id": "I_kwDOU5eYE88AAAABUtaGIg",
+      "id": 5684758050,
+      "url": "https://github.com/JoseLArantes/detew/issues/1",
+      "state": "open"
+    },
+    "M00-W01-T02": {
+      "number": 2,
+      "node_id": "I_kwDOU5eYE88AAAABUtaG1Q",
+      "id": 5684758229,
+      "url": "https://github.com/JoseLArantes/detew/issues/2",
+      "state": "open"
+    },
+    "M00-W01-T03": {
+      "number": 3,
+      "node_id": "I_kwDOU5eYE88AAAABUtaIGA",
+      "id": 5684758552,
+      "url": "https://github.com/JoseLArantes/detew/issues/3",
+      "state": "open"
+    },
+    "M00-W02-T01": {
+      "number": 4,
+      "node_id": "I_kwDOU5eYE88AAAABUtaKHA",
+      "id": 5684759068,
+      "url": "https://github.com/JoseLArantes/detew/issues/4",
+      "state": "open"
+    },
+    "M00-W02-T02": {
+      "number": 5,
+      "node_id": "I_kwDOU5eYE88AAAABUtaLLA",
+      "id": 5684759340,
+      "url": "https://github.com/JoseLArantes/detew/issues/5",
+      "state": "open"
+    },
+    "M00-W02-T03": {
+      "number": 6,
+      "node_id": "I_kwDOU5eYE88AAAABUtaMIg",
+      "id": 5684759586,
+      "url": "https://github.com/JoseLArantes/detew/issues/6",
+      "state": "open"
+    },
+    "M00-W03-T01": {
+      "number": 7,
+      "node_id": "I_kwDOU5eYE88AAAABUtaNvA",
+      "id": 5684759996,
+      "url": "https://github.com/JoseLArantes/detew/issues/7",
+      "state": "open"
+    },
+    "M00-W03-T02": {
+      "number": 8,
+      "node_id": "I_kwDOU5eYE88AAAABUtaOPA",
+      "id": 5684760124,
+      "url": "https://github.com/JoseLArantes/detew/issues/8",
+      "state": "open"
+    },
+    "M00-W04-T01": {
+      "number": 9,
+      "node_id": "I_kwDOU5eYE88AAAABUtaP8Q",
+      "id": 5684760561,
+      "url": "https://github.com/JoseLArantes/detew/issues/9",
+      "state": "open"
+    },
+    "M00-W04-T02": {
+      "number": 10,
+      "node_id": "I_kwDOU5eYE88AAAABUtaRNg",
+      "id": 5684760886,
+      "url": "https://github.com/JoseLArantes/detew/issues/10",
+      "state": "open"
+    },
+    "M00-W05-T01": {
+      "number": 11,
+      "node_id": "I_kwDOU5eYE88AAAABUtaSNA",
+      "id": 5684761140,
+      "url": "https://github.com/JoseLArantes/detew/issues/11",
+      "state": "open"
+    },
+    "M00-W05-T02": {
+      "number": 12,
+      "node_id": "I_kwDOU5eYE88AAAABUtaS6g",
+      "id": 5684761322,
+      "url": "https://github.com/JoseLArantes/detew/issues/12",
+      "state": "open"
+    },
+    "M01-W01-T01": {
+      "number": 13,
+      "node_id": "I_kwDOU5eYE88AAAABUtaUlQ",
+      "id": 5684761749,
+      "url": "https://github.com/JoseLArantes/detew/issues/13",
+      "state": "open"
+    },
+    "M01-W01-T02": {
+      "number": 14,
+      "node_id": "I_kwDOU5eYE88AAAABUtaVsg",
+      "id": 5684762034,
+      "url": "https://github.com/JoseLArantes/detew/issues/14",
+      "state": "open"
+    },
+    "M01-W02-T01": {
+      "number": 15,
+      "node_id": "I_kwDOU5eYE88AAAABUtaWwA",
+      "id": 5684762304,
+      "url": "https://github.com/JoseLArantes/detew/issues/15",
+      "state": "open"
+    },
+    "M01-W02-T02": {
+      "number": 16,
+      "node_id": "I_kwDOU5eYE88AAAABUtaYYg",
+      "id": 5684762722,
+      "url": "https://github.com/JoseLArantes/detew/issues/16",
+      "state": "open"
+    },
+    "M01-W04-T01": {
+      "number": 17,
+      "node_id": "I_kwDOU5eYE88AAAABUtaZgg",
+      "id": 5684763010,
+      "url": "https://github.com/JoseLArantes/detew/issues/17",
+      "state": "open"
+    },
+    "M01-W05-T01": {
+      "number": 18,
+      "node_id": "I_kwDOU5eYE88AAAABUtaapA",
+      "id": 5684763300,
+      "url": "https://github.com/JoseLArantes/detew/issues/18",
+      "state": "open"
+    },
+    "M01-W03-T01": {
+      "number": 19,
+      "node_id": "I_kwDOU5eYE88AAAABUtacQA",
+      "id": 5684763712,
+      "url": "https://github.com/JoseLArantes/detew/issues/19",
+      "state": "open"
+    },
+    "M01-W03-T02": {
+      "number": 20,
+      "node_id": "I_kwDOU5eYE88AAAABUtaddg",
+      "id": 5684764022,
+      "url": "https://github.com/JoseLArantes/detew/issues/20",
+      "state": "open"
+    },
+    "M01-W04-T02": {
+      "number": 21,
+      "node_id": "I_kwDOU5eYE88AAAABUtaekA",
+      "id": 5684764304,
+      "url": "https://github.com/JoseLArantes/detew/issues/21",
+      "state": "open"
+    },
+    "M01-W05-T02": {
+      "number": 22,
+      "node_id": "I_kwDOU5eYE88AAAABUtagKQ",
+      "id": 5684764713,
+      "url": "https://github.com/JoseLArantes/detew/issues/22",
+      "state": "open"
+    },
+    "M02-W01-T01": {
+      "number": 23,
+      "node_id": "I_kwDOU5eYE88AAAABUtahjg",
+      "id": 5684765070,
+      "url": "https://github.com/JoseLArantes/detew/issues/23",
+      "state": "open"
+    },
+    "M02-W01-T02": {
+      "number": 24,
+      "node_id": "I_kwDOU5eYE88AAAABUtai_g",
+      "id": 5684765438,
+      "url": "https://github.com/JoseLArantes/detew/issues/24",
+      "state": "open"
+    },
+    "M02-W02-T01": {
+      "number": 25,
+      "node_id": "I_kwDOU5eYE88AAAABUtakCg",
+      "id": 5684765706,
+      "url": "https://github.com/JoseLArantes/detew/issues/25",
+      "state": "open"
+    },
+    "M02-W02-T02": {
+      "number": 26,
+      "node_id": "I_kwDOU5eYE88AAAABUtal0w",
+      "id": 5684766163,
+      "url": "https://github.com/JoseLArantes/detew/issues/26",
+      "state": "open"
+    },
+    "M02-W03-T01": {
+      "number": 27,
+      "node_id": "I_kwDOU5eYE88AAAABUtam5Q",
+      "id": 5684766437,
+      "url": "https://github.com/JoseLArantes/detew/issues/27",
+      "state": "open"
+    },
+    "M02-W03-T02": {
+      "number": 28,
+      "node_id": "I_kwDOU5eYE88AAAABUtaoCg",
+      "id": 5684766730,
+      "url": "https://github.com/JoseLArantes/detew/issues/28",
+      "state": "open"
+    },
+    "M02-W04-T01": {
+      "number": 29,
+      "node_id": "I_kwDOU5eYE88AAAABUtapkQ",
+      "id": 5684767121,
+      "url": "https://github.com/JoseLArantes/detew/issues/29",
+      "state": "open"
+    },
+    "M02-W04-T02": {
+      "number": 30,
+      "node_id": "I_kwDOU5eYE88AAAABUtaqtw",
+      "id": 5684767415,
+      "url": "https://github.com/JoseLArantes/detew/issues/30",
+      "state": "open"
+    },
+    "M02-W05-T01": {
+      "number": 31,
+      "node_id": "I_kwDOU5eYE88AAAABUtarrQ",
+      "id": 5684767661,
+      "url": "https://github.com/JoseLArantes/detew/issues/31",
+      "state": "open"
+    },
+    "M02-W05-T02": {
+      "number": 32,
+      "node_id": "I_kwDOU5eYE88AAAABUtatUg",
+      "id": 5684768082,
+      "url": "https://github.com/JoseLArantes/detew/issues/32",
+      "state": "open"
+    },
+    "M03-W01-T01": {
+      "number": 33,
+      "node_id": "I_kwDOU5eYE88AAAABUtauZQ",
+      "id": 5684768357,
+      "url": "https://github.com/JoseLArantes/detew/issues/33",
+      "state": "open"
+    },
+    "M03-W01-T02": {
+      "number": 34,
+      "node_id": "I_kwDOU5eYE88AAAABUtavfA",
+      "id": 5684768636,
+      "url": "https://github.com/JoseLArantes/detew/issues/34",
+      "state": "open"
+    },
+    "M03-W02-T01": {
+      "number": 35,
+      "node_id": "I_kwDOU5eYE88AAAABUtaxQA",
+      "id": 5684769088,
+      "url": "https://github.com/JoseLArantes/detew/issues/35",
+      "state": "open"
+    },
+    "M03-W02-T02": {
+      "number": 36,
+      "node_id": "I_kwDOU5eYE88AAAABUtaySg",
+      "id": 5684769354,
+      "url": "https://github.com/JoseLArantes/detew/issues/36",
+      "state": "open"
+    },
+    "M03-W03-T01": {
+      "number": 37,
+      "node_id": "I_kwDOU5eYE88AAAABUtazbw",
+      "id": 5684769647,
+      "url": "https://github.com/JoseLArantes/detew/issues/37",
+      "state": "open"
+    },
+    "M03-W03-T02": {
+      "number": 38,
+      "node_id": "I_kwDOU5eYE88AAAABUta1KA",
+      "id": 5684770088,
+      "url": "https://github.com/JoseLArantes/detew/issues/38",
+      "state": "open"
+    },
+    "M03-W04-T01": {
+      "number": 39,
+      "node_id": "I_kwDOU5eYE88AAAABUta2Iw",
+      "id": 5684770339,
+      "url": "https://github.com/JoseLArantes/detew/issues/39",
+      "state": "open"
+    },
+    "M03-W04-T02": {
+      "number": 40,
+      "node_id": "I_kwDOU5eYE88AAAABUta3NA",
+      "id": 5684770612,
+      "url": "https://github.com/JoseLArantes/detew/issues/40",
+      "state": "open"
+    },
+    "M03-W05-T01": {
+      "number": 41,
+      "node_id": "I_kwDOU5eYE88AAAABUta4rA",
+      "id": 5684770988,
+      "url": "https://github.com/JoseLArantes/detew/issues/41",
+      "state": "open"
+    },
+    "M03-W05-T02": {
+      "number": 42,
+      "node_id": "I_kwDOU5eYE88AAAABUta5rA",
+      "id": 5684771244,
+      "url": "https://github.com/JoseLArantes/detew/issues/42",
+      "state": "open"
+    },
+    "M04-W01-T01": {
+      "number": 43,
+      "node_id": "I_kwDOU5eYE88AAAABUta63Q",
+      "id": 5684771549,
+      "url": "https://github.com/JoseLArantes/detew/issues/43",
+      "state": "open"
+    },
+    "M04-W01-T02": {
+      "number": 44,
+      "node_id": "I_kwDOU5eYE88AAAABUta8cQ",
+      "id": 5684771953,
+      "url": "https://github.com/JoseLArantes/detew/issues/44",
+      "state": "open"
+    },
+    "M04-W01-T03": {
+      "number": 45,
+      "node_id": "I_kwDOU5eYE88AAAABUta9mg",
+      "id": 5684772250,
+      "url": "https://github.com/JoseLArantes/detew/issues/45",
+      "state": "open"
+    },
+    "M04-W02-T01": {
+      "number": 46,
+      "node_id": "I_kwDOU5eYE88AAAABUta-pA",
+      "id": 5684772516,
+      "url": "https://github.com/JoseLArantes/detew/issues/46",
+      "state": "open"
+    },
+    "M04-W02-T02": {
+      "number": 47,
+      "node_id": "I_kwDOU5eYE88AAAABUtbATw",
+      "id": 5684772943,
+      "url": "https://github.com/JoseLArantes/detew/issues/47",
+      "state": "open"
+    },
+    "M04-W02-T03": {
+      "number": 48,
+      "node_id": "I_kwDOU5eYE88AAAABUtbBjw",
+      "id": 5684773263,
+      "url": "https://github.com/JoseLArantes/detew/issues/48",
+      "state": "open"
+    },
+    "M04-W03-T01": {
+      "number": 49,
+      "node_id": "I_kwDOU5eYE88AAAABUtbCfA",
+      "id": 5684773500,
+      "url": "https://github.com/JoseLArantes/detew/issues/49",
+      "state": "open"
+    },
+    "M04-W03-T02": {
+      "number": 50,
+      "node_id": "I_kwDOU5eYE88AAAABUtbEHQ",
+      "id": 5684773917,
+      "url": "https://github.com/JoseLArantes/detew/issues/50",
+      "state": "open"
+    },
+    "M04-W03-T03": {
+      "number": 51,
+      "node_id": "I_kwDOU5eYE88AAAABUtbFHw",
+      "id": 5684774175,
+      "url": "https://github.com/JoseLArantes/detew/issues/51",
+      "state": "open"
+    },
+    "M04-W04-T01": {
+      "number": 52,
+      "node_id": "I_kwDOU5eYE88AAAABUtbGwQ",
+      "id": 5684774593,
+      "url": "https://github.com/JoseLArantes/detew/issues/52",
+      "state": "open"
+    },
+    "M04-W04-T02": {
+      "number": 53,
+      "node_id": "I_kwDOU5eYE88AAAABUtbIdg",
+      "id": 5684775030,
+      "url": "https://github.com/JoseLArantes/detew/issues/53",
+      "state": "open"
+    },
+    "M04-W05-T01": {
+      "number": 54,
+      "node_id": "I_kwDOU5eYE88AAAABUtbJfQ",
+      "id": 5684775293,
+      "url": "https://github.com/JoseLArantes/detew/issues/54",
+      "state": "open"
+    },
+    "M04-W05-T02": {
+      "number": 55,
+      "node_id": "I_kwDOU5eYE88AAAABUtbLMQ",
+      "id": 5684775729,
+      "url": "https://github.com/JoseLArantes/detew/issues/55",
+      "state": "open"
+    },
+    "M05-W01-T01": {
+      "number": 56,
+      "node_id": "I_kwDOU5eYE88AAAABUtbNIA",
+      "id": 5684776224,
+      "url": "https://github.com/JoseLArantes/detew/issues/56",
+      "state": "open"
+    },
+    "M05-W01-T02": {
+      "number": 57,
+      "node_id": "I_kwDOU5eYE88AAAABUtbOIw",
+      "id": 5684776483,
+      "url": "https://github.com/JoseLArantes/detew/issues/57",
+      "state": "open"
+    },
+    "M05-W01-T03": {
+      "number": 58,
+      "node_id": "I_kwDOU5eYE88AAAABUtbPvA",
+      "id": 5684776892,
+      "url": "https://github.com/JoseLArantes/detew/issues/58",
+      "state": "open"
+    },
+    "M05-W02-T01": {
+      "number": 59,
+      "node_id": "I_kwDOU5eYE88AAAABUtbRag",
+      "id": 5684777322,
+      "url": "https://github.com/JoseLArantes/detew/issues/59",
+      "state": "open"
+    },
+    "M05-W02-T02": {
+      "number": 60,
+      "node_id": "I_kwDOU5eYE88AAAABUtbSuQ",
+      "id": 5684777657,
+      "url": "https://github.com/JoseLArantes/detew/issues/60",
+      "state": "open"
+    },
+    "M05-W03-T01": {
+      "number": 61,
+      "node_id": "I_kwDOU5eYE88AAAABUtbT6g",
+      "id": 5684777962,
+      "url": "https://github.com/JoseLArantes/detew/issues/61",
+      "state": "open"
+    },
+    "M05-W03-T02": {
+      "number": 62,
+      "node_id": "I_kwDOU5eYE88AAAABUtbVag",
+      "id": 5684778346,
+      "url": "https://github.com/JoseLArantes/detew/issues/62",
+      "state": "open"
+    },
+    "M05-W03-T03": {
+      "number": 63,
+      "node_id": "I_kwDOU5eYE88AAAABUtbXcA",
+      "id": 5684778864,
+      "url": "https://github.com/JoseLArantes/detew/issues/63",
+      "state": "open"
+    },
+    "M05-W04-T01": {
+      "number": 64,
+      "node_id": "I_kwDOU5eYE88AAAABUtbY-A",
+      "id": 5684779256,
+      "url": "https://github.com/JoseLArantes/detew/issues/64",
+      "state": "open"
+    },
+    "M05-W04-T02": {
+      "number": 65,
+      "node_id": "I_kwDOU5eYE88AAAABUtbbFw",
+      "id": 5684779799,
+      "url": "https://github.com/JoseLArantes/detew/issues/65",
+      "state": "open"
+    },
+    "M05-W05-T01": {
+      "number": 66,
+      "node_id": "I_kwDOU5eYE88AAAABUtbdBg",
+      "id": 5684780294,
+      "url": "https://github.com/JoseLArantes/detew/issues/66",
+      "state": "open"
+    },
+    "M05-W05-T02": {
+      "number": 67,
+      "node_id": "I_kwDOU5eYE88AAAABUtbemw",
+      "id": 5684780699,
+      "url": "https://github.com/JoseLArantes/detew/issues/67",
+      "state": "open"
+    },
+    "M06-W01-T01": {
+      "number": 68,
+      "node_id": "I_kwDOU5eYE88AAAABUtbf-A",
+      "id": 5684781048,
+      "url": "https://github.com/JoseLArantes/detew/issues/68",
+      "state": "open"
+    },
+    "M06-W01-T02": {
+      "number": 69,
+      "node_id": "I_kwDOU5eYE88AAAABUtbhrw",
+      "id": 5684781487,
+      "url": "https://github.com/JoseLArantes/detew/issues/69",
+      "state": "open"
+    },
+    "M06-W01-T03": {
+      "number": 70,
+      "node_id": "I_kwDOU5eYE88AAAABUtbi6w",
+      "id": 5684781803,
+      "url": "https://github.com/JoseLArantes/detew/issues/70",
+      "state": "open"
+    },
+    "M06-W02-T01": {
+      "number": 71,
+      "node_id": "I_kwDOU5eYE88AAAABUtbkjQ",
+      "id": 5684782221,
+      "url": "https://github.com/JoseLArantes/detew/issues/71",
+      "state": "open"
+    },
+    "M06-W02-T02": {
+      "number": 72,
+      "node_id": "I_kwDOU5eYE88AAAABUtblzw",
+      "id": 5684782543,
+      "url": "https://github.com/JoseLArantes/detew/issues/72",
+      "state": "open"
+    },
+    "M06-W03-T01": {
+      "number": 73,
+      "node_id": "I_kwDOU5eYE88AAAABUtbm5w",
+      "id": 5684782823,
+      "url": "https://github.com/JoseLArantes/detew/issues/73",
+      "state": "open"
+    },
+    "M06-W03-T02": {
+      "number": 74,
+      "node_id": "I_kwDOU5eYE88AAAABUtbosA",
+      "id": 5684783280,
+      "url": "https://github.com/JoseLArantes/detew/issues/74",
+      "state": "open"
+    },
+    "M06-W03-T03": {
+      "number": 75,
+      "node_id": "I_kwDOU5eYE88AAAABUtbpnQ",
+      "id": 5684783517,
+      "url": "https://github.com/JoseLArantes/detew/issues/75",
+      "state": "open"
+    },
+    "M06-W04-T01": {
+      "number": 76,
+      "node_id": "I_kwDOU5eYE88AAAABUtbqvA",
+      "id": 5684783804,
+      "url": "https://github.com/JoseLArantes/detew/issues/76",
+      "state": "open"
+    },
+    "M06-W04-T02": {
+      "number": 77,
+      "node_id": "I_kwDOU5eYE88AAAABUtbslQ",
+      "id": 5684784277,
+      "url": "https://github.com/JoseLArantes/detew/issues/77",
+      "state": "open"
+    },
+    "M06-W05-T01": {
+      "number": 78,
+      "node_id": "I_kwDOU5eYE88AAAABUtbt4g",
+      "id": 5684784610,
+      "url": "https://github.com/JoseLArantes/detew/issues/78",
+      "state": "open"
+    },
+    "M06-W05-T02": {
+      "number": 79,
+      "node_id": "I_kwDOU5eYE88AAAABUtbvgg",
+      "id": 5684785026,
+      "url": "https://github.com/JoseLArantes/detew/issues/79",
+      "state": "open"
+    },
+    "M07-W01-T01": {
+      "number": 80,
+      "node_id": "I_kwDOU5eYE88AAAABUtbwrw",
+      "id": 5684785327,
+      "url": "https://github.com/JoseLArantes/detew/issues/80",
+      "state": "open"
+    },
+    "M07-W01-T02": {
+      "number": 81,
+      "node_id": "I_kwDOU5eYE88AAAABUtbxxQ",
+      "id": 5684785605,
+      "url": "https://github.com/JoseLArantes/detew/issues/81",
+      "state": "open"
+    },
+    "M07-W01-T03": {
+      "number": 82,
+      "node_id": "I_kwDOU5eYE88AAAABUtbzXA",
+      "id": 5684786012,
+      "url": "https://github.com/JoseLArantes/detew/issues/82",
+      "state": "open"
+    },
+    "M07-W02-T01": {
+      "number": 83,
+      "node_id": "I_kwDOU5eYE88AAAABUtb0eA",
+      "id": 5684786296,
+      "url": "https://github.com/JoseLArantes/detew/issues/83",
+      "state": "open"
+    },
+    "M07-W02-T02": {
+      "number": 84,
+      "node_id": "I_kwDOU5eYE88AAAABUtb1hg",
+      "id": 5684786566,
+      "url": "https://github.com/JoseLArantes/detew/issues/84",
+      "state": "open"
+    },
+    "M07-W02-T03": {
+      "number": 85,
+      "node_id": "I_kwDOU5eYE88AAAABUtb2nw",
+      "id": 5684786847,
+      "url": "https://github.com/JoseLArantes/detew/issues/85",
+      "state": "open"
+    },
+    "M07-W03-T01": {
+      "number": 86,
+      "node_id": "I_kwDOU5eYE88AAAABUtb3fw",
+      "id": 5684787071,
+      "url": "https://github.com/JoseLArantes/detew/issues/86",
+      "state": "open"
+    },
+    "M07-W03-T02": {
+      "number": 87,
+      "node_id": "I_kwDOU5eYE88AAAABUtb4wA",
+      "id": 5684787392,
+      "url": "https://github.com/JoseLArantes/detew/issues/87",
+      "state": "open"
+    },
+    "M07-W03-T03": {
+      "number": 88,
+      "node_id": "I_kwDOU5eYE88AAAABUtb5tw",
+      "id": 5684787639,
+      "url": "https://github.com/JoseLArantes/detew/issues/88",
+      "state": "open"
+    },
+    "M07-W04-T01": {
+      "number": 89,
+      "node_id": "I_kwDOU5eYE88AAAABUtb6zg",
+      "id": 5684787918,
+      "url": "https://github.com/JoseLArantes/detew/issues/89",
+      "state": "open"
+    },
+    "M07-W04-T02": {
+      "number": 90,
+      "node_id": "I_kwDOU5eYE88AAAABUtb78Q",
+      "id": 5684788209,
+      "url": "https://github.com/JoseLArantes/detew/issues/90",
+      "state": "open"
+    },
+    "M07-W05-T01": {
+      "number": 91,
+      "node_id": "I_kwDOU5eYE88AAAABUtb86w",
+      "id": 5684788459,
+      "url": "https://github.com/JoseLArantes/detew/issues/91",
+      "state": "open"
+    },
+    "M07-W05-T02": {
+      "number": 92,
+      "node_id": "I_kwDOU5eYE88AAAABUtb9_Q",
+      "id": 5684788733,
+      "url": "https://github.com/JoseLArantes/detew/issues/92",
+      "state": "open"
+    },
+    "M08-W01-T01": {
+      "number": 93,
+      "node_id": "I_kwDOU5eYE88AAAABUtb_fg",
+      "id": 5684789118,
+      "url": "https://github.com/JoseLArantes/detew/issues/93",
+      "state": "open"
+    },
+    "M08-W01-T02": {
+      "number": 94,
+      "node_id": "I_kwDOU5eYE88AAAABUtcAfA",
+      "id": 5684789372,
+      "url": "https://github.com/JoseLArantes/detew/issues/94",
+      "state": "open"
+    },
+    "M08-W01-T03": {
+      "number": 95,
+      "node_id": "I_kwDOU5eYE88AAAABUtcB0A",
+      "id": 5684789712,
+      "url": "https://github.com/JoseLArantes/detew/issues/95",
+      "state": "open"
+    },
+    "M08-W02-T01": {
+      "number": 96,
+      "node_id": "I_kwDOU5eYE88AAAABUtcDKA",
+      "id": 5684790056,
+      "url": "https://github.com/JoseLArantes/detew/issues/96",
+      "state": "open"
+    },
+    "M08-W02-T02": {
+      "number": 97,
+      "node_id": "I_kwDOU5eYE88AAAABUtcEig",
+      "id": 5684790410,
+      "url": "https://github.com/JoseLArantes/detew/issues/97",
+      "state": "open"
+    },
+    "M08-W02-T03": {
+      "number": 98,
+      "node_id": "I_kwDOU5eYE88AAAABUtcFpw",
+      "id": 5684790695,
+      "url": "https://github.com/JoseLArantes/detew/issues/98",
+      "state": "open"
+    },
+    "M08-W03-T01": {
+      "number": 99,
+      "node_id": "I_kwDOU5eYE88AAAABUtcG2Q",
+      "id": 5684791001,
+      "url": "https://github.com/JoseLArantes/detew/issues/99",
+      "state": "open"
+    },
+    "M08-W03-T02": {
+      "number": 100,
+      "node_id": "I_kwDOU5eYE88AAAABUtcIKQ",
+      "id": 5684791337,
+      "url": "https://github.com/JoseLArantes/detew/issues/100",
+      "state": "open"
+    },
+    "M08-W03-T03": {
+      "number": 101,
+      "node_id": "I_kwDOU5eYE88AAAABUtcJSg",
+      "id": 5684791626,
+      "url": "https://github.com/JoseLArantes/detew/issues/101",
+      "state": "open"
+    },
+    "M08-W04-T01": {
+      "number": 102,
+      "node_id": "I_kwDOU5eYE88AAAABUtcKsQ",
+      "id": 5684791985,
+      "url": "https://github.com/JoseLArantes/detew/issues/102",
+      "state": "open"
+    },
+    "M08-W04-T02": {
+      "number": 103,
+      "node_id": "I_kwDOU5eYE88AAAABUtcL0w",
+      "id": 5684792275,
+      "url": "https://github.com/JoseLArantes/detew/issues/103",
+      "state": "open"
+    },
+    "M08-W05-T01": {
+      "number": 104,
+      "node_id": "I_kwDOU5eYE88AAAABUtcM9w",
+      "id": 5684792567,
+      "url": "https://github.com/JoseLArantes/detew/issues/104",
+      "state": "open"
+    },
+    "M08-W05-T02": {
+      "number": 105,
+      "node_id": "I_kwDOU5eYE88AAAABUtcOeA",
+      "id": 5684792952,
+      "url": "https://github.com/JoseLArantes/detew/issues/105",
+      "state": "open"
+    },
+    "M09-W01-T01": {
+      "number": 106,
+      "node_id": "I_kwDOU5eYE88AAAABUtcPoQ",
+      "id": 5684793249,
+      "url": "https://github.com/JoseLArantes/detew/issues/106",
+      "state": "open"
+    },
+    "M09-W01-T02": {
+      "number": 107,
+      "node_id": "I_kwDOU5eYE88AAAABUtcQ7g",
+      "id": 5684793582,
+      "url": "https://github.com/JoseLArantes/detew/issues/107",
+      "state": "open"
+    },
+    "M09-W02-T01": {
+      "number": 108,
+      "node_id": "I_kwDOU5eYE88AAAABUtcSBw",
+      "id": 5684793863,
+      "url": "https://github.com/JoseLArantes/detew/issues/108",
+      "state": "open"
+    },
+    "M09-W02-T02": {
+      "number": 109,
+      "node_id": "I_kwDOU5eYE88AAAABUtcTeQ",
+      "id": 5684794233,
+      "url": "https://github.com/JoseLArantes/detew/issues/109",
+      "state": "open"
+    },
+    "M09-W03-T01": {
+      "number": 110,
+      "node_id": "I_kwDOU5eYE88AAAABUtcU0w",
+      "id": 5684794579,
+      "url": "https://github.com/JoseLArantes/detew/issues/110",
+      "state": "open"
+    },
+    "M09-W03-T02": {
+      "number": 111,
+      "node_id": "I_kwDOU5eYE88AAAABUtcWCQ",
+      "id": 5684794889,
+      "url": "https://github.com/JoseLArantes/detew/issues/111",
+      "state": "open"
+    },
+    "M09-W04-T01": {
+      "number": 112,
+      "node_id": "I_kwDOU5eYE88AAAABUtcXMQ",
+      "id": 5684795185,
+      "url": "https://github.com/JoseLArantes/detew/issues/112",
+      "state": "open"
+    },
+    "M09-W04-T02": {
+      "number": 113,
+      "node_id": "I_kwDOU5eYE88AAAABUtcY9Q",
+      "id": 5684795637,
+      "url": "https://github.com/JoseLArantes/detew/issues/113",
+      "state": "open"
+    },
+    "M09-W05-T01": {
+      "number": 114,
+      "node_id": "I_kwDOU5eYE88AAAABUtcZ_w",
+      "id": 5684795903,
+      "url": "https://github.com/JoseLArantes/detew/issues/114",
+      "state": "open"
+    },
+    "M09-W05-T02": {
+      "number": 115,
+      "node_id": "I_kwDOU5eYE88AAAABUtcbEw",
+      "id": 5684796179,
+      "url": "https://github.com/JoseLArantes/detew/issues/115",
+      "state": "open"
+    },
+    "M09-W06-T01": {
+      "number": 116,
+      "node_id": "I_kwDOU5eYE88AAAABUtccOA",
+      "id": 5684796472,
+      "url": "https://github.com/JoseLArantes/detew/issues/116",
+      "state": "open"
+    },
+    "M09-W06-T02": {
+      "number": 117,
+      "node_id": "I_kwDOU5eYE88AAAABUtcdxg",
+      "id": 5684796870,
+      "url": "https://github.com/JoseLArantes/detew/issues/117",
+      "state": "open"
+    },
+    "M10-W01-T01": {
+      "number": 118,
+      "node_id": "I_kwDOU5eYE88AAAABUtcezA",
+      "id": 5684797132,
+      "url": "https://github.com/JoseLArantes/detew/issues/118",
+      "state": "open"
+    },
+    "M10-W01-T02": {
+      "number": 119,
+      "node_id": "I_kwDOU5eYE88AAAABUtcfTQ",
+      "id": 5684797261,
+      "url": "https://github.com/JoseLArantes/detew/issues/119",
+      "state": "open"
+    },
+    "M10-W02-T01": {
+      "number": 120,
+      "node_id": "I_kwDOU5eYE88AAAABUtcgZw",
+      "id": 5684797543,
+      "url": "https://github.com/JoseLArantes/detew/issues/120",
+      "state": "open"
+    },
+    "M10-W02-T02": {
+      "number": 121,
+      "node_id": "I_kwDOU5eYE88AAAABUtchcw",
+      "id": 5684797811,
+      "url": "https://github.com/JoseLArantes/detew/issues/121",
+      "state": "open"
+    },
+    "M10-W03-T01": {
+      "number": 122,
+      "node_id": "I_kwDOU5eYE88AAAABUtcigQ",
+      "id": 5684798081,
+      "url": "https://github.com/JoseLArantes/detew/issues/122",
+      "state": "open"
+    },
+    "M10-W03-T02": {
+      "number": 123,
+      "node_id": "I_kwDOU5eYE88AAAABUtcjlw",
+      "id": 5684798359,
+      "url": "https://github.com/JoseLArantes/detew/issues/123",
+      "state": "open"
+    },
+    "M10-W04-T01": {
+      "number": 124,
+      "node_id": "I_kwDOU5eYE88AAAABUtckxg",
+      "id": 5684798662,
+      "url": "https://github.com/JoseLArantes/detew/issues/124",
+      "state": "open"
+    },
+    "M10-W04-T02": {
+      "number": 125,
+      "node_id": "I_kwDOU5eYE88AAAABUtclzw",
+      "id": 5684798927,
+      "url": "https://github.com/JoseLArantes/detew/issues/125",
+      "state": "open"
+    },
+    "M10-W05-T01": {
+      "number": 126,
+      "node_id": "I_kwDOU5eYE88AAAABUtcm6w",
+      "id": 5684799211,
+      "url": "https://github.com/JoseLArantes/detew/issues/126",
+      "state": "open"
+    },
+    "M10-W05-T02": {
+      "number": 127,
+      "node_id": "I_kwDOU5eYE88AAAABUtcoVg",
+      "id": 5684799574,
+      "url": "https://github.com/JoseLArantes/detew/issues/127",
+      "state": "open"
+    },
+    "M11-W01-T01": {
+      "number": 128,
+      "node_id": "I_kwDOU5eYE88AAAABUtcpdA",
+      "id": 5684799860,
+      "url": "https://github.com/JoseLArantes/detew/issues/128",
+      "state": "open"
+    },
+    "M11-W03-T01": {
+      "number": 129,
+      "node_id": "I_kwDOU5eYE88AAAABUtcqrA",
+      "id": 5684800172,
+      "url": "https://github.com/JoseLArantes/detew/issues/129",
+      "state": "open"
+    },
+    "M11-W04-T01": {
+      "number": 130,
+      "node_id": "I_kwDOU5eYE88AAAABUtcrtQ",
+      "id": 5684800437,
+      "url": "https://github.com/JoseLArantes/detew/issues/130",
+      "state": "open"
+    },
+    "M11-W02-T01": {
+      "number": 131,
+      "node_id": "I_kwDOU5eYE88AAAABUtctXA",
+      "id": 5684800860,
+      "url": "https://github.com/JoseLArantes/detew/issues/131",
+      "state": "open"
+    },
+    "M11-W02-T02": {
+      "number": 132,
+      "node_id": "I_kwDOU5eYE88AAAABUtcvbQ",
+      "id": 5684801389,
+      "url": "https://github.com/JoseLArantes/detew/issues/132",
+      "state": "open"
+    },
+    "M11-W01-T02": {
+      "number": 133,
+      "node_id": "I_kwDOU5eYE88AAAABUtcwpA",
+      "id": 5684801700,
+      "url": "https://github.com/JoseLArantes/detew/issues/133",
+      "state": "open"
+    },
+    "M11-W03-T02": {
+      "number": 134,
+      "node_id": "I_kwDOU5eYE88AAAABUtcx6Q",
+      "id": 5684802025,
+      "url": "https://github.com/JoseLArantes/detew/issues/134",
+      "state": "open"
+    },
+    "M11-W04-T02": {
+      "number": 135,
+      "node_id": "I_kwDOU5eYE88AAAABUtcznQ",
+      "id": 5684802461,
+      "url": "https://github.com/JoseLArantes/detew/issues/135",
+      "state": "open"
+    },
+    "M11-W05-T01": {
+      "number": 136,
+      "node_id": "I_kwDOU5eYE88AAAABUtc0oQ",
+      "id": 5684802721,
+      "url": "https://github.com/JoseLArantes/detew/issues/136",
+      "state": "open"
+    },
+    "M11-W05-T02": {
+      "number": 137,
+      "node_id": "I_kwDOU5eYE88AAAABUtc1xQ",
+      "id": 5684803013,
+      "url": "https://github.com/JoseLArantes/detew/issues/137",
+      "state": "open"
+    },
+    "M12-W01-T01": {
+      "number": 138,
+      "node_id": "I_kwDOU5eYE88AAAABUtc20A",
+      "id": 5684803280,
+      "url": "https://github.com/JoseLArantes/detew/issues/138",
+      "state": "open"
+    },
+    "M12-W01-T02": {
+      "number": 139,
+      "node_id": "I_kwDOU5eYE88AAAABUtc3-A",
+      "id": 5684803576,
+      "url": "https://github.com/JoseLArantes/detew/issues/139",
+      "state": "open"
+    },
+    "M12-W02-T01": {
+      "number": 140,
+      "node_id": "I_kwDOU5eYE88AAAABUtc5Bw",
+      "id": 5684803847,
+      "url": "https://github.com/JoseLArantes/detew/issues/140",
+      "state": "open"
+    },
+    "M12-W02-T02": {
+      "number": 141,
+      "node_id": "I_kwDOU5eYE88AAAABUtc6BQ",
+      "id": 5684804101,
+      "url": "https://github.com/JoseLArantes/detew/issues/141",
+      "state": "open"
+    },
+    "M12-W03-T01": {
+      "number": 142,
+      "node_id": "I_kwDOU5eYE88AAAABUtc7Rg",
+      "id": 5684804422,
+      "url": "https://github.com/JoseLArantes/detew/issues/142",
+      "state": "open"
+    },
+    "M12-W03-T02": {
+      "number": 143,
+      "node_id": "I_kwDOU5eYE88AAAABUtc8TA",
+      "id": 5684804684,
+      "url": "https://github.com/JoseLArantes/detew/issues/143",
+      "state": "open"
+    },
+    "M12-W04-T01": {
+      "number": 144,
+      "node_id": "I_kwDOU5eYE88AAAABUtc9jA",
+      "id": 5684805004,
+      "url": "https://github.com/JoseLArantes/detew/issues/144",
+      "state": "open"
+    },
+    "M12-W04-T02": {
+      "number": 145,
+      "node_id": "I_kwDOU5eYE88AAAABUtc-eA",
+      "id": 5684805240,
+      "url": "https://github.com/JoseLArantes/detew/issues/145",
+      "state": "open"
+    },
+    "M12-W05-T01": {
+      "number": 146,
+      "node_id": "I_kwDOU5eYE88AAAABUtc_mQ",
+      "id": 5684805529,
+      "url": "https://github.com/JoseLArantes/detew/issues/146",
+      "state": "open"
+    },
+    "M12-W05-T02": {
+      "number": 147,
+      "node_id": "I_kwDOU5eYE88AAAABUtdBAg",
+      "id": 5684805890,
+      "url": "https://github.com/JoseLArantes/detew/issues/147",
+      "state": "open"
+    },
+    "M13-W01-T01": {
+      "number": 148,
+      "node_id": "I_kwDOU5eYE88AAAABUtdB-g",
+      "id": 5684806138,
+      "url": "https://github.com/JoseLArantes/detew/issues/148",
+      "state": "open"
+    },
+    "M13-W01-T02": {
+      "number": 149,
+      "node_id": "I_kwDOU5eYE88AAAABUtdDCg",
+      "id": 5684806410,
+      "url": "https://github.com/JoseLArantes/detew/issues/149",
+      "state": "open"
+    },
+    "M13-W02-T01": {
+      "number": 150,
+      "node_id": "I_kwDOU5eYE88AAAABUtdD8g",
+      "id": 5684806642,
+      "url": "https://github.com/JoseLArantes/detew/issues/150",
+      "state": "open"
+    },
+    "M13-W02-T02": {
+      "number": 151,
+      "node_id": "I_kwDOU5eYE88AAAABUtdE-A",
+      "id": 5684806904,
+      "url": "https://github.com/JoseLArantes/detew/issues/151",
+      "state": "open"
+    },
+    "M13-W03-T01": {
+      "number": 152,
+      "node_id": "I_kwDOU5eYE88AAAABUtdF3w",
+      "id": 5684807135,
+      "url": "https://github.com/JoseLArantes/detew/issues/152",
+      "state": "open"
+    },
+    "M13-W03-T02": {
+      "number": 153,
+      "node_id": "I_kwDOU5eYE88AAAABUtdG8A",
+      "id": 5684807408,
+      "url": "https://github.com/JoseLArantes/detew/issues/153",
+      "state": "open"
+    },
+    "M13-W04-T01": {
+      "number": 154,
+      "node_id": "I_kwDOU5eYE88AAAABUtdINg",
+      "id": 5684807734,
+      "url": "https://github.com/JoseLArantes/detew/issues/154",
+      "state": "open"
+    },
+    "M13-W04-T02": {
+      "number": 155,
+      "node_id": "I_kwDOU5eYE88AAAABUtdJIg",
+      "id": 5684807970,
+      "url": "https://github.com/JoseLArantes/detew/issues/155",
+      "state": "open"
+    },
+    "M13-W05-T01": {
+      "number": 156,
+      "node_id": "I_kwDOU5eYE88AAAABUtdKGg",
+      "id": 5684808218,
+      "url": "https://github.com/JoseLArantes/detew/issues/156",
+      "state": "open"
+    },
+    "M13-W05-T02": {
+      "number": 157,
+      "node_id": "I_kwDOU5eYE88AAAABUtdLPg",
+      "id": 5684808510,
+      "url": "https://github.com/JoseLArantes/detew/issues/157",
+      "state": "open"
+    }
+  },
+  "milestones": {
+    "M00": {
+      "number": 1,
+      "node_id": "MI_kwDOU5eYE84BFtbL",
+      "title": "M00: Project bootstrap and governance",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/1"
+    },
+    "M01": {
+      "number": 2,
+      "node_id": "MI_kwDOU5eYE84BFtbM",
+      "title": "M01: Shared contracts and canonical policy reference",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/2"
+    },
+    "M02": {
+      "number": 3,
+      "node_id": "MI_kwDOU5eYE84BFtbN",
+      "title": "M02: Packet and classifier feasibility",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/3"
+    },
+    "M03": {
+      "number": 4,
+      "node_id": "MI_kwDOU5eYE84BFtbO",
+      "title": "M03: Category-data feasibility and baseline artifacts",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/4"
+    },
+    "M04": {
+      "number": 5,
+      "node_id": "MI_kwDOU5eYE84BFtbP",
+      "title": "M04: Native host integration and interaction prototype",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/5"
+    },
+    "M05": {
+      "number": 6,
+      "node_id": "MI_kwDOU5eYE84BFtbQ",
+      "title": "M05: Inline developer alpha",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/6"
+    },
+    "M06": {
+      "number": 7,
+      "node_id": "MI_kwDOU5eYE84BFtbR",
+      "title": "M06: Complete policy, time, and device behavior",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/7"
+    },
+    "M07": {
+      "number": 8,
+      "node_id": "MI_kwDOU5eYE84BFtbS",
+      "title": "M07: Durable activation and data operations",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/8"
+    },
+    "M08": {
+      "number": 9,
+      "node_id": "MI_kwDOU5eYE84BFtbT",
+      "title": "M08: Complete user workflows and local activity",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/9"
+    },
+    "M09": {
+      "number": 10,
+      "node_id": "MI_kwDOU5eYE84BFtbU",
+      "title": "M09: Integrated hardening and pilot readiness",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/10"
+    },
+    "M10": {
+      "number": 11,
+      "node_id": "MI_kwDOU5eYE84BFtbV",
+      "title": "M10: Independent pilots and beta acceptance",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/11"
+    },
+    "M11": {
+      "number": 12,
+      "node_id": "MI_kwDOU5eYE84BFtbW",
+      "title": "M11: V1 release and maintenance readiness",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/12"
+    },
+    "M12": {
+      "number": 13,
+      "node_id": "MI_kwDOU5eYE84BFtbX",
+      "title": "M12: Optional managed TLS module",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/13"
+    },
+    "M13": {
+      "number": 14,
+      "node_id": "MI_kwDOU5eYE84BFtbY",
+      "title": "M13: Ecosystem expansion by demonstrated demand",
+      "html_url": "https://github.com/JoseLArantes/detew/milestone/14"
+    }
+  },
+  "relationships": [
+    [
+      "M00-W01-T02",
+      "M00-W01-T01"
+    ],
+    [
+      "M00-W01-T03",
+      "M00-W01-T02"
+    ],
+    [
+      "M00-W02-T01",
+      "M00-W01-T01"
+    ],
+    [
+      "M00-W02-T02",
+      "M00-W01-T02"
+    ],
+    [
+      "M00-W02-T02",
+      "M00-W02-T01"
+    ],
+    [
+      "M00-W02-T03",
+      "M00-W02-T02"
+    ],
+    [
+      "M00-W03-T02",
+      "M00-W01-T01"
+    ],
+    [
+      "M00-W03-T02",
+      "M00-W02-T01"
+    ],
+    [
+      "M00-W03-T02",
+      "M00-W03-T01"
+    ],
+    [
+      "M00-W04-T01",
+      "M00-W01-T02"
+    ],
+    [
+      "M00-W04-T01",
+      "M00-W02-T02"
+    ],
+    [
+      "M00-W04-T02",
+      "M00-W02-T03"
+    ],
+    [
+      "M00-W04-T02",
+      "M00-W03-T02"
+    ],
+    [
+      "M00-W04-T02",
+      "M00-W04-T01"
+    ],
+    [
+      "M00-W05-T02",
+      "M00-W01-T02"
+    ],
+    [
+      "M00-W05-T02",
+      "M00-W04-T01"
+    ],
+    [
+      "M00-W05-T02",
+      "M00-W05-T01"
+    ],
+    [
+      "M01-W01-T01",
+      "M00-W01-T03"
+    ],
+    [
+      "M01-W01-T01",
+      "M00-W02-T03"
+    ],
+    [
+      "M01-W01-T01",
+      "M00-W03-T02"
+    ],
+    [
+      "M01-W01-T01",
+      "M00-W04-T02"
+    ],
+    [
+      "M01-W01-T01",
+      "M00-W05-T02"
+    ],
+    [
+      "M01-W01-T02",
+      "M01-W01-T01"
+    ],
+    [
+      "M01-W02-T01",
+      "M01-W01-T01"
+    ],
+    [
+      "M01-W02-T02",
+      "M01-W01-T02"
+    ],
+    [
+      "M01-W02-T02",
+      "M01-W02-T01"
+    ],
+    [
+      "M01-W03-T01",
+      "M01-W01-T02"
+    ],
+    [
+      "M01-W03-T01",
+      "M01-W02-T02"
+    ],
+    [
+      "M01-W03-T01",
+      "M01-W05-T01"
+    ],
+    [
+      "M01-W03-T02",
+      "M01-W03-T01"
+    ],
+    [
+      "M01-W04-T01",
+      "M01-W01-T02"
+    ],
+    [
+      "M01-W04-T02",
+      "M01-W03-T02"
+    ],
+    [
+      "M01-W04-T02",
+      "M01-W04-T01"
+    ],
+    [
+      "M01-W05-T01",
+      "M01-W01-T01"
+    ],
+    [
+      "M01-W05-T01",
+      "M01-W02-T01"
+    ],
+    [
+      "M01-W05-T02",
+      "M01-W01-T02"
+    ],
+    [
+      "M01-W05-T02",
+      "M01-W02-T02"
+    ],
+    [
+      "M01-W05-T02",
+      "M01-W03-T02"
+    ],
+    [
+      "M01-W05-T02",
+      "M01-W04-T02"
+    ],
+    [
+      "M01-W05-T02",
+      "M01-W05-T01"
+    ],
+    [
+      "M02-W01-T01",
+      "M00-W03-T02"
+    ],
+    [
+      "M02-W01-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M02-W01-T02",
+      "M02-W01-T01"
+    ],
+    [
+      "M02-W02-T01",
+      "M00-W05-T01"
+    ],
+    [
+      "M02-W02-T01",
+      "M02-W01-T02"
+    ],
+    [
+      "M02-W02-T02",
+      "M02-W02-T01"
+    ],
+    [
+      "M02-W03-T01",
+      "M00-W01-T01"
+    ],
+    [
+      "M02-W03-T01",
+      "M00-W03-T02"
+    ],
+    [
+      "M02-W03-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M02-W03-T02",
+      "M02-W03-T01"
+    ],
+    [
+      "M02-W04-T01",
+      "M01-W02-T02"
+    ],
+    [
+      "M02-W04-T01",
+      "M02-W03-T02"
+    ],
+    [
+      "M02-W04-T02",
+      "M02-W04-T01"
+    ],
+    [
+      "M02-W05-T01",
+      "M02-W01-T02"
+    ],
+    [
+      "M02-W05-T01",
+      "M02-W02-T02"
+    ],
+    [
+      "M02-W05-T02",
+      "M02-W03-T02"
+    ],
+    [
+      "M02-W05-T02",
+      "M02-W04-T02"
+    ],
+    [
+      "M02-W05-T02",
+      "M02-W05-T01"
+    ],
+    [
+      "M03-W01-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M03-W01-T02",
+      "M01-W03-T02"
+    ],
+    [
+      "M03-W01-T02",
+      "M03-W01-T01"
+    ],
+    [
+      "M03-W02-T01",
+      "M00-W01-T01"
+    ],
+    [
+      "M03-W02-T02",
+      "M03-W01-T02"
+    ],
+    [
+      "M03-W02-T02",
+      "M03-W02-T01"
+    ],
+    [
+      "M03-W03-T01",
+      "M01-W02-T02"
+    ],
+    [
+      "M03-W03-T01",
+      "M01-W04-T02"
+    ],
+    [
+      "M03-W03-T01",
+      "M03-W01-T02"
+    ],
+    [
+      "M03-W03-T01",
+      "M03-W02-T02"
+    ],
+    [
+      "M03-W03-T02",
+      "M03-W03-T01"
+    ],
+    [
+      "M03-W04-T01",
+      "M00-W04-T01"
+    ],
+    [
+      "M03-W04-T01",
+      "M03-W01-T01"
+    ],
+    [
+      "M03-W04-T02",
+      "M03-W03-T02"
+    ],
+    [
+      "M03-W04-T02",
+      "M03-W04-T01"
+    ],
+    [
+      "M03-W05-T01",
+      "M03-W02-T02"
+    ],
+    [
+      "M03-W05-T01",
+      "M03-W03-T02"
+    ],
+    [
+      "M03-W05-T01",
+      "M03-W04-T02"
+    ],
+    [
+      "M03-W05-T02",
+      "M03-W01-T02"
+    ],
+    [
+      "M03-W05-T02",
+      "M03-W02-T02"
+    ],
+    [
+      "M03-W05-T02",
+      "M03-W03-T02"
+    ],
+    [
+      "M03-W05-T02",
+      "M03-W04-T02"
+    ],
+    [
+      "M03-W05-T02",
+      "M03-W05-T01"
+    ],
+    [
+      "M04-W01-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M04-W01-T02",
+      "M04-W01-T01"
+    ],
+    [
+      "M04-W01-T03",
+      "M04-W01-T02"
+    ],
+    [
+      "M04-W02-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M04-W02-T01",
+      "M04-W01-T01"
+    ],
+    [
+      "M04-W02-T02",
+      "M00-W05-T01"
+    ],
+    [
+      "M04-W02-T02",
+      "M04-W02-T01"
+    ],
+    [
+      "M04-W02-T03",
+      "M04-W01-T03"
+    ],
+    [
+      "M04-W02-T03",
+      "M04-W02-T02"
+    ],
+    [
+      "M04-W03-T01",
+      "M00-W02-T03"
+    ],
+    [
+      "M04-W03-T01",
+      "M04-W02-T01"
+    ],
+    [
+      "M04-W03-T02",
+      "M04-W02-T03"
+    ],
+    [
+      "M04-W03-T02",
+      "M04-W03-T01"
+    ],
+    [
+      "M04-W03-T03",
+      "M04-W03-T02"
+    ],
+    [
+      "M04-W04-T01",
+      "M04-W01-T03"
+    ],
+    [
+      "M04-W04-T01",
+      "M04-W02-T03"
+    ],
+    [
+      "M04-W04-T01",
+      "M04-W03-T03"
+    ],
+    [
+      "M04-W04-T02",
+      "M01-W05-T02"
+    ],
+    [
+      "M04-W04-T02",
+      "M04-W04-T01"
+    ],
+    [
+      "M04-W05-T01",
+      "M04-W01-T03"
+    ],
+    [
+      "M04-W05-T01",
+      "M04-W02-T03"
+    ],
+    [
+      "M04-W05-T01",
+      "M04-W03-T03"
+    ],
+    [
+      "M04-W05-T01",
+      "M04-W04-T02"
+    ],
+    [
+      "M04-W05-T02",
+      "M01-W05-T02"
+    ],
+    [
+      "M04-W05-T02",
+      "M02-W05-T01"
+    ],
+    [
+      "M04-W05-T02",
+      "M02-W05-T02"
+    ],
+    [
+      "M04-W05-T02",
+      "M03-W05-T02"
+    ],
+    [
+      "M04-W05-T02",
+      "M04-W05-T01"
+    ],
+    [
+      "M05-W01-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W01-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W01-T02",
+      "M05-W01-T01"
+    ],
+    [
+      "M05-W01-T03",
+      "M01-W05-T02"
+    ],
+    [
+      "M05-W01-T03",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W01-T03",
+      "M05-W01-T02"
+    ],
+    [
+      "M05-W02-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M05-W02-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W02-T01",
+      "M05-W01-T03"
+    ],
+    [
+      "M05-W02-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W02-T02",
+      "M05-W02-T01"
+    ],
+    [
+      "M05-W03-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W03-T01",
+      "M05-W02-T01"
+    ],
+    [
+      "M05-W03-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W03-T02",
+      "M05-W03-T01"
+    ],
+    [
+      "M05-W03-T03",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W03-T03",
+      "M05-W02-T02"
+    ],
+    [
+      "M05-W03-T03",
+      "M05-W03-T02"
+    ],
+    [
+      "M05-W04-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W04-T01",
+      "M05-W02-T01"
+    ],
+    [
+      "M05-W04-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W04-T02",
+      "M05-W03-T03"
+    ],
+    [
+      "M05-W04-T02",
+      "M05-W04-T01"
+    ],
+    [
+      "M05-W05-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W05-T01",
+      "M05-W01-T03"
+    ],
+    [
+      "M05-W05-T01",
+      "M05-W02-T02"
+    ],
+    [
+      "M05-W05-T01",
+      "M05-W03-T03"
+    ],
+    [
+      "M05-W05-T01",
+      "M05-W04-T02"
+    ],
+    [
+      "M05-W05-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M05-W05-T02",
+      "M05-W05-T01"
+    ],
+    [
+      "M06-W01-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W01-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W01-T02",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W01-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W01-T02",
+      "M06-W01-T01"
+    ],
+    [
+      "M06-W01-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W01-T03",
+      "M06-W01-T02"
+    ],
+    [
+      "M06-W02-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W02-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W02-T01",
+      "M06-W01-T02"
+    ],
+    [
+      "M06-W02-T02",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W02-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W02-T02",
+      "M06-W02-T01"
+    ],
+    [
+      "M06-W03-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W03-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W03-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W03-T02",
+      "M06-W02-T02"
+    ],
+    [
+      "M06-W03-T02",
+      "M06-W03-T01"
+    ],
+    [
+      "M06-W03-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W03-T03",
+      "M06-W03-T02"
+    ],
+    [
+      "M06-W04-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M06-W04-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W04-T01",
+      "M06-W01-T02"
+    ],
+    [
+      "M06-W04-T01",
+      "M06-W02-T02"
+    ],
+    [
+      "M06-W04-T01",
+      "M06-W03-T02"
+    ],
+    [
+      "M06-W04-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W04-T02",
+      "M06-W04-T01"
+    ],
+    [
+      "M06-W05-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W05-T01",
+      "M06-W02-T01"
+    ],
+    [
+      "M06-W05-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M06-W05-T02",
+      "M06-W01-T03"
+    ],
+    [
+      "M06-W05-T02",
+      "M06-W02-T02"
+    ],
+    [
+      "M06-W05-T02",
+      "M06-W03-T03"
+    ],
+    [
+      "M06-W05-T02",
+      "M06-W04-T02"
+    ],
+    [
+      "M06-W05-T02",
+      "M06-W05-T01"
+    ],
+    [
+      "M07-W01-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M07-W01-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W01-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W01-T02",
+      "M07-W01-T01"
+    ],
+    [
+      "M07-W01-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W01-T03",
+      "M07-W01-T02"
+    ],
+    [
+      "M07-W02-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W02-T01",
+      "M07-W01-T02"
+    ],
+    [
+      "M07-W02-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W02-T02",
+      "M07-W02-T01"
+    ],
+    [
+      "M07-W02-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W02-T03",
+      "M07-W01-T03"
+    ],
+    [
+      "M07-W02-T03",
+      "M07-W02-T02"
+    ],
+    [
+      "M07-W03-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W03-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W03-T02",
+      "M07-W02-T01"
+    ],
+    [
+      "M07-W03-T02",
+      "M07-W03-T01"
+    ],
+    [
+      "M07-W03-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W03-T03",
+      "M07-W03-T02"
+    ],
+    [
+      "M07-W04-T01",
+      "M01-W05-T02"
+    ],
+    [
+      "M07-W04-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W04-T01",
+      "M07-W03-T02"
+    ],
+    [
+      "M07-W04-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W04-T02",
+      "M07-W01-T02"
+    ],
+    [
+      "M07-W04-T02",
+      "M07-W04-T01"
+    ],
+    [
+      "M07-W05-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W05-T01",
+      "M07-W02-T03"
+    ],
+    [
+      "M07-W05-T01",
+      "M07-W03-T02"
+    ],
+    [
+      "M07-W05-T01",
+      "M07-W04-T02"
+    ],
+    [
+      "M07-W05-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M07-W05-T02",
+      "M07-W01-T03"
+    ],
+    [
+      "M07-W05-T02",
+      "M07-W02-T03"
+    ],
+    [
+      "M07-W05-T02",
+      "M07-W03-T03"
+    ],
+    [
+      "M07-W05-T02",
+      "M07-W04-T02"
+    ],
+    [
+      "M07-W05-T02",
+      "M07-W05-T01"
+    ],
+    [
+      "M08-W01-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W01-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W01-T02",
+      "M05-W05-T02"
+    ],
+    [
+      "M08-W01-T02",
+      "M08-W01-T01"
+    ],
+    [
+      "M08-W01-T03",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W01-T03",
+      "M05-W05-T02"
+    ],
+    [
+      "M08-W01-T03",
+      "M06-W01-T02"
+    ],
+    [
+      "M08-W01-T03",
+      "M07-W04-T01"
+    ],
+    [
+      "M08-W01-T03",
+      "M08-W01-T01"
+    ],
+    [
+      "M08-W02-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W02-T01",
+      "M05-W05-T02"
+    ],
+    [
+      "M08-W02-T01",
+      "M06-W02-T02"
+    ],
+    [
+      "M08-W02-T01",
+      "M06-W05-T01"
+    ],
+    [
+      "M08-W02-T01",
+      "M08-W01-T01"
+    ],
+    [
+      "M08-W02-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W02-T02",
+      "M07-W01-T03"
+    ],
+    [
+      "M08-W02-T02",
+      "M07-W02-T02"
+    ],
+    [
+      "M08-W02-T02",
+      "M08-W02-T01"
+    ],
+    [
+      "M08-W02-T03",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W02-T03",
+      "M06-W01-T03"
+    ],
+    [
+      "M08-W02-T03",
+      "M06-W03-T02"
+    ],
+    [
+      "M08-W02-T03",
+      "M07-W02-T03"
+    ],
+    [
+      "M08-W02-T03",
+      "M08-W02-T02"
+    ],
+    [
+      "M08-W03-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W03-T01",
+      "M05-W04-T02"
+    ],
+    [
+      "M08-W03-T01",
+      "M08-W01-T01"
+    ],
+    [
+      "M08-W03-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W03-T02",
+      "M08-W02-T01"
+    ],
+    [
+      "M08-W03-T02",
+      "M08-W03-T01"
+    ],
+    [
+      "M08-W03-T03",
+      "M01-W05-T02"
+    ],
+    [
+      "M08-W03-T03",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W03-T03",
+      "M06-W04-T02"
+    ],
+    [
+      "M08-W03-T03",
+      "M07-W04-T02"
+    ],
+    [
+      "M08-W03-T03",
+      "M08-W03-T02"
+    ],
+    [
+      "M08-W04-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W04-T01",
+      "M07-W01-T03"
+    ],
+    [
+      "M08-W04-T01",
+      "M08-W03-T01"
+    ],
+    [
+      "M08-W04-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W04-T02",
+      "M07-W04-T02"
+    ],
+    [
+      "M08-W04-T02",
+      "M08-W04-T01"
+    ],
+    [
+      "M08-W05-T01",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W05-T01",
+      "M08-W01-T02"
+    ],
+    [
+      "M08-W05-T01",
+      "M08-W01-T03"
+    ],
+    [
+      "M08-W05-T01",
+      "M08-W02-T03"
+    ],
+    [
+      "M08-W05-T01",
+      "M08-W03-T03"
+    ],
+    [
+      "M08-W05-T01",
+      "M08-W04-T02"
+    ],
+    [
+      "M08-W05-T02",
+      "M04-W05-T02"
+    ],
+    [
+      "M08-W05-T02",
+      "M06-W05-T02"
+    ],
+    [
+      "M08-W05-T02",
+      "M07-W05-T02"
+    ],
+    [
+      "M08-W05-T02",
+      "M08-W05-T01"
+    ],
+    [
+      "M09-W01-T01",
+      "M06-W05-T02"
+    ],
+    [
+      "M09-W01-T01",
+      "M07-W05-T02"
+    ],
+    [
+      "M09-W01-T01",
+      "M08-W05-T02"
+    ],
+    [
+      "M09-W01-T02",
+      "M09-W01-T01"
+    ],
+    [
+      "M09-W02-T01",
+      "M06-W05-T02"
+    ],
+    [
+      "M09-W02-T01",
+      "M07-W05-T02"
+    ],
+    [
+      "M09-W02-T01",
+      "M08-W05-T02"
+    ],
+    [
+      "M09-W02-T01",
+      "M09-W01-T01"
+    ],
+    [
+      "M09-W02-T02",
+      "M09-W01-T02"
+    ],
+    [
+      "M09-W02-T02",
+      "M09-W02-T01"
+    ],
+    [
+      "M09-W03-T01",
+      "M06-W05-T02"
+    ],
+    [
+      "M09-W03-T01",
+      "M07-W05-T02"
+    ],
+    [
+      "M09-W03-T01",
+      "M08-W05-T02"
+    ],
+    [
+      "M09-W03-T01",
+      "M09-W01-T01"
+    ],
+    [
+      "M09-W03-T02",
+      "M09-W02-T01"
+    ],
+    [
+      "M09-W03-T02",
+      "M09-W03-T01"
+    ],
+    [
+      "M09-W04-T01",
+      "M06-W05-T02"
+    ],
+    [
+      "M09-W04-T01",
+      "M07-W05-T02"
+    ],
+    [
+      "M09-W04-T01",
+      "M08-W05-T02"
+    ],
+    [
+      "M09-W04-T01",
+      "M09-W01-T02"
+    ],
+    [
+      "M09-W04-T01",
+      "M09-W02-T02"
+    ],
+    [
+      "M09-W04-T02",
+      "M09-W03-T02"
+    ],
+    [
+      "M09-W04-T02",
+      "M09-W04-T01"
+    ],
+    [
+      "M09-W05-T01",
+      "M06-W05-T02"
+    ],
+    [
+      "M09-W05-T01",
+      "M07-W05-T02"
+    ],
+    [
+      "M09-W05-T01",
+      "M08-W05-T02"
+    ],
+    [
+      "M09-W05-T01",
+      "M09-W02-T01"
+    ],
+    [
+      "M09-W05-T02",
+      "M09-W02-T02"
+    ],
+    [
+      "M09-W05-T02",
+      "M09-W05-T01"
+    ],
+    [
+      "M09-W06-T01",
+      "M09-W01-T02"
+    ],
+    [
+      "M09-W06-T01",
+      "M09-W02-T02"
+    ],
+    [
+      "M09-W06-T01",
+      "M09-W03-T02"
+    ],
+    [
+      "M09-W06-T01",
+      "M09-W04-T02"
+    ],
+    [
+      "M09-W06-T01",
+      "M09-W05-T02"
+    ],
+    [
+      "M09-W06-T02",
+      "M09-W06-T01"
+    ],
+    [
+      "M10-W01-T02",
+      "M10-W01-T01"
+    ],
+    [
+      "M10-W02-T01",
+      "M09-W06-T02"
+    ],
+    [
+      "M10-W02-T01",
+      "M10-W01-T02"
+    ],
+    [
+      "M10-W02-T02",
+      "M10-W02-T01"
+    ],
+    [
+      "M10-W03-T01",
+      "M10-W01-T01"
+    ],
+    [
+      "M10-W03-T02",
+      "M09-W06-T02"
+    ],
+    [
+      "M10-W03-T02",
+      "M10-W02-T01"
+    ],
+    [
+      "M10-W03-T02",
+      "M10-W03-T01"
+    ],
+    [
+      "M10-W04-T01",
+      "M10-W02-T02"
+    ],
+    [
+      "M10-W04-T01",
+      "M10-W03-T02"
+    ],
+    [
+      "M10-W04-T02",
+      "M10-W04-T01"
+    ],
+    [
+      "M10-W05-T01",
+      "M10-W01-T02"
+    ],
+    [
+      "M10-W05-T01",
+      "M10-W02-T02"
+    ],
+    [
+      "M10-W05-T01",
+      "M10-W03-T02"
+    ],
+    [
+      "M10-W05-T01",
+      "M10-W04-T02"
+    ],
+    [
+      "M10-W05-T02",
+      "M09-W06-T02"
+    ],
+    [
+      "M10-W05-T02",
+      "M10-W05-T01"
+    ],
+    [
+      "M11-W01-T01",
+      "M10-W05-T02"
+    ],
+    [
+      "M11-W01-T02",
+      "M11-W01-T01"
+    ],
+    [
+      "M11-W01-T02",
+      "M11-W02-T02"
+    ],
+    [
+      "M11-W02-T01",
+      "M11-W01-T01"
+    ],
+    [
+      "M11-W02-T01",
+      "M11-W04-T01"
+    ],
+    [
+      "M11-W02-T02",
+      "M11-W02-T01"
+    ],
+    [
+      "M11-W03-T01",
+      "M10-W05-T02"
+    ],
+    [
+      "M11-W03-T01",
+      "M11-W01-T01"
+    ],
+    [
+      "M11-W03-T02",
+      "M11-W02-T02"
+    ],
+    [
+      "M11-W03-T02",
+      "M11-W03-T01"
+    ],
+    [
+      "M11-W04-T01",
+      "M10-W05-T02"
+    ],
+    [
+      "M11-W04-T02",
+      "M11-W02-T02"
+    ],
+    [
+      "M11-W04-T02",
+      "M11-W03-T01"
+    ],
+    [
+      "M11-W04-T02",
+      "M11-W04-T01"
+    ],
+    [
+      "M11-W05-T01",
+      "M11-W01-T02"
+    ],
+    [
+      "M11-W05-T01",
+      "M11-W02-T02"
+    ],
+    [
+      "M11-W05-T01",
+      "M11-W03-T02"
+    ],
+    [
+      "M11-W05-T01",
+      "M11-W04-T02"
+    ],
+    [
+      "M11-W05-T02",
+      "M11-W05-T01"
+    ],
+    [
+      "M12-W01-T01",
+      "M11-W05-T02"
+    ],
+    [
+      "M12-W01-T02",
+      "M12-W01-T01"
+    ],
+    [
+      "M12-W02-T01",
+      "M12-W01-T02"
+    ],
+    [
+      "M12-W02-T02",
+      "M12-W02-T01"
+    ],
+    [
+      "M12-W03-T01",
+      "M12-W01-T02"
+    ],
+    [
+      "M12-W03-T01",
+      "M12-W02-T01"
+    ],
+    [
+      "M12-W03-T02",
+      "M12-W03-T01"
+    ],
+    [
+      "M12-W04-T01",
+      "M12-W01-T02"
+    ],
+    [
+      "M12-W04-T01",
+      "M12-W03-T01"
+    ],
+    [
+      "M12-W04-T02",
+      "M12-W02-T02"
+    ],
+    [
+      "M12-W04-T02",
+      "M12-W03-T02"
+    ],
+    [
+      "M12-W04-T02",
+      "M12-W04-T01"
+    ],
+    [
+      "M12-W05-T01",
+      "M12-W02-T02"
+    ],
+    [
+      "M12-W05-T01",
+      "M12-W03-T02"
+    ],
+    [
+      "M12-W05-T01",
+      "M12-W04-T02"
+    ],
+    [
+      "M12-W05-T02",
+      "M12-W05-T01"
+    ],
+    [
+      "M13-W01-T01",
+      "M11-W05-T02"
+    ],
+    [
+      "M13-W01-T02",
+      "M13-W01-T01"
+    ],
+    [
+      "M13-W02-T01",
+      "M13-W01-T02"
+    ],
+    [
+      "M13-W02-T02",
+      "M13-W02-T01"
+    ],
+    [
+      "M13-W03-T01",
+      "M13-W01-T02"
+    ],
+    [
+      "M13-W03-T02",
+      "M13-W03-T01"
+    ],
+    [
+      "M13-W04-T01",
+      "M13-W01-T02"
+    ],
+    [
+      "M13-W04-T02",
+      "M13-W04-T01"
+    ],
+    [
+      "M13-W05-T01",
+      "M13-W01-T02"
+    ],
+    [
+      "M13-W05-T02",
+      "M13-W05-T01"
+    ]
+  ],
+  "catalog_digest": "6beb9e626c0e61d37006f35203283550c641bc33ce8d9d10f88be4214e7d09cd"
+}

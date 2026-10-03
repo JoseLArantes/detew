@@ -5,6 +5,8 @@
 **Requirements:** [PRD](PRD.md)\
 **Behavior and experience:** [Product definition](PRODUCT.md)\
 **Delivery plan:** [Development milestones](MILESTONES.md)\
+**Task backlog:** [Detailed tasks and issue tracking](tasks/README.md)\
+**Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development guide:** [AGENTS.md](../AGENTS.md)\
 **Domain language:** [CONTEXT.md](CONTEXT.md)
 
@@ -723,7 +725,9 @@ When a gate changes a selected decision, update this document, the product stack
 | Activity/privacy and artifact storage | OPS-07–08, PRI-01–04, SEC-04–05 |
 | Optional TLS/extension boundaries | INS-11–14, UX-13, SEC-05, QLT-10, OSS-03–04 |
 
-This document stops at the architecture foundation. [MILESTONES.md](MILESTONES.md) owns detailed delivery sequencing, work packages, task refinement, and evidence ownership. Exact estimates and implementation tickets are created from that plan after their inputs and unknowns are understood; no implementation or completed gate is implied by either document.
+This document stops at the architecture foundation. [MILESTONES.md](MILESTONES.md) owns detailed delivery sequencing, work packages, task refinement, and evidence ownership. Exact estimates and implementation contracts are refined from the task backlog as their inputs and unknowns become understood; no implementation or completed gate is implied by the planning documents.
+
+The [task backlog](tasks/README.md) records concrete deliverables/tests against ARC decisions and the [task dependency graph](tasks/DEPENDENCIES.md). A detailed task is a planning specification; exact adapter/protocol/resource choices remain gated by the evidence defined above.
 
 ## 18. Primary sources
 

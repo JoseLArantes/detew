@@ -6,11 +6,13 @@
 **Behavior and experience:** [Product definition](PRODUCT.md)\
 **Implementation decisions:** [Architecture and stack](ARCHITECTURE.md)\
 **Vocabulary:** [Domain language](CONTEXT.md)\
+**Task backlog:** [Detailed tasks and issue tracking](tasks/README.md)\
+**Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development instructions:** [AGENTS.md](../AGENTS.md)
 
-This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages from which implementation tasks can be created. It does not create issue-tracker tickets, assign people, approve a license, or claim that any implementation or gate has been completed. All milestones and work packages are **planned** at this baseline.
+This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. Planning does not assign people, approve a license, or establish implementation or gate acceptance. All milestones and work packages are **planned** at this baseline.
 
-The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT owns behavioral and experience contracts. ARCHITECTURE owns implementation decisions and evidence gates. This document owns sequencing, dependencies, work-package IDs, and delivery evidence. A task cannot relax an upstream contract to fit its milestone. [Section 8](#8-document-synchronization-and-change-control) defines how changes remain connected.
+The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT owns behavioral and experience contracts. ARCHITECTURE owns implementation decisions and evidence gates. This document owns sequencing, dependencies, work-package IDs, and delivery evidence. DEVELOPMENT owns the execution/coordination process and run handoffs. A task cannot relax an upstream contract to fit its milestone. [Section 8](#8-document-synchronization-and-change-control) defines how changes remain connected.
 
 ## Contents
 
@@ -22,7 +24,7 @@ The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT
 - [Requirement ownership](#6-requirement-ownership)
 - [Task creation and completion](#7-task-creation-and-completion)
 - [Document synchronization](#8-document-synchronization-and-change-control)
-- [Initial backlog creation order](#9-initial-backlog-creation-order)
+- [Backlog refinement and development order](#9-backlog-refinement-and-development-order)
 
 ## 1. Planning rules
 
@@ -487,7 +489,9 @@ Implementation revision, executed checks/results, limitations, evidence links,
 review outcome, and any dependent gate that remains open.
 ```
 
-These IDs are planning conventions; no issue tracker, automation, or public message is created by this document. Use the selected tracker when the maintainer chooses one, without making a vendor service part of the product baseline.
+These IDs connect the [detailed task index](tasks/INDEX.md) to one GitHub issue per task in `JoseLArantes/detew`. The [backlog guide](tasks/README.md#labels-and-workflow) defines labels, native blocking relationships, readiness, review, and closure. Tracker use is project management and does not become a product runtime dependency.
+
+Follow the [execution playbook](DEVELOPMENT.md#4-select-and-execute-work) to schedule and deliver these tasks. It connects live issue state to accepted prerequisites, contributor/agent ownership, review/integration, and milestone/gate decisions.
 
 ### 7.3 Definition of done for tasks
 
@@ -513,6 +517,7 @@ Run checks proportionate to the change and mandatory contracts. Documentation-on
 | Gate evidence or milestone sequence | MILESTONES dependency/status record; evidence register and affected task dependencies; upstream docs only when the contract/decision changes |
 | Implemented support, quality, or release claim | Versioned evidence/release report; requirement ledger; README status and published support docs. A planned target cannot become a claim without evidence. |
 | File move or renamed section | Root README and all affected relative links/section anchors, AGENTS reading path, task/evidence links |
+| Execution/coordination workflow | DEVELOPMENT, AGENTS, task workflow guide; milestone rules if readiness/completion or gate ownership changes |
 
 Keep substantive contract changes separate from routine status entries. Record the reason, evidence, affected IDs, user impact, migration/recovery consequences, and changed dependencies. Change IDs in tasks only to add accurate traceability; never reassign a stable requirement to a different meaning.
 
@@ -524,10 +529,12 @@ At task creation, record dependency IDs and initial status in the selected track
 
 Check local links and anchors, unique milestone/package IDs, acyclic dependencies, all requirement IDs/scopes, all architecture gate mappings, and consistent release boundaries when editing this plan. A failed gate pauses its dependent work/support claims while unrelated authorized work can continue. Revised plans retain failed evidence and explain the change rather than erasing the experiment.
 
-## 9. Initial backlog creation order
+## 9. Backlog refinement and development order
 
-Create/refine M00 tasks first: the license/ownership decision, exact portable/native build environment, isolated lab/recovery, and check/evidence interfaces. Then refine M01 contracts, normalization and precedence fixtures, compiler identity, and replay tasks.
+Refine and schedule M00 tasks first: the license/ownership decision, exact portable/native build environment, isolated lab/recovery, and check/evidence interfaces. Then refine M01 contracts, normalization and precedence fixtures, compiler identity, and replay tasks.
 
-Once those contracts are stable, refine M02/M03/M04 tasks together so packet/classifier evidence, category artifacts, and native model/UI prototypes use compatible schemas and expected outcomes. Name the G0 decision evidence in the dependencies of M05 tasks. Do not populate a detailed long-term backlog with guessed APIs, packet capabilities, or category-source rights before those investigations conclude.
+The [task specifications](tasks/INDEX.md) now provide the initial breakdown for every work package and [explicit prerequisites](tasks/DEPENDENCIES.md). Their detail establishes acceptance and testing obligations, not frozen downstream APIs or verified capabilities. Revalidate later estimates/interfaces at each gate before moving tasks into active development.
 
-After G0, create M05 vertical-slice tasks followed by the complete policy, durable lifecycle, and UI/activity tasks for M06–M08. Carry every uncovered V1 requirement into a task before M09; include its evidence/review task and its failure-state acceptance. Refine M09–M11 from measured alpha findings and pilot needs. Keep M12/M13 as deferred milestone definitions until their own scope and dependencies are accepted.
+Once those contracts are stable, refine M02/M03/M04 tasks together so packet/classifier evidence, category artifacts, and native model/UI prototypes use compatible schemas and expected outcomes. Name the G0 decision evidence in the dependencies of M05 tasks. Keep downstream task specifications conditional on those investigations; do not freeze guessed APIs, packet capabilities, or category-source rights before the evidence is accepted.
+
+After G0, refine and schedule M05 vertical-slice tasks followed by the complete policy, durable lifecycle, and UI/activity tasks for M06–M08. Recheck V1 requirement coverage before M09, including evidence/review tasks and failure-state acceptance. Refine M09–M11 from measured alpha findings and pilot needs. M12/M13 task specifications remain deferred until their own scope and dependencies are accepted.

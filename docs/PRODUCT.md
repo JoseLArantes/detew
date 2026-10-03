@@ -5,6 +5,8 @@
 **Requirements:** [PRD](PRD.md)  
 **Technical baseline:** [Architecture and stack](ARCHITECTURE.md)\
 **Delivery plan:** [Development milestones](MILESTONES.md)\
+**Task backlog:** [Detailed tasks and issue tracking](tasks/README.md)\
+**Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development guide:** [AGENTS.md](../AGENTS.md)\
 **Shared language:** [CONTEXT.md](CONTEXT.md)
 
@@ -805,6 +807,8 @@ The [development milestone plan](MILESTONES.md) owns the detailed sequence, depe
 | M12 / selected M13 child milestones | Separately gated T1 trust/request inspection and selected extension contracts |
 
 Tasks link the relevant sections here to PRD requirement IDs and architecture decisions using the [task template](MILESTONES.md#72-task-template). This document owns behavior; the milestone plan does not create alternate semantics. Design and data work can proceed alongside the integration spike. A successful UI prototype does not close packet/data gates, and a fast packet loop does not establish understandable controls.
+
+The [detailed task backlog](tasks/README.md) supplies the individual specifications, independent testing/acceptance, and task-level dependencies. Keep those specifications and their GitHub issues synchronized with the behavior and UI states defined here; downstream refinement must preserve this contract.
 
 ### 16.2 Required conformance artifacts
 

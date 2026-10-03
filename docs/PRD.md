@@ -7,6 +7,8 @@
 **Companion:** [Product definition and implementation contracts](PRODUCT.md)  
 **Implementation baseline:** [Architecture and stack](ARCHITECTURE.md)\
 **Delivery plan:** [Development milestones](MILESTONES.md)\
+**Task backlog:** [Detailed tasks and issue tracking](tasks/README.md)\
+**Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development guide:** [AGENTS.md](../AGENTS.md)\
 **Vocabulary:** [Domain language](CONTEXT.md)
 
@@ -360,6 +362,8 @@ G0 must compare relevant FreeBSD packet-hook options instead of assuming a Linux
 ### 12.1 V1 definition of done
 
 Use the [milestone requirement ownership table](MILESTONES.md#6-requirement-ownership) to assign task coverage and the [evidence contract](MILESTONES.md#52-evidence-artifacts-and-measurement-rules) to record implementation and release results. Every current requirement has a primary delivery milestone; that mapping is a planning responsibility, not evidence that a requirement is satisfied.
+
+The [requirement-to-task coverage](tasks/COVERAGE.md) connects each requirement to detailed acceptance/testing work and its issue. Task closure requires evidence; the release report still verifies every in-scope requirement against the final revision.
 
 - Every V1 requirement has an implementation owner and acceptance evidence linked from the release report.
 - The required category/application capabilities are functional on supported hardware, independently of the resolver used by clients where observable flow evidence exists.

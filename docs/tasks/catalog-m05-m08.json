@@ -1,0 +1,3759 @@
+[
+  {
+    "id": "M05-W01-T01",
+    "title": "Attach the G0-selected packet adapter with verified scope ownership",
+    "milestone": "M05",
+    "work_package": "M05-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02"
+    ],
+    "requirements": [
+      "INS-01",
+      "INS-07",
+      "OPS-03",
+      "OPS-04",
+      "SEC-01",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "6-packet-adapter-and-inspection-path",
+      "13-opnsense-integration-and-packaging",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-04",
+      "ARC-14"
+    ],
+    "gates": [
+      "G0",
+      "G1",
+      "ARCH-G01"
+    ],
+    "outcome": "The alpha attaches only the accepted G0 topology and reports measured coverage rather than equating a running process with inspection.",
+    "deliverables": [
+      "Selected adapter integration and bounded typed privileged attach/detach operations.",
+      "Preflight/ownership/status contract with exact supported host, driver, scope and failure-action inputs."
+    ],
+    "acceptance": [
+      "Enablement rejects unsupported or conflicting scopes without detaching another capture consumer.",
+      "Both directions retain original client attribution; Detew allow preserves pf/NAT/routing decisions.",
+      "Attach, stop and failed attachment restore only Detew-owned artifacts and expose actual coverage/failure state."
+    ],
+    "tests": [
+      "Pinned isolated FreeBSD/OPNsense G0 lab: trace allowed and pf-denied TCP/UDP over IPv4 and IPv6 in both directions; inspect reinjection count and client identity.",
+      "Attempt wrong host/driver, competing capture ownership and unauthorized helper/socket calls; verify refusal and unchanged unrelated settings.",
+      "Inject attach failure, engine/helper death and interface disappearance; observe declared adapter action and console recovery without assuming bypass on close."
+    ],
+    "constraints": [
+      "Consume ARCH-G01 selection; do not hard-code Netmap support before that decision.",
+      "Run only in the isolated lab with verified console/out-of-band recovery.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W01-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-01, INS-07, OPS-03, OPS-04, SEC-01, SEC-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W01-T01.md"
+  },
+  {
+    "id": "M05-W01-T02",
+    "title": "Implement bounded bidirectional flow ownership and admission",
+    "milestone": "M05",
+    "work_package": "M05-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W01-T01"
+    ],
+    "requirements": [
+      "INS-01",
+      "INS-07",
+      "QLT-02",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "7-flow-ownership-and-resource-bounds",
+      "6-packet-adapter-and-inspection-path",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "Each accepted bidirectional connection has one worker-owned lifetime and explicit bounded admission behavior.",
+    "deliverables": [
+      "Realm/endpoint/transport/lifetime flow keys, worker dispatch and TCP/UDP lifetime handling.",
+      "Accounting for Rust/native flow allocations, held packets, queues and explicit admission/pressure reasons."
+    ],
+    "acceptance": [
+      "Opposite directions share a worker even when NIC RSS is asymmetric; different realms and reused tuples do not share stale decisions.",
+      "Borrowed ring or packet memory never outlives its adapter loan and no Rust unwind crosses native boundaries.",
+      "Admission/queue limits remain bounded and cannot silently evict active blocked state then allow that same connection."
+    ],
+    "tests": [
+      "Native adapter lab plus portable synthetic dispatch: send bidirectional tuples across workers, VLAN/realm collisions, TCP tuple reuse and UDP expiry; assert independent expected ownership.",
+      "Feed midstream, reordered, truncated and unsupported migration cases; verify declared state/visibility rather than invented complete history.",
+      "Offer excess flows and queue pressure while a blocked connection remains active; measure full native/Rust peak and confirm subsequent packets remain blocked or receive explicit proven safety behavior."
+    ],
+    "constraints": [
+      "Capacity values remain proposed until measured and frozen at ARCH-G05; do not claim the 20,000-flow target from a unit test.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W01-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-01, INS-07, QLT-02, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W01-T02.md"
+  },
+  {
+    "id": "M05-W01-T03",
+    "title": "Connect bounded parsing, nDPI evidence and local category lookup",
+    "milestone": "M05",
+    "work_package": "M05-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W01-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "INS-02",
+      "INS-03",
+      "INS-04",
+      "INS-05",
+      "INS-06",
+      "DAT-02",
+      "DAT-03",
+      "QLT-03",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "52-hostname-evidence",
+      "53-normalization-and-canonical-matching",
+      "55-classification-state-and-cache",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "64-classification-native-boundary",
+      "8-category-and-classification-data",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-05",
+      "ARC-07"
+    ],
+    "gates": [
+      "G0",
+      "G1",
+      "ARCH-G02",
+      "ARCH-G03"
+    ],
+    "outcome": "Tracked flows produce qualified hostname/application evidence and local category results with explicit uncertainty and source versions.",
+    "deliverables": [
+      "Worker-owned native classifier integration using the accepted shim/library/catalog combination.",
+      "Bounded framing/reassembly and HTTP/TLS/supported QUIC metadata to canonical normalization/FST lookup."
+    ],
+    "acceptance": [
+      "Authority, parser/classifier versions, timestamps, completion state and limit reasons accompany evidence; generic TLS is not an application identity.",
+      "DNS correlation stays device/time/TTL-scoped; shared IP/reverse DNS and ECH outer names are not promoted into verified true destinations.",
+      "Per-flow/global reassembly and native allocations are accounted; packet lookup has no SQL, controller, download or remote-provider wait."
+    ],
+    "tests": [
+      "Pinned native classifier corpus: replay eligible HTTP host, segmented TLS SNI and supported QUIC Initial plus application positives and lookalike negatives; compare canonical labels/provenance.",
+      "Exercise ECH/GREASE, resumed/early-data handshakes, shared/coalesced connections, IDNs, deceptive suffixes, DNS expiry and absent SNI; assert explicit insufficient/unsupported/conflict states.",
+      "Inject malformed lengths, fragments, parser/native limits and activity/controller/network loss; verify bounded work and unchanged local lookup availability, retaining hostile-input seeds."
+    ],
+    "constraints": [
+      "Use admitted baseline data and tested G0 catalog; no unreviewed classifier or guessed protocol support.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W01-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-02, INS-03, INS-04, INS-05, INS-06, DAT-02, DAT-03, QLT-03, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W01-T03.md"
+  },
+  {
+    "id": "M05-W02-T01",
+    "title": "Run canonical policy on the alpha profile and observe/enforce path",
+    "milestone": "M05",
+    "work_package": "M05-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W01-T03",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "INS-08",
+      "POL-02",
+      "POL-03",
+      "POL-06",
+      "POL-11",
+      "OPS-05"
+    ],
+    "product_sections": [
+      "42-profile-selection",
+      "43-ordered-content-evaluation",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "Default, explicit test-device and supported network assignments feed the same evaluator used by preview and replay, with truthful observe/enforce outcomes.",
+    "deliverables": [
+      "Canonical evaluator integration, coherent decision context and flow-local decision token.",
+      "Typed verdict/action mapping and profile/assignment/control explanation for the initial alpha scope."
+    ],
+    "acceptance": [
+      "Explicit priorities select exactly one effective profile; ambiguous identity cannot satisfy an exact-device selector.",
+      "Site guardrails precede exceptions and content blocks; Detew allow cannot bypass pf.",
+      "Observe computes identical policy verdicts but enforces no Detew traffic-policy blocks; actual forwarding/safety facts remain separate."
+    ],
+    "tests": [
+      "Reference fixture harness: run alpha runtime, preview and replay on identical bundle/evidence/assignment/time inputs; compare verdict and stable reason ordering.",
+      "Native IPv4/IPv6 lab: compare known permitted/blocked category and app flows under observe and enforce, including an exception still denied by a guardrail and an underlying pf deny.",
+      "Change evidence/context while reusing a connection and introduce ambiguous attribution; confirm cache invalidation and explicit default/network fallback rather than inherited device policy."
+    ],
+    "constraints": [
+      "This slice does not close full group, schedule and override behavior owned by M06.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W02-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-08, POL-02, POL-03, POL-06, POL-11, OPS-05 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W02-T01.md"
+  },
+  {
+    "id": "M05-W02-T02",
+    "title": "Enforce provisional limits and late classification without false visibility claims",
+    "milestone": "M05",
+    "work_package": "M05-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W02-T01"
+    ],
+    "requirements": [
+      "INS-08",
+      "INS-10",
+      "POL-13",
+      "OPS-05",
+      "QLT-03"
+    ],
+    "product_sections": [
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "Profiles expose separate provisional and insufficient-evidence behavior; late discoveries block only through tested mechanisms and disclose earlier forwarding.",
+    "deliverables": [
+      "Balanced provisional counters/deadlines and capability-gated restrictive holding.",
+      "Distinct pending, insufficient, unsupported, invalid, parser-limit and operational-failure reason/action mapping."
+    ],
+    "acceptance": [
+      "Balanced mode bounds packets/bytes/time and reports bytes already forwarded; a confirmed late block prevents subsequent forwarding.",
+      "Restrictive mode is unavailable where G0 cannot prove bounded hold/release; server-dependent identification follows the chosen insufficient action.",
+      "Insufficient policy, parser/resource safety and engine failure remain distinct; observe does not enforce these traffic-policy controls."
+    ],
+    "tests": [
+      "Isolated native IPv4/IPv6 lab: exercise client-only and server-dependent classification in balanced/restrictive modes; observe actual client/server delivery and cutoff.",
+      "Try absent/hidden metadata, malformed framing, limit-boundary packets and zero/unsupported configuration values; verify stable fallback/validation and no fabricated hostname.",
+      "Saturate provisional holding/reassembly, expire deadlines and stop control/activity services; verify bounded memory, explicit operational reasons and no exception-based parser-safety bypass."
+    ],
+    "constraints": [
+      "Freeze final capacities at M09; record measured alpha limits and reject unsupported holding actions.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W02-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-08, INS-10, POL-13, OPS-05, QLT-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W02-T02.md"
+  },
+  {
+    "id": "M05-W03-T01",
+    "title": "Assemble serial control operations and immutable bundle preparation",
+    "milestone": "M05",
+    "work_package": "M05-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W02-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-08",
+      "POL-10",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "11-ipc-and-administrative-apis",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-08",
+      "ARC-09",
+      "ARC-12"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "The controller accepts native-authorized generated snapshots and prepares a complete validated candidate without changing active policy.",
+    "deliverables": [
+      "Control daemon assembly, bounded peer-validated IPC and serial operation IDs.",
+      "Immutable bundle manifests, compatibility checks and prepare/status contract with generated DTOs."
+    ],
+    "acceptance": [
+      "Native XML remains the sole editable authority; raw daemon edits or unverified snapshots are rejected.",
+      "Save, prepare and active identities are distinct exact decimal strings; duplicate idempotency tokens return one operation.",
+      "Any worker/artifact/capability preparation error retains the active bundle with a structured user-safe failure."
+    ],
+    "tests": [
+      "Portable contract harness and pinned native API/IPC lab: submit a valid snapshot, duplicate activation token and concurrent operations; assert serial operation histories and exact large counters.",
+      "Send invalid peer credentials, unknown fields, oversized/truncated frames, incompatible manifests and stale revisions; assert refusal without packet-path RPC or state mutation.",
+      "Fail a worker preparation and stop the controller during preparation; compare live active generations before/after and ensure candidate presence is never shown as applied."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W03-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-01, POL-07, POL-08, POL-10, SEC-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W03-T01.md"
+  },
+  {
+    "id": "M05-W03-T02",
+    "title": "Persist minimal verified activation recovery before alpha forwarding",
+    "milestone": "M05",
+    "work_package": "M05-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W03-T01"
+    ],
+    "requirements": [
+      "POL-08",
+      "POL-12",
+      "POL-14",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "10-storage-and-recovery",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "The alpha can recover a durably verified compatible bundle and never chooses the newest unverified candidate after restart.",
+    "deliverables": [
+      "Versioned bounded activation journal and artifact installation with tested write/flush/rename ordering.",
+      "Last-verified manifest/checkpoint, active/previous retention and no-usable-bundle recovery status."
+    ],
+    "acceptance": [
+      "Activation attempt is durable before commit; only all-worker verified results become the recovery checkpoint.",
+      "Restart verifies artifact completeness/digests/compatibility and selects last verified content, preserving candidacy distinction.",
+      "Disk full/corruption/permission loss never creates a false durable success; missing valid recovery uses the adapter-proven failure behavior."
+    ],
+    "tests": [
+      "Pinned FreeBSD filesystem/lab: stop processes at each artifact/journal stage and restart with verified old and unverified newer bundles; assert selected identity and observed packet action.",
+      "Corrupt manifests/checkpoints, truncate writes, change incompatible catalog/schema and remove dependencies; verify rejection and explicit no-usable-bundle behavior.",
+      "Inject full disk/permission loss before attempt and verified-result persistence; compare acknowledgments, status and recovery records, documenting the tested power-loss model rather than treating rename as proof."
+    ],
+    "constraints": [
+      "This is required alpha durability, not a shortcut deferred to M07.",
+      "M07 extends restore/rollback/garbage collection and all-stage recovery using these same production stores.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W03-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-08, POL-12, POL-14, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W03-T02.md"
+  },
+  {
+    "id": "M05-W03-T03",
+    "title": "Commit worker generations and reconsider tracked flows coherently",
+    "milestone": "M05",
+    "work_package": "M05-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W03-T02",
+      "M05-W02-T02"
+    ],
+    "requirements": [
+      "POL-07",
+      "POL-08",
+      "POL-09",
+      "POL-12",
+      "QLT-04"
+    ],
+    "product_sections": [
+      "47-active-flow-reconsideration",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "93-worker-commit-and-reconsideration",
+      "94-partial-activation-and-restart",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "Activation confirms success only after each required worker and affected active/idle flow checkpoint has converged to a coherent generation.",
+    "deliverables": [
+      "Prepare/commit/ack worker protocol and bounded eager reconsideration scan.",
+      "Mixed-generation/degraded status, boot identity reconciliation and durable verified-result integration."
+    ],
+    "acceptance": [
+      "Every decision uses one complete bundle/context; generation commit invalidates affected cached allows before next forwarding.",
+      "Idle tracked flows are scanned rather than waiting indefinitely for new traffic.",
+      "Mixed/stalled workers stay in-progress/degraded; controller return queries actual worker state before finalizing or recovery."
+    ],
+    "tests": [
+      "Multiworker native IPv4/IPv6 lab: change an allowed category/app to blocked with active and idle connections; measure last-forwarded packet, each worker ack and p50/p95/p99 reconsideration.",
+      "Delay/reject one worker and replay old boot/generation acknowledgments; verify no fully-applied status and no mixed-input decision.",
+      "Kill controller before/after commit and engine before verification; inspect live workers on recovery and last verified checkpoint, noting measured queue/loss and any remaining five-second target gap."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W03-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-07, POL-08, POL-09, POL-12, QLT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W03-T03.md"
+  },
+  {
+    "id": "M05-W04-T01",
+    "title": "Ingest bounded decision metadata without blocking packet processing",
+    "milestone": "M05",
+    "work_package": "M05-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "activity",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W02-T01"
+    ],
+    "requirements": [
+      "POL-11",
+      "PRI-01",
+      "PRI-02",
+      "QLT-03",
+      "QLT-09"
+    ],
+    "product_sections": [
+      "131-decision-record-contract",
+      "132-activity-collection-and-aggregation",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "103-sqlite-design",
+      "112-events-and-loss-semantics",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-09",
+      "ARC-10"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "Decision events reach a bounded local activity store with truthful loss intervals while reporting failure leaves engine policy independent.",
+    "deliverables": [
+      "Nonblocking bounded event exporter with boot/worker/sequence identities, deduplication and gap counters.",
+      "Activity daemon single SQLite writer with patched pinned baseline, bounded reads/WAL/ingestion and no payload capture."
+    ],
+    "acceptance": [
+      "Records separate policy verdict from adapter-confirmed action and preserve absence/incomplete-detail reasons.",
+      "Queues/native datagram limits and aggregation preserve bounded metadata, exact counters and visible collection completeness.",
+      "Unavailable/full/corrupt activity storage cannot delay lookup/forward/drop or disable a healthy engine."
+    ],
+    "tests": [
+      "Pinned FreeBSD IPC/SQLite lab: ingest synthetic real-engine events, duplicates, gaps and over-envelope detail; compare global counters, primary reason and completeness intervals.",
+      "Attempt malicious/unknown event fields, excessive detail, invalid peers and repeated aggregation across differing outcome/profile/reason keys; verify bounds and separation.",
+      "Stop activity, fill disk and pressure writer/queues during traffic; observe continued enforcement, counted drops and recovery without claiming exactly-once or zero reporting loss."
+    ],
+    "constraints": [
+      "Use decision metadata only; collection quotas/defaults are provisional until M09 measurements.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W04-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-11, PRI-01, PRI-02, QLT-03, QLT-09 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W04-T01.md"
+  },
+  {
+    "id": "M05-W04-T02",
+    "title": "Expose a truthful alpha historical explanation through native API and drawer",
+    "milestone": "M05",
+    "work_package": "M05-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W04-T01",
+      "M05-W03-T03"
+    ],
+    "requirements": [
+      "POL-11",
+      "UX-05",
+      "UX-06",
+      "UX-12",
+      "PRI-01",
+      "QLT-09"
+    ],
+    "product_sections": [
+      "147-activity-and-decision-drawer",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "12-frontend-architecture",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "An administrator can inspect the captured reason for a real alpha connection without reconstructing it from current policy or claiming application success.",
+    "deliverables": [
+      "Permission-checked bounded activity/detail endpoints and typed drawer integration.",
+      "Captured evidence/provenance/attribution/bundle/control display with missing/outcome/visibility states."
+    ],
+    "acceptance": [
+      "Historical explanation remains unchanged after policy/device/data edits; missing fields remain explicitly missing.",
+      "Observe says would-block; confirmed drop, attempted reset, failed enforcement and forwarded-at-hook have distinct text.",
+      "Drawer preserves context and provides safe HTTPS connection-failure guidance without creating certificate failures."
+    ],
+    "tests": [
+      "Native host/API and real alpha events: open block/allow/observe/pending/incomplete records before and after policy/data changes; compare captured identities and messages.",
+      "Use viewer role, expired session, hostile hostname/display strings and unknown event identity; verify permissions, escaping and clear absence/error states.",
+      "Stop API/activity during load and discard oversized detail; assert stale timestamps, incomplete warning and no cached present-tense enforcement claim."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W04-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-11, UX-05, UX-06, UX-12, PRI-01, QLT-09 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W04-T02.md"
+  },
+  {
+    "id": "M05-W05-T01",
+    "title": "Package the disabled alpha and complete real setup/review/recovery wiring",
+    "milestone": "M05",
+    "work_package": "M05-W05",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W01-T03",
+      "M05-W02-T02",
+      "M05-W03-T03",
+      "M05-W04-T02"
+    ],
+    "requirements": [
+      "OPS-01",
+      "OPS-02",
+      "OPS-03",
+      "OPS-04",
+      "OPS-05",
+      "OPS-09",
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-06"
+    ],
+    "product_sections": [
+      "94-installation-upgrades-removal-recovery",
+      "143-setup-flow",
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "13-opnsense-integration-and-packaging",
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06",
+      "ARC-11",
+      "ARC-14"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "A developer installs a disabled alpha and explicitly moves through readiness, observe, reviewed activation and verified enforcement in the accepted lab.",
+    "deliverables": [
+      "Native plugin/runtime/baseline pack alpha artifacts and locally bundled UI assets.",
+      "Real setup/profile review/apply/status/disable/recovery paths and alpha support/limitation guide."
+    ],
+    "acceptance": [
+      "Installation is disabled and creates only owned accounts/files/actions; enablement requires supported scope, admitted data and deliberate tested failure/recovery choice.",
+      "Draft category edits do not change traffic; save and worker-confirmed activation remain separate visible states.",
+      "Observe verifies actual client traffic, and failed final checks show safe disable/recovery actions; unfinished V1 workflows are explicitly documented."
+    ],
+    "tests": [
+      "Clean pinned appliance lab: install alpha, choose test scope/device, verify would-block, review required defaults, enforce and confirm allowed/blocked IPv4/IPv6 connections.",
+      "Try capture conflict, insufficient permissions, missing dataset and unsupported recovery/failure capability; verify blocked enablement and preserved unrelated host configuration.",
+      "Close setup/browser during apply, restart services and exercise disable/removal/console recovery; verify operation identity, ownership restoration and accurate stale/partial states."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W05-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for OPS-01, OPS-02, OPS-03, OPS-04, OPS-05, OPS-09, UX-01, UX-02, UX-03, UX-04, UX-06 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W05-T01.md"
+  },
+  {
+    "id": "M05-W05-T02",
+    "title": "Decide G1 from repeatable real inline alpha evidence",
+    "milestone": "M05",
+    "work_package": "M05-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M04-W05-T02",
+      "M05-W05-T01"
+    ],
+    "requirements": [
+      "INS-01",
+      "INS-02",
+      "INS-03",
+      "INS-04",
+      "INS-05",
+      "INS-06",
+      "INS-07",
+      "INS-08",
+      "INS-10",
+      "POL-07",
+      "POL-08",
+      "POL-11",
+      "POL-12",
+      "OPS-05",
+      "QLT-03",
+      "QLT-04",
+      "QLT-09"
+    ],
+    "product_sections": [
+      "5-flow-inspection-and-evidence-contracts",
+      "6-configuration-activation-and-recovery",
+      "13-decision-explanations-activity-and-privacy"
+    ],
+    "architecture_sections": [
+      "6-packet-adapter-and-inspection-path",
+      "7-flow-ownership-and-resource-bounds",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-03",
+      "ARC-06"
+    ],
+    "gates": [
+      "G0",
+      "G1"
+    ],
+    "outcome": "G1 receives an accepted/rejected decision based on repeatable traffic, lifecycle and failure evidence, not a demonstration screenshot.",
+    "deliverables": [
+      "G1 evidence index and redacted end-to-end alpha report with exact environment/workload/catalog/data/revision.",
+      "Decision record, outstanding V1 gaps and downstream refinement inputs for M06–M09."
+    ],
+    "acceptance": [
+      "Repeated real IPv4/IPv6 forward/drop and representative app outcomes cover Adult, Games and AI services using resolvable and resolver-independent qualified flow evidence.",
+      "A Detew allow retains underlying pf denial; provisional limits, malformed traffic, truthful provenance and all-worker activation are observed.",
+      "UI/controller/activity failure does not silently stop a healthy active engine, while engine failure matches only proven adapter actions.",
+      "Record accepted only when all G1 exit criteria hold; failed evidence remains available and downstream implementation stays gated."
+    ],
+    "tests": [
+      "Independent reviewer reruns the documented clean install/setup/observe/enforce/activation sequence on the selected native topology; compare client/server outcomes and recorded reason identities.",
+      "Rerun lookalike negatives, ECH/absent metadata, observe restrictions and one worker refusing activation; assert explicit limitations and absence of false active status.",
+      "Repeat controller/activity/engine death, storage failure and interface-loss cases while traffic runs; inspect resource bounds and recovery, distinguishing unmeasured GA targets from alpha results."
+    ],
+    "constraints": [
+      "This exact task is the G1 terminal dependency; task closure with a rejected decision does not satisfy downstream accepted-gate requirements.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M05-W05-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-01, INS-02, INS-03, INS-04, INS-05, INS-06, INS-07, INS-08, INS-10, POL-07, POL-08, POL-11, POL-12, OPS-05, QLT-03, QLT-04, QLT-09 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m05/M05-W05-T02.md"
+  },
+  {
+    "id": "M06-W01-T01",
+    "title": "Ingest expiring scoped inventory evidence and trusted local bindings",
+    "milestone": "M06",
+    "work_package": "M06-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-02",
+      "POL-09",
+      "UX-03"
+    ],
+    "product_sections": [
+      "8-device-attribution-and-assignment-behavior",
+      "4-policy-semantics-the-consistency-contract"
+    ],
+    "architecture_sections": [
+      "51-contract-source-and-generation",
+      "7-flow-ownership-and-resource-bounds",
+      "5-shared-schemas-and-evaluation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-15"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Inventory distinguishes supported device evidence, administrator intent and ambiguous addresses so address reuse cannot inherit exact-device policy.",
+    "deliverables": [
+      "Bounded host inventory adapter and versioned attribution evidence/expiry/conflict contract.",
+      "Runtime observations separate from native configured names, bindings and group membership."
+    ],
+    "acceptance": [
+      "Each observation carries source, scope, observed/expiry time and confidence class; MAC evidence is limited to actual L2 visibility.",
+      "Expired/conflicting evidence cannot satisfy an exact-device selector; network/default assignment remains eligible.",
+      "Learned observations do not rewrite native desired configuration or pretend that the administrator account authenticates all traffic."
+    ],
+    "tests": [
+      "Pinned host inventory lab with portable canonical fixtures: rotate DHCP owners, IPv6 privacy addresses and scoped/randomized MAC observations; compare expected attribution timelines.",
+      "Present simultaneous conflicting bindings/shared IP, missing observation source and unsupported scope; assert explicit unidentified/conflict state and no exact-device policy carryover.",
+      "Stop provider/controller and advance evidence expiry while traffic continues; verify local expiry, bounded inventory storage and flow invalidation notifications."
+    ],
+    "constraints": [
+      "Choose concrete inventory sources from the accepted host matrix; do not add authenticated identity connectors to V1.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W01-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-02, POL-09, UX-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W01-T01.md"
+  },
+  {
+    "id": "M06-W01-T02",
+    "title": "Complete group/network assignments and explicit effective-profile explanations",
+    "milestone": "M06",
+    "work_package": "M06-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W01-T01",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-02",
+      "POL-09",
+      "UX-03"
+    ],
+    "product_sections": [
+      "42-profile-selection",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "The full V1 assignment model picks one profile through explicit unique priorities and explains the winner without hidden selector-type preferences.",
+    "deliverables": [
+      "Native/schema/API group membership and supported typed network/device selectors.",
+      "Canonical effective-assignment trace, overlap preview and invalidation integration."
+    ],
+    "acceptance": [
+      "Lowest enabled priority wins across device/group/network selectors; default applies only when none match.",
+      "Duplicate enabled priorities, missing object references and adapter-unsupported network interpretation are rejected equivalently at all write entry points.",
+      "Unknown attribution falls back to eligible network/default selectors; group changes preserve stable local device IDs and invalidate affected flows."
+    ],
+    "tests": [
+      "Canonical runtime/preview/replay corpus: mix device, multiple groups and interface/CIDR assignments in different collection orders; assert independent expected winner/reason.",
+      "Native schema/API round trips: submit duplicate priorities, removed profiles/devices and unsupported selectors, including imported objects; compare stable field errors and unchanged desired intent.",
+      "Under real IPv4/IPv6 traffic change group membership/priority and expire attribution; observe effective profile cutoff and preserved historical explanation."
+    ],
+    "constraints": [
+      "UI drag/reorder submits explicit priority intent; no UI-only assignment algorithm.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W01-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-02, POL-09, UX-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W01-T02.md"
+  },
+  {
+    "id": "M06-W01-T03",
+    "title": "Prove attribution and assignment safety across address churn",
+    "milestone": "M06",
+    "work_package": "M06-W01",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W01-T02"
+    ],
+    "requirements": [
+      "POL-02",
+      "POL-09",
+      "UX-03"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "An independent address-churn matrix validates exact-device isolation and the displayed assignment rationale on the native engine.",
+    "deliverables": [
+      "Synthetic attribution timeline corpus and native IPv4/IPv6 replay/traffic report.",
+      "Inventory/effective-profile mismatch fixes and documented source/visibility limits."
+    ],
+    "acceptance": [
+      "A new address owner never receives an earlier owner's exact-device assignment without qualifying current evidence.",
+      "Conflict/unknown inventory exposes actual effective network/default profile with timestamps and no invented authenticated identity.",
+      "Renames, group changes and address rotations preserve stable IDs where justified and captured old decision context."
+    ],
+    "tests": [
+      "Run positive trusted binding, network/default fallback and group-priority cases with DHCP churn and IPv6 address rotation on the pinned appliance; compare engine trace to independently labeled timelines.",
+      "Exercise shared address, reused tuple, same MAC across separate L2 realms and expired evidence; assert no stale exact-device match.",
+      "Interrupt inventory updates/provider service during a profile change; confirm bounded lag, local invalidation/expiry and accurate stale/read-only native responses."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W01-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-02, POL-09, UX-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W01-T03.md"
+  },
+  {
+    "id": "M06-W02-T01",
+    "title": "Complete exception ordering, mandatory guardrails and multi-label controls",
+    "milestone": "M06",
+    "work_package": "M06-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W01-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-03",
+      "POL-06",
+      "DAT-03",
+      "DAT-04"
+    ],
+    "product_sections": [
+      "43-ordered-content-evaluation",
+      "44-exception-matching-and-conflicts",
+      "45-categories-and-applications",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "All V1 exception and category/application combinations produce stable canonical reasons and cannot bypass mandatory transport/parser/guardrail boundaries.",
+    "deliverables": [
+      "Complete typed hostname/subdomain/application exception editing/validation contracts.",
+      "Canonical winning-control trace and overlap warnings across multi-label/category/application rules."
+    ],
+    "acceptance": [
+      "Unique positive exception priorities choose first matching allow/block; temporary exception priority zero remains reserved and scoped.",
+      "Exact/subdomain label matching shares canonical normalization and public-suffix restrictions; application exception requires qualifying application evidence.",
+      "An exception may skip profile content/insufficient action but cannot skip guardrails, transport requirements, parser safety, adapter failure or pf."
+    ],
+    "tests": [
+      "Portable reference plus native flow corpus: compare runtime/preview/replay for intersecting labels, app/category blocks, ordered allow/block exceptions and guardrail matches.",
+      "Try public suffix, deceptive suffix, IP-as-domain, duplicate priority, unknown application ID and invalid selector; verify equal validation/error identities across entry points.",
+      "Expire/revoke qualifying evidence or pressure parser resources on an exception-allowed flow; verify explicit fallback/safety and no silent bypass."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W02-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-03, POL-06, DAT-03, DAT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W02-T01.md"
+  },
+  {
+    "id": "M06-W02-T02",
+    "title": "Complete scheduled block overlays and narrow temporary override intent",
+    "milestone": "M06",
+    "work_package": "M06-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W02-T01",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-03",
+      "POL-04",
+      "POL-05",
+      "DAT-04"
+    ],
+    "product_sections": [
+      "44-exception-matching-and-conflicts",
+      "46-schedules-and-clocks",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Schedules add blocks and temporary overrides have one explicit device-scoped meaning with a visible expiry and return profile.",
+    "deliverables": [
+      "Canonical overlay/override model, validation, replacement and winning-control preview.",
+      "Native desired-state write and audit intent for actor/reason/UTC deadline and schedule timezone."
+    ],
+    "acceptance": [
+      "Scheduled controls add to base blocks; a base block is never silently turned into a timed-only block.",
+      "At most one active profile replacement or narrow exception exists per device; replacing an existing override requires explicit intent.",
+      "Temporary exceptions remain exact-device/narrow-host-or-app scoped, cannot cross guardrails, and preview return behavior and timezone."
+    ],
+    "tests": [
+      "Canonical corpus: run base/overlay intersections and profile/narrow-exception overrides at start/end boundaries; compare preview/replay reason ordering and return profile.",
+      "Attempt overlapping active overrides, broad public-suffix exceptions, ambiguous device, invalid expiry and missing actor/reason; assert equivalent server rejection.",
+      "Concurrent override replacement and cancellation with expected revisions must preserve one accepted intent; verify conflicting drafts retain structured revision errors."
+    ],
+    "constraints": [
+      "Time validity comes from M01 canonical interfaces; runtime deadlines are implemented by M06-W03, not frontend timers.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W02-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-03, POL-04, POL-05, DAT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W02-T02.md"
+  },
+  {
+    "id": "M06-W03-T01",
+    "title": "Run engine-local calendar schedules and clock-health fallback",
+    "milestone": "M06",
+    "work_package": "M06-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-04",
+      "POL-09",
+      "POL-12"
+    ],
+    "product_sections": [
+      "46-schedules-and-clocks",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "54-evaluation-and-context-tokens",
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "A healthy engine advances schedule controls in the site timezone while the controller is unavailable and exposes unreliable-time policy explicitly.",
+    "deliverables": [
+      "Shared calendar helpers wired to engine-local transition scheduling and bounded reevaluation.",
+      "Clock-health/source context, next transition and material correction notifications."
+    ],
+    "acceptance": [
+      "Intervals are half-open in the IANA site timezone; overnight/repeated/skipped local times follow PRODUCT exactly.",
+      "Default unreliable time activates all configured scheduled block overlays; configured last-trusted-state alternative is explicit and warned.",
+      "Controller loss cannot freeze future schedule transitions, and permanent controls remain active."
+    ],
+    "tests": [
+      "Portable controlled-clock corpus with pinned timezone rules: exercise ordinary/overnight intervals, repeated and skipped DST hours plus exact boundary instants; compare independent UTC expectations.",
+      "Native lab: stop controller across a schedule transition and material forward/backward correction while active/idle IPv4/IPv6 flows exist; inspect engine decisions and next-transition status.",
+      "Remove trustworthy clock/source context and restart timing services; verify configured fallback, warning and bounded transition work rather than stale healthy timing."
+    ],
+    "constraints": [
+      "Use M01 time/evidence interfaces; do not depend on full M07 acceptance or create a second schedule evaluator.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W03-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-04, POL-09, POL-12 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W03-T01.md"
+  },
+  {
+    "id": "M06-W03-T02",
+    "title": "Enforce expiring allows and override deadlines across jumps and reboot",
+    "milestone": "M06",
+    "work_package": "M06-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W03-T01",
+      "M06-W02-T02"
+    ],
+    "requirements": [
+      "POL-04",
+      "POL-05",
+      "POL-09",
+      "POL-12"
+    ],
+    "product_sections": [
+      "46-schedules-and-clocks",
+      "47-active-flow-reconsideration",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Backward wall-clock changes or restart cannot extend a temporary allow; expiry reconsideration remains local to the engine.",
+    "deliverables": [
+      "Earlier-of-UTC/monotonic deadline enforcement and explicit persisted UTC/restart semantics.",
+      "Expiry reason/return-profile event and flow invalidation for temporary overrides and expiring exceptions."
+    ],
+    "acceptance": [
+      "During trusted uptime, an allow expires at the earlier UTC or monotonic limit and cannot be lengthened by backward clock movement.",
+      "After reboot, temporary allows/overrides apply only when saved UTC validity is trustworthy; uncertain time disables them with visible reason.",
+      "Expiry affects active/idle flows and does not bypass site guardrails or clear permanent policy."
+    ],
+    "tests": [
+      "Controlled-clock canonical harness: create temporary profile/narrow exceptions, jump time backward/forward and cross deadlines; compare independent earliest-expiry expectations.",
+      "Pinned native lab: reboot before/after expiry with trusted and untrusted time, while controller is unavailable; observe return profile and absence of extended allow.",
+      "Interrupt persistence/clock restoration and present stale override state; confirm no newly extended deadline, explicit uncertainty and preserved permanent blocks."
+    ],
+    "constraints": [
+      "No guarantee of historical flow/session restoration after reboot; disclose reconnect requirement.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W03-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-04, POL-05, POL-09, POL-12 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W03-T02.md"
+  },
+  {
+    "id": "M06-W03-T03",
+    "title": "Validate the complete schedule and expiry parity corpus",
+    "milestone": "M06",
+    "work_package": "M06-W03",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W03-T02"
+    ],
+    "requirements": [
+      "POL-04",
+      "POL-05",
+      "POL-06",
+      "POL-12"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Runtime, preview and replay agree on time-qualified policy using frozen input/timezone identities and restart assumptions.",
+    "deliverables": [
+      "Independently expected schedule/expiry/clock corpus and repeatable native/controller-offline report.",
+      "Reviewed next-transition/time-uncertainty API fixtures for UI consumers."
+    ],
+    "acceptance": [
+      "Identical context/time/bundle inputs yield identical ordered reasons in all canonical callers.",
+      "Exact end boundaries, repeated/skipped hours, overnight periods and site timezone changes are covered without implicit base-control relaxation.",
+      "Simulated contexts label their time assumptions; uncertain runtime time never silently extends expiring allows."
+    ],
+    "tests": [
+      "Execute portable reference corpus with independently enumerated UTC intervals against runtime adapter, preview and replay; freeze timezone version/digests and compare complete reason traces.",
+      "Try invalid timezone/interval encodings, overlapping override intent and omitted clock context; verify typed validation and explicit assumptions.",
+      "Repeat native controller-loss, backward-jump and reboot cases from both implementation tasks with an independent reviewer; report lag/cutoff and unexecuted combinations."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W03-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-04, POL-05, POL-06, POL-12 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W03-T03.md"
+  },
+  {
+    "id": "M06-W04-T01",
+    "title": "Unify context invalidation and engine-local eligibility deadlines",
+    "milestone": "M06",
+    "work_package": "M06-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W01-T02",
+      "M06-W02-T02",
+      "M06-W03-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "INS-08",
+      "POL-09",
+      "POL-12",
+      "DAT-08",
+      "QLT-04"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "54-evaluation-and-context-tokens",
+      "83-freshness-and-runtime-context",
+      "93-worker-commit-and-reconsideration",
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Every effective input change invalidates the same decision token and triggers bounded engine reconsideration, even without a new bundle.",
+    "deliverables": [
+      "Invalidation inputs for stronger evidence, identity/group/assignment, schedule/override and source eligibility.",
+      "Deadline/checkpoint/eager-scan integration using shared M01 eligibility and time interfaces."
+    ],
+    "acceptance": [
+      "Cache validity includes bundle, qualified evidence, attribution, schedule/override and earliest eligibility deadline.",
+      "Expired upstream labels disappear while eligible alternative sources/private corrections remain; controller/download absence cannot delay expiry.",
+      "Affected cached allows are reevaluated before next forwarding; idle tracked flows are bounded by a timed scan."
+    ],
+    "tests": [
+      "Portable parity harness: mutate each token dimension individually and in combined ordering; compare fresh evaluation to reuse invalidation and stable reasons.",
+      "Native IPv4/IPv6 lab: expire a source while preserving another/private correction, strengthen late app evidence and alter assignment/schedule on active and idle flows.",
+      "Stop controller/downloader at the deadline and stall a worker; measure cutoff/progress/degraded status and prove no old allow passes its next checkpoint."
+    ],
+    "constraints": [
+      "Use admitted synthetic expiry fixtures now; full data operations remain M07 with no reciprocal milestone completion dependency.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W04-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-08, POL-09, POL-12, DAT-08, QLT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W04-T01.md"
+  },
+  {
+    "id": "M06-W04-T02",
+    "title": "Prove active/idle flow reconsideration and blocked-state pressure safety",
+    "milestone": "M06",
+    "work_package": "M06-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W04-T01"
+    ],
+    "requirements": [
+      "INS-08",
+      "POL-09",
+      "POL-12",
+      "DAT-08",
+      "QLT-04",
+      "QLT-02"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Independent traffic evidence confirms every effective change cutoff and the absence of a pressure-induced blocked-flow bypass.",
+    "deliverables": [
+      "Cross-input reconsideration traffic matrix, measurement/report and regression corpus.",
+      "Observed reconnect/previously forwarded byte limitations and per-worker convergence evidence."
+    ],
+    "acceptance": [
+      "Allowed-to-blocked changes stop subsequent eligible forwarding at the declared boundary; blocked-to-allowed does not promise dead-session recovery.",
+      "Active and idle tracked flows meet measured progress and reference target is separately assessed, with p50/p95/p99 and stalls.",
+      "Pressure does not evict blocked state then permit the same connection; partial worker results never become confirmed success."
+    ],
+    "tests": [
+      "Pinned native reference traffic: vary configuration/data/assignment/group/evidence/schedule/override/eligibility while observing client/server and adapter actions over IPv4/IPv6.",
+      "Exercise tuple reuse, reconnect, idle connection, coalesced/hidden metadata and out-of-scope traffic; assert distinct limitations and no universal block claim.",
+      "Offer excess admission/reassembly pressure and delay a worker at expiry/activation; collect peak native/Rust state, last-forwarded times and degraded worker details."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W04-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-08, POL-09, POL-12, DAT-08, QLT-04, QLT-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W04-T02.md"
+  },
+  {
+    "id": "M06-W05-T01",
+    "title": "Complete separate fallback settings and capability-scoped supporting controls",
+    "milestone": "M06",
+    "work_package": "M06-W05",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W02-T01"
+    ],
+    "requirements": [
+      "INS-09",
+      "INS-10",
+      "POL-13",
+      "OPS-04",
+      "OPS-05"
+    ],
+    "product_sections": [
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache",
+      "9-opnsense-attachment-and-failure-behavior",
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Profiles expose insufficient/provisional settings separately from adapter failure, and any supported resolver/tunnel restriction derives from the same desired intent.",
+    "deliverables": [
+      "Canonical capability validation and settings for insufficient action, provisional mode and site scope failure behavior.",
+      "Optional accepted supporting-control integration with ownership, propagation and coverage limits."
+    ],
+    "acceptance": [
+      "Unknown traffic and engine unavailable never share one toggle or imply equal evidence.",
+      "Supporting DNS/encrypted-DNS/tunnel controls are inactive in observe mode and cannot become a second editable category policy.",
+      "Known transport recognition/restriction advertises only tested scope/catalog, honors pf and exposes activation/cache/ownership effects."
+    ],
+    "tests": [
+      "Native policy/host lab: test each supported setting combination in observe/enforce over IPv4/IPv6, including controlled DNS/known encrypted-DNS or tunnel samples and server-dependent classification.",
+      "Try unsupported control/adapter capability, generic TLS mistaken for a service, shared-IP domain allow and capture ownership drift; verify rejection or explicit limited evidence.",
+      "Interrupt supporting-control propagation and engine/controller availability; compare actual restrictions, owned settings and partial status without claiming universal circumvention prevention."
+    ],
+    "constraints": [
+      "A control without G0 proof remains unavailable with reason; do not invent universal DoH/VPN detection or a second Unbound category evaluator.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W05-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-09, INS-10, POL-13, OPS-04, OPS-05 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W05-T01.md"
+  },
+  {
+    "id": "M06-W05-T02",
+    "title": "Accept complete V1 policy, device and time conformance",
+    "milestone": "M06",
+    "work_package": "M06-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M06-W01-T03",
+      "M06-W02-T02",
+      "M06-W03-T03",
+      "M06-W04-T02",
+      "M06-W05-T01"
+    ],
+    "requirements": [
+      "INS-08",
+      "INS-09",
+      "INS-10",
+      "DAT-04",
+      "DAT-08",
+      "POL-02",
+      "POL-03",
+      "POL-04",
+      "POL-05",
+      "POL-06",
+      "POL-09",
+      "POL-12",
+      "POL-13",
+      "OPS-05",
+      "UX-03",
+      "QLT-04"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "8-device-attribution-and-assignment-behavior"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "7-flow-ownership-and-resource-bounds"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "M06 closes only after the complete policy/identity/time corpus and native effective-change behavior have accepted evidence.",
+    "deliverables": [
+      "M06 evidence index and conformance decision with per-package acceptance and unresolved downstream quality targets.",
+      "Runtime/preview/replay parity, clock/identity/supporting-control support report and M08/M09 refinement inputs."
+    ],
+    "acceptance": [
+      "All M06-W01–W05 outcomes are evidenced, including attribution churn, exception/guardrail priority, time/reboot expiry, reconsideration and observe behavior.",
+      "No M06 behavior depends on a frontend-only algorithm or full M07 gate; shared interfaces and integration obligations are explicit.",
+      "Unproven supporting controls remain unavailable and limitations/reconnect requirements are recorded without weakening V1 contracts."
+    ],
+    "tests": [
+      "Independent reviewer executes the full canonical corpus and native address/time/reconsideration matrices on the recorded revision; compare all ordered reasons and actual forward/drop boundaries.",
+      "Rerun duplicate-priority, broad exception, ambiguous attribution, missing metadata and unsupported supporting-control negatives.",
+      "Rerun controller-offline source/time expiry, restart with unreliable clock, blocked-state pressure and worker stall; confirm truthful progress/failed states and no extended allow."
+    ],
+    "constraints": [
+      "This exact terminal task includes all five packages; closure requires accepted evidence rather than publication of a report.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M06-W05-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for INS-08, INS-09, INS-10, DAT-04, DAT-08, POL-02, POL-03, POL-04, POL-05, POL-06, POL-09, POL-12, POL-13, OPS-05, UX-03, QLT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m06/M06-W05-T02.md"
+  },
+  {
+    "id": "M07-W01-T01",
+    "title": "Complete native validation, preview, save and operation APIs",
+    "milestone": "M07",
+    "work_package": "M07-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "OPS-02",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "121-required-logical-operations",
+      "122-error-and-conflict-behavior",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "113-native-http-api",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Every configuration entry point exposes one canonical model and serial asynchronous lifecycle with useful conflicts and resumable operation identity.",
+    "deliverables": [
+      "OpenAPI/generated DTO contracts for validate/preview/save/activate/status and structured errors.",
+      "Native session/API ACL/method/CSRF transport, operation idempotency and bounded queue/status responses."
+    ],
+    "acceptance": [
+      "Reads are side-effect-free; mutations require native permission and protected methods, canonical server validation and expected revision.",
+      "Preview includes human diff, affected scopes, dependencies, defaults and flow impact; saved desired is never presented as applied.",
+      "Retry returns the original operation; before-commit cancellation differs from after-commit rollback and browser timeout cannot cancel committed work."
+    ],
+    "tests": [
+      "Portable contract/native host integration: round-trip valid models, exact large revision/generation strings and duplicate operation tokens; verify shared semantic errors across UI/API/import/console boundaries.",
+      "Send GET mutation attempts, invalid CSRF/session/viewer privilege, forged actor, unknown fields and oversized requests; assert no desired/runtime mutation.",
+      "Disconnect browser/socket before and after commit, race activate requests and restart controller; resume by operation identity with explicit stage/degraded state."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W01-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-01, POL-07, POL-10, OPS-02, SEC-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W01-T01.md"
+  },
+  {
+    "id": "M07-W01-T02",
+    "title": "Enforce one locked native writer and durable revision reservation everywhere",
+    "milestone": "M07",
+    "work_package": "M07-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W01-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "91-desired-state-ownership",
+      "10-storage-and-recovery",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "All accepted writes serialize against native desired intent and a durable installation-lineage high-water mark, avoiding lost intent and reused revisions.",
+    "deliverables": [
+      "Single native-authorized mutation boundary used by UI/API/import/console/correction writers.",
+      "Lock/re-read/expected-revision/reserve/native-save/snapshot transaction recovery contract and digest drift detection."
+    ],
+    "acceptance": [
+      "The lock covers re-reading revision/model through native save; competing stale editors receive changed-object conflicts.",
+      "A fresh exact integer revision is reserved durably before save; reservation failure refuses the write and save failure may leave a harmless gap.",
+      "Reserved, saved and applied remain distinct; daemons never rewrite appliance XML or maintain an independently editable policy database."
+    ],
+    "tests": [
+      "Pinned native model/journal lab: race all supported writer types with identical/different expected revisions; verify one accepted intent and deterministic conflicts without lost update.",
+      "Exercise decimal counters beyond JavaScript safe integer, mismatched lineage/digest, unexpected model edits and unavailable reservation IPC; ensure refusal/reconciliation and no number rounding.",
+      "Terminate between lock/reserve/save/snapshot and inject disk full/permissions; inspect native model plus journal on recovery, confirming counter gaps never imply saved/applied state."
+    ],
+    "constraints": [
+      "Coordinate recoverable stores; do not claim a universal atomic transaction across XML, journal and workers.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W01-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-01, POL-07, POL-10, OPS-08 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W01-T02.md"
+  },
+  {
+    "id": "M07-W01-T03",
+    "title": "Rebase restore/import intent and verify concurrent recovery lineages",
+    "milestone": "M07",
+    "work_package": "M07-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W01-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "POL-14",
+      "OPS-07",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "123-configuration-export-and-import",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "104-backuprestore-and-secret-separation",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Older native backups or imported intent become a fresh validated revision with visible mappings instead of reusing old lineage counters or appearing applied.",
+    "deliverables": [
+      "Restore/reconciliation/import rebasing through the same native writer.",
+      "Explicit new-installation/unrecoverable-journal-reset lineage handling and dependency/device mapping preview."
+    ],
+    "acceptance": [
+      "A restored older XML revision is rebased before activation; current high-water remains monotonic within the installation.",
+      "New site or unrecoverable reset obtains explicit new lineage so previous events/counters cannot be confused.",
+      "Missing dependencies and device mappings keep intent not-ready; unknown fields/paths/priorities cannot bypass validation."
+    ],
+    "tests": [
+      "Native backup/import lab: restore old valid content in the same installation and into a new site; compare fresh revisions, lineage, visible mapping and worker-confirmed activation.",
+      "Import dangling profiles/categories/devices, unsupported schema/capabilities and attacker path/module URLs; verify bounded semantic rejection and no automatic activation.",
+      "Interrupt restore after reservation/native save and corrupt high-water checkpoints; verify explicit recovery/new-lineage path, preserved verified runtime and useful concurrent-editor conflicts."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W01-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-01, POL-07, POL-10, POL-14, OPS-07, OPS-08 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W01-T03.md"
+  },
+  {
+    "id": "M07-W02-T01",
+    "title": "Complete durable artifact and journal writes with recoverable stages",
+    "milestone": "M07",
+    "work_package": "M07-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W01-T02"
+    ],
+    "requirements": [
+      "POL-08",
+      "POL-12",
+      "POL-14",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "102-artifactjournal-durability",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "The production journal/artifact stores preserve verified recovery identities at every interrupted stage and bound retained candidates.",
+    "deliverables": [
+      "Versioned checksummed journal/checkpoint implementation and immutable same-filesystem artifact installation.",
+      "Explicit corruption/full-disk/permission failure handling with active/previous/candidate recovery references."
+    ],
+    "acceptance": [
+      "Flush/rename/directory-sync ordering has tested durability semantics; candidate paths are controlled IDs rather than client paths.",
+      "Corrupt/incompatible/missing artifacts cannot become verified active simply because a saved pointer refers to them.",
+      "Active and recovery bundles remain intact while bounded failed/candidate content can be quarantined; no unbounded artifact growth."
+    ],
+    "tests": [
+      "Pinned FreeBSD storage harness: kill at each write/flush/rename/checkpoint boundary, recover, and compare complete bytes/digests/stages to independent expected journal transitions.",
+      "Corrupt headers/checksums, truncate records, replace paths with invalid ownership and present incompatible artifacts; verify rejection without promoting candidates.",
+      "Inject full disk, directory permission loss and simultaneous reporting pressure; test refusal/recovery and document exact power-loss/corruption limits without claiming hardware-proof durability."
+    ],
+    "constraints": [
+      "Extend M05 durability in the same stores; do not create a second activation journal.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W02-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-08, POL-12, POL-14, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W02-T01.md"
+  },
+  {
+    "id": "M07-W02-T02",
+    "title": "Recover stalled/mixed workers and controller/engine restarts truthfully",
+    "milestone": "M07",
+    "work_package": "M07-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W02-T01"
+    ],
+    "requirements": [
+      "POL-07",
+      "POL-08",
+      "POL-09",
+      "POL-12",
+      "QLT-04"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "93-worker-commit-and-reconsideration",
+      "94-partial-activation-and-restart",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Incomplete activation has bounded convergence/recovery and status based on live worker generation and reconsideration facts.",
+    "deliverables": [
+      "Full recovery state machine for prepare/commit/ack/reconsideration plus boot identity reconciliation.",
+      "Structured worker stalls/timeouts, operation progress and known-good fallback coordination."
+    ],
+    "acceptance": [
+      "All required worker/reconsideration acknowledgments govern applied; a saved revision, one worker or artifact hash never suffices.",
+      "Returning controller queries workers and either confirms evidence or starts a new recovery activation; stale boot acknowledgments are rejected.",
+      "Engine restart selects last durably verified compatible bundle; no valid bundle invokes tested adapter failure with explicit readiness."
+    ],
+    "tests": [
+      "Multiworker native lab: pause/reject workers in each phase, resume/recover and inspect every active identity plus actual client traffic cutoff.",
+      "Replay old generation/boot acks and mix incompatible artifacts/capabilities; assert no false success or internally mixed decision.",
+      "Kill controller/engine singly and together before/after commit/result persistence; verify recovery identity, pending/idle flow handling, adapter outcome and measured activation tails."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W02-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-07, POL-08, POL-09, POL-12, QLT-04 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W02-T02.md"
+  },
+  {
+    "id": "M07-W02-T03",
+    "title": "Implement compatible rollback as a fresh validated activation",
+    "milestone": "M07",
+    "work_package": "M07-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W02-T02",
+      "M07-W01-T03"
+    ],
+    "requirements": [
+      "POL-07",
+      "POL-08",
+      "POL-10",
+      "POL-14",
+      "DAT-06",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "64-restart-storage-and-rollback",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "An administrator restores explicitly selected compatible content through a new revision/generation rather than moving an active pointer backward.",
+    "deliverables": [
+      "Dependency-aware configuration/bundle rollback preview and prepare/apply path.",
+      "Current-data versus complete-bundle restoration choices with availability/eligibility/schema/ABI validation."
+    ],
+    "acceptance": [
+      "Rollback lists exact configuration/data/taxonomy/catalog/classifier/adapter dependencies and creates a new desired revision/operation.",
+      "Missing/incompatible/expired dependencies yield explicit choices/errors; complete-bundle option appears only when all required components exist and are supported.",
+      "Rollback obeys concurrency, worker confirmation, reconsideration and truthful recovery state; it cannot resurrect dead sessions."
+    ],
+    "tests": [
+      "Native lifecycle lab: restore earlier configuration with chosen current data and a complete available bundle; verify new counters, effective policy and actual IPv4/IPv6 outcomes.",
+      "Try absent dataset, incompatible classifier/catalog, expired-only evidence and stale editor; confirm preview refusal or explicit freshness behavior with no silent mixed artifacts.",
+      "Interrupt rollback preparation/commit and delay workers; verify known-good recovery and visible incomplete state, then complete a fresh recovery operation."
+    ],
+    "constraints": [
+      "Classifier ABI/hook transitions require maintenance; ordinary rollback cannot pretend those changes are an atomic bundle swap.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W02-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-07, POL-08, POL-10, POL-14, DAT-06, OPS-08 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W02-T03.md"
+  },
+  {
+    "id": "M07-W03-T01",
+    "title": "Build bounded source fetching, import and artifact admission",
+    "milestone": "M07",
+    "work_package": "M07-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02"
+    ],
+    "requirements": [
+      "DAT-05",
+      "DAT-06",
+      "OSS-02",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "72-dataset-admission",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "141-trust-model",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Only approved, authenticated, compatible and bounded category artifacts enter candidate staging, with software/data permissions tracked separately.",
+    "deliverables": [
+      "Control-side fetch/import pipeline with TLS/URL/redirect/egress/size/time/archive policies.",
+      "Signature/digest/trust/schema/taxonomy/catalog/source-license admission and distinct failure records."
+    ],
+    "acceptance": [
+      "No candidate activates before complete bounds, provenance/permission and required signature/compatibility validation.",
+      "Download/import cannot escape owned staging directories or exhaust compressed/decompressed/entry/count budgets.",
+      "Fetch is control-side only; failure retains eligible installed data and never makes packet lookup wait on network."
+    ],
+    "tests": [
+      "Pinned portable downloader plus native lab: admit approved signed pack and licensed raw source using frozen manifests; verify complete content/provenance before staging.",
+      "Try bad TLS/signature/digest, unsigned Detew artifact, malicious redirect, path traversal/symlink/archive bomb, excessive size/count and unknown required schema; assert bounded rejection.",
+      "Drop network, slow responses and fill staging disk during ingestion; verify cleanup/failure reason, active bundle identity and continued local traffic decisions."
+    ],
+    "constraints": [
+      "Use source/license admission decisions from G0; public download availability is not redistribution permission.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W03-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-05, DAT-06, OSS-02, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W03-T01.md"
+  },
+  {
+    "id": "M07-W03-T02",
+    "title": "Quarantine anomalous diffs and activate deterministic category bundles",
+    "milestone": "M07",
+    "work_package": "M07-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W03-T01",
+      "M07-W02-T01"
+    ],
+    "requirements": [
+      "DAT-02",
+      "DAT-05",
+      "DAT-06",
+      "DAT-03",
+      "DAT-04",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "73-lookup-and-conflict-semantics",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "82-index-representation",
+      "83-freshness-and-runtime-context",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Category-only updates compile deterministically, require review for documented anomalous changes and reuse the ordinary verified bundle lifecycle.",
+    "deliverables": [
+      "Normalized diff/label/source change summary, quarantine rules and explicit review/admission operation.",
+      "Bounded FST compilation/verification and category-only immutable bundle activation."
+    ],
+    "acceptance": [
+      "Mass deletion/unusual label churn/incompatible taxonomy triggers recorded review rather than silent activation; threshold rationale is published.",
+      "Compilation preserves canonical host boundaries and label unions with stable version/digest/provenance.",
+      "Category-only activation does not reattach packet scopes or rebuild classifier binaries; all-worker confirmation and known-good retention apply."
+    ],
+    "tests": [
+      "Portable deterministic compilation plus native pipeline: compile shuffled/duplicated valid inputs twice and compare bytes/digests, then activate category changes while traffic runs.",
+      "Introduce mass deletion, ID removal, conflicting mappings and oversized metadata/index bounds; assert quarantine or rejection and unchanged active eligibility.",
+      "Fail compiler/worker preparation and interrupt update/commit; verify retained eligible known-good data, truthful candidate failure and normal activation recovery."
+    ],
+    "constraints": [
+      "M09 freezes measured limits/defaults; this task records explicit initial quarantine rules and does not invent GA quality.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W03-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-02, DAT-05, DAT-06, DAT-03, DAT-04, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W03-T02.md"
+  },
+  {
+    "id": "M07-W03-T03",
+    "title": "Audit hostile update inputs and offline update independence",
+    "milestone": "M07",
+    "work_package": "M07-W03",
+    "scope": "V1",
+    "type": "test",
+    "area": "security",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W03-T02"
+    ],
+    "requirements": [
+      "DAT-05",
+      "DAT-06",
+      "DAT-08",
+      "OSS-02",
+      "SEC-02",
+      "QLT-03"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Independent adversarial evidence confirms artifact admission and update failure cannot compromise active filtering, provenance or bounded resources.",
+    "deliverables": [
+      "Curated malicious/adversarial source/import corpus and native update-under-traffic report.",
+      "Reviewed admission/FFI/archive/fetch boundary findings and regression fixes."
+    ],
+    "acceptance": [
+      "Every forbidden signature/schema/archive/URL/license/compatibility case is rejected before activation without outside-directory writes.",
+      "Quarantine is visible and cannot be bypassed by replaying a token or editing filenames.",
+      "Provider/controller/storage failure leaves eligible installed data active until engine-enforced expiry and never adds synchronous remote lookup."
+    ],
+    "tests": [
+      "Independent reviewer reruns valid signed update and deterministic compile/activation with exact source/artifact inputs on native lab.",
+      "Execute traversal/bomb/redirect/signature/unknown-field/compatibility corpus with allocation/byte/time counters; inspect owned filesystem and provenance.",
+      "Interrupt fetch/compile/activation during traffic, expire a retained source offline and pressure active-plus-candidate memory; compare enforcement, status and bounded cleanup."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W03-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-05, DAT-06, DAT-08, OSS-02, SEC-02, QLT-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W03-T03.md"
+  },
+  {
+    "id": "M07-W04-T01",
+    "title": "Complete source freshness, warning, expiry and offline eligibility",
+    "milestone": "M07",
+    "work_package": "M07-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W03-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "DAT-06",
+      "DAT-08",
+      "POL-09",
+      "POL-12"
+    ],
+    "product_sections": [
+      "74-freshness-and-outages",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "83-freshness-and-runtime-context",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Source freshness changes actual label eligibility at engine-local deadlines and exposes distinct update/warning/expired states without requiring controller availability.",
+    "deliverables": [
+      "Versioned source freshness policy/status and earliest-eligibility deadlines using M01 interfaces.",
+      "Runtime source-union expiry/reconsideration and offline recovery/update semantics."
+    ],
+    "acceptance": [
+      "Fetch outage does not instantly invalidate eligible installed data; warning/expiry thresholds and clock assumptions are explicit.",
+      "Expired sources stop contributing labels while eligible alternatives/local corrections remain; residual gaps use insufficient classification.",
+      "Engine enforces expiry and reconsiders active/idle flows without controller or a newly downloaded bundle."
+    ],
+    "tests": [
+      "Canonical eligibility fixtures and native IPv4/IPv6 lab: move one/multiple sources across warning/expiry while keeping another source/correction eligible; compare label unions and fallback reasons.",
+      "Try incompatible/unbounded freshness values, missing source times and uncertain clock context; assert validation/explicit uncertainty rather than silently current evidence.",
+      "Stop controller/network through expiry, then admit a fresh update; inspect cutoff, cached-decision invalidation, recovery and no extended stale-label use."
+    ],
+    "constraints": [
+      "Coordinate the shared deadline/token interface with M06; no dependency on full M06 acceptance and no separate expiry evaluator.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W04-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-06, DAT-08, POL-09, POL-12 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W04-T01.md"
+  },
+  {
+    "id": "M07-W04-T02",
+    "title": "Activate private corrections/custom lists and preserve export provenance",
+    "milestone": "M07",
+    "work_package": "M07-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p1",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W04-T01",
+      "M07-W01-T02"
+    ],
+    "requirements": [
+      "DAT-03",
+      "DAT-04",
+      "DAT-07",
+      "DAT-08",
+      "POL-01",
+      "PRI-03",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "73-lookup-and-conflict-semantics",
+      "75-curation-and-quality-operations",
+      "123-configuration-export-and-import",
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Administrators can correct labels locally through native desired-state activation while upstream data remains distinguishable and no contribution is submitted automatically.",
+    "deliverables": [
+      "Canonical private label overlays/custom-list intent, validation and normal bundle activation.",
+      "Correction provenance/conflict rules and configuration export/import fields with explicit optional expiry."
+    ],
+    "acceptance": [
+      "Corrections use shared normalization/label-set semantics and remain distinct from upstream installed source records.",
+      "Permanent correction eligibility is independent of upstream expiry; expiring corrections follow their stated deadline.",
+      "Correction writes use the same native expected-revision boundary; export retains private corrections and prepare-to-share does not upload."
+    ],
+    "tests": [
+      "Canonical and native lab: add/remove/correct multi-label IDN/exact/subdomain cases, expire upstream data, export/import with visible mappings and verify same effective categories.",
+      "Try public-suffix/substring entries, removed taxonomy IDs, oversized custom lists and concurrent correction edits; assert bounded validation and useful conflicts.",
+      "Interrupt correction activation and stop upstream/network services; verify prior confirmed policy or verified recovery plus no outgoing correction/telemetry submission."
+    ],
+    "constraints": [
+      "UI contribution/diagnostic preview is M08; this task supplies truthful schema/provenance without automatic sharing.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W04-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-03, DAT-04, DAT-07, DAT-08, POL-01, PRI-03, OSS-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W04-T02.md"
+  },
+  {
+    "id": "M07-W05-T01",
+    "title": "Bound artifact retention and isolate hook/classifier maintenance",
+    "milestone": "M07",
+    "work_package": "M07-W05",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W02-T03",
+      "M07-W03-T02",
+      "M07-W04-T02"
+    ],
+    "requirements": [
+      "POL-12",
+      "POL-14",
+      "DAT-02",
+      "DAT-06",
+      "OPS-04",
+      "OPS-08",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "102-artifactjournal-durability",
+      "132-lifecycle-ownership",
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "Artifact cleanup preserves active/prepared/recovery dependencies, while scope/hook or classifier ABI changes use an explicit tested maintenance path.",
+    "deliverables": [
+      "Dependency-aware retention/GC for active, previous compatible, bounded candidate and history references.",
+      "Maintenance preview/ownership/restoration and compatible binary/catalog/scope transition contract."
+    ],
+    "acceptance": [
+      "GC cannot remove any artifact needed by active/prepared workers or last verified recovery; older small config history does not promise historical data availability.",
+      "Ordinary policy/category operations avoid reattachment; hook/scope/ABI changes declare interruption and recovery.",
+      "Maintenance detects ownership drift and restores only Detew-owned integration state; incompatible swaps never become ordinary applied status."
+    ],
+    "tests": [
+      "Native artifact lab: generate failed/candidate/history bundles, run GC while workers hold prepared/active references and verify bounded bytes plus valid restart/rollback inputs.",
+      "Try client-controlled artifact path, stale refcounts/ownership drift and incompatible binary/catalog versions; assert refusal and preserved unrelated host configuration.",
+      "Terminate GC/maintenance at each deletion/detach/reattach stage, reset interface and fill disk; verify verified-bundle recovery and actual declared failure action via console."
+    ],
+    "constraints": [
+      "Do not claim automatic high availability or zero-loss hook migration; publish measured maintenance limits.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W05-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-12, POL-14, DAT-02, DAT-06, OPS-04, OPS-08, SEC-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W05-T01.md"
+  },
+  {
+    "id": "M07-W05-T02",
+    "title": "Accept the complete durable policy and data lifecycle",
+    "milestone": "M07",
+    "work_package": "M07-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M05-W05-T02",
+      "M07-W01-T03",
+      "M07-W02-T03",
+      "M07-W03-T03",
+      "M07-W04-T02",
+      "M07-W05-T01"
+    ],
+    "requirements": [
+      "DAT-02",
+      "DAT-05",
+      "DAT-06",
+      "DAT-07",
+      "DAT-08",
+      "POL-01",
+      "POL-07",
+      "POL-08",
+      "POL-09",
+      "POL-10",
+      "POL-12",
+      "POL-14",
+      "OPS-04",
+      "OPS-07",
+      "OPS-08",
+      "SEC-02",
+      "PRI-03"
+    ],
+    "product_sections": [
+      "6-configuration-activation-and-recovery",
+      "7-category-data-product-and-lifecycle",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "9-control-plane-and-activation",
+      "10-storage-and-recovery"
+    ],
+    "architecture_decisions": [
+      "ARC-06",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09"
+    ],
+    "gates": [
+      "G1"
+    ],
+    "outcome": "M07 closes only with accepted evidence for all durable stages, source operations, restore/rollback and safe retention/maintenance.",
+    "deliverables": [
+      "M07 lifecycle evidence index and all-package review decision.",
+      "Durable-stage fault matrix, concurrency/rebase report, admitted-update/expiry/correction report and downstream default/support refinements."
+    ],
+    "acceptance": [
+      "All W01–W05 completion reports are accepted, including reservation gaps, restore lineage, every interrupted stage and incompatible rollback.",
+      "Confirmed applied reflects live worker/reconsideration evidence; newest candidate, saved revision or file presence cannot imply success.",
+      "Invalid update preserves eligible known-good artifacts; engine-local expiry and private corrections work offline with truthful provenance.",
+      "Unfrozen capacities/thresholds are recorded for M09 rather than presented as measured GA support."
+    ],
+    "tests": [
+      "Independent reviewer replays native write/restore/rollback/update/expiry/GC scenarios and verifies XML, journal, worker identities, traffic and recorded statuses at exact revision.",
+      "Repeat stale writer, unknown import, incompatible/expired dependency, malicious artifact, ownership conflict and unsigned release-artifact negatives.",
+      "Inject each durable-stage termination, corrupt/full/permission storage, worker stall, controller/engine restart and offline expiry; confirm recoverable state without silent intent loss."
+    ],
+    "constraints": [
+      "This exact terminal includes all five packages and has no full-M06 dependency; integrated engine/UI validation continues in M08/M09.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M07-W05-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-02, DAT-05, DAT-06, DAT-07, DAT-08, POL-01, POL-07, POL-08, POL-09, POL-10, POL-12, POL-14, OPS-04, OPS-07, OPS-08, SEC-02, PRI-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m07/M07-W05-T02.md"
+  },
+  {
+    "id": "M08-W01-T01",
+    "title": "Establish the Detew component/state catalog and five-surface shell",
+    "milestone": "M08",
+    "work_package": "M08-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M04-W05-T02"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11"
+    ],
+    "product_sections": [
+      "142-information-architecture",
+      "149-visual-system-proposed-tokens-and-craft-rules",
+      "1411-state-and-copy-matrix",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "121-native-shell-and-routing",
+      "123-components-and-styling",
+      "125-frontend-quality-contract",
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "The native host exposes one clear Detew navigation and reusable accessible components that represent real operational states consistently.",
+    "deliverables": [
+      "Overview/Profiles/Devices/Activity/Settings routing and locally bundled Detew-owned primitive/product component catalog.",
+      "Scoped semantic tokens/type/spacing/theme/portal rules and English/pt-BR state/copy inventory."
+    ],
+    "acceptance": [
+      "Tailwind/reset/portal styles stay inside Detew roots and preserve native navigation/theme/session; no second sidebar/login/CDN or Node appliance service.",
+      "Component examples include real empty/loading/stale/error/read-only/conflict/partial states, long hostnames, IPv6 and multiple labels.",
+      "Task hierarchy is calm and readable with one dominant action; icons/color have text labels and keyboard focus semantics."
+    ],
+    "tests": [
+      "Native host plus component harness: inspect light/dark themes, scoped drawers/portals and route/deep-link navigation with realistic synthetic 5/100/1,000-entry fixtures.",
+      "Use hostile/long translated strings, zoom/reflow, missing module and read-only contexts; verify safe rendering, no shell style leakage and no decorative unsupported features.",
+      "Load stale/version-mismatched assets and unavailable endpoints; confirm explicit failure/recovery states and no cached present-tense health claim."
+    ],
+    "constraints": [
+      "This task may start after G0 independently of full M06/M07; simulated catalog data is visibly labeled and cannot close runtime acceptance.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W01-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-01, UX-02, UX-06, UX-07, UX-08, UX-09, UX-10, UX-11 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W01-T01.md"
+  },
+  {
+    "id": "M08-W01-T02",
+    "title": "Complete resumable readiness-to-enforcement setup with real checks",
+    "milestone": "M08",
+    "work_package": "M08-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W01-T01",
+      "M05-W05-T02"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-06",
+      "OPS-03",
+      "OPS-05",
+      "OPS-09",
+      "PRI-02"
+    ],
+    "product_sections": [
+      "143-setup-flow",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "An administrator resumes setup and deliberately enables supported filtering only after an actual observed test and review of consequential settings.",
+    "deliverables": [
+      "Readiness/scope/profile/test-device/observe/review/enforce wizard integrated with native services.",
+      "Separate resumable progress, verified live test outcomes and disable/recovery actions."
+    ],
+    "acceptance": [
+      "Scope, data, capture conflict, failure behavior and management access block unsafe/unproven enablement with concrete corrective actions.",
+      "Review discloses insufficient action, provisional mode, actual adapter failure choice and hostname/device metadata collection.",
+      "Closing/resuming setup cannot enable enforcement unexpectedly; failed final verification displays actual outcome and recovery with operation identity."
+    ],
+    "tests": [
+      "Pinned native IPv4/IPv6 lab: complete and resume setup at every stage with actual test traffic; verify would-block, permitted/blocked enforcement and confirmed generation.",
+      "Try unidentified test device, unsupported topology, unavailable data/recovery capability, viewer role and expired session; confirm safe alternatives/refusal and preserved draft.",
+      "Disconnect browser during setup/apply, stop control/activity and fail final attachment test; verify truthful stale/partial state and reachable documented disable/console recovery."
+    ],
+    "constraints": [
+      "Installation/download time is separate from later M10 timed profile-creation study; internal setup test does not satisfy independent participant gate.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W01-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-01, UX-02, UX-03, UX-06, OPS-03, OPS-05, OPS-09, PRI-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W01-T02.md"
+  },
+  {
+    "id": "M08-W01-T03",
+    "title": "Complete actionable Overview, Devices and operational Settings views",
+    "milestone": "M08",
+    "work_package": "M08-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W01-T01",
+      "M05-W05-T02",
+      "M06-W01-T02",
+      "M07-W04-T01"
+    ],
+    "requirements": [
+      "UX-03",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "OPS-05",
+      "OPS-07"
+    ],
+    "product_sections": [
+      "144-overview-composition",
+      "146-devices-and-assignments",
+      "148-settings-and-advanced-operation",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Administrators see current filtering scope, effective device profile and data/recovery issues without a misleading composite protection score.",
+    "deliverables": [
+      "Real status/inventory/data/privacy/recovery queries and bounded paginated device list/detail.",
+      "Timestamped actionable state hierarchy, assignment explanation and settings/module availability views."
+    ],
+    "acceptance": [
+      "Desired/active/convergence, attachment, data/clock/capacity and collection completeness remain separate facts.",
+      "Device rows prioritize effective profile and assignment rationale with scoped address/evidence/conflict context; IP is not a permanent identity.",
+      "Bypass, stale, unsupported scope, expiry and partial activation replace present-tense health statements; mode/disable/bypass/stop actions have distinct reviewed meanings."
+    ],
+    "tests": [
+      "Native host with real engine/control/inventory status: compare Overview/device/settings to direct observed identities, eligible data and assignment traces under 5/100/1,000 entries.",
+      "Use conflicting/unknown devices, absent optional module, long IPv6/hostnames, viewer and hidden evidence; verify explicit limits, pagination and context preservation.",
+      "Fail refresh/control/data downloads, expire source and stall worker; confirm last-confirmed timestamps, removed healthy claim, actionable recovery and draft preservation."
+    ],
+    "constraints": [
+      "Bound query/result sizes and freshness; do not add decorative charts or fleet/site switching outside V1.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W01-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-03, UX-06, UX-07, UX-08, OPS-05, OPS-07 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W01-T03.md"
+  },
+  {
+    "id": "M08-W02-T01",
+    "title": "Complete policy editors with local drafts and canonical server preview",
+    "milestone": "M08",
+    "work_package": "M08-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W01-T01",
+      "M05-W05-T02",
+      "M06-W02-T02",
+      "M06-W05-T01"
+    ],
+    "requirements": [
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-08",
+      "POL-01",
+      "POL-03",
+      "POL-04",
+      "POL-05",
+      "POL-07",
+      "POL-13"
+    ],
+    "product_sections": [
+      "145-profile-editor",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "122-ui-state-ownership",
+      "124-types-localization-and-data-scale",
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Profile editing keeps category/application/exception/schedule settings understandable and treats every edit as unapplied intent until canonical preview and activation.",
+    "deliverables": [
+      "Searchable category definitions/coverage and tested application catalog controls.",
+      "Typed exception/schedule/advanced-behavior draft forms, shared DTO/schema validation and server preview integration."
+    ],
+    "acceptance": [
+      "Required categories are easy to find and multi-label/capability/data limits are visible; presets are editable templates.",
+      "Category switches edit drafts only; change bar/discard/review preserve original active context and no frontend policy evaluator exists.",
+      "Base-to-scheduled move, exception overlap, guardrails, timezone and consequential advanced defaults are explicit in preview/review."
+    ],
+    "tests": [
+      "Component interaction plus native server: edit Adult/Games/AI, app, ordered exceptions and overnight schedule; compare generated candidate/preview to canonical independent expectations.",
+      "Enter duplicate priority, public suffix/deceptive hostname, bad timezone/expiry, unsupported capability and invalid translated values; compare server field errors and retained draft.",
+      "Lose network/server preview while editing, receive obsolete filter result and navigate with unsaved state; preserve draft and mark stale preview rather than implied valid/active status."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W02-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-02, UX-03, UX-04, UX-08, POL-01, POL-03, POL-04, POL-05, POL-07, POL-13 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W02-T01.md"
+  },
+  {
+    "id": "M08-W02-T02",
+    "title": "Complete diff/review/apply progress, conflicts and operation reconnect",
+    "milestone": "M08",
+    "work_package": "M08-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W02-T01",
+      "M07-W01-T03",
+      "M07-W02-T02"
+    ],
+    "requirements": [
+      "UX-04",
+      "UX-08",
+      "POL-07",
+      "POL-08",
+      "POL-10",
+      "OPS-02"
+    ],
+    "product_sections": [
+      "122-error-and-conflict-behavior",
+      "1411-state-and-copy-matrix",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Apply communicates saved intent, preparation, worker convergence and confirmed active outcome while preserving drafts through conflicts and reconnects.",
+    "deliverables": [
+      "Human diff/dependency/default/flow-impact review and operation state UI.",
+      "Structured conflict changed-object handling, resumable operation polling and precommit-cancel/postcommit-rollback semantics."
+    ],
+    "acceptance": [
+      "No optimistic active/protection state appears after edit/save/one-worker ack; partial/mixed generation remains incomplete with actual progress.",
+      "Stale writes preserve draft and expose changed objects/current revision; reload/reapply requires visible administrator choice.",
+      "Browser timeout/disconnect resumes existing operation and respects stage-specific cancellation, permissions and polling freshness."
+    ],
+    "tests": [
+      "Native multiworker browser journey: review/save/apply a profile change and compare each displayed stage/generation to live controller/worker facts and actual IPv4/IPv6 traffic.",
+      "Race two editors, retry idempotency token, use expired session/viewer and send obsolete revision beyond safe integer range; confirm preserved draft and exact identities.",
+      "Disconnect/reconnect before/after commit, delay worker and stop status API; verify no false success, stale timestamp, resumed operation and accurate recovery action."
+    ],
+    "constraints": [
+      "Server stage is authoritative; browser cancellation cannot erase committed changes.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W02-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-04, UX-08, POL-07, POL-08, POL-10, OPS-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W02-T02.md"
+  },
+  {
+    "id": "M08-W02-T03",
+    "title": "Complete assignment, temporary override and dependency-aware rollback journeys",
+    "milestone": "M08",
+    "work_package": "M08-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W02-T02",
+      "M06-W01-T03",
+      "M06-W03-T02",
+      "M07-W02-T03"
+    ],
+    "requirements": [
+      "UX-03",
+      "UX-04",
+      "UX-08",
+      "POL-02",
+      "POL-04",
+      "POL-05",
+      "POL-10",
+      "POL-14"
+    ],
+    "product_sections": [
+      "146-devices-and-assignments",
+      "148-settings-and-advanced-operation",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Administrators can change effective access deliberately, see why assignment wins and understand the expiry/return policy or restored dependencies.",
+    "deliverables": [
+      "Device/group/network assignment reorder/diff and scoped override replacement/expiry forms.",
+      "Rollback/restoration preview with explicit configuration/data/catalog dependency choice and operation confirmation."
+    ],
+    "acceptance": [
+      "Assignment UI shows explicit precedence without hidden selector-type preference or silent reorder.",
+      "Temporary override asks narrow scope/reason/expiry, shows existing replacement and return profile; uncertain attribution/time prevents false validity.",
+      "Rollback is a new reviewed revision/activation with missing/expired dependencies visible; reconnect/session-restoration limits are explained."
+    ],
+    "tests": [
+      "Native browser/runtime journey: assign conflicting selectors, create/replace a narrow override across timezone/expiry and roll back to chosen compatible data; compare canonical winner and traffic.",
+      "Attempt duplicate priority, ambiguous device, broad exception, untrusted time and absent/incompatible rollback artifact; confirm structured validation, mapping and draft preservation.",
+      "Expire an override with browser/control unavailable and interrupt rollback/apply; reconnect and verify actual return profile, distinct desired/active state and recovery."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W02-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-03, UX-04, UX-08, POL-02, POL-04, POL-05, POL-10, POL-14 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W02-T03.md"
+  },
+  {
+    "id": "M08-W03-T01",
+    "title": "Complete stable paginated activity search and truthful attempt aggregation",
+    "milestone": "M08",
+    "work_package": "M08-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "activity",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W01-T01",
+      "M05-W04-T02"
+    ],
+    "requirements": [
+      "UX-05",
+      "UX-06",
+      "UX-08",
+      "QLT-05",
+      "QLT-09",
+      "PRI-01",
+      "PRI-02"
+    ],
+    "product_sections": [
+      "132-activity-collection-and-aggregation",
+      "147-activity-and-decision-drawer",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "103-sqlite-design",
+      "124-types-localization-and-data-scale",
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Local activity remains responsive and understandable through filters, refreshes and loss intervals without equating connection attempts to page views.",
+    "deliverables": [
+      "Bounded permission-checked server queries/cursor ordering and typed filter/search state.",
+      "Correct aggregation key/count/first-last time plus completeness/drop interval display."
+    ],
+    "acceptance": [
+      "Filters cover device/profile/verdict/outcome/category/app/visibility/time and stable sort prevents skipped/duplicate rows under concurrent inserts.",
+      "Aggregation never combines different device/destination/app/profile/reason/outcome keys; exact large counts use safe wire handling.",
+      "Missing/stale/incomplete collection is visible; no event absence implies allow or host-firewall block."
+    ],
+    "tests": [
+      "SQLite/API/browser harness with 5/100/1,000-entry and reference-sized synthetic data: paginate concurrent insertion, filter changes and refresh; compare independently enumerated row identities/counts.",
+      "Try malicious/raw filter strings, unbounded time/export limits, viewer denial and older canceled responses; verify parameterization, bounds and current-filter context.",
+      "Pressure writer/WAL/queue, disable collection and stop activity/API; verify visible gap intervals, stable preserved filters, bounded response and continued packet enforcement."
+    ],
+    "constraints": [
+      "QLT response targets are measured finally at M09; this task records its environment/measurement without asserting GA capacity.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W03-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-05, UX-06, UX-08, QLT-05, QLT-09, PRI-01, PRI-02 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W03-T01.md"
+  },
+  {
+    "id": "M08-W03-T02",
+    "title": "Complete historical decision drawer and safe narrow exception recovery",
+    "milestone": "M08",
+    "work_package": "M08-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W03-T01",
+      "M08-W02-T01"
+    ],
+    "requirements": [
+      "POL-11",
+      "UX-05",
+      "UX-06",
+      "UX-12",
+      "QLT-09"
+    ],
+    "product_sections": [
+      "131-decision-record-contract",
+      "147-activity-and-decision-drawer",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "The decision drawer explains captured policy and actual enforcement, then offers the narrowest valid corrective exception without hidden broad authorization.",
+    "deliverables": [
+      "Full historical evidence/control/provenance/generation drawer with unavailable-state copy.",
+      "Open-profile/test-destination/add-exception workflow using canonical qualifying selectors and review/apply."
+    ],
+    "acceptance": [
+      "Drawer uses captured context, not today's categories/device/profile; all relevant labels and absence reasons remain visible.",
+      "Policy verdict, confirmed/attempted/failed action, visibility and connection success are distinct; observe says would-block.",
+      "Exception prefills only qualifying hostname/app scope, previews guardrails and cannot allow a category/shared IP silently.",
+      "HTTPS guidance relates client failure to admin record without certificate-error block pages or claims of decrypted contents."
+    ],
+    "tests": [
+      "Native real-record journey: inspect block/allow/observe/failed/incomplete cases, alter current policy/data, then add narrow exception through review/apply; compare frozen history and new flow outcome.",
+      "Exercise hidden hostname, generic TLS, shared CDN/IP, multiple labels, guardrail block and viewer role; verify missing scope/recovery limitations and escaping.",
+      "Lose drawer detail/API during exception creation and fail activation; preserve filter/draft context, stale/incomplete state and accurate recovery without invented event detail."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W03-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for POL-11, UX-05, UX-06, UX-12, QLT-09 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W03-T02.md"
+  },
+  {
+    "id": "M08-W03-T03",
+    "title": "Complete the canonical destination/context tester with explicit assumptions",
+    "milestone": "M08",
+    "work_package": "M08-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p1",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W03-T02",
+      "M07-W04-T02",
+      "M06-W04-T02",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "DAT-03",
+      "DAT-04",
+      "DAT-09",
+      "POL-06",
+      "UX-05",
+      "UX-06"
+    ],
+    "product_sections": [
+      "53-normalization-and-canonical-matching",
+      "121-required-logical-operations",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "A user tests category/policy context using the same normalization, lookup and evaluator as enforcement while seeing simulation assumptions and eligible provenance.",
+    "deliverables": [
+      "Native typed tester API and destination/device/profile/time input workflow.",
+      "Canonical labels/source versions/eligibility/uncertainty/reason result and links to relevant editor."
+    ],
+    "acceptance": [
+      "IDN/domain boundaries/multi-label/private correction/source expiry match runtime and replay for identical supplied contexts.",
+      "Assumed device/time/profile/capabilities are visible; simulated allow/block is never reported as an actual successful connection or observed enforcement.",
+      "Unavailable or incomplete evidence is explicit and no TypeScript/PHP duplicate policy algorithm supplies substitute results."
+    ],
+    "tests": [
+      "Canonical fixture and native browser harness: compare runtime/replay/tester for eligible exact/subdomain/IDN/multi-label/correction cases under chosen device/time profiles.",
+      "Test IPv6 literals, deceptive/public suffix input, hidden/unprovided evidence, removed catalog ID and contradictory assumption; verify shared validation and honest incomplete results.",
+      "Expire source/correction and change active bundle during tester request, then fail API; confirm one coherent identity, labeled freshness/stale state and no remote categorization wait."
+    ],
+    "constraints": [
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W03-T03-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-03, DAT-04, DAT-09, POL-06, UX-05, UX-06 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W03-T03.md"
+  },
+  {
+    "id": "M08-W04-T01",
+    "title": "Complete collection controls, bounded deletion and configuration/history export",
+    "milestone": "M08",
+    "work_package": "M08-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "activity",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W03-T01",
+      "M07-W01-T03"
+    ],
+    "requirements": [
+      "OPS-07",
+      "PRI-01",
+      "PRI-02",
+      "POL-01",
+      "QLT-09"
+    ],
+    "product_sections": [
+      "123-configuration-export-and-import",
+      "132-activity-collection-and-aggregation",
+      "133-privacy-defaults",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "103-sqlite-design",
+      "104-backuprestore-and-secret-separation",
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Administrators understand what local metadata is collected and can disable collection, enforce quotas/delete scope and export/import intent separately from history or licensed data.",
+    "deliverables": [
+      "Privacy/retention/quota/collection-disabled settings integrated with activity writer and completeness status.",
+      "Bounded deletion and canonical configuration/correction/dependency export/import with visible site/device mappings and optional history handling."
+    ],
+    "acceptance": [
+      "Default excludes packet/browsing-body retention and telemetry; hostname/device metadata disclosure appears before detailed activity collection.",
+      "Seven-day/512-MiB values remain proposed until measured freeze; configured quotas bound DB/WAL/export/deletion work and collection-disabled does not stop filtering.",
+      "Deletion scope distinguishes activity from bounded policy audit; config/corrections/dependencies, runtime evidence/history, third-party data and keys are separate.",
+      "Export/import requires permissions/review and excludes unapproved data redistribution/keys by default; no export sends data anywhere."
+    ],
+    "tests": [
+      "Native activity/API/browser lab: enable/disable collection, change retention/quota, delete selected scope and export/reimport valid configuration with explicit mappings; inspect stored/exported fields and live enforcement.",
+      "Try oversized exports, unauthorized deletion, unknown import fields, absent dependencies and license-prohibited dataset inclusion; assert refusal and no privacy leak.",
+      "Fill WAL/disk, interrupt deletion/export/import and stop controller/activity during traffic; verify bounded retry/recovery, loss intervals and preserved native/verified policy."
+    ],
+    "constraints": [
+      "No encryption-at-rest or zero-loss activity claim unless independently implemented/tested; diagnostics/keys have separate scope.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W04-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for OPS-07, PRI-01, PRI-02, POL-01, QLT-09 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W04-T01.md"
+  },
+  {
+    "id": "M08-W04-T02",
+    "title": "Prepare redacted diagnostics and taxonomy contributions without automatic sharing",
+    "milestone": "M08",
+    "work_package": "M08-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "security",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W04-T01",
+      "M07-W04-T02"
+    ],
+    "requirements": [
+      "OPS-07",
+      "PRI-01",
+      "PRI-03",
+      "DAT-07",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "75-curation-and-quality-operations",
+      "133-privacy-defaults",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "Diagnostic/export/correction preparation shows exactly what will be included and produces a bounded local artifact without uploading records or identifiers.",
+    "deliverables": [
+      "Redaction/content/size/destination preview and permission-checked local diagnostic artifact generation.",
+      "Prepare-contribution form for destination/labels/reason/optional evidence with explicit inclusion and public workflow documentation."
+    ],
+    "acceptance": [
+      "Diagnostics default to versions/status/redacted summaries/counters/error codes; names/addresses/hostnames/activity/captures require explicit inclusion.",
+      "No secrets/credentials/appliance backup/CA material enters ordinary diagnostics; arbitrary path/command input is rejected.",
+      "Prepare contribution/export performs no network submission, telemetry or crash upload; local correction remains usable independently."
+    ],
+    "tests": [
+      "Native lab/browser with synthetic sensitive markers: preview default and opt-in fields, generate bounded artifacts and inspect decoded content/redaction versus preview.",
+      "Inject hostname/display HTML, traversal paths, over-quota detail, forbidden secret fields and viewer role; verify safe denial/redaction and no hidden data.",
+      "Capture egress while preparing artifacts, disconnect network and interrupt generation/storage; confirm zero automatic sends, explicit failure and local policy independence."
+    ],
+    "constraints": [
+      "Preparation does not authorize sending to maintainers or external services; no implementation of optional remote categorization in V1.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W04-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for OPS-07, PRI-01, PRI-03, DAT-07, OSS-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W04-T02.md"
+  },
+  {
+    "id": "M08-W05-T01",
+    "title": "Validate host UI accessibility, localization, responsive scale and exceptional states",
+    "milestone": "M08",
+    "work_package": "M08-W05",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W01-T02",
+      "M08-W01-T03",
+      "M08-W02-T03",
+      "M08-W03-T03",
+      "M08-W04-T02"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "UX-12",
+      "QLT-05"
+    ],
+    "product_sections": [
+      "1410-responsive-and-accessibility-contract",
+      "1411-state-and-copy-matrix",
+      "1412-design-acceptance",
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "125-frontend-quality-contract",
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "The complete Detew-owned native surface has reviewed interaction, visual and accessibility evidence in both locales, themes and operational states.",
+    "deliverables": [
+      "Strict type/lint/generated-contract checks, component interaction/browser journey and automated accessibility evidence.",
+      "Manual keyboard/screen-reader/focus/contrast/200% zoom/reflow/reduced-motion/visual review with realistic large lists and long values."
+    ],
+    "acceptance": [
+      "Primary journeys externalize English/pt-BR strings and localize times/counts without changing stable IDs/UTC meaning.",
+      "Keyboard, focus restoration/drawers/dialogs, semantic labels, non-color status, contrast and zoom/reflow meet WCAG 2.2 AA for Detew surface.",
+      "Desktop/narrow triage retains profile/device/reason/recovery context; 5/100/1,000 entries remain paginated and usable.",
+      "Real empty/loading/stale/offline/permission/session/conflict/partial states are tested; no stale green active indicator survives failed refresh."
+    ],
+    "tests": [
+      "Execute M00-defined strict frontend/contract/component/browser/axe checks on exact native packaged host assets in English/pt-BR and light/dark; record failures rather than assuming commands exist.",
+      "Manually run keyboard and screen-reader setup/edit/explain/override/recovery at 200% zoom/narrow widths with IPv6/IDN/long translations and 5/100/1,000 fixtures; inspect reviewed screenshots and focus order.",
+      "Expire session, use viewer, race edits, interrupt polling/operation reconnect and stall worker; verify preserved draft/context, no optimistic active claim and safe corrective actions."
+    ],
+    "constraints": [
+      "Automated tools and screenshots supplement manual task/accessibility evidence; M10 still owns independent timed/comprehension participant gates.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W05-T01-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for UX-01, UX-02, UX-03, UX-04, UX-05, UX-06, UX-07, UX-08, UX-09, UX-10, UX-11, UX-12, QLT-05 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W05-T01.md"
+  },
+  {
+    "id": "M08-W05-T02",
+    "title": "Accept the integrated V1 experience and local activity workflows",
+    "milestone": "M08",
+    "work_package": "M08-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M04-W05-T02",
+      "M08-W05-T01",
+      "M06-W05-T02",
+      "M07-W05-T02"
+    ],
+    "requirements": [
+      "DAT-09",
+      "OPS-07",
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "UX-12",
+      "PRI-01",
+      "PRI-02",
+      "PRI-03",
+      "QLT-05",
+      "QLT-09",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "12-administration-api-and-shared-validation",
+      "13-decision-explanations-activity-and-privacy",
+      "14-uiux-definition"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "12-frontend-architecture"
+    ],
+    "architecture_decisions": [
+      "ARC-09",
+      "ARC-10",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "G1",
+      "G2"
+    ],
+    "outcome": "M08 closes only when real services support all S-01–S-08 journeys and complete operational states on accepted M06/M07 behavior.",
+    "deliverables": [
+      "Integrated experience evidence index and S-01–S-08 browser/native/traffic scenario report.",
+      "Reviewed UI/component/privacy/completeness decision and explicit M09 benchmark/M10 independent-user obligations."
+    ],
+    "acceptance": [
+      "Every M08-W01–W05 package is covered through accepted evidence and full M06/M07 acceptance is linked at the tested revision.",
+      "Journeys cover setup/category assignment/explanation/narrow exception/time override/data/offline/recovery with confirmed real runtime outcomes rather than mocks.",
+      "Policy verdict, actual action, metadata visibility and activity completeness stay distinct; privacy controls/exports require visible bounded scope.",
+      "Internal review accepts interactions/craft/accessibility while unexecuted performance or independent participant gates remain explicit."
+    ],
+    "tests": [
+      "Independent internal reviewer runs PRD S-01–S-08 on exact native host revision with actual IPv4/IPv6 flows and compares API/UI/history to accepted policy/lifecycle reports.",
+      "Repeat ambiguous attribution, guardrail exception, hidden hostname, multiple labels, viewer/session, malformed import and conflicting draft cases in both locales/themes/narrow triage.",
+      "Interrupt controller/activity/API, expire source/override with browser offline, stall activation and reconnect; verify honest state, preserved context and documented recovery, including collection gaps."
+    ],
+    "constraints": [
+      "This exact terminal has dependency paths through all M08 packages plus full M06/M07; it does not close M10 independent usability or G2 by itself.",
+      "Use synthetic or safely curated licensed fixtures; record exact code, host, toolchain, artifact and input versions.",
+      "Do not infer milestone acceptance or supported compatibility from component tests; report unavailable checks and remaining limitations."
+    ],
+    "evidence": [
+      "M08-W05-T02-E01: implementation/experiment report with expected and observed outcomes, reproducible procedures, exact revision, limits and review disposition.",
+      "Update the requirement evidence ledger for DAT-09, OPS-07, UX-01, UX-02, UX-03, UX-04, UX-05, UX-06, UX-07, UX-08, UX-09, UX-10, UX-11, UX-12, PRI-01, PRI-02, PRI-03, QLT-05, QLT-09, OSS-03 with this task and accepted report identities; keep unexecuted checks unverified."
+    ],
+    "refinement_notes": [
+      "All dependencies and gates are planned at backlog creation. Select exact implementation commands from the M00 check contract; no future script is assumed to exist.",
+      "If findings alter a normative contract, follow MILESTONES synchronization rules and update affected foundation documents and downstream tasks before implementation."
+    ],
+    "doc_path": "docs/tasks/m08/M08-W05-T02.md"
+  }
+]

@@ -1,0 +1,241 @@
+# Task dependencies
+
+This is a directed acyclic graph: predecessor tasks must supply accepted outputs before dependent implementation starts. The order index uses a stable topological sort; tasks without an edge between them can proceed independently once their entry conditions hold. A single line of work is not imposed on parallel branches.
+
+## Dependency layers
+
+Layers count prerequisite depth, not sprints or delivery duration. Each milestone page includes a diagram of its task branches and incoming prerequisites.
+
+| Layer | Tasks |
+|---|---|
+| 0 | [M00-W01-T01](m00/M00-W01-T01.md), [M00-W03-T01](m00/M00-W03-T01.md), [M00-W05-T01](m00/M00-W05-T01.md), [M10-W01-T01](m10/M10-W01-T01.md) |
+| 1 | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W02-T01](m00/M00-W02-T01.md), [M03-W02-T01](m03/M03-W02-T01.md), [M10-W01-T02](m10/M10-W01-T02.md), [M10-W03-T01](m10/M10-W03-T01.md) |
+| 2 | [M00-W01-T03](m00/M00-W01-T03.md), [M00-W02-T02](m00/M00-W02-T02.md), [M00-W03-T02](m00/M00-W03-T02.md) |
+| 3 | [M00-W02-T03](m00/M00-W02-T03.md), [M00-W04-T01](m00/M00-W04-T01.md) |
+| 4 | [M00-W04-T02](m00/M00-W04-T02.md), [M00-W05-T02](m00/M00-W05-T02.md) |
+| 5 | [M01-W01-T01](m01/M01-W01-T01.md) |
+| 6 | [M01-W01-T02](m01/M01-W01-T02.md), [M01-W02-T01](m01/M01-W02-T01.md) |
+| 7 | [M01-W02-T02](m01/M01-W02-T02.md), [M01-W04-T01](m01/M01-W04-T01.md), [M01-W05-T01](m01/M01-W05-T01.md) |
+| 8 | [M01-W03-T01](m01/M01-W03-T01.md) |
+| 9 | [M01-W03-T02](m01/M01-W03-T02.md) |
+| 10 | [M01-W04-T02](m01/M01-W04-T02.md) |
+| 11 | [M01-W05-T02](m01/M01-W05-T02.md) |
+| 12 | [M02-W01-T01](m02/M02-W01-T01.md), [M02-W03-T01](m02/M02-W03-T01.md), [M03-W01-T01](m03/M03-W01-T01.md), [M04-W01-T01](m04/M04-W01-T01.md) |
+| 13 | [M02-W01-T02](m02/M02-W01-T02.md), [M02-W03-T02](m02/M02-W03-T02.md), [M03-W01-T02](m03/M03-W01-T02.md), [M03-W04-T01](m03/M03-W04-T01.md), [M04-W01-T02](m04/M04-W01-T02.md), [M04-W02-T01](m04/M04-W02-T01.md) |
+| 14 | [M02-W02-T01](m02/M02-W02-T01.md), [M02-W04-T01](m02/M02-W04-T01.md), [M03-W02-T02](m03/M03-W02-T02.md), [M04-W01-T03](m04/M04-W01-T03.md), [M04-W02-T02](m04/M04-W02-T02.md), [M04-W03-T01](m04/M04-W03-T01.md) |
+| 15 | [M02-W02-T02](m02/M02-W02-T02.md), [M02-W04-T02](m02/M02-W04-T02.md), [M03-W03-T01](m03/M03-W03-T01.md), [M04-W02-T03](m04/M04-W02-T03.md) |
+| 16 | [M02-W05-T01](m02/M02-W05-T01.md), [M03-W03-T02](m03/M03-W03-T02.md), [M04-W03-T02](m04/M04-W03-T02.md) |
+| 17 | [M02-W05-T02](m02/M02-W05-T02.md), [M03-W04-T02](m03/M03-W04-T02.md), [M04-W03-T03](m04/M04-W03-T03.md) |
+| 18 | [M03-W05-T01](m03/M03-W05-T01.md), [M04-W04-T01](m04/M04-W04-T01.md) |
+| 19 | [M03-W05-T02](m03/M03-W05-T02.md), [M04-W04-T02](m04/M04-W04-T02.md) |
+| 20 | [M04-W05-T01](m04/M04-W05-T01.md) |
+| 21 | [M04-W05-T02](m04/M04-W05-T02.md) |
+| 22 | [M05-W01-T01](m05/M05-W01-T01.md), [M08-W01-T01](m08/M08-W01-T01.md) |
+| 23 | [M05-W01-T02](m05/M05-W01-T02.md) |
+| 24 | [M05-W01-T03](m05/M05-W01-T03.md) |
+| 25 | [M05-W02-T01](m05/M05-W02-T01.md) |
+| 26 | [M05-W02-T02](m05/M05-W02-T02.md), [M05-W03-T01](m05/M05-W03-T01.md), [M05-W04-T01](m05/M05-W04-T01.md) |
+| 27 | [M05-W03-T02](m05/M05-W03-T02.md) |
+| 28 | [M05-W03-T03](m05/M05-W03-T03.md) |
+| 29 | [M05-W04-T02](m05/M05-W04-T02.md) |
+| 30 | [M05-W05-T01](m05/M05-W05-T01.md), [M08-W03-T01](m08/M08-W03-T01.md) |
+| 31 | [M05-W05-T02](m05/M05-W05-T02.md) |
+| 32 | [M06-W01-T01](m06/M06-W01-T01.md), [M06-W03-T01](m06/M06-W03-T01.md), [M07-W01-T01](m07/M07-W01-T01.md), [M07-W03-T01](m07/M07-W03-T01.md), [M08-W01-T02](m08/M08-W01-T02.md) |
+| 33 | [M06-W01-T02](m06/M06-W01-T02.md), [M07-W01-T02](m07/M07-W01-T02.md) |
+| 34 | [M06-W01-T03](m06/M06-W01-T03.md), [M06-W02-T01](m06/M06-W02-T01.md), [M07-W01-T03](m07/M07-W01-T03.md), [M07-W02-T01](m07/M07-W02-T01.md) |
+| 35 | [M06-W02-T02](m06/M06-W02-T02.md), [M06-W05-T01](m06/M06-W05-T01.md), [M07-W02-T02](m07/M07-W02-T02.md), [M07-W03-T02](m07/M07-W03-T02.md), [M08-W04-T01](m08/M08-W04-T01.md) |
+| 36 | [M06-W03-T02](m06/M06-W03-T02.md), [M07-W02-T03](m07/M07-W02-T03.md), [M07-W03-T03](m07/M07-W03-T03.md), [M07-W04-T01](m07/M07-W04-T01.md), [M08-W02-T01](m08/M08-W02-T01.md) |
+| 37 | [M06-W03-T03](m06/M06-W03-T03.md), [M06-W04-T01](m06/M06-W04-T01.md), [M07-W04-T02](m07/M07-W04-T02.md), [M08-W01-T03](m08/M08-W01-T03.md), [M08-W02-T02](m08/M08-W02-T02.md), [M08-W03-T02](m08/M08-W03-T02.md) |
+| 38 | [M06-W04-T02](m06/M06-W04-T02.md), [M07-W05-T01](m07/M07-W05-T01.md), [M08-W02-T03](m08/M08-W02-T03.md), [M08-W04-T02](m08/M08-W04-T02.md) |
+| 39 | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W03-T03](m08/M08-W03-T03.md) |
+| 40 | [M08-W05-T01](m08/M08-W05-T01.md) |
+| 41 | [M08-W05-T02](m08/M08-W05-T02.md) |
+| 42 | [M09-W01-T01](m09/M09-W01-T01.md) |
+| 43 | [M09-W01-T02](m09/M09-W01-T02.md), [M09-W02-T01](m09/M09-W02-T01.md), [M09-W03-T01](m09/M09-W03-T01.md) |
+| 44 | [M09-W02-T02](m09/M09-W02-T02.md), [M09-W03-T02](m09/M09-W03-T02.md), [M09-W05-T01](m09/M09-W05-T01.md) |
+| 45 | [M09-W04-T01](m09/M09-W04-T01.md), [M09-W05-T02](m09/M09-W05-T02.md) |
+| 46 | [M09-W04-T02](m09/M09-W04-T02.md) |
+| 47 | [M09-W06-T01](m09/M09-W06-T01.md) |
+| 48 | [M09-W06-T02](m09/M09-W06-T02.md) |
+| 49 | [M10-W02-T01](m10/M10-W02-T01.md) |
+| 50 | [M10-W02-T02](m10/M10-W02-T02.md), [M10-W03-T02](m10/M10-W03-T02.md) |
+| 51 | [M10-W04-T01](m10/M10-W04-T01.md) |
+| 52 | [M10-W04-T02](m10/M10-W04-T02.md) |
+| 53 | [M10-W05-T01](m10/M10-W05-T01.md) |
+| 54 | [M10-W05-T02](m10/M10-W05-T02.md) |
+| 55 | [M11-W01-T01](m11/M11-W01-T01.md), [M11-W04-T01](m11/M11-W04-T01.md) |
+| 56 | [M11-W03-T01](m11/M11-W03-T01.md), [M11-W02-T01](m11/M11-W02-T01.md) |
+| 57 | [M11-W02-T02](m11/M11-W02-T02.md) |
+| 58 | [M11-W01-T02](m11/M11-W01-T02.md), [M11-W03-T02](m11/M11-W03-T02.md), [M11-W04-T02](m11/M11-W04-T02.md) |
+| 59 | [M11-W05-T01](m11/M11-W05-T01.md) |
+| 60 | [M11-W05-T02](m11/M11-W05-T02.md) |
+| 61 | [M12-W01-T01](m12/M12-W01-T01.md), [M13-W01-T01](m13/M13-W01-T01.md) |
+| 62 | [M12-W01-T02](m12/M12-W01-T02.md), [M13-W01-T02](m13/M13-W01-T02.md) |
+| 63 | [M12-W02-T01](m12/M12-W02-T01.md), [M13-W02-T01](m13/M13-W02-T01.md), [M13-W03-T01](m13/M13-W03-T01.md), [M13-W04-T01](m13/M13-W04-T01.md), [M13-W05-T01](m13/M13-W05-T01.md) |
+| 64 | [M12-W02-T02](m12/M12-W02-T02.md), [M12-W03-T01](m12/M12-W03-T01.md), [M13-W02-T02](m13/M13-W02-T02.md), [M13-W03-T02](m13/M13-W03-T02.md), [M13-W04-T02](m13/M13-W04-T02.md), [M13-W05-T02](m13/M13-W05-T02.md) |
+| 65 | [M12-W03-T02](m12/M12-W03-T02.md), [M12-W04-T01](m12/M12-W04-T01.md) |
+| 66 | [M12-W04-T02](m12/M12-W04-T02.md) |
+| 67 | [M12-W05-T01](m12/M12-W05-T01.md) |
+| 68 | [M12-W05-T02](m12/M12-W05-T02.md) |
+
+## Direct prerequisites
+
+| Task | Direct prerequisites | Initial status |
+|---|---|---|
+| [M00-W01-T01](m00/M00-W01-T01.md) | none | ready |
+| [M00-W01-T02](m00/M00-W01-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M00-W01-T03](m00/M00-W01-T03.md) | [M00-W01-T02](m00/M00-W01-T02.md) | blocked |
+| [M00-W02-T01](m00/M00-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M00-W02-T02](m00/M00-W02-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W02-T01](m00/M00-W02-T01.md) | blocked |
+| [M00-W02-T03](m00/M00-W02-T03.md) | [M00-W02-T02](m00/M00-W02-T02.md) | blocked |
+| [M00-W03-T01](m00/M00-W03-T01.md) | none | ready |
+| [M00-W03-T02](m00/M00-W03-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md), [M00-W02-T01](m00/M00-W02-T01.md), [M00-W03-T01](m00/M00-W03-T01.md) | blocked |
+| [M00-W04-T01](m00/M00-W04-T01.md) | [M00-W02-T02](m00/M00-W02-T02.md), [M00-W01-T02](m00/M00-W01-T02.md) | blocked |
+| [M00-W04-T02](m00/M00-W04-T02.md) | [M00-W04-T01](m00/M00-W04-T01.md), [M00-W02-T03](m00/M00-W02-T03.md), [M00-W03-T02](m00/M00-W03-T02.md) | blocked |
+| [M00-W05-T01](m00/M00-W05-T01.md) | none | ready |
+| [M00-W05-T02](m00/M00-W05-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W05-T01](m00/M00-W05-T01.md), [M00-W04-T01](m00/M00-W04-T01.md) | blocked |
+| [M01-W01-T01](m01/M01-W01-T01.md) | [M00-W01-T03](m00/M00-W01-T03.md), [M00-W02-T03](m00/M00-W02-T03.md), [M00-W03-T02](m00/M00-W03-T02.md), [M00-W04-T02](m00/M00-W04-T02.md), [M00-W05-T02](m00/M00-W05-T02.md) | blocked |
+| [M01-W01-T02](m01/M01-W01-T02.md) | [M01-W01-T01](m01/M01-W01-T01.md) | blocked |
+| [M01-W02-T01](m01/M01-W02-T01.md) | [M01-W01-T01](m01/M01-W01-T01.md) | blocked |
+| [M01-W02-T02](m01/M01-W02-T02.md) | [M01-W02-T01](m01/M01-W02-T01.md), [M01-W01-T02](m01/M01-W01-T02.md) | blocked |
+| [M01-W04-T01](m01/M01-W04-T01.md) | [M01-W01-T02](m01/M01-W01-T02.md) | blocked |
+| [M01-W05-T01](m01/M01-W05-T01.md) | [M01-W01-T01](m01/M01-W01-T01.md), [M01-W02-T01](m01/M01-W02-T01.md) | blocked |
+| [M01-W03-T01](m01/M01-W03-T01.md) | [M01-W01-T02](m01/M01-W01-T02.md), [M01-W02-T02](m01/M01-W02-T02.md), [M01-W05-T01](m01/M01-W05-T01.md) | blocked |
+| [M01-W03-T02](m01/M01-W03-T02.md) | [M01-W03-T01](m01/M01-W03-T01.md) | blocked |
+| [M01-W04-T02](m01/M01-W04-T02.md) | [M01-W04-T01](m01/M01-W04-T01.md), [M01-W03-T02](m01/M01-W03-T02.md) | blocked |
+| [M01-W05-T02](m01/M01-W05-T02.md) | [M01-W01-T02](m01/M01-W01-T02.md), [M01-W02-T02](m01/M01-W02-T02.md), [M01-W03-T02](m01/M01-W03-T02.md), [M01-W04-T02](m01/M01-W04-T02.md), [M01-W05-T01](m01/M01-W05-T01.md) | blocked |
+| [M02-W01-T01](m02/M02-W01-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md), [M00-W03-T02](m00/M00-W03-T02.md) | blocked |
+| [M02-W01-T02](m02/M02-W01-T02.md) | [M02-W01-T01](m02/M02-W01-T01.md) | blocked |
+| [M02-W02-T01](m02/M02-W02-T01.md) | [M02-W01-T02](m02/M02-W01-T02.md), [M00-W05-T01](m00/M00-W05-T01.md) | blocked |
+| [M02-W02-T02](m02/M02-W02-T02.md) | [M02-W02-T01](m02/M02-W02-T01.md) | blocked |
+| [M02-W03-T01](m02/M02-W03-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md), [M00-W03-T02](m00/M00-W03-T02.md), [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M02-W03-T02](m02/M02-W03-T02.md) | [M02-W03-T01](m02/M02-W03-T01.md) | blocked |
+| [M02-W04-T01](m02/M02-W04-T01.md) | [M02-W03-T02](m02/M02-W03-T02.md), [M01-W02-T02](m01/M01-W02-T02.md) | blocked |
+| [M02-W04-T02](m02/M02-W04-T02.md) | [M02-W04-T01](m02/M02-W04-T01.md) | blocked |
+| [M02-W05-T01](m02/M02-W05-T01.md) | [M02-W01-T02](m02/M02-W01-T02.md), [M02-W02-T02](m02/M02-W02-T02.md) | blocked |
+| [M02-W05-T02](m02/M02-W05-T02.md) | [M02-W03-T02](m02/M02-W03-T02.md), [M02-W04-T02](m02/M02-W04-T02.md), [M02-W05-T01](m02/M02-W05-T01.md) | blocked |
+| [M03-W01-T01](m03/M03-W01-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M03-W01-T02](m03/M03-W01-T02.md) | [M03-W01-T01](m03/M03-W01-T01.md), [M01-W03-T02](m01/M01-W03-T02.md) | blocked |
+| [M03-W02-T01](m03/M03-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M03-W02-T02](m03/M03-W02-T02.md) | [M03-W02-T01](m03/M03-W02-T01.md), [M03-W01-T02](m03/M03-W01-T02.md) | blocked |
+| [M03-W03-T01](m03/M03-W03-T01.md) | [M03-W01-T02](m03/M03-W01-T02.md), [M03-W02-T02](m03/M03-W02-T02.md), [M01-W02-T02](m01/M01-W02-T02.md), [M01-W04-T02](m01/M01-W04-T02.md) | blocked |
+| [M03-W03-T02](m03/M03-W03-T02.md) | [M03-W03-T01](m03/M03-W03-T01.md) | blocked |
+| [M03-W04-T01](m03/M03-W04-T01.md) | [M03-W01-T01](m03/M03-W01-T01.md), [M00-W04-T01](m00/M00-W04-T01.md) | blocked |
+| [M03-W04-T02](m03/M03-W04-T02.md) | [M03-W04-T01](m03/M03-W04-T01.md), [M03-W03-T02](m03/M03-W03-T02.md) | blocked |
+| [M03-W05-T01](m03/M03-W05-T01.md) | [M03-W03-T02](m03/M03-W03-T02.md), [M03-W02-T02](m03/M03-W02-T02.md), [M03-W04-T02](m03/M03-W04-T02.md) | blocked |
+| [M03-W05-T02](m03/M03-W05-T02.md) | [M03-W01-T02](m03/M03-W01-T02.md), [M03-W02-T02](m03/M03-W02-T02.md), [M03-W03-T02](m03/M03-W03-T02.md), [M03-W04-T02](m03/M03-W04-T02.md), [M03-W05-T01](m03/M03-W05-T01.md) | blocked |
+| [M04-W01-T01](m04/M04-W01-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M04-W01-T02](m04/M04-W01-T02.md) | [M04-W01-T01](m04/M04-W01-T01.md) | blocked |
+| [M04-W01-T03](m04/M04-W01-T03.md) | [M04-W01-T02](m04/M04-W01-T02.md) | blocked |
+| [M04-W02-T01](m04/M04-W02-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md), [M04-W01-T01](m04/M04-W01-T01.md) | blocked |
+| [M04-W02-T02](m04/M04-W02-T02.md) | [M04-W02-T01](m04/M04-W02-T01.md), [M00-W05-T01](m00/M00-W05-T01.md) | blocked |
+| [M04-W02-T03](m04/M04-W02-T03.md) | [M04-W02-T02](m04/M04-W02-T02.md), [M04-W01-T03](m04/M04-W01-T03.md) | blocked |
+| [M04-W03-T01](m04/M04-W03-T01.md) | [M04-W02-T01](m04/M04-W02-T01.md), [M00-W02-T03](m00/M00-W02-T03.md) | blocked |
+| [M04-W03-T02](m04/M04-W03-T02.md) | [M04-W03-T01](m04/M04-W03-T01.md), [M04-W02-T03](m04/M04-W02-T03.md) | blocked |
+| [M04-W03-T03](m04/M04-W03-T03.md) | [M04-W03-T02](m04/M04-W03-T02.md) | blocked |
+| [M04-W04-T01](m04/M04-W04-T01.md) | [M04-W01-T03](m04/M04-W01-T03.md), [M04-W02-T03](m04/M04-W02-T03.md), [M04-W03-T03](m04/M04-W03-T03.md) | blocked |
+| [M04-W04-T02](m04/M04-W04-T02.md) | [M04-W04-T01](m04/M04-W04-T01.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M04-W05-T01](m04/M04-W05-T01.md) | [M04-W01-T03](m04/M04-W01-T03.md), [M04-W02-T03](m04/M04-W02-T03.md), [M04-W03-T03](m04/M04-W03-T03.md), [M04-W04-T02](m04/M04-W04-T02.md) | blocked |
+| [M04-W05-T02](m04/M04-W05-T02.md) | [M01-W05-T02](m01/M01-W05-T02.md), [M02-W05-T01](m02/M02-W05-T01.md), [M02-W05-T02](m02/M02-W05-T02.md), [M03-W05-T02](m03/M03-W05-T02.md), [M04-W05-T01](m04/M04-W05-T01.md) | blocked |
+| [M05-W01-T01](m05/M05-W01-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md) | blocked |
+| [M05-W01-T02](m05/M05-W01-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W01-T01](m05/M05-W01-T01.md) | blocked |
+| [M05-W01-T03](m05/M05-W01-T03.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W01-T02](m05/M05-W01-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M05-W02-T01](m05/M05-W02-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W01-T03](m05/M05-W01-T03.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M05-W02-T02](m05/M05-W02-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W02-T01](m05/M05-W02-T01.md) | blocked |
+| [M05-W03-T01](m05/M05-W03-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W02-T01](m05/M05-W02-T01.md) | blocked |
+| [M05-W03-T02](m05/M05-W03-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W03-T01](m05/M05-W03-T01.md) | blocked |
+| [M05-W03-T03](m05/M05-W03-T03.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W03-T02](m05/M05-W03-T02.md), [M05-W02-T02](m05/M05-W02-T02.md) | blocked |
+| [M05-W04-T01](m05/M05-W04-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W02-T01](m05/M05-W02-T01.md) | blocked |
+| [M05-W04-T02](m05/M05-W04-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W04-T01](m05/M05-W04-T01.md), [M05-W03-T03](m05/M05-W03-T03.md) | blocked |
+| [M05-W05-T01](m05/M05-W05-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W01-T03](m05/M05-W01-T03.md), [M05-W02-T02](m05/M05-W02-T02.md), [M05-W03-T03](m05/M05-W03-T03.md), [M05-W04-T02](m05/M05-W04-T02.md) | blocked |
+| [M05-W05-T02](m05/M05-W05-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M05-W05-T01](m05/M05-W05-T01.md) | blocked |
+| [M06-W01-T01](m06/M06-W01-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W01-T02](m06/M06-W01-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T01](m06/M06-W01-T01.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W01-T03](m06/M06-W01-T03.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T02](m06/M06-W01-T02.md) | blocked |
+| [M06-W02-T01](m06/M06-W02-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T02](m06/M06-W01-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W02-T02](m06/M06-W02-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W02-T01](m06/M06-W02-T01.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W03-T01](m06/M06-W03-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W03-T02](m06/M06-W03-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W03-T01](m06/M06-W03-T01.md), [M06-W02-T02](m06/M06-W02-T02.md) | blocked |
+| [M06-W03-T03](m06/M06-W03-T03.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W03-T02](m06/M06-W03-T02.md) | blocked |
+| [M06-W04-T01](m06/M06-W04-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T02](m06/M06-W01-T02.md), [M06-W02-T02](m06/M06-W02-T02.md), [M06-W03-T02](m06/M06-W03-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M06-W04-T02](m06/M06-W04-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W04-T01](m06/M06-W04-T01.md) | blocked |
+| [M06-W05-T01](m06/M06-W05-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W02-T01](m06/M06-W02-T01.md) | blocked |
+| [M06-W05-T02](m06/M06-W05-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T03](m06/M06-W01-T03.md), [M06-W02-T02](m06/M06-W02-T02.md), [M06-W03-T03](m06/M06-W03-T03.md), [M06-W04-T02](m06/M06-W04-T02.md), [M06-W05-T01](m06/M06-W05-T01.md) | blocked |
+| [M07-W01-T01](m07/M07-W01-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M07-W01-T02](m07/M07-W01-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W01-T01](m07/M07-W01-T01.md) | blocked |
+| [M07-W01-T03](m07/M07-W01-T03.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W01-T02](m07/M07-W01-T02.md) | blocked |
+| [M07-W02-T01](m07/M07-W02-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W01-T02](m07/M07-W01-T02.md) | blocked |
+| [M07-W02-T02](m07/M07-W02-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W02-T01](m07/M07-W02-T01.md) | blocked |
+| [M07-W02-T03](m07/M07-W02-T03.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W02-T02](m07/M07-W02-T02.md), [M07-W01-T03](m07/M07-W01-T03.md) | blocked |
+| [M07-W03-T01](m07/M07-W03-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md) | blocked |
+| [M07-W03-T02](m07/M07-W03-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W03-T01](m07/M07-W03-T01.md), [M07-W02-T01](m07/M07-W02-T01.md) | blocked |
+| [M07-W03-T03](m07/M07-W03-T03.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W03-T02](m07/M07-W03-T02.md) | blocked |
+| [M07-W04-T01](m07/M07-W04-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W03-T02](m07/M07-W03-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M07-W04-T02](m07/M07-W04-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W04-T01](m07/M07-W04-T01.md), [M07-W01-T02](m07/M07-W01-T02.md) | blocked |
+| [M07-W05-T01](m07/M07-W05-T01.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W02-T03](m07/M07-W02-T03.md), [M07-W03-T02](m07/M07-W03-T02.md), [M07-W04-T02](m07/M07-W04-T02.md) | blocked |
+| [M07-W05-T02](m07/M07-W05-T02.md) | [M05-W05-T02](m05/M05-W05-T02.md), [M07-W01-T03](m07/M07-W01-T03.md), [M07-W02-T03](m07/M07-W02-T03.md), [M07-W03-T03](m07/M07-W03-T03.md), [M07-W04-T02](m07/M07-W04-T02.md), [M07-W05-T01](m07/M07-W05-T01.md) | blocked |
+| [M08-W01-T01](m08/M08-W01-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md) | blocked |
+| [M08-W01-T02](m08/M08-W01-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W01-T01](m08/M08-W01-T01.md), [M05-W05-T02](m05/M05-W05-T02.md) | blocked |
+| [M08-W01-T03](m08/M08-W01-T03.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W01-T01](m08/M08-W01-T01.md), [M05-W05-T02](m05/M05-W05-T02.md), [M06-W01-T02](m06/M06-W01-T02.md), [M07-W04-T01](m07/M07-W04-T01.md) | blocked |
+| [M08-W02-T01](m08/M08-W02-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W01-T01](m08/M08-W01-T01.md), [M05-W05-T02](m05/M05-W05-T02.md), [M06-W02-T02](m06/M06-W02-T02.md), [M06-W05-T01](m06/M06-W05-T01.md) | blocked |
+| [M08-W02-T02](m08/M08-W02-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W02-T01](m08/M08-W02-T01.md), [M07-W01-T03](m07/M07-W01-T03.md), [M07-W02-T02](m07/M07-W02-T02.md) | blocked |
+| [M08-W02-T03](m08/M08-W02-T03.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W02-T02](m08/M08-W02-T02.md), [M06-W01-T03](m06/M06-W01-T03.md), [M06-W03-T02](m06/M06-W03-T02.md), [M07-W02-T03](m07/M07-W02-T03.md) | blocked |
+| [M08-W03-T01](m08/M08-W03-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W01-T01](m08/M08-W01-T01.md), [M05-W04-T02](m05/M05-W04-T02.md) | blocked |
+| [M08-W03-T02](m08/M08-W03-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W03-T01](m08/M08-W03-T01.md), [M08-W02-T01](m08/M08-W02-T01.md) | blocked |
+| [M08-W03-T03](m08/M08-W03-T03.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W03-T02](m08/M08-W03-T02.md), [M07-W04-T02](m07/M07-W04-T02.md), [M06-W04-T02](m06/M06-W04-T02.md), [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
+| [M08-W04-T01](m08/M08-W04-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W03-T01](m08/M08-W03-T01.md), [M07-W01-T03](m07/M07-W01-T03.md) | blocked |
+| [M08-W04-T02](m08/M08-W04-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W04-T01](m08/M08-W04-T01.md), [M07-W04-T02](m07/M07-W04-T02.md) | blocked |
+| [M08-W05-T01](m08/M08-W05-T01.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W01-T02](m08/M08-W01-T02.md), [M08-W01-T03](m08/M08-W01-T03.md), [M08-W02-T03](m08/M08-W02-T03.md), [M08-W03-T03](m08/M08-W03-T03.md), [M08-W04-T02](m08/M08-W04-T02.md) | blocked |
+| [M08-W05-T02](m08/M08-W05-T02.md) | [M04-W05-T02](m04/M04-W05-T02.md), [M08-W05-T01](m08/M08-W05-T01.md), [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md) | blocked |
+| [M09-W01-T01](m09/M09-W01-T01.md) | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W05-T02](m08/M08-W05-T02.md) | blocked |
+| [M09-W01-T02](m09/M09-W01-T02.md) | [M09-W01-T01](m09/M09-W01-T01.md) | blocked |
+| [M09-W02-T01](m09/M09-W02-T01.md) | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W05-T02](m08/M08-W05-T02.md), [M09-W01-T01](m09/M09-W01-T01.md) | blocked |
+| [M09-W02-T02](m09/M09-W02-T02.md) | [M09-W02-T01](m09/M09-W02-T01.md), [M09-W01-T02](m09/M09-W01-T02.md) | blocked |
+| [M09-W03-T01](m09/M09-W03-T01.md) | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W05-T02](m08/M08-W05-T02.md), [M09-W01-T01](m09/M09-W01-T01.md) | blocked |
+| [M09-W03-T02](m09/M09-W03-T02.md) | [M09-W03-T01](m09/M09-W03-T01.md), [M09-W02-T01](m09/M09-W02-T01.md) | blocked |
+| [M09-W04-T01](m09/M09-W04-T01.md) | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W05-T02](m08/M08-W05-T02.md), [M09-W01-T02](m09/M09-W01-T02.md), [M09-W02-T02](m09/M09-W02-T02.md) | blocked |
+| [M09-W04-T02](m09/M09-W04-T02.md) | [M09-W04-T01](m09/M09-W04-T01.md), [M09-W03-T02](m09/M09-W03-T02.md) | blocked |
+| [M09-W05-T01](m09/M09-W05-T01.md) | [M06-W05-T02](m06/M06-W05-T02.md), [M07-W05-T02](m07/M07-W05-T02.md), [M08-W05-T02](m08/M08-W05-T02.md), [M09-W02-T01](m09/M09-W02-T01.md) | blocked |
+| [M09-W05-T02](m09/M09-W05-T02.md) | [M09-W05-T01](m09/M09-W05-T01.md), [M09-W02-T02](m09/M09-W02-T02.md) | blocked |
+| [M09-W06-T01](m09/M09-W06-T01.md) | [M09-W01-T02](m09/M09-W01-T02.md), [M09-W02-T02](m09/M09-W02-T02.md), [M09-W03-T02](m09/M09-W03-T02.md), [M09-W04-T02](m09/M09-W04-T02.md), [M09-W05-T02](m09/M09-W05-T02.md) | blocked |
+| [M09-W06-T02](m09/M09-W06-T02.md) | [M09-W06-T01](m09/M09-W06-T01.md) | blocked |
+| [M10-W01-T01](m10/M10-W01-T01.md) | none | ready |
+| [M10-W01-T02](m10/M10-W01-T02.md) | [M10-W01-T01](m10/M10-W01-T01.md) | blocked |
+| [M10-W02-T01](m10/M10-W02-T01.md) | [M10-W01-T02](m10/M10-W01-T02.md), [M09-W06-T02](m09/M09-W06-T02.md) | blocked |
+| [M10-W02-T02](m10/M10-W02-T02.md) | [M10-W02-T01](m10/M10-W02-T01.md) | blocked |
+| [M10-W03-T01](m10/M10-W03-T01.md) | [M10-W01-T01](m10/M10-W01-T01.md) | blocked |
+| [M10-W03-T02](m10/M10-W03-T02.md) | [M10-W03-T01](m10/M10-W03-T01.md), [M09-W06-T02](m09/M09-W06-T02.md), [M10-W02-T01](m10/M10-W02-T01.md) | blocked |
+| [M10-W04-T01](m10/M10-W04-T01.md) | [M10-W02-T02](m10/M10-W02-T02.md), [M10-W03-T02](m10/M10-W03-T02.md) | blocked |
+| [M10-W04-T02](m10/M10-W04-T02.md) | [M10-W04-T01](m10/M10-W04-T01.md) | blocked |
+| [M10-W05-T01](m10/M10-W05-T01.md) | [M10-W01-T02](m10/M10-W01-T02.md), [M10-W02-T02](m10/M10-W02-T02.md), [M10-W03-T02](m10/M10-W03-T02.md), [M10-W04-T02](m10/M10-W04-T02.md) | blocked |
+| [M10-W05-T02](m10/M10-W05-T02.md) | [M10-W05-T01](m10/M10-W05-T01.md), [M09-W06-T02](m09/M09-W06-T02.md) | blocked |
+| [M11-W01-T01](m11/M11-W01-T01.md) | [M10-W05-T02](m10/M10-W05-T02.md) | blocked |
+| [M11-W03-T01](m11/M11-W03-T01.md) | [M10-W05-T02](m10/M10-W05-T02.md), [M11-W01-T01](m11/M11-W01-T01.md) | blocked |
+| [M11-W04-T01](m11/M11-W04-T01.md) | [M10-W05-T02](m10/M10-W05-T02.md) | blocked |
+| [M11-W02-T01](m11/M11-W02-T01.md) | [M11-W01-T01](m11/M11-W01-T01.md), [M11-W04-T01](m11/M11-W04-T01.md) | blocked |
+| [M11-W02-T02](m11/M11-W02-T02.md) | [M11-W02-T01](m11/M11-W02-T01.md) | blocked |
+| [M11-W01-T02](m11/M11-W01-T02.md) | [M11-W01-T01](m11/M11-W01-T01.md), [M11-W02-T02](m11/M11-W02-T02.md) | blocked |
+| [M11-W03-T02](m11/M11-W03-T02.md) | [M11-W03-T01](m11/M11-W03-T01.md), [M11-W02-T02](m11/M11-W02-T02.md) | blocked |
+| [M11-W04-T02](m11/M11-W04-T02.md) | [M11-W04-T01](m11/M11-W04-T01.md), [M11-W02-T02](m11/M11-W02-T02.md), [M11-W03-T01](m11/M11-W03-T01.md) | blocked |
+| [M11-W05-T01](m11/M11-W05-T01.md) | [M11-W01-T02](m11/M11-W01-T02.md), [M11-W02-T02](m11/M11-W02-T02.md), [M11-W03-T02](m11/M11-W03-T02.md), [M11-W04-T02](m11/M11-W04-T02.md) | blocked |
+| [M11-W05-T02](m11/M11-W05-T02.md) | [M11-W05-T01](m11/M11-W05-T01.md) | blocked |
+| [M12-W01-T01](m12/M12-W01-T01.md) | [M11-W05-T02](m11/M11-W05-T02.md) | deferred |
+| [M12-W01-T02](m12/M12-W01-T02.md) | [M12-W01-T01](m12/M12-W01-T01.md) | deferred |
+| [M12-W02-T01](m12/M12-W02-T01.md) | [M12-W01-T02](m12/M12-W01-T02.md) | deferred |
+| [M12-W02-T02](m12/M12-W02-T02.md) | [M12-W02-T01](m12/M12-W02-T01.md) | deferred |
+| [M12-W03-T01](m12/M12-W03-T01.md) | [M12-W01-T02](m12/M12-W01-T02.md), [M12-W02-T01](m12/M12-W02-T01.md) | deferred |
+| [M12-W03-T02](m12/M12-W03-T02.md) | [M12-W03-T01](m12/M12-W03-T01.md) | deferred |
+| [M12-W04-T01](m12/M12-W04-T01.md) | [M12-W01-T02](m12/M12-W01-T02.md), [M12-W03-T01](m12/M12-W03-T01.md) | deferred |
+| [M12-W04-T02](m12/M12-W04-T02.md) | [M12-W02-T02](m12/M12-W02-T02.md), [M12-W03-T02](m12/M12-W03-T02.md), [M12-W04-T01](m12/M12-W04-T01.md) | deferred |
+| [M12-W05-T01](m12/M12-W05-T01.md) | [M12-W02-T02](m12/M12-W02-T02.md), [M12-W03-T02](m12/M12-W03-T02.md), [M12-W04-T02](m12/M12-W04-T02.md) | deferred |
+| [M12-W05-T02](m12/M12-W05-T02.md) | [M12-W05-T01](m12/M12-W05-T01.md) | deferred |
+| [M13-W01-T01](m13/M13-W01-T01.md) | [M11-W05-T02](m11/M11-W05-T02.md) | deferred |
+| [M13-W01-T02](m13/M13-W01-T02.md) | [M13-W01-T01](m13/M13-W01-T01.md) | deferred |
+| [M13-W02-T01](m13/M13-W02-T01.md) | [M13-W01-T02](m13/M13-W01-T02.md) | deferred |
+| [M13-W02-T02](m13/M13-W02-T02.md) | [M13-W02-T01](m13/M13-W02-T01.md) | deferred |
+| [M13-W03-T01](m13/M13-W03-T01.md) | [M13-W01-T02](m13/M13-W01-T02.md) | deferred |
+| [M13-W03-T02](m13/M13-W03-T02.md) | [M13-W03-T01](m13/M13-W03-T01.md) | deferred |
+| [M13-W04-T01](m13/M13-W04-T01.md) | [M13-W01-T02](m13/M13-W01-T02.md) | deferred |
+| [M13-W04-T02](m13/M13-W04-T02.md) | [M13-W04-T01](m13/M13-W04-T01.md) | deferred |
+| [M13-W05-T01](m13/M13-W05-T01.md) | [M13-W01-T02](m13/M13-W01-T02.md) | deferred |
+| [M13-W05-T02](m13/M13-W05-T02.md) | [M13-W05-T01](m13/M13-W05-T01.md) | deferred |

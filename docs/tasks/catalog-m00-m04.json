@@ -1,0 +1,3593 @@
+[
+  {
+    "id": "M00-W01-T01",
+    "title": "Decide the software license and dependency admission policy",
+    "milestone": "M00",
+    "work_package": "M00-W01",
+    "scope": "V1",
+    "type": "decision",
+    "area": "governance",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [],
+    "requirements": [
+      "OSS-01",
+      "OSS-02",
+      "OSS-03",
+      "SEC-04"
+    ],
+    "product_sections": [
+      "1-positioning-and-operating-context",
+      "15-security-and-reliability-design-obligations"
+    ],
+    "architecture_sections": [
+      "23-dependency-and-version-policy",
+      "16-development-testing-and-delivery"
+    ],
+    "architecture_decisions": [
+      "ARC-14",
+      "ARC-15"
+    ],
+    "gates": [],
+    "outcome": "Maintainers have a reviewed, explicit software-license and dependency-admission decision before implementation contributions or binary distribution.",
+    "deliverables": [
+      "Software-license decision record with considered OSI-approved options and rationale.",
+      "Software/native/build/data dependency admission checklist and separate inventory fields."
+    ],
+    "acceptance": [
+      "The selected license, source/distribution obligations, compatibility review process, and maintainer acceptance are recorded; the current proposal is not treated as enacted.",
+      "nDPI, Rust/npm dependencies, build tools, and category data have distinct review paths; unknown rights block admission.",
+      "Contributor ownership/review obligations and permitted exceptions have an accountable approval path.",
+      "No commercial product comparison or invented rights/contact details enter the decision."
+    ],
+    "tests": [
+      "Documentation review: trace each chosen condition to the exact license text or upstream terms; flag incompatible or ambiguous examples.",
+      "Exercise the admission checklist with an approved-compatible example, a missing-license example, and a category source with download access but no redistribution permission; the latter two remain unadmitted."
+    ],
+    "constraints": [
+      "Research and lab planning can run before this decision; implementation contributions/distribution require its accepted outcome.",
+      "This task records a decision only; adding the enacted LICENSE belongs to M00-W01-T02."
+    ],
+    "evidence": [
+      "EV-M00-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W01-T01.md"
+  },
+  {
+    "id": "M00-W01-T02",
+    "title": "Enact the approved license and contributor review workflow",
+    "milestone": "M00",
+    "work_package": "M00-W01",
+    "scope": "V1",
+    "type": "docs",
+    "area": "governance",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T01"
+    ],
+    "requirements": [
+      "OSS-01",
+      "OSS-02",
+      "OSS-03",
+      "SEC-04"
+    ],
+    "product_sections": [
+      "1-positioning-and-operating-context",
+      "15-security-and-reliability-design-obligations"
+    ],
+    "architecture_sections": [
+      "23-dependency-and-version-policy",
+      "16-development-testing-and-delivery"
+    ],
+    "architecture_decisions": [
+      "ARC-14",
+      "ARC-15"
+    ],
+    "gates": [],
+    "outcome": "A clean checkout communicates the enacted project license and usable contribution/review rules.",
+    "deliverables": [
+      "Approved LICENSE and software/dependency notice skeleton.",
+      "Contributor guide describing review, foundation synchronization, fixture/data permissions, and changes requiring evidence."
+    ],
+    "acceptance": [
+      "LICENSE matches the accepted M00-W01-T01 decision exactly; no guessed copyright owner or exception is added.",
+      "Source, native dependency, build dependency, and category-data notice responsibilities remain separate.",
+      "The guide tells contributors how to reproduce checks, handle failed gates, and propose taxonomy corrections without automatic sharing.",
+      "All guide links resolve; current planning stage is stated truthfully."
+    ],
+    "tests": [
+      "From a clean checkout, independently follow the contributor reading path and verify license/guide/notice references.",
+      "Review a hypothetical new native dependency and unlicensed data contribution against the published procedure; both require the documented admission review before merging."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W01-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W01-T02.md"
+  },
+  {
+    "id": "M00-W01-T03",
+    "title": "Publish a verified private vulnerability-reporting process",
+    "milestone": "M00",
+    "work_package": "M00-W01",
+    "scope": "V1",
+    "type": "docs",
+    "area": "security",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T02"
+    ],
+    "requirements": [
+      "OSS-01",
+      "OSS-02",
+      "OSS-03",
+      "SEC-04"
+    ],
+    "product_sections": [
+      "1-positioning-and-operating-context",
+      "15-security-and-reliability-design-obligations"
+    ],
+    "architecture_sections": [
+      "23-dependency-and-version-policy",
+      "16-development-testing-and-delivery"
+    ],
+    "architecture_decisions": [
+      "ARC-14",
+      "ARC-15"
+    ],
+    "gates": [],
+    "outcome": "Security reporters can use a maintainer-verified private channel and understand response/support responsibilities.",
+    "deliverables": [
+      "Security policy with a verified private reporting route and triage/escalation responsibilities.",
+      "Explicit initial supported-release status and urgent-update ownership record."
+    ],
+    "acceptance": [
+      "A real maintainer-provided reporting channel is verified; a placeholder or invented address cannot complete the task.",
+      "The policy identifies private reporting, public disclosure coordination, dependency triage, and emergency release responsibilities.",
+      "No release is claimed supported before it exists; unavailable ownership/channel remains a recorded blocker.",
+      "The reporting process does not automatically collect appliance diagnostics or private browsing history."
+    ],
+    "tests": [
+      "With channel owner authorization, verify that the documented route reaches the intended private destination without sending real vulnerability or appliance data.",
+      "Tabletop a native-library vulnerability and an absent maintainer response; identify the documented escalation and disclosure handoff."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W01-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "The maintainer must supply and accept the private reporting channel and ownership; planning can specify the process but cannot fabricate these inputs."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W01-T03.md"
+  },
+  {
+    "id": "M00-W02-T01",
+    "title": "Pin exact portable, native, and frontend build inputs",
+    "milestone": "M00",
+    "work_package": "M00-W02",
+    "scope": "V1",
+    "type": "decision",
+    "area": "build",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "25-core-dependency-direction",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "2-selected-stack-and-version-policy",
+      "4-code-organization-and-dependency-rules",
+      "161-contributor-and-build-environments"
+    ],
+    "architecture_decisions": [
+      "ARC-01",
+      "ARC-02",
+      "ARC-11",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [],
+    "outcome": "Contributors use a reviewed, exact build matrix instead of floating latest versions.",
+    "deliverables": [
+      "Exact stable Rust toolchain/2024 edition, Node 24 LTS/npm, React 19/Vite-compatible versions and lock policy.",
+      "Native host/kernel/ports/compiler and software dependency manifest schema."
+    ],
+    "acceptance": [
+      "Each selected version is exact and security/license reviewed; the host target is distinguished from proven support.",
+      "Cargo.lock, package-lock.json, toolchain/runtime declarations, native headers/library/features, and dataset snapshots have defined update owners.",
+      "SQLite dependency policy includes an audited WAL-reset fix baseline of 3.51.3 or newer.",
+      "Native builds use generic intended amd64 compatibility flags; host-specific target-cpu=native is excluded from distributable builds."
+    ],
+    "tests": [
+      "Verify the declared Node/Vite, React/types, schema-generator/Ajv dialect, and Rust edition combinations against their official compatibility information.",
+      "Test the lock policy against a floating dependency, mismatched native header/library, and absent dataset license; each is rejected or explicitly gated."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W02-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W02-T01.md"
+  },
+  {
+    "id": "M00-W02-T02",
+    "title": "Bootstrap the minimal Rust workspace, UI package, and generation entry point",
+    "milestone": "M00",
+    "work_package": "M00-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "build",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T02",
+      "M00-W02-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "25-core-dependency-direction",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "2-selected-stack-and-version-policy",
+      "4-code-organization-and-dependency-rules",
+      "161-contributor-and-build-environments"
+    ],
+    "architecture_decisions": [
+      "ARC-01",
+      "ARC-02",
+      "ARC-11",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [],
+    "outcome": "A small portable Rust/UI change can build through documented entry points without a packet adapter or appliance service.",
+    "deliverables": [
+      "Minimal Cargo workspace with detew-domain, detew-policy, thin reference binary scaffolding, and only presently needed components.",
+      "Strict TypeScript/Vite static UI package, committed locks, formatter/lint settings, and generated-contract entry point."
+    ],
+    "acceptance": [
+      "Pinned portable Rust build/format/lint and npm ci/strict type/build entry points execute successfully.",
+      "Domain/policy forbid unsafe code and exclude SQL, network, OPNsense, UI and native classifier dependencies.",
+      "Production frontend output is static locally bundled assets; no Node appliance process, external CDN/font fetch, or mandatory hosted account is introduced.",
+      "Contract generation produces and commits an initial valid schema/DTO fixture; the documented commands are real entry points created by this task."
+    ],
+    "tests": [
+      "On a clean non-appliance contributor environment, install only declared build prerequisites and run the newly documented Rust/UI/generation commands.",
+      "Inject a forbidden dependency into a disposable domain/policy branch and an unchecked TypeScript trust-boundary value; boundary/lint checks fail with an actionable error.",
+      "Delete generated output, regenerate, and compare the expected initial artifacts; no source path or machine identifier affects them."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W02-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W02-T02.md"
+  },
+  {
+    "id": "M00-W02-T03",
+    "title": "Verify reproducible bootstrap from an independent clean checkout",
+    "milestone": "M00",
+    "work_package": "M00-W02",
+    "scope": "V1",
+    "type": "test",
+    "area": "build",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W02-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "25-core-dependency-direction",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "2-selected-stack-and-version-policy",
+      "4-code-organization-and-dependency-rules",
+      "161-contributor-and-build-environments"
+    ],
+    "architecture_decisions": [
+      "ARC-01",
+      "ARC-02",
+      "ARC-11",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [],
+    "outcome": "Another contributor reproduces portable builds and can identify exactly which native checks remain unavailable.",
+    "deliverables": [
+      "Clean-checkout build transcript, lock/cache assumptions, and corrected build instructions.",
+      "Portable artifact/generation comparison and native prerequisite report."
+    ],
+    "acceptance": [
+      "An independent clean checkout executes the documented build, type, format/lint and generation entry points without undeclared local files.",
+      "Generated source/schema/DTO output is identical for the same inputs; binaries are not called bit-reproducible unless separately measured.",
+      "A missing FreeBSD environment is shown as missing native evidence, never a passing native check.",
+      "Build output and logs contain no local appliance secrets or user activity."
+    ],
+    "tests": [
+      "Use a second clean workspace with empty project caches; run dependency installation and every declared portable command, recording exact versions and output digests.",
+      "Run with a deliberately wrong runtime/toolchain and missing native prerequisites; instructions/checks identify the mismatch rather than silently selecting a different version."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W02-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W02-T03.md"
+  },
+  {
+    "id": "M00-W03-T01",
+    "title": "Specify the isolated dual-stack lab and console recovery plan",
+    "milestone": "M00",
+    "work_package": "M00-W03",
+    "scope": "V1",
+    "type": "docs",
+    "area": "packet",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [],
+    "requirements": [
+      "INS-07",
+      "OPS-03",
+      "OPS-09",
+      "QLT-01",
+      "QLT-02"
+    ],
+    "product_sections": [
+      "51-packet-path",
+      "91-g0-adapter-evaluation",
+      "93-failure-matrix"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "133-initial-support-boundaries",
+      "16-development-testing-and-delivery"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "Packet experiments have a reproducible, isolated environment and an independently reviewed recovery procedure.",
+    "deliverables": [
+      "Client/gateway/server lab topology with routed IPv4/IPv6, NAT, VLAN variants, candidate physical/virtual NICs, and exact-version recording fields.",
+      "Console access, rollback, teardown, capture redaction, and bypass measurement procedure."
+    ],
+    "acceptance": [
+      "The lab is explicitly separate from a live household/organizational gateway; uplink isolation and synthetic traffic paths are documented.",
+      "Console recovery works without Detew, with a named test step before any attachment mutation.",
+      "The matrix includes both directions, original-client attribution stage, pf permit/deny rules, long-lived flows, capture conflicts, and intentionally unsupported topology cases.",
+      "The proposed reference workload and numerical targets are marked unmeasured; measurement tools and baseline comparison method are specified."
+    ],
+    "tests": [
+      "Tabletop an adapter blackhole and failed remote administration: a reviewer identifies the console restore/detach path without using Detew UI.",
+      "Review address/VLAN routes and egress isolation for IPv4 and IPv6; demonstrate that proposed tests cannot reach production clients."
+    ],
+    "constraints": [
+      "Design/recovery review can proceed before the software-license decision.",
+      "No package installation or traffic mutation on a live gateway is authorized by this planning task."
+    ],
+    "evidence": [
+      "EV-M00-W03-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W03-T01.md"
+  },
+  {
+    "id": "M00-W03-T02",
+    "title": "Provision the lab and capture repeatable bypass baselines",
+    "milestone": "M00",
+    "work_package": "M00-W03",
+    "scope": "V1",
+    "type": "test",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M00-W01-T01",
+      "M00-W02-T01",
+      "M00-W03-T01"
+    ],
+    "requirements": [
+      "INS-07",
+      "OPS-03",
+      "OPS-09",
+      "QLT-01",
+      "QLT-02"
+    ],
+    "product_sections": [
+      "51-packet-path",
+      "91-g0-adapter-evaluation",
+      "93-failure-matrix"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "133-initial-support-boundaries",
+      "16-development-testing-and-delivery"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "The isolated appliance lab and console recovery are measured prerequisites for packet/classifier experiments.",
+    "deliverables": [
+      "Pinned appliance/kernel/NIC/driver/tool and topology manifest with reproducible provisioning steps.",
+      "IPv4/IPv6 bypass goodput/RTT baseline, packet-path traces, and successful recovery/teardown transcript."
+    ],
+    "acceptance": [
+      "Console login and clean restore/teardown are exercised before adapter attachment; isolation is verified on both IP families.",
+      "Client-server permitted traffic passes and explicit pf denial stays denied; original-client address/NAT and VLAN stage are captured.",
+      "Bypass workload results identify packet sizes, flows/new-flow rate, CPU/RAM, tool versions, repetitions and variability; they are baseline observations rather than filtering results.",
+      "A second provisioning reproduces the topology and required connectivity; absent physical/virtual variants remain unsupported/unmeasured."
+    ],
+    "tests": [
+      "Provision from the documented reset state; generate synthetic HTTP/TLS/UDP flows on IPv4/IPv6 and selected VLAN/NAT paths while capturing client, gateway and server observations.",
+      "Run identical normal workload repetitions in bypass and record goodput/RTT/load/packet counters; verify a deny rule using observed absence of server delivery.",
+      "Disable remote connectivity in the isolated lab, recover over console, and execute teardown; only owned lab changes are restored."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W03-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W03-T02.md"
+  },
+  {
+    "id": "M00-W04-T01",
+    "title": "Create portable/native check entry points and evidence formats",
+    "milestone": "M00",
+    "work_package": "M00-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W02-T02",
+      "M00-W01-T02"
+    ],
+    "requirements": [
+      "SEC-02",
+      "OSS-02",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "162-required-conformance-artifacts",
+      "15-security-and-reliability-design-obligations"
+    ],
+    "architecture_sections": [
+      "163-required-checks",
+      "162-build-and-release-profile"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [],
+    "outcome": "Checks produce explicit portable/native results and reusable evidence records without assuming a hosted CI provider.",
+    "deliverables": [
+      "Provider-independent check scripts and documented exact invocation names.",
+      "Evidence report schema, fixture license/redaction manifest, and check-result classification for pass/fail/skipped/unavailable."
+    ],
+    "acceptance": [
+      "Each script invokes actual pinned tooling and propagates failures; a missing native environment has a distinct non-passing result.",
+      "Evidence schema records task/requirement/ARC/gate, revision/environment/input versions/digests, procedure, expected/observed, limitations and reviewer/date.",
+      "Synthetic/licensed fixture manifests reject missing permissions and do not store real browsing records, credentials or appliance backups.",
+      "Generated schema/DTO drift and forbidden portable dependency boundaries have check entry points."
+    ],
+    "tests": [
+      "Run created scripts on the contributor environment, inject one Rust/type/schema drift failure at a time in disposable copies, and verify nonzero failure plus precise component context.",
+      "Invoke the native entry point without FreeBSD prerequisites and confirm explicit unavailable/missing evidence rather than a green result.",
+      "Validate accepted/rejected example evidence manifests and inspect fixture/log samples for redaction and license metadata."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W04-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W04-T01.md"
+  },
+  {
+    "id": "M00-W04-T02",
+    "title": "Validate check isolation, fixture rules, and evidence reproducibility",
+    "milestone": "M00",
+    "work_package": "M00-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W04-T01",
+      "M00-W02-T03",
+      "M00-W03-T02"
+    ],
+    "requirements": [
+      "SEC-02",
+      "OSS-02",
+      "OSS-03"
+    ],
+    "product_sections": [
+      "162-required-conformance-artifacts",
+      "15-security-and-reliability-design-obligations"
+    ],
+    "architecture_sections": [
+      "163-required-checks",
+      "162-build-and-release-profile"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [],
+    "outcome": "The check system can distinguish real native evidence from portable results and lets a reviewer reproduce one accepted report.",
+    "deliverables": [
+      "Check self-validation matrix covering injected failure/unavailable cases.",
+      "Independent reproduction of one portable and one isolated native baseline evidence record."
+    ],
+    "acceptance": [
+      "Portable success cannot mask failed/missing native checks; summaries retain every component result.",
+      "Evidence manifests resolve to immutable input identities and commands rather than a floating badge.",
+      "Unlicensed fixtures and planted synthetic secret markers are rejected by the documented ingestion/review rule.",
+      "Reviewers reproduce the selected reports using only the declared checkout, inputs and lab manifest."
+    ],
+    "tests": [
+      "Execute the same check suite with portable success/native failure and portable failure/native success; compare summaries and process exits against documented result semantics.",
+      "Replay one schema/DTO report in a clean workspace and one dual-stack baseline in the provisioned lab; record expected-versus-observed differences rather than rewriting the original result.",
+      "Attempt fixture admission with missing license metadata and a synthetic credential marker; verify rejection or explicit reviewer blocker."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W04-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W04-T02.md"
+  },
+  {
+    "id": "M00-W05-T01",
+    "title": "Review the threat model and privilege/trust inventory",
+    "milestone": "M00",
+    "work_package": "M00-W05",
+    "scope": "V1",
+    "type": "docs",
+    "area": "security",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [],
+    "requirements": [
+      "SEC-01",
+      "SEC-02",
+      "SEC-03",
+      "SEC-04",
+      "PRI-01",
+      "PRI-03"
+    ],
+    "product_sections": [
+      "15-security-and-reliability-design-obligations",
+      "133-privacy-defaults"
+    ],
+    "architecture_sections": [
+      "3-deployment-and-trust-boundaries",
+      "14-security-and-operational-visibility"
+    ],
+    "architecture_decisions": [
+      "ARC-03",
+      "ARC-09",
+      "ARC-15"
+    ],
+    "gates": [],
+    "outcome": "The trust boundaries and elevated operations are explicit before packet and host integration implementation.",
+    "deliverables": [
+      "Threat model for packets/data/imports/browser/local IPC/native FFI/privileged helpers.",
+      "Process/store/socket/account/elevated action inventory mapped to selected architecture decisions."
+    ],
+    "acceptance": [
+      "Each elevated action is fixed and narrow; no arbitrary frontend-to-root command/path interface is planned.",
+      "Native XML desired authority, reporting isolation, socket peer checks and native classifier crash boundary are explicit.",
+      "Abuse cases cover malformed input, dependency/data poisoning, CSRF/session/role bypass, IPC impersonation, resource exhaustion and disclosure.",
+      "Default local-only metadata/no automatic upload and lab-only destructive experiments are recorded controls; residual risks and review owners are explicit."
+    ],
+    "tests": [
+      "Conduct a structured tabletop through one attacker path at each trust boundary and identify the proposed authorization, parser/bound, privilege and evidence control.",
+      "Review an attempted activity-daemon privilege escalation and malicious native classifier input; confirm claimed process isolation matches the actual design."
+    ],
+    "constraints": [
+      "Threat-model drafting and review can proceed before software-license acceptance.",
+      "Do not invent implemented mitigations, supported environments, security contacts or certification claims."
+    ],
+    "evidence": [
+      "EV-M00-W05-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W05-T01.md"
+  },
+  {
+    "id": "M00-W05-T02",
+    "title": "Create the unverified requirement ledger and reviewable contribution templates",
+    "milestone": "M00",
+    "work_package": "M00-W05",
+    "scope": "V1",
+    "type": "docs",
+    "area": "governance",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T02",
+      "M00-W05-T01",
+      "M00-W04-T01"
+    ],
+    "requirements": [
+      "SEC-01",
+      "SEC-02",
+      "SEC-03",
+      "SEC-04",
+      "PRI-01",
+      "PRI-03"
+    ],
+    "product_sections": [
+      "15-security-and-reliability-design-obligations",
+      "133-privacy-defaults"
+    ],
+    "architecture_sections": [
+      "3-deployment-and-trust-boundaries",
+      "14-security-and-operational-visibility"
+    ],
+    "architecture_decisions": [
+      "ARC-03",
+      "ARC-09",
+      "ARC-15"
+    ],
+    "gates": [],
+    "outcome": "Every requirement has an initially unverified evidence row and contributions use clear privacy-preserving review templates.",
+    "deliverables": [
+      "docs/evidence/requirements.csv with all 84 requirements and primary milestone/scope from MILESTONES.",
+      "Bug, feature, taxonomy-correction and change-review templates with foundation/task/evidence linkage."
+    ],
+    "acceptance": [
+      "All 84 current PRD IDs occur exactly once with 73 V1, seven T1 and four E scopes; status is unverified and no owner/revision/evidence is invented.",
+      "Templates require reproducible versions, observed/expected behavior, scope/visibility and redaction preview where relevant.",
+      "Category corrections remain local/private unless the contributor deliberately prepares and submits approved content.",
+      "A foundation change asks for affected contracts/tasks/gates and dependency updates; no template grants deployment/publication authorization."
+    ],
+    "tests": [
+      "Compare ledger IDs/scopes/primary milestones with PRD and MILESTONES programmatically; fail on duplicates, omissions or stale IDs.",
+      "Fill templates using a synthetic packet failure, mixed-purpose category correction and policy-conflict case; review that no automatic upload or sensitive capture is required."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M00-W05-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m00/M00-W05-T02.md"
+  },
+  {
+    "id": "M01-W01-T01",
+    "title": "Define authoritative wire types and explicit policy/evidence contexts",
+    "milestone": "M01",
+    "work_package": "M01-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "high",
+    "depends_on": [
+      "M00-W01-T03",
+      "M00-W02-T03",
+      "M00-W03-T02",
+      "M00-W04-T02",
+      "M00-W05-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-06",
+      "INS-05",
+      "INS-10"
+    ],
+    "product_sections": [
+      "3-domain-objects-and-ownership",
+      "41-evaluation-input",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "51-contract-source-and-generation",
+      "52-wire-conventions"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-08",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "Portable Rust types capture profile, assignment, evidence, capabilities and exact counters without ambient state or platform dependencies.",
+    "deliverables": [
+      "Domain/wire DTOs, structured semantic errors, context/decision/outcome types and versioned capability manifest.",
+      "Documented schema subset, exact counter/timestamp/unknown-state conventions and validation constraints.",
+      "Versioned time-health/UTC+boot-monotonic, source eligibility/deadline, and operation ID/idempotency/progress/error interfaces for M06/M07 integration."
+    ],
+    "acceptance": [
+      "Stable IDs are separate from display text; revisions/generations/sequences/large counters are canonical decimal strings backed by checked integer parsing.",
+      "Unknown/pending/unsupported/invalid/stale/completion and verdict/enforcement outcomes are distinct typed facts.",
+      "Explicit evaluation inputs include bundle, evidence/attribution/time/schedule/override context; no ambient timezone, SQL or network read determines policy.",
+      "Domain/policy types forbid unsafe code and excluded dependencies; unknown write fields, dangling references and invalid priorities produce stable field-addressed errors.",
+      "Time and eligibility inputs identify trust, source validity and expiry; operation state distinguishes draft/saved/preparing/mixed/applied/failed with stable operation identity and no circular dependency on M06/M07 implementations."
+    ],
+    "tests": [
+      "Use independent JSON cases with counters above 2^53, maximum supported integer, overflow, leading zero, negative/fractional number, null/optional and unknown union variant; check the stated exact acceptance/rejection.",
+      "Deserialize valid profile/context fixtures and invalid dangling/equal-priority cases; assert stable error codes/paths independently of implementation messages.",
+      "Run dependency and unsafe-policy checks and inspect schema reference scope; imports cannot reference remote schemas."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W01-T01.md"
+  },
+  {
+    "id": "M01-W01-T02",
+    "title": "Generate schemas/TypeScript and prove boundary round-trip parity",
+    "milestone": "M01",
+    "work_package": "M01-W01",
+    "scope": "V1",
+    "type": "test",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-06",
+      "INS-05",
+      "INS-10"
+    ],
+    "product_sections": [
+      "3-domain-objects-and-ownership",
+      "41-evaluation-input",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "51-contract-source-and-generation",
+      "52-wire-conventions"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-08",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "Generated JSON schemas, strict TypeScript DTOs and Rust validators agree on wire shapes without delegating policy meaning to the UI.",
+    "deliverables": [
+      "Committed JSON Schema 2020-12/TypeScript output and generator drift checks.",
+      "Rust/schema/Ajv/TypeScript round-trip fixture report including native mapping handoff requirements."
+    ],
+    "acceptance": [
+      "Pinned generators produce stable artifacts within the documented supported dialect/subset; unresolved/remote references are rejected.",
+      "Unions, optional versus null, formats, bounds, unknown writes and exact decimal counters agree at each boundary.",
+      "Ajv shape feedback and Rust authoritative semantic errors are distinguished; a UI-valid shape cannot bypass Rust reference/priority validation.",
+      "A schema update that changes wire meaning fails compatibility or requires an explicit protocol version decision."
+    ],
+    "tests": [
+      "Regenerate twice in clean checkouts and compare bytes; alter one generated field and confirm the drift entry point fails.",
+      "Feed the same independent valid/invalid JSON fixture table to Rust and Ajv; round-trip accepted values through generated TypeScript with exact strings/BigInt as appropriate.",
+      "Compile representative typed clients using null/union/exact-counter examples, and verify unsupported schema keywords or references fail the documented generation/check procedure."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W01-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W01-T02.md"
+  },
+  {
+    "id": "M01-W02-T01",
+    "title": "Implement shared hostname, IDNA, and IP normalization",
+    "milestone": "M01",
+    "work_package": "M01-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T01"
+    ],
+    "requirements": [
+      "DAT-03"
+    ],
+    "product_sections": [
+      "53-normalization-and-canonical-matching",
+      "44-exception-matching-and-conflicts"
+    ],
+    "architecture_sections": [
+      "51-contract-source-and-generation",
+      "53-canonical-compilation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-07",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "Imports, policy selectors and runtime evidence share one versioned canonical destination representation.",
+    "deliverables": [
+      "Portable normalizer with canonical/display representations and pinned public-suffix snapshot identity.",
+      "Independent normalization vectors and typed invalid/host-versus-IP outcomes."
+    ],
+    "acceptance": [
+      "Case/trailing dots, supported IDNA forms, labels, ports/authority handling and IPv4/IPv6 literals have documented canonical results.",
+      "Invalid encodings, controls, overlong labels/hosts and ambiguous authorities cannot become wildcard or substring matches.",
+      "Escaped display text is separated from matching form; normalization version and suffix snapshot are explicit artifact inputs.",
+      "The routine has no network lookup, current locale or platform-dependent policy behavior."
+    ],
+    "tests": [
+      "Execute reviewed vectors for uppercase/trailing dots, punycode/Unicode equivalents, IDNs, bracketed IPv6 with ports, malformed brackets/ports, invalid UTF-8 and maximum lengths.",
+      "Run the same vectors under English/pt-BR locale and different host timezone settings; canonical outputs/errors remain identical.",
+      "Apply property tests for idempotence and equivalence of supported representations; mutation of invalid text must not broaden a match."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W02-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W02-T01.md"
+  },
+  {
+    "id": "M01-W02-T02",
+    "title": "Enforce exact/subdomain boundaries and public-suffix restrictions",
+    "milestone": "M01",
+    "work_package": "M01-W02",
+    "scope": "V1",
+    "type": "test",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W02-T01",
+      "M01-W01-T02"
+    ],
+    "requirements": [
+      "DAT-03"
+    ],
+    "product_sections": [
+      "53-normalization-and-canonical-matching",
+      "44-exception-matching-and-conflicts"
+    ],
+    "architecture_sections": [
+      "51-contract-source-and-generation",
+      "53-canonical-compilation"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-07",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "Domain selectors match explicit labels and reject broad suffix exceptions consistently at every portable entry point.",
+    "deliverables": [
+      "Shared exact/subdomain matcher and independent adversarial boundary corpus.",
+      "Contract fixtures for import, exception, lookup and tester clients."
+    ],
+    "acceptance": [
+      "example.org matches itself; subdomains require the explicit mode, while otherexample.org and sibling domains do not match.",
+      "Public suffix and inappropriate wildcard/broad exception inputs are rejected under the pinned suffix rules.",
+      "IPv4/IPv6 literals stay IP destinations; hostname exceptions do not silently authorize every service on a shared IP.",
+      "Unicode canonical equivalents and display escaping preserve the same selector meaning across all clients."
+    ],
+    "tests": [
+      "Run exact/subdomain tables including nested labels, sibling hosts, deceptive suffixes, public/private suffix cases and suffix snapshot version changes.",
+      "Round-trip selectors through Rust/schema/TypeScript fixtures; invalid/broad selectors cannot become accepted merely after serialization.",
+      "Fuzz valid/invalid labels and assert that removing a label cannot create unintended string-suffix matching; record the seed/corpus."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W02-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W02-T02.md"
+  },
+  {
+    "id": "M01-W03-T01",
+    "title": "Implement canonical assignment, guardrail, and exception precedence",
+    "milestone": "M01",
+    "work_package": "M01-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T02",
+      "M01-W02-T02",
+      "M01-W05-T01"
+    ],
+    "requirements": [
+      "POL-02",
+      "POL-03",
+      "POL-06",
+      "POL-13",
+      "DAT-04"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "54-provisional-inspection-and-bounded-work"
+    ],
+    "architecture_sections": [
+      "54-evaluation-and-context-tokens",
+      "42-allowed-dependency-direction"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06"
+    ],
+    "gates": [],
+    "outcome": "One pure evaluator chooses the effective profile and decisive controls according to the normative priority rules.",
+    "deliverables": [
+      "Portable assignment/exception/site-guardrail evaluator returning stable structured reasons.",
+      "Validation for references, unique enabled assignment priorities and per-profile exception priorities."
+    ],
+    "acceptance": [
+      "Exact valid temporary profile context wins, then lowest numeric enabled assignment priority, then site default; unknown/conflicting attribution cannot satisfy an exact device match.",
+      "Matching site guardrails block before exceptions; the lowest matching exception priority wins with no hidden selector-type precedence.",
+      "Temporary exception priority zero is exact-device/narrow-scope and cannot bypass guardrails, parser/failure safety or pf.",
+      "Reasons have deterministic ID ordering and retain explicit contextual inputs; evaluator performs no external I/O or mutation."
+    ],
+    "tests": [
+      "Run the independent fixture corpus for overlapping device/group/network assignments, reordered collections, disabled selectors, conflicting device evidence and dangling references.",
+      "Exercise allow/block exceptions in both priority orders against guardrail matches; expected decisive control and residual limitations remain correct.",
+      "Permute unordered input collections and supply identical context snapshots repeatedly; decision and reason order remain identical."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W03-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W03-T01.md"
+  },
+  {
+    "id": "M01-W03-T02",
+    "title": "Complete multi-label, application, and insufficient-evidence decisions",
+    "milestone": "M01",
+    "work_package": "M01-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W03-T01"
+    ],
+    "requirements": [
+      "POL-02",
+      "POL-03",
+      "POL-06",
+      "POL-13",
+      "DAT-04"
+    ],
+    "product_sections": [
+      "4-policy-semantics-the-consistency-contract",
+      "54-provisional-inspection-and-bounded-work"
+    ],
+    "architecture_sections": [
+      "54-evaluation-and-context-tokens",
+      "42-allowed-dependency-direction"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06"
+    ],
+    "gates": [],
+    "outcome": "The evaluator separates confirmed category/application denies, dimension-specific missing evidence and runtime failure.",
+    "deliverables": [
+      "Full initial V1 reference evaluator and explicit fallback/provisional/engine-failure result contracts.",
+      "Independent tests for multiple labels, generic transports, expiry and observe-mode results."
+    ],
+    "acceptance": [
+      "Any matching blocked category/application denies after applicable exceptions; every matching stable reason is retained.",
+      "Generic TLS/QUIC identity is not a specific application; known non-web infrastructure does not require a website category.",
+      "Required unresolved/expired/unsupported classification dimensions trigger the profile fallback; category miss and classifier miss remain distinct.",
+      "Observe computes the same content verdict with would_allow/would_block and does not imply a live block; engine failure remains a separate operational input."
+    ],
+    "tests": [
+      "Run dual-label Games+AI and mixed application/category cases, including allow exceptions and guardrails; compare independent expected reason ordering.",
+      "Supply generic TLS, recognized infrastructure, unsupported/ECH-hidden destination, expired category evidence and parser-limit contexts with allow/block fallback settings.",
+      "Evaluate identical contexts in observe/enforce; content verdict matches while declared enforcement intent/outcome stays distinct and never claims server delivery."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W03-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W03-T02.md"
+  },
+  {
+    "id": "M01-W04-T01",
+    "title": "Specify canonical artifact identity and compatibility validation",
+    "milestone": "M01",
+    "work_package": "M01-W04",
+    "scope": "V1",
+    "type": "decision",
+    "area": "core",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T02"
+    ],
+    "requirements": [
+      "POL-08",
+      "DAT-02",
+      "POL-06"
+    ],
+    "product_sections": [
+      "62-revisions-and-bundle-identity",
+      "63-apply-contract"
+    ],
+    "architecture_sections": [
+      "53-canonical-compilation",
+      "54-evaluation-and-context-tokens"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "Prepared bundles have a deterministic semantic identity and explicit dependency compatibility rules before runtime loading.",
+    "deliverables": [
+      "Canonical serialization/manifest specification and independently authored digest/compatibility vectors.",
+      "Version inventory for schema/compiler/evaluator/normalization/timezone/catalog/data/capabilities and nonsemantic exclusions."
+    ],
+    "acceptance": [
+      "Set/map ordering, numeric/string encoding and stable enum IDs are specified; explicit priority meaning is preserved.",
+      "The bundle digest excludes its own field and only explicitly documented nonsemantic build/audit metadata.",
+      "Local paths, machine/CPU discovery and random build IDs cannot affect semantic identity.",
+      "Unsupported required capabilities and incompatible dependency/version combinations reject preparation; a hash alone never proves correctness."
+    ],
+    "tests": [
+      "Review golden serialization vectors for unordered input permutation versus priority changes; the former has identical bytes and the latter changes meaning/identity.",
+      "Create compatibility tables with missing catalog/data/normalization versions and an unsupported required capability; each has an explicit rejection code.",
+      "Have a reviewer recompute a small manifest digest from the documented canonical bytes independently of the compiler."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W04-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W04-T01.md"
+  },
+  {
+    "id": "M01-W04-T02",
+    "title": "Build deterministic initial policy compilation and context tokens",
+    "milestone": "M01",
+    "work_package": "M01-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W04-T01",
+      "M01-W03-T02"
+    ],
+    "requirements": [
+      "POL-08",
+      "DAT-02",
+      "POL-06"
+    ],
+    "product_sections": [
+      "62-revisions-and-bundle-identity",
+      "63-apply-contract"
+    ],
+    "architecture_sections": [
+      "53-canonical-compilation",
+      "54-evaluation-and-context-tokens"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-07",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "The initial policy subset compiles reproducibly into immutable artifacts and explicit decision-cache validity tokens.",
+    "deliverables": [
+      "Initial detew-compiler artifacts and reference validator/smoke fixtures.",
+      "Typed bundle/evidence/attribution/schedule/override/expiry validity token contract."
+    ],
+    "acceptance": [
+      "The same explicit inputs/compiler version produce identical canonical artifacts, stable domain-to-runtime ID mappings and replay outcomes.",
+      "Invalid references, incompatible versions or required capabilities fail before an artifact can be marked prepared.",
+      "Each cached-decision token covers every policy-relevant input and next reevaluation deadline; changing only the five-tuple is insufficient.",
+      "Compilation owns no native desired-state writes or active worker transitions; this task does not claim activation readiness."
+    ],
+    "tests": [
+      "Compile reordered maps/sets on clean contributor environments and compare bytes/digests; modify explicit priority or semantic dependency version and verify the appropriate identity change.",
+      "Inject dangling IDs, corrupt artifact lengths and unsupported capabilities; validator rejects them with structured errors.",
+      "Change one token dimension at a time and assert invalidation; preserve all dimensions and verify reference evaluation reproducibility."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W04-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W04-T02.md"
+  },
+  {
+    "id": "M01-W05-T01",
+    "title": "Author independent policy expectations and replay-input contract",
+    "milestone": "M01",
+    "work_package": "M01-W05",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T01",
+      "M01-W02-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-06",
+      "POL-11",
+      "DAT-09"
+    ],
+    "product_sections": [
+      "41-evaluation-input",
+      "131-decision-record-contract",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "163-required-checks"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "The canonical evaluator is judged against independent product-derived expected decisions written before its output is used as an oracle.",
+    "deliverables": [
+      "Reviewed semantic fixture corpus with manually explained expected profile/verdict/reason order and assumptions.",
+      "Versioned replay/preview input completeness contract and synthetic historical records."
+    ],
+    "acceptance": [
+      "Fixtures cover assignment/default/guardrail/exception/multi-label/application/default/fallback priorities, observe versus enforce and explicit time/attribution contexts.",
+      "Expected outcomes are derived from PRODUCT, not copied from engine output; authorship/review and corpus digest are recorded.",
+      "Incomplete evidence/context/bundle records are identified as non-replayable with explicit reasons; current database lookups are excluded.",
+      "Cases distinguish content verdict, adapter outcome and end-to-end success; replay cannot assert actual forwarding."
+    ],
+    "tests": [
+      "An independent reviewer calculates each fixture outcome and ties each decisive rule to PRODUCT before evaluator implementation acceptance.",
+      "Remove one required context/version/evidence field from each complete replay fixture; the declared contract marks it incomplete instead of substituting today's state.",
+      "Audit fixture material/labels for licenses and synthetic identities; no real browsing or appliance secrets enter the corpus."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W05-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W05-T01.md"
+  },
+  {
+    "id": "M01-W05-T02",
+    "title": "Deliver the portable CLI/replay harness and accept the canonical reference",
+    "milestone": "M01",
+    "work_package": "M01-W05",
+    "scope": "V1",
+    "type": "test",
+    "area": "core",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W01-T02",
+      "M01-W02-T02",
+      "M01-W03-T02",
+      "M01-W04-T02",
+      "M01-W05-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-06",
+      "POL-11",
+      "DAT-09"
+    ],
+    "product_sections": [
+      "41-evaluation-input",
+      "131-decision-record-contract",
+      "12-administration-api-and-shared-validation"
+    ],
+    "architecture_sections": [
+      "5-shared-schemas-and-evaluation",
+      "163-required-checks"
+    ],
+    "architecture_decisions": [
+      "ARC-02",
+      "ARC-06",
+      "ARC-12"
+    ],
+    "gates": [],
+    "outcome": "The canonical reference can be exercised without an appliance and has independently reviewed semantics/schema/boundary evidence for M01 exit.",
+    "deliverables": [
+      "CLI preview/replay interface using the same Rust normalizer/validator/compiler/evaluator.",
+      "M01 acceptance report linking fixtures, schema drift, dependency and explicit-context reproducibility evidence."
+    ],
+    "acceptance": [
+      "CLI preview/replay accepts complete versioned contexts and returns canonical verdict/reasons/assumptions; incomplete records produce explicit non-replayable errors.",
+      "It runs without firewall, SQL, nDPI or network access; no secondary policy algorithm exists in CLI clients.",
+      "All independent semantic and boundary fixtures pass at one recorded revision; generated contracts regenerate without drift.",
+      "Full schedule/attribution/runtime lifecycle remains M06; reference acceptance does not close G0 or live enforcement."
+    ],
+    "tests": [
+      "Run the documented CLI against independent complete/incomplete fixtures in a sandbox with network denied and no native/SQL dependency; compare exact expected verdict/reason ordering.",
+      "Execute the established schema/dependency/unsafe/normalization/policy checks and reproduce selected fixtures in a second clean environment.",
+      "Tamper with a bundle dependency version and replay context, and verify compatibility/incompleteness errors instead of a guessed decision."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M01-W05-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m01/M01-W05-T02.md"
+  },
+  {
+    "id": "M02-W01-T01",
+    "title": "Build the adapter conformance harness and Netmap host-stack experiment",
+    "milestone": "M02",
+    "work_package": "M02-W01",
+    "scope": "V1",
+    "type": "spike",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "low",
+    "depends_on": [
+      "M01-W05-T02",
+      "M00-W03-T02"
+    ],
+    "requirements": [
+      "INS-01",
+      "INS-07",
+      "OPS-03",
+      "OPS-04"
+    ],
+    "product_sections": [
+      "51-packet-path",
+      "91-g0-adapter-evaluation",
+      "92-firewall-relationship"
+    ],
+    "architecture_sections": [
+      "61-preferred-integration-and-gate",
+      "62-adapter-contract",
+      "63-required-g0-proof"
+    ],
+    "architecture_decisions": [
+      "ARC-04"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "The preferred packet candidate is exercised through the proposed consuming packet contract on a real dual-stack host path.",
+    "deliverables": [
+      "Minimal Netmap adapter experiment and reusable conformance traffic/provenance harness.",
+      "Pinned ring/flags/offload/NIC/topology manifest and client-gateway-server trace report."
+    ],
+    "acceptance": [
+      "Adapter batches identify scope/framing/direction/interface/address stage and opaque reinjection metadata; ownership/batch lifetimes are documented.",
+      "The arrangement passes selected internal-interface traffic through the host stack/pf/routing/NAT rather than an unreviewed LAN-WAN bridge.",
+      "Allowed IPv4/IPv6 traffic traverses both directions with original-client attribution; explicit pf denials remain denied at the server.",
+      "Forward/drop consumes each packet exactly once; no native ring pointer survives its batch and no ordinary profile activation reattaches the NIC.",
+      "Physical/virtual NIC, VLAN/NAT/offload and existing/midstream-flow gaps are recorded separately with unsupported combinations explicit."
+    ],
+    "tests": [
+      "On the isolated pinned FreeBSD/OPNsense lab, compare client/gateway/server captures and pf counters for allowed/denied IPv4/IPv6 flows, both directions, chosen VLAN and NAT arrangements.",
+      "Attach after a long-lived synthetic connection has started; trace visibility/attribution and assess required reconsideration checkpoints without claiming enforcement from a log.",
+      "Exercise truncated framing, missing provenance, duplicate action and batch-lifetime misuse in the harness; verify explicit rejection/ownership safety rather than double reinjection."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "Pin exact Netmap rings/flags/offload and driver behavior through the experiment; no packet API or bypass behavior is assumed accepted."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W01-T01.md"
+  },
+  {
+    "id": "M02-W01-T02",
+    "title": "Compare Divert coverage and reinjection against the same packet contract",
+    "milestone": "M02",
+    "work_package": "M02-W01",
+    "scope": "V1",
+    "type": "spike",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "low",
+    "depends_on": [
+      "M02-W01-T01"
+    ],
+    "requirements": [
+      "INS-01",
+      "INS-07",
+      "OPS-03",
+      "OPS-04"
+    ],
+    "product_sections": [
+      "51-packet-path",
+      "91-g0-adapter-evaluation",
+      "92-firewall-relationship"
+    ],
+    "architecture_sections": [
+      "61-preferred-integration-and-gate",
+      "62-adapter-contract",
+      "63-required-g0-proof"
+    ],
+    "architecture_decisions": [
+      "ARC-04"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "The comparison candidate is evaluated using identical workload/path expectations so one production adapter can be selected from evidence.",
+    "deliverables": [
+      "Minimal owned Divert rule/socket experiment and side-by-side conformance matrix.",
+      "pf/NAT/IPv6/reinjection stage traces with explicit candidate limitations and measured copy/latency cost."
+    ],
+    "acceptance": [
+      "Both candidates use the same fixture/workload identities and consuming action contract; differences in capture/address stage are explicit.",
+      "Divert rule/socket ownership and reinjection direction metadata are preserved without rule loops, skipped pf or twice-captured packets.",
+      "IPv4/IPv6, long-lived/midstream traffic and original-client attribution are measured; unsupported aspects are failures/gaps rather than inferred success.",
+      "The report retains Netmap failures and does not demand both adapters become production features."
+    ],
+    "tests": [
+      "Run the W01 permitted/denied/bidirectional/VLAN/NAT fixtures on the isolated Divert path using the same client/server endpoints and tool versions; compare observed delivery and pf state/counters.",
+      "Deliberately omit or corrupt reinjection metadata and create an owned-rule conflict; verify explicit rejection and preserved unrelated rules.",
+      "Measure paired bypass/Netmap/Divert cost on the declared preliminary workload below saturation, recording variability and missing capacity evidence."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W01-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W01-T02.md"
+  },
+  {
+    "id": "M02-W02-T01",
+    "title": "Measure engine/helper death, overload, and attachment failure actions",
+    "milestone": "M02",
+    "work_package": "M02-W02",
+    "scope": "V1",
+    "type": "test",
+    "area": "packet",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "low",
+    "depends_on": [
+      "M02-W01-T02",
+      "M00-W05-T01"
+    ],
+    "requirements": [
+      "OPS-06",
+      "OPS-09",
+      "SEC-01"
+    ],
+    "product_sections": [
+      "93-failure-matrix",
+      "94-installation-upgrades-removal-recovery"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "132-lifecycle-ownership",
+      "143-failure-isolation"
+    ],
+    "architecture_decisions": [
+      "ARC-03",
+      "ARC-04",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "Advertisable bypass/restrictive actions are established by observed traffic and management behavior for each candidate.",
+    "deliverables": [
+      "Failure injection procedure/matrix for engine/helper death, descriptor close, overload, capture failure and interface reset.",
+      "Observed forwarding/drop/outage/recovery timing, counters, scope and unavailable actions per adapter."
+    ],
+    "acceptance": [
+      "Each injection records actual client/server outcomes and management reachability, not inferred health from PID/socket closure.",
+      "Bypass/restrictive actions are advertised only where measured; Netmap close is not assumed to guarantee zero interruption or a restrictive action.",
+      "Overload/parser/resource-limited inspection is distinct from engine death; the matrix records their separate reasons and bounded behavior.",
+      "No failure test operates on a live production gateway or silently detaches another capture owner."
+    ],
+    "tests": [
+      "In the isolated lab with verified console access, kill engine and helper separately, close descriptors, saturate worker/packet queues and reset the selected interface; probe allowed, previously blocked and management flows over IPv4/IPv6.",
+      "Repeat each claimed failure mode from both idle and active-flow conditions; capture elapsed outage/recovery and actual server delivery.",
+      "Inject an unavailable capture/metadata condition and inspect status; it must not report fully active coverage or silently substitute another failure policy."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W02-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W02-T01.md"
+  },
+  {
+    "id": "M02-W02-T02",
+    "title": "Prove scoped ownership, maintenance recovery, and clean detach",
+    "milestone": "M02",
+    "work_package": "M02-W02",
+    "scope": "V1",
+    "type": "test",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M02-W02-T01"
+    ],
+    "requirements": [
+      "OPS-06",
+      "OPS-09",
+      "SEC-01"
+    ],
+    "product_sections": [
+      "93-failure-matrix",
+      "94-installation-upgrades-removal-recovery"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "132-lifecycle-ownership",
+      "143-failure-isolation"
+    ],
+    "architecture_decisions": [
+      "ARC-03",
+      "ARC-04",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G01"
+    ],
+    "outcome": "Attachment lifecycle experiments restore only Detew-owned artifacts and preserve a documented console/management recovery route.",
+    "deliverables": [
+      "Owned-resource/conflict inventory and reproducible attach/detach/stop/reboot/removal experiments.",
+      "Scoped management-exemption audit, drift handling and recovery report for each candidate."
+    ],
+    "acceptance": [
+      "A pre-existing conflicting capture consumer is detected before attachment and remains undisturbed; stale/drifted owned artifacts have explicit recovery.",
+      "Stop/reboot/disable/removal restores only Detew-owned hooks/settings and preserves unrelated pf/routing/NAT configuration.",
+      "Management exclusions are narrow, visible and audited; a destination/application outside that scope receives no hidden content bypass.",
+      "Unclean shutdown and failed detach produce truthful degraded status and a verified console recovery procedure."
+    ],
+    "tests": [
+      "Take synthetic configuration/resource snapshots, introduce another capture owner and attempt attachment; compare unrelated artifacts before/after conflict rejection.",
+      "Execute stop, reboot, disable and teardown/removal in the isolated lab while active IPv4/IPv6 flows exist; verify pf denials and unrelated rule digests survive.",
+      "Probe documented management selectors and adjacent addresses/ports to prove the exemption boundary; simulate failed detach and recover using only the console procedure."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W02-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W02-T02.md"
+  },
+  {
+    "id": "M02-W03-T01",
+    "title": "Build the pinned nDPI native manifest and narrow C/Rust ownership boundary",
+    "milestone": "M02",
+    "work_package": "M02-W03",
+    "scope": "V1",
+    "type": "spike",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M01-W05-T02",
+      "M00-W03-T02",
+      "M00-W01-T01"
+    ],
+    "requirements": [
+      "INS-04",
+      "INS-05",
+      "INS-06",
+      "SEC-02",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "52-hostname-evidence",
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "64-classification-native-boundary",
+      "72-state-and-admission"
+    ],
+    "architecture_decisions": [
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G02"
+    ],
+    "outcome": "A FreeBSD build exposes bounded copied classification observations through reviewed worker-owned native handles.",
+    "deliverables": [
+      "Pinned nDPI library/header/catalog/build-feature/license manifest and native build recipe.",
+      "Versioned C shim, safe Rust wrapper, ownership/error/panic contracts and process-boundary review."
+    ],
+    "acceptance": [
+      "Library, headers, bindings, catalog mapping and features are paired exactly; an incompatible ABI/catalog is rejected before inspection.",
+      "Worker contexts and per-flow state have one owner with paired allocation/free; domain types contain no native pointer or borrowed packet memory.",
+      "Packet lengths and output/string bounds are validated; unsupported/error statuses are typed and Rust unwinding cannot cross C.",
+      "Native crashes remain inspection-process failures; the wrapper does not claim process isolation or universal memory safety."
+    ],
+    "tests": [
+      "Build using exact pinned FreeBSD compiler/ports inputs; exercise known HTTP/TLS fixture observations and compare pinned catalog IDs rather than display text.",
+      "Run handle allocation/free/reuse/error sequences, zero/truncated/oversized packet inputs and invalid output lengths through the shim; verify bounded rejection and no pointer escape.",
+      "Simulate a wrapper panic/native error in supported test seams and review boundary behavior; ABI mismatch must fail loading rather than reinterpret observations."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W03-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W03-T01.md"
+  },
+  {
+    "id": "M02-W03-T02",
+    "title": "Measure native allocations and fuzz the classifier ownership/parser boundary",
+    "milestone": "M02",
+    "work_package": "M02-W03",
+    "scope": "V1",
+    "type": "test",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "low",
+    "depends_on": [
+      "M02-W03-T01"
+    ],
+    "requirements": [
+      "INS-04",
+      "INS-05",
+      "INS-06",
+      "SEC-02",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "52-hostname-evidence",
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "64-classification-native-boundary",
+      "72-state-and-admission"
+    ],
+    "architecture_decisions": [
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G02"
+    ],
+    "outcome": "Classifier admission budgets account for actual native allocations and hostile-input failures at the selected process boundary.",
+    "deliverables": [
+      "Per-context/per-flow/peak allocation report and reviewed admission cap proposal.",
+      "Native/shim hostile-input, lifetime, fuzz and available-sanitizer report with minimized regression corpus."
+    ],
+    "acceptance": [
+      "Native allocations are measured across create/classify/free and churn; a Rust pool alone is not reported as a total memory bound.",
+      "Per-worker ownership and all error/free paths are reviewed; exhausting the proposed cap yields an explicit limit result.",
+      "Supported sanitizer/fuzz configuration and limitations are recorded; unavailable instrumentation is missing evidence.",
+      "No classifier network/file access or diagnostic output leaks packet contents/credentials without an explicit reviewed need."
+    ],
+    "tests": [
+      "In the pinned FreeBSD lab, measure context and incremental flow RSS/native allocation under representative and malformed traffic, repeated teardown and sustained churn; report active/candidate overhead separately.",
+      "Fuzz the C shim and Rust wrapper using licensed/synthetic segmented/truncated/overlong inputs, allocation failures and lifetime sequences; preserve crashes, sanitizer findings and minimized seeds.",
+      "Deny unexpected network/file access in the experiment where platform controls permit, review call/build configuration, and record observations/limits without asserting an untested sandbox guarantee."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W03-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W03-T02.md"
+  },
+  {
+    "id": "M02-W04-T01",
+    "title": "Validate HTTP/TLS/QUIC hostname evidence and encrypted-visibility limits",
+    "milestone": "M02",
+    "work_package": "M02-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M02-W03-T02",
+      "M01-W02-T02"
+    ],
+    "requirements": [
+      "INS-02",
+      "INS-03",
+      "INS-04",
+      "INS-05",
+      "INS-08",
+      "INS-10",
+      "QLT-08"
+    ],
+    "product_sections": [
+      "52-hostname-evidence",
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "64-classification-native-boundary",
+      "73-initial-budget-proposals"
+    ],
+    "architecture_decisions": [
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G02"
+    ],
+    "outcome": "Classifier evidence states remain truthful for segmented metadata, ECH/GREASE and absent or reused handshakes.",
+    "deliverables": [
+      "Versioned synthetic/licensed HTTP Host/TLS/QUIC/ECH/GREASE corpus with independently expected observations.",
+      "Per-case parser/version/authority/completion/limit report and unsupported-state capability catalog."
+    ],
+    "acceptance": [
+      "Supported HTTP Host and segmented TLS/QUIC Initial produce qualified canonical evidence within declared byte/packet/time bounds.",
+      "ECH outer/public name and GREASE extension presence never become proof of true inner destination; uncertainty and fallback remain explicit.",
+      "Absent SNI, resumed/early-data/midstream and coalesced/reused connections do not fabricate decrypted request authorities or full content visibility.",
+      "Malformed/conflicting authorities, unsupported QUIC variants and limits yield invalid/unsupported/insufficient states, distinct from category misses."
+    ],
+    "tests": [
+      "Replay independently labeled HTTP/TLS/QUIC fixtures with segmentation, retransmission/out-of-order ordering, ECH/GREASE, no SNI and truncated lengths on the pinned FreeBSD wrapper; compare evidence authority/completion to expected facts.",
+      "Generate controlled client-server resumed/early-data and connection-reuse traffic, capture public handshake/application observations, and verify Detew reports only visible facts.",
+      "Vary provisional limits just before/at/after cutoffs; measure completion/limit states and ensure no unbounded parsing or fabricated hostname emerges."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W04-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W04-T01.md"
+  },
+  {
+    "id": "M02-W04-T02",
+    "title": "Publish independent application capability cases and late-evidence behavior",
+    "milestone": "M02",
+    "work_package": "M02-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M02-W04-T01"
+    ],
+    "requirements": [
+      "INS-02",
+      "INS-03",
+      "INS-04",
+      "INS-05",
+      "INS-08",
+      "INS-10",
+      "QLT-08"
+    ],
+    "product_sections": [
+      "52-hostname-evidence",
+      "54-provisional-inspection-and-bounded-work",
+      "55-classification-state-and-cache"
+    ],
+    "architecture_sections": [
+      "64-classification-native-boundary",
+      "73-initial-budget-proposals"
+    ],
+    "architecture_decisions": [
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G02"
+    ],
+    "outcome": "The initial application catalog names only tested identities and preserves generic transport/unresolved/late classification facts.",
+    "deliverables": [
+      "Stable Detew-to-classifier application mapping manifest and per-application capability/limit table.",
+      "Positive/lookalike-negative/encrypted/direct-IP/late-evidence fixture results."
+    ],
+    "acceptance": [
+      "Representative gaming and encrypted applications have separate positive/negative results, versions and fixture identities; no library-wide accuracy claim replaces them.",
+      "Generic TLS/QUIC is transport evidence, not a specific app; direct IP and tunnel/opaque cases report classification uncertainty correctly.",
+      "Late stronger evidence can change the evaluator input without rewriting earlier provisional facts; already delivered data is acknowledged.",
+      "Unsupported application mappings/catalog mismatches are explicit and cannot be exposed as working controls."
+    ],
+    "tests": [
+      "Run representative synthetic/authorized app connections and lookalike benign variants through the native harness, including encrypted/direct-IP and delayed handshake cases; verify independent expected identity/completion.",
+      "Feed each observation into the canonical reference with application/category controls and allow/block insufficient settings; check specific versus generic evidence consequences.",
+      "Change the catalog version/mapping in a disposable fixture and verify compatibility rejection rather than reinterpreting a historical app ID."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W04-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W04-T02.md"
+  },
+  {
+    "id": "M02-W05-T01",
+    "title": "Accept or reject the production packet adapter at ARCH-G01",
+    "milestone": "M02",
+    "work_package": "M02-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "packet",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "medium",
+    "depends_on": [
+      "M02-W01-T02",
+      "M02-W02-T02"
+    ],
+    "requirements": [
+      "OPS-03",
+      "QLT-01",
+      "QLT-02",
+      "QLT-03",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "91-g0-adapter-evaluation",
+      "17-decisions-and-source-register"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "64-classification-native-boundary",
+      "172-remaining-evidence-gates"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G01",
+      "ARCH-G02",
+      "G0"
+    ],
+    "outcome": "ARC-04 has one evidence-backed production adapter/support-scope decision before inline alpha implementation.",
+    "deliverables": [
+      "ARCH-G01 reviewed decision/report with exact supported topology/NIC/version/action matrix and candidate failures.",
+      "Synchronized ARC-04/product/milestone consequences and preliminary measured cost envelope."
+    ],
+    "acceptance": [
+      "The selected path preserves pf, both directions, IPv4/IPv6, original-client attribution, consuming ownership and required lifecycle/recovery contracts.",
+      "Every advertised failure action/management exemption has real observed evidence; unsupported cases remain unavailable.",
+      "Selection may reject Netmap in favor of Divert or reject both; inability to meet required IPv6/correctness keeps dependent G0 blocked.",
+      "Any scope/technology/target revision is justified in synchronized foundations; G0/GA is not accepted by this adapter decision alone."
+    ],
+    "tests": [
+      "A reviewer reproduces one permitted/denied dual-stack path, one midstream observation, one ownership conflict and each advertised failure action using the pinned matrix.",
+      "Audit report entries against client/server traces and artifact/version digests; missing cases cannot be marked supported.",
+      "Compare the decision to PRD required coverage and preliminary reference costs; record unresolved performance/full-product requirements for later gates."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W05-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W05-T01.md"
+  },
+  {
+    "id": "M02-W05-T02",
+    "title": "Accept or reject classifier/catalog feasibility at ARCH-G02",
+    "milestone": "M02",
+    "work_package": "M02-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "classifier",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "medium",
+    "depends_on": [
+      "M02-W03-T02",
+      "M02-W04-T02",
+      "M02-W05-T01"
+    ],
+    "requirements": [
+      "OPS-03",
+      "QLT-01",
+      "QLT-02",
+      "QLT-03",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "91-g0-adapter-evaluation",
+      "17-decisions-and-source-register"
+    ],
+    "architecture_sections": [
+      "63-required-g0-proof",
+      "64-classification-native-boundary",
+      "172-remaining-evidence-gates"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-05"
+    ],
+    "gates": [
+      "ARCH-G01",
+      "ARCH-G02",
+      "G0"
+    ],
+    "outcome": "ARC-05 has a reviewed FreeBSD/classifier/evidence-boundary decision and measured initial limits for G0.",
+    "deliverables": [
+      "ARCH-G02 decision consolidating native build/license/ownership/allocation/hostile-input/application/visibility results.",
+      "Tested classifier capability catalog, process failure consequences and synchronized replacement/narrowing decision if needed."
+    ],
+    "acceptance": [
+      "Pinned native build, exact catalog mapping and dependency/data license review are complete for the admitted candidate.",
+      "Evidence uncertainty/completion states, FFI ownership and native allocation budgets have reviewed results; a native crash invokes documented engine failure behavior.",
+      "Preferred candidate failure retains evidence and blocks/revises dependent implementation rather than silently choosing an untested fallback.",
+      "G0 receives both architecture reports and viable preliminary cost limits; this decision is not final application accuracy/capacity acceptance."
+    ],
+    "tests": [
+      "Independent reviewer rebuilds the native manifest and reproduces selected hostile/segmented/ECH/GREASE/app-lookalike/allocation cases from their immutable corpus.",
+      "Check each supported capability has a case/result and each unavailable test remains a limitation/blocker; compare boundary and failure claims with actual process architecture.",
+      "Audit ARC-04/05 and companions for consistent selected/gated language and required IPv6/local-lookup/visibility constraints."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M02-W05-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m02/M02-W05-T02.md"
+  },
+  {
+    "id": "M03-W01-T01",
+    "title": "Define the stable three-category taxonomy and bilingual boundaries",
+    "milestone": "M03",
+    "work_package": "M03-W01",
+    "scope": "V1",
+    "type": "docs",
+    "area": "data",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-03",
+      "DAT-04",
+      "UX-10"
+    ],
+    "product_sections": [
+      "71-initial-taxonomy",
+      "73-lookup-and-conflict-semantics"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Adult, Games and AI services have stable IDs and clear inclusion/exclusion meaning before sources are mapped.",
+    "deliverables": [
+      "Versioned adult/games/ai_services definitions with English/pt-BR labels and reviewed positive/negative/mixed-purpose examples.",
+      "Taxonomy version/change rules and provider-mapping fields."
+    ],
+    "acceptance": [
+      "Adult separates sexual-content boundaries from ordinary health/education; Games distinguishes service use from incidental embedded games; AI services means primary AI-assisted function rather than any AI feature.",
+      "IDs remain language-independent and multiple labels are permitted; an invented single primary category cannot settle policy.",
+      "Definitions state exact/subdomain semantics and mixed-purpose/uncertain boundaries without relying on provider undocumented behavior.",
+      "Examples are safe synthetic/curated material; no contributor must browse unsafe material or real activity."
+    ],
+    "tests": [
+      "Independent bilingual reviewers label a small curated positive/negative/mixed-purpose table using only definitions; disagreements produce explicit boundary edits, not forced consensus labels.",
+      "Check stable IDs/translations across schema and normalization fixtures, including long pt-BR descriptions and IDN examples."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W01-T01.md"
+  },
+  {
+    "id": "M03-W01-T02",
+    "title": "Validate taxonomy/provider mappings and multi-label semantics",
+    "milestone": "M03",
+    "work_package": "M03-W01",
+    "scope": "V1",
+    "type": "test",
+    "area": "data",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M03-W01-T01",
+      "M01-W03-T02"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-03",
+      "DAT-04",
+      "UX-10"
+    ],
+    "product_sections": [
+      "71-initial-taxonomy",
+      "73-lookup-and-conflict-semantics"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Provider taxonomy mappings preserve documented label sets, domain boundaries and canonical policy behavior.",
+    "deliverables": [
+      "Validated provider mapping contract with explicit exact/subdomain semantics and unknown-label handling.",
+      "Independent mapping/lookup/evaluator examples for mixed-purpose domains."
+    ],
+    "acceptance": [
+      "Each provider mapping targets stable category IDs and versioned definitions; unknown or incompatible category changes reject admission until reviewed.",
+      "Exact and include-subdomains flags are explicit; imported provider meaning does not create broad suffix/wildcard behavior.",
+      "Conflicting admitted labels form a set and any blocked confirmed label can deny after applicable exceptions.",
+      "Definitions/translations never change matching identity or classification versions."
+    ],
+    "tests": [
+      "Map synthetic sources with overlapping Games/AI labels, unknown categories, incompatible versions and divergent subdomain flags; assert accepted union or explicit rejection.",
+      "Evaluate mapped fixtures through the canonical evaluator with each category blocked in turn and a narrow exception/guardrail case; compare independent decisions.",
+      "Round-trip bilingual labels and stable IDs through the generated contracts without altering canonical lookup keys."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W01-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W01-T02.md"
+  },
+  {
+    "id": "M03-W02-T01",
+    "title": "Audit candidate sources for redistribution, provenance, and freshness",
+    "milestone": "M03",
+    "work_package": "M03-W02",
+    "scope": "V1",
+    "type": "spike",
+    "area": "data",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "low",
+    "depends_on": [
+      "M00-W01-T01"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-08",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "72-dataset-admission",
+      "74-freshness-and-outages",
+      "75-curation-and-quality-operations"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "83-freshness-and-runtime-context"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Candidate category sources have explicit rights/trust/update facts before any public dataset pack is assembled.",
+    "deliverables": [
+      "Source review inventory with exact terms/license snapshot/digest, publisher identity, attribution, formats, freshness and maintenance findings.",
+      "Accepted/rejected/needs-permission recommendations including local-curation obligations."
+    ],
+    "acceptance": [
+      "Software, application signatures and category source rights are reviewed separately; public access or checksum is not permission/authenticity.",
+      "Redistribution/modification/attribution requirements and uncertainty are stated per exact source version; missing rights leave the source unadmitted.",
+      "Freshness/warning/expiry and offline eligibility requirements identify update cadence and credible ongoing ownership.",
+      "The inventory preserves rejected/inadequate candidates and avoids commercial product inspiration/comparison references."
+    ],
+    "tests": [
+      "Read the exact primary source terms and publisher/version metadata for each candidate; independently verify interpretation and record inaccessible/ambiguous terms.",
+      "Exercise admission with downloadable-but-unlicensed, authenticated-but-incompatible and stale/abandoned examples; record why they cannot silently become a baseline."
+    ],
+    "constraints": [
+      "Research may proceed in parallel with M01; admitted distribution still requires accepted software/source reviews and taxonomy contracts.",
+      "Do not download unsafe site content, submit browsing data or redistribute candidate material while rights are unresolved."
+    ],
+    "evidence": [
+      "EV-M03-W02-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W02-T01.md"
+  },
+  {
+    "id": "M03-W02-T02",
+    "title": "Approve source manifests and the maintenance/eligibility contract",
+    "milestone": "M03",
+    "work_package": "M03-W02",
+    "scope": "V1",
+    "type": "decision",
+    "area": "data",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W02-T01",
+      "M03-W01-T02"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-08",
+      "OSS-02"
+    ],
+    "product_sections": [
+      "72-dataset-admission",
+      "74-freshness-and-outages",
+      "75-curation-and-quality-operations"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "83-freshness-and-runtime-context"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Only reviewed sources enter compilation with documented provenance, taxonomy mapping and engine-relevant freshness.",
+    "deliverables": [
+      "Reviewed source manifest schema and admitted source/version records with terms/attribution evidence.",
+      "Maintainable update/expiry/quarantine ownership plan and rejected-source register."
+    ],
+    "acceptance": [
+      "Each admitted source has exact version/digest, taxonomy mapping, provenance/trust method, permitted use/redistribution and separate software/data notices.",
+      "Warning and expiry thresholds define evidence eligibility; an outage alone does not expire currently valid data.",
+      "Available source/local-curation obligations cover all three required categories or retain explicit blockers.",
+      "No guessed maintainer ownership or permission can close admission; private custom corrections remain distinct from upstream sources."
+    ],
+    "tests": [
+      "Validate accepted manifest examples and reject missing rights/provenance, incompatible taxonomy, negative/invalid validity periods and unsupported source format.",
+      "Tabletop source outage through warning and expiry and a large unexpected update; confirm declared eligibility/quarantine and review-owner path.",
+      "Review a baseline attribution/license bundle against original terms and exact included sources; omit every unadmitted source."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W02-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W02-T02.md"
+  },
+  {
+    "id": "M03-W03-T01",
+    "title": "Implement bounded normalization/import and deterministic FST compilation",
+    "milestone": "M03",
+    "work_package": "M03-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W01-T02",
+      "M03-W02-T02",
+      "M01-W02-T02",
+      "M01-W04-T02"
+    ],
+    "requirements": [
+      "DAT-02",
+      "DAT-03",
+      "DAT-04",
+      "DAT-05",
+      "QLT-03",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "53-normalization-and-canonical-matching",
+      "72-dataset-admission",
+      "73-lookup-and-conflict-semantics"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "82-index-representation",
+      "73-initial-budget-proposals"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Admitted category data compiles into locally preloaded immutable artifacts with bounded ingestion and deterministic label/provenance tables.",
+    "deliverables": [
+      "Control-side importer/compiler using shared normalization, sort/deduplication and FST metadata split.",
+      "Versioned artifact format and valid/invalid import fixtures, with explicit temporary disk/memory caps."
+    ],
+    "acceptance": [
+      "Input trust/license/schema/taxonomy checks precede artifact construction; entries retain exact/subdomain semantics, source provenance and label unions.",
+      "Lengths, encodings, record counts, decompression and external-sort temporary resources are bounded; traversal/links/bombs cannot escape the processing sandbox.",
+      "Identical admitted inputs/versions produce identical artifacts independent of input order/duplicate rows/local paths.",
+      "The packet lookup representation is preloaded validated bytes plus metadata; no SQL/network/file lookup is introduced into decision evaluation."
+    ],
+    "tests": [
+      "Compile independent synthetic sources with duplicates, Unicode equivalents, multiple providers/labels and deceptive suffix entries; verify exact expected normalized keys/provenance/labels.",
+      "Process invalid encodings, oversized records, traversal/link archives, high-expansion compressed input and quota exhaustion in an isolated temp directory; verify bounded rejection and cleanup.",
+      "Compile permuted identical inputs twice with declared pinned tools and compare artifact bytes/digests; preserve semantic subdomain distinctions."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W03-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W03-T01.md"
+  },
+  {
+    "id": "M03-W03-T02",
+    "title": "Verify artifact decoding, lookup parity, and peak preparation budgets",
+    "milestone": "M03",
+    "work_package": "M03-W03",
+    "scope": "V1",
+    "type": "test",
+    "area": "data",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W03-T01"
+    ],
+    "requirements": [
+      "DAT-02",
+      "DAT-03",
+      "DAT-04",
+      "DAT-05",
+      "QLT-03",
+      "SEC-02"
+    ],
+    "product_sections": [
+      "53-normalization-and-canonical-matching",
+      "72-dataset-admission",
+      "73-lookup-and-conflict-semantics"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "82-index-representation",
+      "73-initial-budget-proposals"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Category artifacts are rejected before activation when malformed/incompatible and fit a measured active-plus-candidate resource envelope.",
+    "deliverables": [
+      "Artifact verifier/load/lookup regression cases and shared tester/runtime lookup contract.",
+      "Compile/load resident/peak memory and temporary storage report with capacity/quarantine proposals."
+    ],
+    "acceptance": [
+      "Format/schema/normalization/taxonomy compatibility, all metadata indexes/lengths and provenance references are verified before load.",
+      "Category tester and runtime-facing lookup return the same canonical keys, multi-label sets and provider/version/uncertainty facts.",
+      "Measured budget includes active/candidate artifact bytes, compiler/temp/native/service overhead and host headroom; proposals are not final support promises.",
+      "Corrupt/incompatible/oversized candidates fail without displacing a verified artifact; lazy mmap faults are not used as the packet-path design."
+    ],
+    "tests": [
+      "Mutate headers/index offsets/counts/digests/version fields in valid synthetic artifacts; the verifier rejects each before any worker-facing lookup.",
+      "Run independent exact/subdomain/IDN/shared-IP/multi-label cases through the tester and runtime lookup interface and compare results with curated expected sets.",
+      "Measure compilation and simultaneous active+candidate preload on the proposed reference lab, forcing memory/disk cap crossings; retain precise errors and cleanup/old-artifact availability observations."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W03-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W03-T02.md"
+  },
+  {
+    "id": "M03-W04-T01",
+    "title": "Freeze an independent bilingual category corpus and scoring protocol",
+    "milestone": "M03",
+    "work_package": "M03-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M03-W01-T01",
+      "M00-W04-T01"
+    ],
+    "requirements": [
+      "DAT-01",
+      "QLT-07"
+    ],
+    "product_sections": [
+      "71-initial-taxonomy",
+      "75-curation-and-quality-operations"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "163-required-checks"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "Category quality is measured against independent labels, held-out cases and explicit visibility denominators.",
+    "deliverables": [
+      "Safe licensed/synthetic corpus manifest with independent labels, uncertainty and protected holdout partition.",
+      "Precision/recall/sample/uncertainty/coverage scoring specification and correction history."
+    ],
+    "acceptance": [
+      "The corpus includes English/Portuguese, regional/new services, IDNs, benign health/education, shared hosting and mixed-purpose examples for all required categories.",
+      "Gold labels do not come from imported lists or current classifier output; disagreements and ambiguous labels retain review evidence.",
+      "Eligible visible labeled destinations define precision/recall denominators; all-attempted traffic visibility/uncategorized share are separately reported.",
+      "Holdout identity is frozen before evaluation and difficult cases cannot be removed to improve reported accuracy."
+    ],
+    "tests": [
+      "Have an independent reviewer label cases from taxonomy definitions without seeing provider predictions; reconcile disagreements with an auditable label-change rule.",
+      "Calculate confusion/sample/uncertainty metrics on a hand-worked synthetic prediction table with unknown/hidden/multi-label cases; verify denominators and coverage separately.",
+      "Audit corpus source/license/redaction fields and digest the corpus/holdout manifest before running artifact predictions."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W04-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W04-T01.md"
+  },
+  {
+    "id": "M03-W04-T02",
+    "title": "Measure initial three-category quality and remediation gaps",
+    "milestone": "M03",
+    "work_package": "M03-W04",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W04-T01",
+      "M03-W03-T02"
+    ],
+    "requirements": [
+      "DAT-01",
+      "QLT-07"
+    ],
+    "product_sections": [
+      "71-initial-taxonomy",
+      "75-curation-and-quality-operations"
+    ],
+    "architecture_sections": [
+      "8-category-and-classification-data",
+      "163-required-checks"
+    ],
+    "architecture_decisions": [
+      "ARC-07"
+    ],
+    "gates": [
+      "ARCH-G03"
+    ],
+    "outcome": "G0 receives honest initial category quality/coverage evidence and a concrete remediation plan, separate from release acceptance.",
+    "deliverables": [
+      "Per-category initial precision/recall/sample/uncertainty/coverage report at exact dataset/corpus versions.",
+      "False-positive/negative/uncategorized/visibility gap analysis and source/curation remediation decisions."
+    ],
+    "acceptance": [
+      "All three categories report independent prediction results, counts and uncertainty; no single aggregate hides a deficient category.",
+      "All-attempted visibility and uncategorized share are reported independently from eligible-visible accuracy.",
+      "Failed launch targets remain known blockers for M09/M10; G0 feasibility does not claim final 98% precision/90% recall.",
+      "Labels/holdout partition are not revised from predictions merely to improve scores; legitimate correction history remains auditable."
+    ],
+    "tests": [
+      "Run the admitted compiled artifact through the frozen corpus/scoring procedure, independently spot-check confusion-table entries and reproduce summary counts.",
+      "Compare expected ambiguous/shared-hosting/health/education/IDN cases and inspect false positives/negatives without fetching unsafe site bodies.",
+      "Re-run from the same version/digests to confirm identical predictions; record proposed remediation impact and required later holdout re-evaluation."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W04-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W04-T02.md"
+  },
+  {
+    "id": "M03-W05-T01",
+    "title": "Assemble the licensed baseline dataset pack and private correction contract",
+    "milestone": "M03",
+    "work_package": "M03-W05",
+    "scope": "V1",
+    "type": "feature",
+    "area": "data",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W03-T02",
+      "M03-W02-T02",
+      "M03-W04-T02"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-02",
+      "DAT-07",
+      "OSS-02",
+      "OSS-03",
+      "PRI-03"
+    ],
+    "product_sections": [
+      "72-dataset-admission",
+      "75-curation-and-quality-operations",
+      "133-privacy-defaults"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "13-opnsense-integration-and-packaging"
+    ],
+    "architecture_decisions": [
+      "ARC-07",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G03",
+      "G0"
+    ],
+    "outcome": "The baseline artifact can be verified with exact software/data notices, while local corrections remain private and separate.",
+    "deliverables": [
+      "Candidate baseline dataset pack/manifest with taxonomy/data/catalog identities, admitted source notices and verifier procedure.",
+      "Local correction/custom-list format and explicit optional contribution preparation/redaction preview contract."
+    ],
+    "acceptance": [
+      "Only admitted redistributable material is included; source/category data and native signature/software versions/licenses remain distinct.",
+      "Pack integrity/authenticity and compatibility checks are reproducible; signing provenance is not invented before ownership/key procedures exist.",
+      "Private corrections have explicit precedence/provenance and export representation; they do not overwrite upstream data or auto-submit browsing records.",
+      "Baseline verification and correction workflows are documented without a hosted account; this candidate is not a public release."
+    ],
+    "tests": [
+      "Unpack/load the valid candidate in a clean offline workspace; verify declared digests/schema/compatibility/notices and reject tampered/incompatible examples.",
+      "Apply a synthetic local correction alongside upstream labels and evaluate narrow exception/guardrail cases with the canonical reference; confirm source distinction persists in export/tester output.",
+      "Prepare a synthetic contribution preview with hostname/device/history fields; verify excluded private context and that no network submission occurs."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W05-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W05-T01.md"
+  },
+  {
+    "id": "M03-W05-T02",
+    "title": "Accept or reject category-data feasibility at ARCH-G03",
+    "milestone": "M03",
+    "work_package": "M03-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "data",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "medium",
+    "depends_on": [
+      "M03-W01-T02",
+      "M03-W02-T02",
+      "M03-W03-T02",
+      "M03-W04-T02",
+      "M03-W05-T01"
+    ],
+    "requirements": [
+      "DAT-01",
+      "DAT-02",
+      "DAT-07",
+      "OSS-02",
+      "OSS-03",
+      "PRI-03"
+    ],
+    "product_sections": [
+      "72-dataset-admission",
+      "75-curation-and-quality-operations",
+      "133-privacy-defaults"
+    ],
+    "architecture_sections": [
+      "81-compilation-pipeline",
+      "13-opnsense-integration-and-packaging"
+    ],
+    "architecture_decisions": [
+      "ARC-07",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G03",
+      "G0"
+    ],
+    "outcome": "G0 has an evidence-backed taxonomy/source/artifact/quality/update feasibility decision for all required categories.",
+    "deliverables": [
+      "ARCH-G03 decision linking approved rights, taxonomy, deterministic artifacts, initial independent quality and maintenance evidence.",
+      "Synchronized foundation/task consequences for rejected sources, inadequate coverage or required local curation."
+    ],
+    "acceptance": [
+      "All three required categories have usable licensed normalized artifacts, independent initial quality evidence and a credible accountable update path.",
+      "Missing rights, unverified maintenance ownership or unusable mandatory-category coverage remain G0 blockers; preferred-source rejection retains evidence.",
+      "Final launch quality and frozen-candidate corpus acceptance remain M09/M10 obligations.",
+      "Software/signature/data notices and private correction behavior are consistent across candidate pack and foundation docs."
+    ],
+    "tests": [
+      "Independent review reproduces pack verification and a selected category prediction/scoring subset from recorded digests and exact source manifest.",
+      "Audit every included source against admitted rights/provenance and verify every required category has boundary/corpus/update evidence.",
+      "Review blocker/remediation records and dependent milestone consequences; a report file alone cannot make the gate accepted."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M03-W05-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m03/M03-W05-T02.md"
+  },
+  {
+    "id": "M04-W01-T01",
+    "title": "Map native XML storage to generated domain snapshots",
+    "milestone": "M04",
+    "work_package": "M04-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "3-domain-objects-and-ownership",
+      "6-configuration-activation-and-recovery",
+      "123-configuration-export-and-import"
+    ],
+    "architecture_sections": [
+      "91-desired-state-ownership",
+      "102-artifactjournal-durability",
+      "104-backuprestore-and-secret-separation"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "The native plugin model owns desired configuration and exports schema-versioned snapshots without a second configuration authority.",
+    "deliverables": [
+      "Minimal native XML model/storage mapping for profiles, assignments, guardrails and initial revision metadata.",
+      "Generated JSON snapshot bridge and native/Rust/schema/TypeScript round-trip fixtures."
+    ],
+    "acceptance": [
+      "Host model values map losslessly to authoritative domain/wire types, stable IDs and exact decimal-string revisions.",
+      "Native XML is the sole desired-state authority; Rust daemons neither parse/write full config.xml nor persist an alternate desired model.",
+      "Invalid/dangling/unknown writes are rejected through authoritative Rust semantic validation with stable native field-addressed feedback.",
+      "Inventory observations and apply progress are not persisted as learned desired configuration; snapshot versions/digests remain explicit derived state."
+    ],
+    "tests": [
+      "On the pinned isolated OPNsense host, save/export valid synthetic model cases and round-trip through Rust/schema/TypeScript; compare IDs, priority, null/optional and counters above 2^53.",
+      "Attempt invalid references, duplicate enabled priorities, unsupported fields and malformed native values through the bridge; verify no authoritative save occurs.",
+      "Inspect desired-state write paths and file permissions; demonstrate generated snapshots can be rebuilt from native intent without SQL/daemon authority."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W01-T01.md"
+  },
+  {
+    "id": "M04-W01-T02",
+    "title": "Prototype locked expected-revision writes and durable reservation",
+    "milestone": "M04",
+    "work_package": "M04-W01",
+    "scope": "V1",
+    "type": "feature",
+    "area": "control",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W01-T01"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "3-domain-objects-and-ownership",
+      "6-configuration-activation-and-recovery",
+      "123-configuration-export-and-import"
+    ],
+    "architecture_sections": [
+      "91-desired-state-ownership",
+      "102-artifactjournal-durability",
+      "104-backuprestore-and-secret-separation"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "Concurrent native edits cannot silently overwrite each other and reserved revisions never masquerade as saved/applied configuration.",
+    "deliverables": [
+      "Native mutation boundary covering lock, reread/expected revision, canonical validation, high-water reservation and native save/snapshot.",
+      "Structured stale-edit/conflict and desired-versus-runtime operation state prototype."
+    ],
+    "acceptance": [
+      "The mutation lock spans current native revision reread/check and save; a pre-lock expected-revision check alone is insufficient.",
+      "Durable high-water reservation occurs before native save and uses checked monotonic counters; failed saves can leave gaps but not reuse successful/reserved revisions.",
+      "Reserved, saved desired, generated snapshot and applied state remain distinct; the prototype cannot claim actual worker application.",
+      "Concurrent operation and lock timeout errors preserve drafts and provide stable conflict context without leaking unrelated appliance configuration."
+    ],
+    "tests": [
+      "In the isolated host, submit two synchronized edits with the same expected revision; exactly one saves and the other returns an explicit conflict preserving its local input.",
+      "Pause/inject failure before reservation, after durable reservation and before native save; inspect journal/native state to verify gaps are not reported as saves/applied.",
+      "Restart the prototype after a reserved-but-unsaved revision and perform another edit; monotonic high-water semantics and current native intent remain correct."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W01-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W01-T02.md"
+  },
+  {
+    "id": "M04-W01-T03",
+    "title": "Prove restore rebasing and interrupted writer recovery",
+    "milestone": "M04",
+    "work_package": "M04-W01",
+    "scope": "V1",
+    "type": "test",
+    "area": "control",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W01-T02"
+    ],
+    "requirements": [
+      "POL-01",
+      "POL-07",
+      "POL-10",
+      "OPS-08"
+    ],
+    "product_sections": [
+      "3-domain-objects-and-ownership",
+      "6-configuration-activation-and-recovery",
+      "123-configuration-export-and-import"
+    ],
+    "architecture_sections": [
+      "91-desired-state-ownership",
+      "102-artifactjournal-durability",
+      "104-backuprestore-and-secret-separation"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-12",
+      "ARC-14"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "Backup/import/restore and interrupted writes preserve one native authority with rebased revisions and honest recovery status.",
+    "deliverables": [
+      "Native writer interruption/concurrency/restore report and minimal recovery test seams.",
+      "Restore/import lineage/revision rebasing procedure and corrupted/disk-full journal outcomes."
+    ],
+    "acceptance": [
+      "Restored older native revisions are rebased through the same native writer; old intent cannot roll back the durable local high-water mark.",
+      "A new installation or unrecoverable journal reset establishes explicit new lineage; identity/revision history is not falsely continuous.",
+      "No atomic transaction is claimed across reservation/native save/snapshot/worker state; each interruption has a reconciled status and documented retry.",
+      "Corrupt, partial, incompatible and disk-full input/journal failures reject/recover explicitly without silently writing whole-appliance XML or reporting applied state."
+    ],
+    "tests": [
+      "Restore a synthetic old revision over newer native intent in the isolated lab, race a second writer, and verify new reserved/saved revision plus conflict handling.",
+      "Inject interruption at each reservation/save/snapshot boundary, truncated/corrupt journal and disk-full temporary filesystem; reboot and inspect desired/snapshot/status consistency.",
+      "Reconstruct a new installation/unrecoverable journal-reset scenario and verify lineage is changed explicitly; unrelated host configuration and secret exclusions remain intact."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W01-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W01-T03.md"
+  },
+  {
+    "id": "M04-W02-T01",
+    "title": "Freeze native HTTP/IPC shapes, errors, and protected operation methods",
+    "milestone": "M04",
+    "work_package": "M04-W02",
+    "scope": "V1",
+    "type": "docs",
+    "area": "control",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "high",
+    "depends_on": [
+      "M01-W05-T02",
+      "M04-W01-T01"
+    ],
+    "requirements": [
+      "OPS-02",
+      "SEC-01",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "12-administration-api-and-shared-validation",
+      "122-error-and-conflict-behavior"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "141-trust-model"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-09",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "Native frontend/controller/daemon contributors share a minimal versioned contract before implementing either side.",
+    "deliverables": [
+      "OpenAPI 3.1 endpoint contract using generated DTOs and explicit admin/viewer/read/mutation/operation semantics.",
+      "Length-prefixed Unix control framing/peer/version/size contract and fixed configd action allowlist."
+    ],
+    "acceptance": [
+      "Read methods have no side effects; mutations use native protected methods/ACL/session/CSRF and no browser-to-engine privileged socket.",
+      "Errors identify validation, conflict, unavailable, incompatible, permission and operation states with stable codes/paths.",
+      "Operation IDs/idempotency/revision/context fields use M01 interfaces; simulated worker state is labeled and never becomes confirmed live application.",
+      "Control-frame limit, timeout and peer credentials are explicit proposals to verify on FreeBSD; invalid/unknown peers cannot default to root."
+    ],
+    "tests": [
+      "Contract review walks valid admin/viewer/session-expired/CSRF-missing/unsupported-method/conflict/oversize examples and identifies the expected status/error without implementation guesswork.",
+      "Validate OpenAPI/generated-schema reference compatibility and remote-reference prohibition; compare all write/read DTOs with authoritative contracts.",
+      "Review fixed configd actions and pathname/actor inputs; no untyped arbitrary command/path or client-asserted actor controls privilege."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W02-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W02-T01.md"
+  },
+  {
+    "id": "M04-W02-T02",
+    "title": "Prototype fixed configd actions and authenticated bounded Unix IPC",
+    "milestone": "M04",
+    "work_package": "M04-W02",
+    "scope": "V1",
+    "type": "feature",
+    "area": "security",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W02-T01",
+      "M00-W05-T01"
+    ],
+    "requirements": [
+      "OPS-02",
+      "SEC-01",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "12-administration-api-and-shared-validation",
+      "122-error-and-conflict-behavior"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "141-trust-model"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-09",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "The native host bridge reaches local control through bounded authenticated IPC and narrowly owned elevated actions.",
+    "deliverables": [
+      "Fixed configd bridge and Unix control client/server prototype with version/framing/peer checks.",
+      "Socket ownership/mode/account/action inventory and malicious peer/input fixtures."
+    ],
+    "acceptance": [
+      "Only permitted peer credentials and socket modes connect; missing/invalid credential lookup rejects rather than assumes root/trusted.",
+      "Oversized/truncated/repeated frames, incompatible versions and timeouts fail within bounds and cannot force unbounded blocking/allocation.",
+      "Privileged actions accept typed validated scope/action identifiers from an allowlist and cannot execute arbitrary shell commands or paths.",
+      "No unauthenticated LAN service or mandatory extra account is opened; no actual live packet attach occurs as a bridge shortcut."
+    ],
+    "tests": [
+      "On pinned FreeBSD, connect as allowed and disallowed local accounts and verify credential/mode checks, including credential lookup failure test seam.",
+      "Send boundary-sized, over-limit, truncated, malformed and unsupported-version control frames and stall a sender; measure bounded resources/timeouts and explicit errors.",
+      "Attempt action/actor/path/shell metacharacter injection against fixed configd actions; compare owned files/actions and confirm no unauthorized effect."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W02-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W02-T02.md"
+  },
+  {
+    "id": "M04-W02-T03",
+    "title": "Integrate native endpoints and independently test ACL/session/CSRF enforcement",
+    "milestone": "M04",
+    "work_package": "M04-W02",
+    "scope": "V1",
+    "type": "test",
+    "area": "opnsense",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W02-T02",
+      "M04-W01-T03"
+    ],
+    "requirements": [
+      "OPS-02",
+      "SEC-01",
+      "SEC-03"
+    ],
+    "product_sections": [
+      "12-administration-api-and-shared-validation",
+      "122-error-and-conflict-behavior"
+    ],
+    "architecture_sections": [
+      "11-ipc-and-administrative-apis",
+      "141-trust-model"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-09",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "The minimal host API permits authorized operations and rejects role/session/method/CSRF violations at the native boundary.",
+    "deliverables": [
+      "Minimal native status/model/validate/save/operation endpoints backed by the one writer and authenticated control bridge.",
+      "Admin/viewer/security/concurrency API conformance report at the exact host patch revision."
+    ],
+    "acceptance": [
+      "Admin can perform permitted protected writes; viewer reads but cannot mutate through direct API, forged UI requests or alternate methods.",
+      "Expired sessions, missing/invalid CSRF and unsupported mutation methods reject without native save or privileged action.",
+      "Client-supplied actor/role claims are ignored/rejected; authoritative host session/ACL determines attribution.",
+      "Stale writes return useful conflict context and preserve draft inputs; operation reads/status cannot imply live protection from a prototype."
+    ],
+    "tests": [
+      "Execute a request matrix on the isolated native host for admin/viewer/unauthenticated/expired session, valid/missing/forged CSRF and GET/POST/PUT/DELETE/unsupported methods; inspect native desired revision/actions before and after.",
+      "Send oversized/unknown-field/invalid-reference inputs plus forged role/actor, remote-schema references and injection text; assert bounded stable errors and no unintended state change.",
+      "Issue concurrent same-revision saves and reconnect to the resulting operation; verify one winner, stable operation identity, expected conflict and session-safe error display inputs."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W02-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W02-T03.md"
+  },
+  {
+    "id": "M04-W03-T01",
+    "title": "Mount locally bundled React assets inside the native Volt shell",
+    "milestone": "M04",
+    "work_package": "M04-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W02-T01",
+      "M00-W02-T03"
+    ],
+    "requirements": [
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "OPS-02"
+    ],
+    "product_sections": [
+      "142-information-architecture",
+      "149-visual-system-proposed-tokens-and-craft-rules",
+      "1410-responsive-and-accessibility-contract"
+    ],
+    "architecture_sections": [
+      "12-frontend-architecture",
+      "113-native-http-api"
+    ],
+    "architecture_decisions": [
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "Detew renders through the host-authenticated page with local versioned assets and no separate frontend runtime.",
+    "deliverables": [
+      "Volt mount/static asset manifest and React strict-TypeScript/hash-route prototype.",
+      "Host session/CSP/navigation/locale/theme handoff and asset/cache error states."
+    ],
+    "acceptance": [
+      "Production assets are locally bundled and mounted in native authentication/ACL navigation; Node is build tooling only.",
+      "Hash routes preserve native navigation/deep-link behavior; CSP violations, unavailable/version-mismatched assets and expired sessions produce actionable states.",
+      "No CDN/fonts/telemetry/service worker sensitive cache or second login/theme system is introduced.",
+      "Prototype status data is explicitly simulated where not supplied by a real accepted host contract."
+    ],
+    "tests": [
+      "Build with pinned npm/Vite inputs, package/mount on the isolated exact host and load deep links/refresh/back/forward while checking session/native navigation and CSP console/network results.",
+      "Run offline from external services and inspect network requests for asset/telemetry dependencies; local assets must load without a hosted account.",
+      "Invalidate/remove an asset and expire the host session; verify deliberate cache/version/session error or native sign-in behavior without misleading active status."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W03-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W03-T01.md"
+  },
+  {
+    "id": "M04-W03-T02",
+    "title": "Connect typed native transport and resilient query/operation state",
+    "milestone": "M04",
+    "work_package": "M04-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "m",
+    "confidence": "high",
+    "depends_on": [
+      "M04-W03-T01",
+      "M04-W02-T03"
+    ],
+    "requirements": [
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "OPS-02"
+    ],
+    "product_sections": [
+      "142-information-architecture",
+      "149-visual-system-proposed-tokens-and-craft-rules",
+      "1410-responsive-and-accessibility-contract"
+    ],
+    "architecture_sections": [
+      "12-frontend-architecture",
+      "113-native-http-api"
+    ],
+    "architecture_decisions": [
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "UI server state uses protected native transport, exact DTOs and stable operations while preserving local drafts through failures.",
+    "deliverables": [
+      "Typed native request-helper adapter, TanStack query/status/pagination and operation polling prototype.",
+      "Strict loading/stale/error/conflict/permission/reconnect fixtures using accepted native API shapes."
+    ],
+    "acceptance": [
+      "Native transport preserves host CSRF/session/ACL behavior and validates generated response shapes without implementing a second policy algorithm.",
+      "Decimal revisions/counters remain exact; queries never compare revision strings lexicographically or coerce unsafe numbers.",
+      "Mutation retries obey idempotency and never silently resubmit/overwrite stale edits; operation identity survives reconnect.",
+      "Refresh failure removes present-tense health claims and shows last confirmed timestamp; local drafts/filter context survive errors/conflicts."
+    ],
+    "tests": [
+      "Against the isolated native endpoints, perform save/read/operation flows under admin/viewer and session expiry; inspect actual protected request headers/methods and write effects.",
+      "Use controlled response/error fixtures for counter values above 2^53, malformed/unsupported DTO, timeout, stale status, mixed generation and conflict; verify exact display/state/draft preservation.",
+      "Disconnect/reconnect during an operation and replay an authorized idempotent request per contract; verify no duplicate save and stable operation tracking."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W03-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W03-T02.md"
+  },
+  {
+    "id": "M04-W03-T03",
+    "title": "Build scoped accessible components, bilingual strings, and host theme parity",
+    "milestone": "M04",
+    "work_package": "M04-W03",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W03-T02"
+    ],
+    "requirements": [
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "OPS-02"
+    ],
+    "product_sections": [
+      "142-information-architecture",
+      "149-visual-system-proposed-tokens-and-craft-rules",
+      "1410-responsive-and-accessibility-contract"
+    ],
+    "architecture_sections": [
+      "12-frontend-architecture",
+      "113-native-http-api"
+    ],
+    "architecture_decisions": [
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "The prototype has a coherent accessible component system without altering the native shell or hiding exceptional states.",
+    "deliverables": [
+      "Detew-wrapped Radix primitives, scoped Tailwind/tokens/portals and English/pt-BR message catalog.",
+      "Component/host visual, keyboard, zoom/reflow and state fixture report."
+    ],
+    "acceptance": [
+      "Tailwind Preflight is omitted; classes/tokens/portals are scoped to the Detew wrapper and native navigation/forms retain their styles.",
+      "Light/dark semantic contrast, text+icon state meaning, long translated labels/hostnames/multiple categories/IPv6 and reduced motion are tested.",
+      "Keyboard focus, labels/error associations/dialog focus restoration and no unsolicited polling focus move hold for used components.",
+      "At roughly 360px and 200% zoom, common actions/context remain usable; wider diagnostic tables are separated from essential triage."
+    ],
+    "tests": [
+      "Run component interaction tests and automated accessibility checks on the newly created harness; manually keyboard/screen-reader review dialogs, validation, switches and menus on the declared browser matrix.",
+      "Mount common/portal components next to representative host shell controls in light/dark and English/pt-BR; compare before/after host styles and contrast/text wrapping.",
+      "Exercise narrow viewport, 200% zoom, long labels/IPv6/multi-label rows, reduced motion and loading/error/read-only states; capture visual evidence plus functional outcomes."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W03-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W03-T03.md"
+  },
+  {
+    "id": "M04-W04-T01",
+    "title": "Implement the setup/category-profile/device-assignment prototype journeys",
+    "milestone": "M04",
+    "work_package": "M04-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W01-T03",
+      "M04-W02-T03",
+      "M04-W03-T03"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-08",
+      "UX-12"
+    ],
+    "product_sections": [
+      "143-setup-flow",
+      "145-profile-editor",
+      "146-devices-and-assignments",
+      "147-activity-and-decision-drawer",
+      "1411-state-and-copy-matrix"
+    ],
+    "architecture_sections": [
+      "122-ui-state-ownership",
+      "125-frontend-quality-contract"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "A novice can rehearse readiness, three-category profile creation, assignment and review/apply through truthful native prototype states.",
+    "deliverables": [
+      "Interactive readiness/scope/profile/test-device/observe/review/enforce prototype with simulated-versus-live source labels.",
+      "Draft category/profile/assignment editor and resumable setup state using real native model/save contract where available."
+    ],
+    "acceptance": [
+      "Adult/Games/AI categories have search/definitions/coverage explanations and common Block controls without requiring rule/manifest/DPI knowledge.",
+      "Category switches edit a draft; review shows scope, affected profiles/devices, guardrails, failure/insufficient/provisional/privacy choices and active-session caveats.",
+      "Assignment preview explains numeric-priority meaning in ordinary language and unknown/conflicting identity limitations.",
+      "Closing/resuming setup cannot enable enforcement; simulated readiness/activation cannot become a healthy live protection claim.",
+      "Conflict/read-only/invalid/data-unavailable/partial/stale states preserve context and show recovery without discarding drafts."
+    ],
+    "tests": [
+      "Run guided interaction cases from empty setup to create/assign three-category profile, review/discard/save/apply, close/reopen and stale-write conflict; inspect native desired revisions and separate simulated runtime state.",
+      "Inject unsupported scope, capture conflict, missing data, attribution ambiguity and failed/mixed activation fixture states; verify blockers, clear source labels and absence of false health.",
+      "Execute the common journeys in English/pt-BR, keyboard only, narrow viewport and both host themes with realistic labels and five/100/1,000-entry list fixtures."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W04-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W04-T01.md"
+  },
+  {
+    "id": "M04-W04-T02",
+    "title": "Implement decision-to-exception and failure-recovery prototype journeys",
+    "milestone": "M04",
+    "work_package": "M04-W04",
+    "scope": "V1",
+    "type": "feature",
+    "area": "ui",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W04-T01",
+      "M01-W05-T02"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-08",
+      "UX-12"
+    ],
+    "product_sections": [
+      "143-setup-flow",
+      "145-profile-editor",
+      "146-devices-and-assignments",
+      "147-activity-and-decision-drawer",
+      "1411-state-and-copy-matrix"
+    ],
+    "architecture_sections": [
+      "122-ui-state-ownership",
+      "125-frontend-quality-contract"
+    ],
+    "architecture_decisions": [
+      "ARC-08",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "The prototype helps users explain an observed/simulated result, create a narrow exception and distinguish recovery actions.",
+    "deliverables": [
+      "Activity/decision drawer and category tester prototype using canonical reference fixtures.",
+      "Narrow exception/review/apply and failed/stale/bypass/partial recovery interactions."
+    ],
+    "acceptance": [
+      "Drawer separates content verdict, confirmed/failed/would enforcement outcome, visibility and connection success; missing evidence stays visibly missing.",
+      "Exception prefill uses the narrowest qualifying hostname/application selector and scope; a shared IP/whole category is not silently allowed and guardrails remain visible.",
+      "Filtering disable, adapter bypass and daemon stop have distinct consequences/support labels; failures offer appropriate native/console recovery guidance.",
+      "HTTPS failure guidance does not create certificate errors or promise a branded block page/decoded content for unsupported protocols.",
+      "Filters/drafts/focus survive drawer close, conflict and refresh; historical explanations use captured versions/context rather than current labels."
+    ],
+    "tests": [
+      "Walk S-03/S-05/S-06/S-08 synthetic decision cases: ordinary category deny, guardrail deny, ECH-hidden/unsupported, observe would-block, unknown server success, activity gap and activation failure.",
+      "Create a narrow exception from each qualifying case and preview via canonical reference; verify guardrail residual deny and no unrelated shared-IP/category allowance.",
+      "Use keyboard/screen reader/narrow pt-BR flows to close/reopen drawers, cancel recovery and reconnect to operations; verify retained context and no unsafe branded HTTPS behavior."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W04-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W04-T02.md"
+  },
+  {
+    "id": "M04-W05-T01",
+    "title": "Review ARCH-G04 host evidence and conduct the G0 prototype usability study",
+    "milestone": "M04",
+    "work_package": "M04-W05",
+    "scope": "V1",
+    "type": "test",
+    "area": "quality",
+    "priority": "p0",
+    "size": "l",
+    "confidence": "medium",
+    "depends_on": [
+      "M04-W01-T03",
+      "M04-W02-T03",
+      "M04-W03-T03",
+      "M04-W04-T02"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "UX-12",
+      "QLT-05"
+    ],
+    "product_sections": [
+      "1410-responsive-and-accessibility-contract",
+      "1412-design-acceptance",
+      "16-development-sequence-and-conformance"
+    ],
+    "architecture_sections": [
+      "125-frontend-quality-contract",
+      "172-remaining-evidence-gates"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-05",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G04"
+    ],
+    "outcome": "Native protection/revision integration and independently observed prototype comprehension provide an honest host/UI feasibility decision.",
+    "deliverables": [
+      "ARCH-G04 host/model/writer/restore/API/IPC/mount/security evidence review.",
+      "Representative non-developer setup/block/explain study protocol, anonymized completion/mistakes/assistance/comprehension findings and targeted prototype revisions."
+    ],
+    "acceptance": [
+      "At least five participants who did not develop Detew attempt the planned setup/profile/assignment and reason/narrow-exception journeys; prototype/simulation limits are disclosed.",
+      "The study records completion, assistance, mistakes, timing separately from installation/download and understanding of draft versus applied, bypass and metadata versus decrypted content.",
+      "Keyboard/zoom/English/pt-BR/narrow/light-dark and 5/100/1,000-entry fixture checks are recorded; misleading status or repeated comprehension failures prevent acceptance until addressed.",
+      "Host auth/ACL/CSRF, one locked writer, restore rebasing, authenticated IPC and safe scoped mounting have reviewed exact-version results.",
+      "G0 findings do not close final M10 timed usability or integrated live enforcement/quality gates."
+    ],
+    "tests": [
+      "Run the preregistered task script with representative non-developer participants using synthetic activity; retain anonymized actions/times/errors/assistance and ask concrete state/visibility comprehension questions.",
+      "Independent reviewer reproduces one concurrency/restore/security boundary and mounted UI interaction case on the pinned isolated host; audit all ARCH-G04 required evidence for gaps.",
+      "Revise only identified prototype defects and rerun affected journeys/state/accessibility cases; retain original findings and remaining blockers instead of replacing them with polished screenshots."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W05-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "Recruitment/consent and participant ownership are provided when scheduled; do not invent completed participants or study results."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W05-T01.md"
+  },
+  {
+    "id": "M04-W05-T02",
+    "title": "Record the integrated G0 feasibility and alpha-scope decision",
+    "milestone": "M04",
+    "work_package": "M04-W05",
+    "scope": "V1",
+    "type": "decision",
+    "area": "release",
+    "priority": "p0",
+    "size": "s",
+    "confidence": "medium",
+    "depends_on": [
+      "M01-W05-T02",
+      "M02-W05-T01",
+      "M02-W05-T02",
+      "M03-W05-T02",
+      "M04-W05-T01"
+    ],
+    "requirements": [
+      "UX-01",
+      "UX-02",
+      "UX-03",
+      "UX-04",
+      "UX-05",
+      "UX-06",
+      "UX-07",
+      "UX-08",
+      "UX-09",
+      "UX-10",
+      "UX-11",
+      "UX-12",
+      "QLT-05"
+    ],
+    "product_sections": [
+      "1410-responsive-and-accessibility-contract",
+      "1412-design-acceptance",
+      "16-development-sequence-and-conformance"
+    ],
+    "architecture_sections": [
+      "125-frontend-quality-contract",
+      "172-remaining-evidence-gates"
+    ],
+    "architecture_decisions": [
+      "ARC-04",
+      "ARC-05",
+      "ARC-07",
+      "ARC-08",
+      "ARC-09",
+      "ARC-11",
+      "ARC-12"
+    ],
+    "gates": [
+      "ARCH-G01",
+      "ARCH-G02",
+      "ARCH-G03",
+      "ARCH-G04",
+      "G0"
+    ],
+    "outcome": "Inline alpha implementation starts only from one reviewed G0 decision joining packet, classifier, category-data and native/UI evidence.",
+    "deliverables": [
+      "G0 decision/evidence index recording accepted/rejected/blocked ARCH-G01–04 and software-license/topology/classifier/data/failure inputs.",
+      "Frozen evidence-backed alpha integration scope, viable preliminary budgets, support exclusions and affected task/foundation refinements."
+    ],
+    "acceptance": [
+      "ARCH-G01–04 each have independently reviewed pass/fail/limitation records; an attractive UI cannot compensate for packet/data failure.",
+      "The license decision, dual-stack/pf-preserving topology, classifier/catalog, redistributable three-category inputs and actual available failure actions are resolved for the scoped alpha.",
+      "If a required input fails, G0 stays blocked/rejected and records redesign/remediation/dependent tasks; preferred dependency replacement requires its own evidence and synchronized decision.",
+      "G0 selects a concrete reference host/NIC/topology/workload and viable preliminary resource limits without claiming final G2/G3 performance/accuracy/usability.",
+      "Milestone/readme/task dependency records reflect actual accepted evidence revision; no code presence/prototype screenshot is treated as acceptance."
+    ],
+    "tests": [
+      "Conduct a cross-subsystem review of the immutable gate reports and exact revisions/input versions; reconcile every support/capability/uncertainty/authority claim across foundations.",
+      "Reproduce one real allowed/denied IPv4/IPv6 path, classifier visibility/late case, licensed category lookup and protected native edit/prototype state from the accepted inputs.",
+      "Perform a negative gate-table exercise by removing one required report or substituting an unlicensed source/unsupported IPv6 path; demonstrate that the decision cannot remain accepted."
+    ],
+    "constraints": [
+      "Use synthetic or explicitly licensed material; retain failed and unavailable checks as missing evidence.",
+      "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
+    ],
+    "evidence": [
+      "EV-M04-W05-T02: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
+    ],
+    "refinement_notes": [
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+    ],
+    "doc_path": "docs/tasks/m04/M04-W05-T02.md"
+  }
+]

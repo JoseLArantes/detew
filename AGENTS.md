@@ -14,19 +14,25 @@ Use these active documents:
 4. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): stack, dependency/privilege boundaries, schemas, runtime, and evidence gates.
 5. [docs/CONTEXT.md](docs/CONTEXT.md): canonical domain vocabulary.
 6. [docs/MILESTONES.md](docs/MILESTONES.md): sequencing, dependencies, work packages, requirement ownership, and task template.
+7. [docs/tasks/README.md](docs/tasks/README.md): detailed task specifications, accepted-output dependencies, testing/evidence, labels, and GitHub crosswalk.
+8. [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md): execution orchestration, live-state ownership, parallel work, review/integration, gate advancement, and run checkpoints.
 
 The foundation documents above define product scope and development requirements. The research documents in `docs/open_research_*.md` provide technical background. Keep commercial product comparisons, inspiration names, and links out of product/development definitions. Actual open source dependencies, host documentation, and standards are appropriate technical references.
 
-Requirements define outcomes; PRODUCT defines their meaning; ARCHITECTURE defines mechanisms; MILESTONES defines order. Resolve a discrepancy by updating the affected documents together and recording the consequence before implementing contradictory behavior. A selected technology remains subject to its validation gates. The proposed software license is not enacted merely because it appears in a document; resolve it through M00 before implementation contributions/distribution. Never infer dataset permissions from download availability.
+Requirements define outcomes; PRODUCT defines their meaning; ARCHITECTURE defines mechanisms; MILESTONES defines order; DEVELOPMENT coordinates execution and handoffs. Resolve a discrepancy by updating the affected documents together and recording the consequence before implementing contradictory behavior. A selected technology remains subject to its validation gates. The proposed software license is not enacted merely because it appears in a document; resolve it through M00 before implementation contributions/distribution. Never infer dataset permissions from download availability.
 
 ## Starting and completing work
 
 - Inspect `git status` and applicable instructions first. Preserve unrelated changes, moves, and untracked work. Search with `rg`/`rg --files`; read the relevant foundation sections before starting work.
+- Follow [DEVELOPMENT](docs/DEVELOPMENT.md) for an authorized execution run: inspect the latest checkpoint/live issues, select eligible work, assign an owner/reviewer and bounded brief, validate/review/integrate the outcome, and record the next action. Preserve independent review and gate ownership required by the selected task.
 - Identify the milestone/work package, PRD IDs, PRODUCT anchors, ARC decisions, and unresolved gate/dependency inputs for the task. Use `Mxx-Wyy-Tzz` when creating task definitions; keep existing IDs stable.
+- Select work from the task backlog and its dependency graph. A GitHub issue's ready label is a snapshot; verify accepted predecessor outputs, gate evidence, and current inputs before starting. T1/extension tasks remain deferred until selected scope and prerequisites are accepted.
+- Task definition catalogs generate the Markdown/index/coverage views using `python3 docs/tasks/manage.py render`; validate them with its `validate` command. Keep changes aligned with the existing issue's acceptance and native dependencies rather than creating duplicate task IDs. Publication/reconciliation remains an explicitly authorized external write, not a routine validation side effect.
 - Implement the requested reviewable outcome. Documentation planning does not authorize starting a later implementation milestone. Instantiate proposed folders/crates when the task needs them, not to create an appearance of progress.
 - Do not treat a future gate as a reason to stop all useful work. Complete authorized independent work, but keep dependent implementation/support claims gated by the required evidence. Record missing inputs and failed experiments precisely.
 - Keep scope, interface, acceptance, and validation explicit. Refine broad work packages into tasks using the milestone template. A feasibility task can conclude that a candidate fails; it must retain the evidence and decision.
 - Before completion, run the checks appropriate to the change, inspect the diff, update affected docs/contracts/evidence, and report what changed, what was verified, and what remains unproven. Never mark a task/gate complete because a file exists or code compiles.
+- For authorized parallel work, assign owned paths and a shared-interface owner, isolate or serialize overlapping edits, coordinate the native lab, and review/integrate each worker's result before task closure. Leave the [run checkpoint](docs/DEVELOPMENT.md#10-checkpoints-and-resumption) at handoffs or blockers.
 
 ## Product boundaries
 
