@@ -33,13 +33,15 @@
     "outcome": "Maintainers have a reviewed, explicit software-license and dependency-admission decision before implementation contributions or binary distribution.",
     "deliverables": [
       "Software-license decision record with considered OSI-approved options and rationale.",
-      "Software/native/build/data dependency admission checklist and separate inventory fields."
+      "Software/native/build/data dependency admission checklist and separate inventory fields.",
+      "MIT LICENSE with the owner-supplied copyright identity JoseLArantes, explicitly authorized alongside this decision."
     ],
     "acceptance": [
       "The selected license, source/distribution obligations, compatibility review process, and maintainer acceptance are recorded; the current proposal is not treated as enacted.",
       "nDPI, Rust/npm dependencies, build tools, and category data have distinct review paths; unknown rights block admission.",
       "Contributor ownership/review obligations and permitted exceptions have an accountable approval path.",
-      "No commercial product comparison or invented rights/contact details enter the decision."
+      "No commercial product comparison or invented rights/contact details enter the decision.",
+      "All task-owned changes are committed at an exact accepted revision; each task commit uses Conventional Commits and includes the required DCO sign-off."
     ],
     "tests": [
       "Documentation review: trace each chosen condition to the exact license text or upstream terms; flag incompatible or ambiguous examples.",
@@ -47,13 +49,14 @@
     ],
     "constraints": [
       "Research and lab planning can run before this decision; implementation contributions/distribution require its accepted outcome.",
-      "This task records a decision only; adding the enacted LICENSE belongs to M00-W01-T02."
+      "The owner explicitly requested MIT enactment alongside this decision on October 2, 2026; LICENSE is included in this execution. M00-W01-T02 retains full contributor/notice integration and clean-checkout acceptance."
     ],
     "evidence": [
       "EV-M00-W01-T01: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review."
     ],
     "refinement_notes": [
-      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts."
+      "At scheduling, name the owner and independent reviewer and pin the exact task inputs; refine procedure details without weakening foundation contracts.",
+      "Execution references: docs/governance/LICENSE_POLICY.md (LIC-01), docs/governance/DEPENDENCIES.md, and docs/evidence/m00/EV-M00-W01-T01.md. MIT was selected directly by JoseLArantes; current execution/review status is recorded separately from the creation snapshot."
     ],
     "doc_path": "docs/tasks/m00/M00-W01-T01.md"
   },

@@ -1,0 +1,92 @@
+{
+  "task_id": "M00-W01-T01",
+  "kind": "documentation/license-text checks and procedural checklist exercises; no product admission engine exists",
+  "baseline_revision": "b19f0bbbf550f14ad1fbff0660ebf9c268c6ff1c",
+  "environment": {
+    "python": "3.14.6",
+    "gh": "gh version 2.80.0 (2025-09-23)"
+  },
+  "automated_text_checks": {
+    "canonical_MIT_and_supplied_holder": "pass",
+    "wrong_holder_rejected": "pass",
+    "altered_notice_rejected": "pass",
+    "altered_warranty_rejected": "pass",
+    "upstream_MIT_notice_preserved": "pass",
+    "pinned_nDPI_terms_observed": "pass"
+  },
+  "procedural_cases": [
+    {
+      "id": "A",
+      "input": "Pinned React v19.2.0 MIT license; unchanged notice included in a temporary review fixture",
+      "expected": "Permissive license/notice portion passes; actual React production admission awaits complete version/features/transitive/technical review",
+      "observed": "matches expected",
+      "policy_steps": [
+        2,
+        3,
+        5
+      ],
+      "production_admission": "not granted"
+    },
+    {
+      "id": "B",
+      "input": "Synthetic component with no license or permission evidence",
+      "expected": "Blocked at rights review; public availability is not permission",
+      "observed": "matches expected",
+      "policy_steps": [
+        2
+      ],
+      "production_admission": "not granted"
+    },
+    {
+      "id": "C",
+      "input": "SYNTHETIC VALIDATION FIXTURE: download permitted; redistribution permission not granted.",
+      "expected": "Blocked for baseline redistribution; software MIT license cannot supply absent data rights",
+      "observed": "matches expected",
+      "policy_steps": [
+        2,
+        5
+      ],
+      "production_admission": "not granted"
+    },
+    {
+      "id": "D",
+      "input": "Pinned nDPI core observation with LGPLv3-or-later API header; production files/features/artifact plan unreviewed",
+      "expected": "Conditional/blocked until exact combined-work obligations and technical review are evidenced",
+      "observed": "matches expected",
+      "policy_steps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "production_admission": "not granted"
+    },
+    {
+      "id": "E",
+      "input": "Additional nDPI components with revenue/use-based restrictions in the pinned manifest",
+      "expected": "Exclude from required open baseline; non-revenue project operation does not approve broad downstream use",
+      "observed": "matches expected",
+      "policy_steps": [
+        2,
+        3,
+        7
+      ],
+      "production_admission": "not granted"
+    },
+    {
+      "id": "F",
+      "input": "Synthetic tool used only during development, with no copied/generated/redistributed material yet established",
+      "expected": "Inventory as build/development; review exact tool/use/output terms separately and do not infer runtime compatibility or blanket approval",
+      "observed": "matches expected",
+      "policy_steps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "production_admission": "not granted"
+    }
+  ]
+}

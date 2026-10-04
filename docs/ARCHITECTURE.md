@@ -59,7 +59,7 @@ Commercial product comparisons and vendor product references are excluded. Refer
 | ARC-14 | Native FreeBSD package/service lifecycle and versioned release artifacts | Selected | Ship an appliance plugin, not containers or a separate firewall operating system. |
 | ARC-15 | External extensions run outside the packet loop unless explicitly admitted as trusted engine components | Selected | Modularity needs permissions, bounded work, and compatibility contracts. A generic plugin loader is not a V1 prerequisite. |
 
-A selected design is not an enacted software license. The PRD's proposed licensing baseline and source/data redistribution decisions must be closed before implementation contributions and binary distribution. The integration gates below concern technical support, not feature paywalls.
+Detew-owned material uses the [MIT license](../LICENSE), selected by JoseLArantes. Each dependency/source still needs the [admission policy](governance/LICENSE_POLICY.md) and exact artifact obligations satisfied before inclusion/distribution. Architecture selections do not admit upstream code or data. The integration gates below concern technical support, not feature paywalls.
 
 ## 2. Selected stack and version policy
 
@@ -118,6 +118,8 @@ Record exact versions in `rust-toolchain.toml`, `Cargo.lock`, `package-lock.json
 Builds use committed locks and explicit host revisions, never a floating `latest` dependency or unpinned source branch. Native headers, classifier catalog extraction, and the shipped library must come from the same pinned release. Dependency updates are reviewed changes with schema/FFI/protocol/fixture checks and release notes where behavior changes.
 
 Prefer stable releases, minimal feature sets, and maintained libraries. Record license, source, native code, build scripts, network behavior, target support, and transitive dependencies. UI tools execute only in the build environment. Reproduce and audit native dependency builds through the selected OPNsense build environment.
+
+Use the [dependency/source register](governance/DEPENDENCIES.md) and [admission checklist](governance/LICENSE_POLICY.md#4-admission-checklist-and-decision) for exact software/native/build/host/data/asset review. nDPI remains gated: review LGPL combined-work obligations and exclude any restricted extra components from the required open baseline; record the actual admitted file/features/catalog at ARCH-G02. MIT identifies Detew-owned source, not every component in a combined artifact.
 
 No V1 dependency on a distributed database, search cluster, service broker, Kubernetes runtime, public cloud account, external font/CDN, or remote per-flow category lookup. Future managed services consume the existing contracts rather than becoming required local infrastructure.
 

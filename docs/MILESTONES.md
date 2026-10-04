@@ -10,7 +10,7 @@
 **Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development instructions:** [AGENTS.md](../AGENTS.md)
 
-This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. Planning does not assign people, approve a license, or establish implementation or gate acceptance. All milestones and work packages are **planned** at this baseline.
+This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. M00 is **in progress** with the owner-approved MIT license and admission-policy work. Other milestones remain **planned**; task/milestone/gate acceptance uses recorded review and evidence.
 
 The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT owns behavioral and experience contracts. ARCHITECTURE owns implementation decisions and evidence gates. This document owns sequencing, dependencies, work-package IDs, and delivery evidence. DEVELOPMENT owns the execution/coordination process and run handoffs. A task cannot relax an upstream contract to fit its milestone. [Section 8](#8-document-synchronization-and-change-control) defines how changes remain connected.
 
@@ -52,7 +52,7 @@ No delivery dates or elapsed-time estimates are asserted here. Estimate tasks af
 - Preserve native desired-state ownership, exact wire counters, immutable bundles, worker acknowledgments, and truthful desired/active/attachment status.
 - Build privacy, least privilege, localization, accessibility, and exceptional UI states into each relevant slice. M09 validates the integrated result; it is not the first security or UX pass.
 - Use licensed, synthetic or safely curated public fixtures. Real browsing records, appliance secrets, and CA keys do not enter the public test corpus.
-- Keep software licenses and data permissions separate. The proposed software license is resolved in M00; category-source admission is resolved in M03. Public availability does not establish redistribution rights.
+- Keep software licenses and data permissions separate. The owner selected MIT in M00; the [admission policy](governance/LICENSE_POLICY.md) still gates each exact dependency/source, and M03 owns category-source admission. Public availability does not establish redistribution rights.
 
 ## 2. Milestone sequence and dependencies
 
@@ -130,6 +130,8 @@ No milestone ID or package ID above is an estimate. The task graph records concr
 ## 3. V1 milestones
 
 ### M00: Project bootstrap and governance
+
+**Execution status — October 2, 2026:** JoseLArantes selected MIT and explicitly requested LICENSE alongside M00-W01-T01. The [license/admission policy](governance/LICENSE_POLICY.md) and [EV-M00-W01-T01](evidence/m00/EV-M00-W01-T01.md) record the artifacts, checks, and pending review/integration. M00-W01-T02 retains complete contributor/notice and clean-checkout acceptance; M00-W01-T03 retains the verified private reporting route. M00 exit and all release/architecture gates remain unaccepted.
 
 **Outcome:** contributors can build and validate a small portable/native/UI change through documented entry points. The license and contribution boundary are explicit before implementation contributions are accepted.
 
@@ -475,6 +477,7 @@ List deferred neighboring behavior so a partial slice is not misreported as V1.
 - Resource, privacy, permissions, compatibility, and recovery constraints.
 - For UI: loading/empty/stale/error/conflict/permission states, locales and focus.
 - For packet behavior: IPv4/IPv6/path and observed enforcement evidence.
+- All task-owned changes are committed at an exact accepted revision; each task commit uses Conventional Commits and includes the required DCO sign-off.
 
 ## Validation and evidence
 Exact commands/procedure, environment, expected results, report/artifact IDs.
@@ -496,6 +499,7 @@ Follow the [execution playbook](DEVELOPMENT.md#4-select-and-execute-work) to sch
 ### 7.3 Definition of done for tasks
 
 - The stated outcome works and the acceptance procedure has been executed on the appropriate environment. Record skipped/unavailable checks as missing evidence; do not present them as passing.
+- All task-owned implementation, tests, documentation, generated outputs, and evidence are committed at an exact revision. Every task-owned commit follows Conventional Commits and includes the required DCO sign-off; work that exists only in the working tree is not accepted.
 - Shared contracts and generated artifacts are aligned; semantic expectations were not weakened to match the implementation.
 - Relevant bounds, permissions, visibility, failure/recovery, and compatibility cases are reviewed. Native/unsafe code has explicit ownership/lifetime/error review.
 - User-facing changes have tested interaction/state, localization, and accessibility appropriate to their scope; screenshots supplement functional evidence.

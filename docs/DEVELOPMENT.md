@@ -53,7 +53,7 @@ At this document's October 2, 2026 baseline, product implementation is unstarted
 
 After accepting these outputs, recompute eligibility from the [task dependencies](tasks/DEPENDENCIES.md). Complete M00's bootstrap, lab, governance, and check contracts before M01 acceptance. M01 establishes the canonical reference used by the M02/M03/M04 feasibility branches. Follow the [delivery map](MILESTONES.md#21-delivery-map) for subsequent completion boundaries.
 
-The license proposal needs the maintainer's recorded decision. Packet and host experiments need the isolated lab and tested console recovery. Investigations must retain unfavorable results so the subsequent decisions use actual evidence.
+**Licensing progress — October 2, 2026:** the maintainer selected MIT and requested its enactment. [LICENSE](../LICENSE), the [admission policy](governance/LICENSE_POLICY.md), and [EV-M00-W01-T01](evidence/m00/EV-M00-W01-T01.md) record the result and task review/integration status. The table above remains the original entry snapshot; recheck live issues before scheduling dependents. Packet and host experiments need the isolated lab and tested console recovery. Investigations must retain unfavorable results so the subsequent decisions use actual evidence.
 
 ## 2. Document and state ownership
 
@@ -134,7 +134,8 @@ At each transition:
 4. **Validate:** run the checks required by the task on the appropriate environment. Retain positive, negative, failure, and relevant resource/privacy outcomes. Record unavailable checks explicitly.
 5. **Review:** provide the actual diff, revision, evidence, and limitations to the reviewer. Resolve requested changes and rerun the checks affected by those changes.
 6. **Integrate:** use the established contribution workflow. Reconcile overlapping changes, check the integrated contracts/generated outputs, and run checks affected by integration. Evidence must remain applicable to the accepted revision; material behavior/dependency changes require updated evidence and renewed review before closure.
-7. **Record:** link the result and review disposition, close only the accepted task, recheck direct dependents and any gate review now possible, and save the checkpoint. Continue the next task only within the authorized work scope.
+7. **Commit:** commit all task-owned work with Conventional Commits and the required DCO sign-off. Record the commit hash as the accepted revision; work left only in the working tree does not satisfy task acceptance.
+8. **Record:** link the result and review disposition, close only the accepted task, recheck direct dependents and any gate review now possible, and save the checkpoint. Continue the next task only within the authorized work scope.
 
 M00 establishes exact product build/check commands. Until then, the backlog validator checks planning documents; it provides no runtime, native compatibility, or product-test evidence.
 
