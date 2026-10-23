@@ -12,6 +12,7 @@
 - [ ] I linked affected PRD requirements, task IDs, and architecture decisions when applicable.
 - [ ] Product, architecture, milestone, task, generated-contract, or notice changes are synchronized where applicable.
 - [ ] New dependencies/data/assets follow the admission policy.
+- Third-party material, source, applicable terms, and required notices (if any):
 
 ## Tests
 
@@ -31,7 +32,6 @@
 ## Review checklist
 
 - [ ] Commit messages follow Conventional Commits.
-- [ ] Commits are signed off with the DCO (`git commit -s`).
 - [ ] No secrets, credentials, private browsing data, or unsafe fixtures are included.
 - [ ] Logs, screenshots, and fixtures were reviewed and redacted where needed.
 - [ ] Tests pass for the affected scope, or unavailable checks are explained above.

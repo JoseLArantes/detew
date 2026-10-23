@@ -23,17 +23,11 @@ Do not put vulnerability details, credentials, appliance backups, private browsi
 
 Blank issues remain enabled for cases that do not fit a template. Give them a descriptive title and explain why the existing templates do not fit.
 
-## Rights and sign-off
+## Contribution rights and provenance
 
-Submit original work under MIT, and certify that you have the right to contribute it. For incorporated material, preserve its upstream terms/notices and identify its source, exact revision, modifications, and permission to include it. Employer-owned or otherwise controlled work needs the appropriate permission. Unclear rights block acceptance.
+By submitting original work, you confirm that you have the right to submit it under the project's MIT terms. You keep the copyright to your contribution; submission does not transfer ownership to the project. No CLA or commit sign-off is required.
 
-Use a sign-off certifying the [Developer Certificate of Origin 1.1](https://developercertificate.org/):
-
-```sh
-git commit -s
-```
-
-Use an identity you are entitled to certify. A sign-off is a contribution-rights statement, not a copyright assignment or cryptographic signature. The certificate explains that the public contribution/sign-off record may be retained and redistributed. This baseline requires no separate CLA. Review provenance even for AI-assisted contributions; assistance does not establish rights to copied code or datasets.
+Identify any incorporated third-party material, its source, and its applicable terms. Preserve required upstream license texts and notices. Employer-owned or otherwise controlled work needs the appropriate permission. Do not submit material when its rights are unclear. Data must permit the project's intended copying and redistribution; download access alone is not permission, and data without redistribution rights cannot be accepted or bundled. Review provenance for AI-assisted contributions too; assistance does not establish rights to copied code or datasets.
 
 ## Conventional commits
 
@@ -58,17 +52,11 @@ docs: clarify contributor test workflow
 test(core): cover schedule boundary at daylight-saving transition
 ```
 
-Add the DCO sign-off to each commit:
-
-```sh
-git commit -s -m "docs: clarify contributor test workflow"
-```
-
-Do not squash away sign-offs or rewrite another contributor's authorship. Maintainers may ask for a clean, logically grouped history or squash a PR during merge while preserving the required attribution and sign-offs.
+Do not rewrite another contributor's authorship. Maintainers may ask for a clean, logically grouped history or squash a PR during merge while preserving accurate attribution.
 
 ## Task completion and commits
 
-A task-owned change is not complete while its work remains only in the working tree. Before requesting final review or closing the task, commit the implementation, tests, documentation, generated contracts, and evidence that belong to the task. Every task-owned commit must use the Conventional Commits format and include the DCO sign-off. Record the accepted commit hash in the pull request and task completion record; that exact revision is the basis for review and evidence. Unrelated work in the shared working tree may remain outside the task commit.
+A task-owned change is not complete while its work remains only in the working tree. Before requesting final review or closing the task, commit the implementation, tests, documentation, generated contracts, and evidence that belong to the task. Every task-owned commit must use the Conventional Commits format. Record the accepted commit hash in the pull request and task completion record; that exact revision is the basis for review and evidence. Unrelated work in the shared working tree may remain outside the task commit.
 
 ## Choose and prepare work
 

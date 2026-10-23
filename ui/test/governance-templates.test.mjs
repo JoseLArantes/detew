@@ -24,13 +24,18 @@ test("category corrections require public or synthetic evidence and a privacy re
   assert.match(template, /Privacy review/);
 });
 
-test("contributor guidance and PR template require Conventional Commits, DCO and relevant tests", () => {
+test("contributor guidance and PR template use Conventional Commits without DCO or CLA barriers", () => {
   const contributing = read("CONTRIBUTING.md");
   const pullRequest = read(".github/pull_request_template.md");
   assert.match(contributing, /Conventional Commits/);
   assert.match(contributing, /unit, integration, and smoke tests/);
+  assert.match(contributing, /right to submit it under the project's MIT terms/);
+  assert.match(contributing, /You keep the copyright/);
+  assert.match(contributing, /identify any incorporated third-party material/i);
+  assert.doesNotMatch(contributing, /DCO|Developer Certificate of Origin|git commit -s/i);
+  assert.doesNotMatch(contributing, /required CLA|must sign a CLA/i);
   assert.match(pullRequest, /Conventional Commits/);
-  assert.match(pullRequest, /DCO/);
+  assert.doesNotMatch(pullRequest, /DCO|Developer Certificate of Origin|git commit -s/i);
   assert.match(pullRequest, /Unit:/);
   assert.match(pullRequest, /Integration:/);
   assert.match(pullRequest, /Smoke:/);
