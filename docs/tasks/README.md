@@ -12,7 +12,7 @@ The backlog translates [MILESTONES](../MILESTONES.md) into individually reviewab
 - [GitHub milestones](https://github.com/JoseLArantes/detew/milestones): delivery groups matching M00–M13.
 - [Ready issues](https://github.com/JoseLArantes/detew/issues?q=is%3Aissue%20is%3Aopen%20label%3Astatus%3Aready): work with no unresolved hard prerequisite at the creation snapshot; confirm current entry conditions before starting.
 
-Select an eligible V1 task from the earliest unfinished milestone, then priority and available ownership. Independent research, lab planning, corpus curation, and interview recruitment can proceed alongside the implementation path where their dependency edges permit it. Start with the software-license decision and reproducible lab/build foundations; do not enact the proposed license merely by accepting this backlog.
+Select an eligible V1 task from the earliest unfinished milestone, then priority and available ownership. Independent research, lab planning, corpus curation, and interview recruitment can proceed alongside the implementation path where their dependency edges permit it. MIT is the owner's selected project license; use the [admission policy](../governance/LICENSE_POLICY.md) and [licensing evidence](../evidence/m00/EV-M00-W01-T01.md) before assuming task or dependency acceptance. Continue with eligible reproducible lab/build and governance work.
 
 ## Hierarchy and rolling refinement
 
@@ -43,7 +43,7 @@ Assign an actual owner and reviewer during scheduling. Keep one active implement
 
 A task is ready for execution when its hard prerequisites and gates are accepted, scope/inputs are available, its contract and independent acceptance procedure are clear, and an owner/reviewer is assigned. The ready label by itself does not prove those conditions remain true.
 
-A task is done when its stated deliverables and acceptance criteria have evidence at an exact revision, relevant tests ran on the required environment, foundation/schema/docs changes are synchronized, and a reviewer accepts the result. Close the issue with an evidence summary and links. Rejected candidates, missing checks, unsupported environments, and remaining release limitations stay explicit. Gate issues close only after the responsible maintainer records the corresponding gate decision.
+A task is done when its stated deliverables and acceptance criteria have evidence at an exact committed revision, relevant tests ran on the required environment, foundation/schema/docs changes are synchronized, every task-owned commit uses Conventional Commits with the required DCO sign-off, and a reviewer accepts the result. Close the issue with the accepted commit hash, evidence summary, and links. Rejected candidates, missing checks, unsupported environments, and remaining release limitations stay explicit. Gate issues close only after the responsible maintainer records the corresponding gate decision.
 
 Use synthetic or safely curated licensed fixtures. Native kernel/FFI/packet changes require FreeBSD/OPNsense evidence; portable or mocked checks are supplemental. UI acceptance includes interaction, consequential states, localization, visual consistency, and manual accessibility where appropriate. Category/application quality retains independent corpora and PRD denominators. Every failure test states what should remain active and what the user should observe.
 

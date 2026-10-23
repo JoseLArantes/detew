@@ -1,0 +1,51 @@
+{
+  "reviewed_on": "2026-10-02",
+  "purpose": "M00-W01-T01 primary-source license review; these are observation/validation snapshots, not admitted production pins",
+  "sources": [
+    {
+      "id": "mit",
+      "repository": "spdx/license-list-data",
+      "revision": "31ba1a50e5397e00a304dbadc76531740e89ee48",
+      "path": "json/details/MIT.json",
+      "url": "https://github.com/spdx/license-list-data/blob/31ba1a50e5397e00a304dbadc76531740e89ee48/json/details/MIT.json",
+      "git_blob_sha": "0ad3a974ba6c7d1265a44ec708de547db0348cd8",
+      "sha256": "0c2b3c87a154a4aaac6bc6a735dd454dc29d9a78c23a85deedb080e0c65de1f8"
+    },
+    {
+      "id": "react-mit",
+      "repository": "facebook/react",
+      "revision": "ae74234eae6ebd62f19190731278e20bc1c37d51",
+      "path": "LICENSE",
+      "url": "https://github.com/facebook/react/blob/ae74234eae6ebd62f19190731278e20bc1c37d51/LICENSE",
+      "git_blob_sha": "b93be90515ccd0b9daedaa589e42bf5929693f1f",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "id": "ndpi-copying",
+      "repository": "ntop/nDPI",
+      "revision": "11f0e5ee52275e18135a163910c1eb2d2ad7bce3",
+      "path": "COPYING",
+      "url": "https://github.com/ntop/nDPI/blob/11f0e5ee52275e18135a163910c1eb2d2ad7bce3/COPYING",
+      "git_blob_sha": "cca7fc278f5c81ce23a2687208f0d63a6ea44009",
+      "sha256": "9ccf26cfe845e0eb8bb58053e47366e7ab6b697ae010f7650978d4b71b7d1fc1"
+    },
+    {
+      "id": "ndpi-license-manifest",
+      "repository": "ntop/nDPI",
+      "revision": "11f0e5ee52275e18135a163910c1eb2d2ad7bce3",
+      "path": "README.license.md",
+      "url": "https://github.com/ntop/nDPI/blob/11f0e5ee52275e18135a163910c1eb2d2ad7bce3/README.license.md",
+      "git_blob_sha": "5678f384d2b0a82139aae9386c1372eccad005df",
+      "sha256": "1ec506620608c4707e79f5a1b254a03b6e81747f21b1bb4411417ff19fcb6bfa"
+    },
+    {
+      "id": "ndpi-api-header",
+      "repository": "ntop/nDPI",
+      "revision": "11f0e5ee52275e18135a163910c1eb2d2ad7bce3",
+      "path": "src/include/ndpi_api.h",
+      "url": "https://github.com/ntop/nDPI/blob/11f0e5ee52275e18135a163910c1eb2d2ad7bce3/src/include/ndpi_api.h",
+      "git_blob_sha": "bdcc4311a00de1942a638018c88b305df8f17b91",
+      "sha256": "d99826511e91e8b1ae96c4a392512be86cf7f1a18b087fb4ff85bbaf439d9016"
+    }
+  ]
+}

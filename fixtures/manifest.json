@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "id": "bootstrap-valid",
+      "path": "fixtures/bootstrap-valid.json",
+      "kind": "synthetic",
+      "license": "MIT",
+      "redistribution": true,
+      "provenance": "Authored for Detew's M00 bootstrap contract test; contains no observed network data.",
+      "sha256": "cb734e02f1670590b817070d35107d5c7a6f0b8510ba9018abb43c5506fb7d1d"
+    },
+    {
+      "id": "bootstrap-unknown-field",
+      "path": "fixtures/bootstrap-unknown-field.json",
+      "kind": "synthetic",
+      "license": "MIT",
+      "redistribution": true,
+      "provenance": "Authored for Detew's M00 bootstrap contract test; contains no observed network data.",
+      "sha256": "ee576c2ca7d0ddd415930a9ae59d0ca8ad5786cd817ec55bcf022758dadc7f8c"
+    }
+  ]
+}

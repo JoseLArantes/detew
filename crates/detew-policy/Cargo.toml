@@ -1,0 +1,13 @@
+[package]
+name = "detew-policy"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+detew-domain = { path = "../detew-domain" }
+
+[lints]
+workspace = true

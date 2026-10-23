@@ -1,0 +1,28 @@
+{
+  "task_id": "M00-W01-T01",
+  "baseline_revision": "b19f0bbbf550f14ad1fbff0660ebf9c268c6ff1c",
+  "artifact_state": "prepared working tree; no integration commit claimed",
+  "excluded": "this manifest itself; GitHub publication/checkpoint state is independently reconciled",
+  "files": {
+    "LICENSE": "56e82d7ab84b5d95c73a453180439a3584689788a887aada1f4a35ad9a20208c",
+    "CONTRIBUTING.md": "e2652be6f765f0f68bd5fd335b2376c0880d6f0f2349d7d09a4856a089ea6136",
+    "THIRD_PARTY_NOTICES.md": "b3aa5fa8e4fb51b97dbaabcd683d77040d7d85101ca280e1c7ee06da08c9dd6b",
+    "README.md": "ee5e9c4c93138f394a4cd2387f6e435b07ae6455058c997e495f2d1544919b7e",
+    "AGENTS.md": "2ed7e9e5a5ff956abc256ffa300063489816603bb3115f3ab9bb1e683b49a40c",
+    "docs/PRD.md": "d433e31c823f9d12f71ced3839378f8d0485b1f54e807e3b0af8a6c7c900dfdb",
+    "docs/PRODUCT.md": "a518b160af3d21f1196baf51b95452898a8c75c18ac2ca4ad662c28ac05bd0ae",
+    "docs/ARCHITECTURE.md": "c627e86f7995c33f7beed039f502ccb6025a5f99d8b6b438b9906504862befc5",
+    "docs/MILESTONES.md": "67bf4abaf7e8b8af12c08b1e028d9d970b7e07326edbd9a8c3e13cc5c4be29e0",
+    "docs/DEVELOPMENT.md": "dd7727544f2826977575af5fe1c789d76d91987a4c1ca6fc476a5530d82bd699",
+    "docs/governance/LICENSE_POLICY.md": "4f03d615ab29fb48f013e6b36f557c3a12496233d0a9be448c3b0f16b78b87b7",
+    "docs/governance/DEPENDENCIES.md": "b96685f1083c51bb97bf458b4658e66cf84dc8faa14d10e71c7e633df16d3dd8",
+    "docs/evidence/m00/EV-M00-W01-T01.md": "7750eb67a543c7d349813f3f3b9f524af0137ea24ea479029d0aa7230d545416",
+    "docs/evidence/m00/license-sources.json": "c9caec01c26ad0dd0eaa18e4611c25d7fd14b1078ba61583852b7366ce06341a",
+    "docs/evidence/m00/license-checks.json": "d9990472655943d11df3d447e1204e95691cef35dcbc7d127a50294076c8e647",
+    "docs/tasks/README.md": "bcff688dcb9fe69b14c818a5c7f9d9fc3ef1d26b48ef27b855b1da0414d09412",
+    "docs/tasks/catalog-m00-m04.json": "e8cd57c3d0aeffff51eb3cba254faebae7025e454725078579300fe205fac6a6",
+    "docs/tasks/catalog.json": "fc72245ed7e68e2e509f5db65bbe1fad5ba11b875a0d02a302ef825bf83e65ba",
+    "docs/tasks/m00/M00-W01-T01.md": "c3002078e6b2a901b6b23969ea0d3fa8a410a71f1dbea63ebda63f057079b553",
+    "docs/evidence/m00/license-document-checks.json": "c550d6f5a806b9d5df8e50622a71fcb538c92ccd935f5cd412f61b919a682817"
+  }
+}

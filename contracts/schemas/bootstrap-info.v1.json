@@ -1,0 +1,29 @@
+{
+  "$defs": {
+    "BootstrapStage": {
+      "enum": [
+        "development_only",
+        "not_enforcing"
+      ],
+      "type": "string"
+    }
+  },
+  "$id": "urn:detew:bootstrap-info:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A deliberately small fixture for validating the Rust-to-schema-to-TypeScript\ntoolchain. It is not a runtime status API or an enforcement claim.",
+  "properties": {
+    "component": {
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/BootstrapStage"
+    }
+  },
+  "required": [
+    "component",
+    "stage"
+  ],
+  "title": "BootstrapInfo",
+  "type": "object"
+}

@@ -113,9 +113,9 @@ The [architecture document](ARCHITECTURE.md) selects the development stack and o
 | UI implementation | React 19, strict TypeScript, Vite, scoped Tailwind/Radix components inside a native page | Selected baseline; host compatibility and usability still require prototype evidence |
 | Activity storage | Patched, pinned SQLite via rusqlite in a separate activity daemon | Selected; ARCH-G05 validates retention/write-rate/capacity |
 | Bundle storage | Immutable local artifacts and a versioned activation/operation journal | Selected mechanism; durability and recovery tested before release |
-| Initial software license | GPL-3.0-or-later for Detew-owned code | Proposal; confirm before accepting/distributing implementation |
+| Initial software license | MIT for Detew-owned software, tooling, and documentation | Selected by JoseLArantes; enacted in [LICENSE](../LICENSE); dependencies/data require separate admission |
 
-nDPI is a classification library and its upstream copying file specifies LGPL v3 terms. Dependency and combined-work obligations still need a release-specific audit. Detew is not “100% safe Rust” if its selected classifier or packet interfaces use native code or unsafe bindings. [nDPI source](https://github.com/ntop/nDPI), [nDPI copying terms](https://github.com/ntop/nDPI/blob/dev/COPYING)
+nDPI's core uses LGPLv3 terms, and additional components have separate use restrictions. The [admission policy](governance/LICENSE_POLICY.md#31-native-classifier-review) requires exact file/feature and combined-work review and excludes restricted extras from the required open baseline. No production classifier set is admitted by the MIT decision. Detew is not “100% safe Rust” if its selected classifier or packet interfaces use native code or unsafe bindings. [nDPI source](https://github.com/ntop/nDPI), [reviewed upstream license manifest](https://github.com/ntop/nDPI/blob/11f0e5ee52275e18135a163910c1eb2d2ad7bce3/README.license.md)
 
 ### 2.4 Runtime invariants
 

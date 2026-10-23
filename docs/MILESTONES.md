@@ -10,7 +10,7 @@
 **Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development instructions:** [AGENTS.md](../AGENTS.md)
 
-This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. Planning does not assign people, approve a license, or establish implementation or gate acceptance. All milestones and work packages are **planned** at this baseline.
+This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. M00 is **in progress** with governance and portable bootstrap work under review. Other milestones remain **planned**; task/milestone/gate acceptance uses recorded review and evidence.
 
 The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT owns behavioral and experience contracts. ARCHITECTURE owns implementation decisions and evidence gates. This document owns sequencing, dependencies, work-package IDs, and delivery evidence. DEVELOPMENT owns the execution/coordination process and run handoffs. A task cannot relax an upstream contract to fit its milestone. [Section 8](#8-document-synchronization-and-change-control) defines how changes remain connected.
 
@@ -52,7 +52,7 @@ No delivery dates or elapsed-time estimates are asserted here. Estimate tasks af
 - Preserve native desired-state ownership, exact wire counters, immutable bundles, worker acknowledgments, and truthful desired/active/attachment status.
 - Build privacy, least privilege, localization, accessibility, and exceptional UI states into each relevant slice. M09 validates the integrated result; it is not the first security or UX pass.
 - Use licensed, synthetic or safely curated public fixtures. Real browsing records, appliance secrets, and CA keys do not enter the public test corpus.
-- Keep software licenses and data permissions separate. The proposed software license is resolved in M00; category-source admission is resolved in M03. Public availability does not establish redistribution rights.
+- Keep software licenses and data permissions separate. The owner selected MIT in M00; the [admission policy](governance/LICENSE_POLICY.md) still gates each exact dependency/source, and M03 owns category-source admission. Public availability does not establish redistribution rights.
 
 ## 2. Milestone sequence and dependencies
 
@@ -131,6 +131,8 @@ No milestone ID or package ID above is an estimate. The task graph records concr
 
 ### M00: Project bootstrap and governance
 
+**Execution status — October 23, 2026:** JoseLArantes selected MIT and the [license/admission policy](governance/LICENSE_POLICY.md) records that decision. Portable Rust/UI scaffolding, check entry points, the unverified requirement ledger, and contribution templates are implemented. A detached-worktree reproduction at `1995ebb339f3d8d669bb705dade3643c521ac1e4` passed all portable checks, including 15 UI tests and the static build; native checks correctly reported unavailable on macOS. This was the maintainer's local reproduction with shared package caches, not the independent-contributor/empty-cache acceptance. GitHub private vulnerability reporting is enabled and [SECURITY.md](../SECURITY.md) records the reporting route and owner. The VM 110 console reaches the OPNsense menu, but its guest interfaces still share the household subnet; no packet tests or bypass baseline have run. Independent reviews, isolated lab provisioning, and M00 exit remain open.
+
 **Outcome:** contributors can build and validate a small portable/native/UI change through documented entry points. The license and contribution boundary are explicit before implementation contributions are accepted.
 
 **Entry:** the current foundation documents and this plan. **Responsible roles:** maintainer, build/platform developer, security reviewer. One person may hold several roles, but acceptance still requires a recorded review.
@@ -139,7 +141,7 @@ No milestone ID or package ID above is an estimate. The task graph records concr
 
 | Work package | Deliverable and acceptance | Requirement inputs |
 |---|---|---|
-| M00-W01 | Record the software-license decision and dependency admission rules; add the enacted license only after that decision. Publish contributor/reviewer responsibilities and a private vulnerability-reporting route without inventing contact details. | OSS-01–03, SEC-04 |
+| M00-W01 | Record the enacted software-license decision and dependency admission rules. Publish contributor/reviewer responsibilities and a verified private vulnerability-reporting route without inventing contact details. | OSS-01–03, SEC-04 |
 | M00-W02 | Bootstrap the Cargo workspace, thin binaries, UI package, contract generation entry point, formatter/lint configuration, and exact version locks. Instantiate planned crates as responsibilities are implemented; empty directories do not count as component delivery. A clean checkout reproduces portable builds. | POL-01, OSS-03 |
 | M00-W03 | Define an isolated client/gateway/server lab, exact host/kernel/NIC/tool revisions, IPv4/IPv6 and VLAN/NAT paths, traffic generators, and console recovery. Record the bypass baseline and lab teardown procedure. | INS-07, OPS-03, OPS-09, QLT-01–02 |
 | M00-W04 | Establish provider-independent check scripts, portable versus native check jobs, fixture licensing/redaction rules, and the evidence manifest format. Failed/missing native checks cannot be reported as passing through a portable job. | SEC-02, OSS-02–03 |
@@ -381,9 +383,9 @@ The owner assembles evidence; the responsible maintainer records the decision wi
 
 ### 5.2 Evidence artifacts and measurement rules
 
-Store reviewed reports under a proposed `docs/evidence/` structure, created when real evidence exists. Each report identifies its evidence ID, milestone/package, requirement/ARC/gate IDs, exact code revision, host/NIC/topology/toolchain, dataset/catalog/schema versions, workload/corpus/fixture digests, commands/procedure, expected versus observed result, limits/failures, artifact location/digest, reviewer, and date. Reports containing private pilot context require a redacted public counterpart; do not publish sensitive raw captures.
+Store reviewed reports under `docs/evidence/`. Each report identifies its evidence ID, milestone/package, requirement/ARC/gate IDs, exact code revision, host/NIC/topology/toolchain, dataset/catalog/schema versions, workload/corpus/fixture digests, commands/procedure, expected versus observed result, limits/failures, artifact location/digest, reviewer, and date. Reports containing private pilot context require a redacted public counterpart; do not publish sensitive raw captures.
 
-Maintain a proposed `docs/evidence/requirements.csv` with one row per requirement and fields `requirement_id,scope,primary_milestone,task_ids,implementation_revision,evidence_ids,status,owner,limitations`. It starts with all requirements unverified when created in M00. This plan's ownership table is a planning map, not that implemented evidence ledger. Reports link to immutable evidence identities rather than a floating successful CI badge. Missing or stale evidence is explicit.
+`docs/evidence/requirements.csv` contains one row per requirement and fields `requirement_id,scope,primary_milestone,task_ids,implementation_revision,evidence_ids,status,owner,limitations`. It starts with all requirements unverified and has no invented owner, revision, or evidence. `node scripts/requirement-ledger.mjs` and the UI unit suite compare it with the PRD, milestone ownership, and planned task coverage. This plan's ownership table is a planning map, not that evidence ledger. Reports link to immutable evidence identities rather than a floating successful CI badge. Missing or stale evidence is explicit.
 
 For reference acceptance, retain the PRD's exact starting targets: at least 80% bypass goodput; p95 added RTT at most 5 ms; at least 20,000 flows and 500 new flows/second; ordinary activation/reconsideration within five seconds with p50/p95/p99; local interactive acknowledgment within 200 ms and common views within one second; a 72-hour soak; at least 98% precision and 90% recall per required category among eligible visible labeled destinations. Report category coverage across all attempted traffic separately and per-application results individually. These remain targets until measured. Use identical hardware/configuration for bypass and filtering comparisons; report overload/saturation separately from normal-load results.
 
@@ -475,6 +477,7 @@ List deferred neighboring behavior so a partial slice is not misreported as V1.
 - Resource, privacy, permissions, compatibility, and recovery constraints.
 - For UI: loading/empty/stale/error/conflict/permission states, locales and focus.
 - For packet behavior: IPv4/IPv6/path and observed enforcement evidence.
+- All task-owned changes are committed at an exact accepted revision; each task commit uses Conventional Commits and includes the required DCO sign-off.
 
 ## Validation and evidence
 Exact commands/procedure, environment, expected results, report/artifact IDs.
@@ -496,6 +499,7 @@ Follow the [execution playbook](DEVELOPMENT.md#4-select-and-execute-work) to sch
 ### 7.3 Definition of done for tasks
 
 - The stated outcome works and the acceptance procedure has been executed on the appropriate environment. Record skipped/unavailable checks as missing evidence; do not present them as passing.
+- All task-owned implementation, tests, documentation, generated outputs, and evidence are committed at an exact revision. Every task-owned commit follows Conventional Commits and includes the required DCO sign-off; work that exists only in the working tree is not accepted.
 - Shared contracts and generated artifacts are aligned; semantic expectations were not weakened to match the implementation.
 - Relevant bounds, permissions, visibility, failure/recovery, and compatibility cases are reviewed. Native/unsafe code has explicit ownership/lifetime/error review.
 - User-facing changes have tested interaction/state, localization, and accessibility appropriate to their scope; screenshots supplement functional evidence.

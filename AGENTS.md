@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Follow the human user's cur
 
 ## Current state and source of truth
 
-The repository currently contains product and development documents. The implementation layout in the architecture is proposed; crates, daemons, UI tooling, packages, and a validated lab are not present yet. Do not claim installation, protection, compatibility, performance, or completed milestones based on the documents.
+The repository contains its product foundation and a portable Rust/UI bootstrap. The UI is a local development preview; it does not inspect traffic or apply firewall changes. There is no packet adapter, OPNsense package, appliance service, production category data, or validated isolated lab. Do not claim installation, protection, compatibility, performance, or completed milestones based on the scaffold.
 
 Use these active documents:
 
@@ -16,10 +16,11 @@ Use these active documents:
 6. [docs/MILESTONES.md](docs/MILESTONES.md): sequencing, dependencies, work packages, requirement ownership, and task template.
 7. [docs/tasks/README.md](docs/tasks/README.md): detailed task specifications, accepted-output dependencies, testing/evidence, labels, and GitHub crosswalk.
 8. [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md): execution orchestration, live-state ownership, parallel work, review/integration, gate advancement, and run checkpoints.
+9. [docs/governance/LICENSE_POLICY.md](docs/governance/LICENSE_POLICY.md), [dependency register](docs/governance/DEPENDENCIES.md), and [CONTRIBUTING.md](CONTRIBUTING.md): enacted MIT license, third-party/source admission, ownership/sign-off, and notice responsibilities.
 
 The foundation documents above define product scope and development requirements. The research documents in `docs/open_research_*.md` provide technical background. Keep commercial product comparisons, inspiration names, and links out of product/development definitions. Actual open source dependencies, host documentation, and standards are appropriate technical references.
 
-Requirements define outcomes; PRODUCT defines their meaning; ARCHITECTURE defines mechanisms; MILESTONES defines order; DEVELOPMENT coordinates execution and handoffs. Resolve a discrepancy by updating the affected documents together and recording the consequence before implementing contradictory behavior. A selected technology remains subject to its validation gates. The proposed software license is not enacted merely because it appears in a document; resolve it through M00 before implementation contributions/distribution. Never infer dataset permissions from download availability.
+Requirements define outcomes; PRODUCT defines their meaning; ARCHITECTURE defines mechanisms; MILESTONES defines order; DEVELOPMENT coordinates execution and handoffs. Resolve a discrepancy by updating the affected documents together and recording the consequence before implementing contradictory behavior. A selected technology remains subject to its validation gates. Detew-owned material uses the [MIT license](LICENSE), selected by JoseLArantes. Follow the admission policy before including dependencies/data; MIT does not relicense upstream material. Never infer dataset permissions from download availability.
 
 ## Starting and completing work
 
@@ -85,7 +86,7 @@ Packet/lifecycle experiments run in the isolated lab with verified console recov
 
 ## Verification and evidence
 
-There are no implementation check scripts yet. M00 must establish and document exact entry points and locks. Do not invent successful test results or assume a future npm script exists. Once available:
+Use `./scripts/check-portable.sh` for the pinned portable checks, `./scripts/check-native.sh` for the FreeBSD/native check, and `./scripts/check-all.sh` for both. The native check reports unavailable with a non-zero status outside the required FreeBSD harness; portable success never implies native compatibility. The backlog management helper validates planning data only and is not a product quality gate. Do not invent successful test results or assume an undeclared command exists.
 
 | Change | Required relevant evidence |
 |---|---|

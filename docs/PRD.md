@@ -393,7 +393,7 @@ The policy tester must share canonical matching and evaluation code with the run
 
 ## 14. Open source sustainability and governance
 
-Proposed licensing baseline: GPL-3.0-or-later for Detew-owned software, with independently licensed dependencies and separately documented datasets. This is a proposal to confirm before accepting code contributions or distributing binaries, not an enacted license for the existing repository. Audit dependency/linking and dataset terms against the selected release model; a software license does not authorize redistribution of all upstream lists. [GPL v3 at the Open Source Initiative](https://opensource.org/license/gpl-3.0)
+The project owner, JoseLArantes, selected MIT for Detew-owned software, tooling, and documentation on October 2, 2026; the enacted terms are in [LICENSE](../LICENSE). Dependencies and datasets retain their own licenses. The [admission policy](governance/LICENSE_POLICY.md), [register](governance/DEPENDENCIES.md), [contributor guide](../CONTRIBUTING.md), and [notices](../THIRD_PARTY_NOTICES.md) define rights/provenance review and distribution responsibilities. A software license does not authorize redistribution of upstream lists or resolve native combined-work obligations. [MIT at the Open Source Initiative](https://opensource.org/license/mit)
 
 Adopt public issue templates for bugs, classification corrections, feature requests, and security reports. Keep taxonomy changes reviewable with examples, provenance, and rationale. Publish a maintainer list, review expectations, supported release branches, deprecation notices, and a decision process for contested categories.
 
