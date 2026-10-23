@@ -2614,7 +2614,7 @@
       "M13-W05-T01"
     ]
   ],
-  "catalog_digest": "ae63d03959056b3c008b42a6e75201502ec702228f80be8e569337a62d133b0d",
+  "catalog_digest": "8000b379fee95fb31f03a23d0adf3b6028e2665bad48fc694a198fd01460ebc1",
   "definition_reconciliations": [
     {
       "task_id": "M00-W01-T01",
@@ -2624,6 +2624,24 @@
       "catalog_digest": "ae63d03959056b3c008b42a6e75201502ec702228f80be8e569337a62d133b0d",
       "execution_state": "in-review; working-tree artifacts, integration pending",
       "artifact_manifest_sha256": "d75bc7ba9d7ed27beec8f19029f0174c9bc404fe5be8b6b67f74759a7774f4bd"
+    },
+    {
+      "task_id": "M00-W03-T01",
+      "date": "2026-10-23",
+      "issue_number": 7,
+      "change": "Product Owner directed T01 to remain planning/tabletop-only; observed lab recovery and isolation are assigned to T02, and baseline restore/teardown is explicitly distinct from Detew-specific detach.",
+      "catalog_digest": "8000b379fee95fb31f03a23d0adf3b6028e2665bad48fc694a198fd01460ebc1",
+      "source_revision": "f990f140ed7329f20958a76d364aeee44d0708c7",
+      "execution_state": "issue body reconciled; issue remains OPEN/status:in-progress; no task or gate acceptance claimed"
+    },
+    {
+      "task_id": "M00-W03-T02",
+      "date": "2026-10-23",
+      "issue_number": 8,
+      "change": "Product Owner directed VM-110-only recovery and structural dual-stack isolation preflight before traffic or adapter attachment; T02 remains blocked if Detew-specific detach requires attachment, pending a separate sequencing decision.",
+      "catalog_digest": "8000b379fee95fb31f03a23d0adf3b6028e2665bad48fc694a198fd01460ebc1",
+      "source_revision": "f990f140ed7329f20958a76d364aeee44d0708c7",
+      "execution_state": "issue body reconciled; issue remains OPEN/status:blocked; no lab authorization, traffic or attachment claimed"
     }
   ]
 }
