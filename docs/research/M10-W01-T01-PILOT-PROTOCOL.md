@@ -1,17 +1,17 @@
 # M10-W01-T01 — Administrator interviews and independent pilot protocol
 
-**Version:** Draft 0.1 · Planning only
+**Version:** Draft 0.2 · Planning only
 **Date:** October 23, 2026
 **Reviewed baseline:** `173bff337b958a6da4c4585502f806613806c75a`
 **Owner:** Product Owner JoseLArantes
-**Independent project reviewer:** PR Review Architect (review pending)
+**Independent project reviewer:** PR Review Architect (re-review pending)
 **Status:** No recruitment, real-data collection, or installation is authorized by this draft.
 
 This protocol plans neutral research for [M10-W01-T01](../tasks/m10/M10-W01-T01.md) and [issue #118](https://github.com/JoseLArantes/detew/issues/118). It follows [PRD UX-01–03 and PRI-01/03](../PRD.md#9-ui-and-experience-requirements), [PRODUCT §§1.1, 13.3, and 14.1](../PRODUCT.md#1-positioning-and-operating-context), [ARCHITECTURE §§12.5 and 14.1](../ARCHITECTURE.md#12-frontend-architecture), and ARC-01/11. It is a planning artifact, not a human-subjects approval, study result, product outcome, or milestone/gate acceptance.
 
 ## 1. Study purpose and boundaries
 
-Learn how OPNsense administrators manage access today, what makes category controls understandable or difficult, how they recognize the effect of a change, and why they would keep or remove a filtering workflow. Ask about categories and current approaches without assuming that Detew solves the problem. Record tool classes and tasks, not commercial product names.
+Learn how OPNsense administrators manage access today, what makes category controls understandable or difficult, how they recognize the effect of a change, and why they would keep or remove a filtering workflow. Ask about categories and current approaches without assuming that Detew solves the problem. Record tool classes and tasks in this repository. A participant's specific product, vendor, or service names may be recorded only with separate explicit consent, in restricted pseudonymized research notes stored outside the repository. Without that consent, record only the tool class. Never put those names in this repository or public reports.
 
 The study has separate counts and decisions:
 
@@ -46,7 +46,7 @@ Recruitment channels are proposed for later review only: a public project invita
 
 ## 3. Interview guide
 
-Start with open questions and let the administrator describe their own terms. Ask the category prompts only after the open exploration; do not name products or suggest that Detew is successful. Use neutral follow-ups such as “What happened next?”, “What did you expect?”, and “How did you decide?”
+Start with open questions and let the administrator describe their own terms. Ask the category prompts only after the open exploration; do not introduce specific products or suggest that Detew is successful. Use neutral follow-ups such as “What happened next?”, “What did you expect?”, and “How did you decide?”
 
 1. “Tell me about a recent time you needed to manage what a device or group of devices could access.”
 2. “What led you to make a change? What did you do, step by step?”
@@ -54,7 +54,7 @@ Start with open questions and let the administrator describe their own terms. As
 4. “Where, if anywhere, did you have difficulty deciding what to change or finding the relevant control?”
 5. “How do you currently group or describe the kinds of access you want to manage?”
 6. “What categories or applications, if any, matter to you? What belongs at the edge of each category?” After the open answer, use the required examples—Adult content, Games, and AI services—only as neutral coverage probes, along with “other” and “none.”
-7. “What approaches or tool types do you use today, if any? What does each help with, and where does it fall short?” Record broad classes such as native firewall controls, DNS filtering, network add-ons, endpoint controls, proxy services, manual rules, or none; do not transcribe vendor names.
+7. “What approaches or tool types do you use today, if any? What does each help with, and where does it fall short?” Record broad classes such as native firewall controls, DNS filtering, network add-ons, endpoint controls, proxy services, manual rules, or none. Only record a specific name if the participant separately opts into that note category under §5; otherwise omit the name and retain only the class.
 8. “What network or device constraints affect this workflow?” Ask only for general characteristics such as household versus small organization, IPv6/VLAN/multi-WAN presence, or hardware-resource limits. Do not request exact topology or configuration.
 9. “What makes a false block noticeable? What do you do when something needed is blocked?”
 10. “What information would you need before enabling a change, and what evidence would help you understand its result?”
@@ -78,9 +78,9 @@ Before any interview, obtain plain-language consent that explains the study purp
 
 This is a consent-content checklist, not a ready-to-use consent form. Before recruitment, a qualified research owner must convert it into participant-facing language, add the approved session-time estimate and data-lifecycle terms, and have the Product Owner and appropriate reviewer approve it. Do not obtain consent using this draft alone.
 
-Use separate affirmative choices for interview notes, audio/video recording, any screen capture, and a later pilot installation. Recording and screen capture are off by default and are not required to participate. If a choice is declined, proceed only with the consented activity and permitted notes. If interview consent is declined, stop before collecting answers and do not retain an identity-linked refusal reason.
+Use separate affirmative choices for interview notes, recording a participant-supplied specific product/vendor/service name, audio/video recording, any screen capture, and a later pilot installation. The specific-name choice is optional and separate from consent to interview notes or recording. If it is declined, record only tool classes. If a participant mentions a specific name before opting in, do not write or retain it; the moderator may ask whether they opt into recording that detail without asking them to repeat it. If a name is captured in a recording before that choice, pause the recording and follow the incidental-data redaction/deletion procedure before analysis. Recording and screen capture are off by default and are not required to participate. If a choice is declined, proceed only with the consented activity and permitted notes. If interview consent is declined, stop before collecting answers and do not retain an identity-linked refusal reason.
 
-Give each consented participant a study code. A separate scheduling/contact record, if later required, must be held outside the repository with restricted access; never mix it with research notes. Before recruitment, the research owner and Product Owner must approve the retention/deletion schedule, data access list, withdrawal cutoff, and deletion procedure. Until those values are explicit and communicated in consent, this draft collects no real information.
+Give each consented participant a study code. Keep all raw research notes outside the repository in approved restricted storage, separate from any scheduling/contact record. If the participant opted into specific-name notes, pseudonymize those notes with the study code and restrict access to the named research team. Before recruitment, the research owner and Product Owner must approve the storage location, retention/deletion schedule, data access list, withdrawal cutoff, and deletion procedure. Until those values are explicit and communicated in consent, this draft collects no real information. Only reviewed, redacted, aggregate findings may later enter the repository; specific names must not.
 
 Withdrawal is allowed at any time without penalty. On withdrawal, stop the interview or study activity and any further observation. Do not change a live gateway remotely; the site administrator remains in control of operational changes. Remove linkable raw notes or recordings when requested under the approved deletion procedure. Explain before consent when already de-identified, aggregated findings can no longer be separated. Do not promise removal after aggregation until the cutoff and aggregation process are approved and disclosed.
 
@@ -89,6 +89,8 @@ Observe only the consented research task. No background observation, hidden tele
 ## 6. Incidental sensitive data and public reporting
 
 If sensitive information appears unexpectedly, pause the task, stop any recording, close or obscure the content, and explain that it is not needed. Do not copy it into notes. If it entered an approved recording or artifact, quarantine access and follow the pre-approved deletion procedure; record only a coded “redaction event,” never the sensitive content. Escalate any possible exposure to the research owner and privacy reviewer using the approved process. Recruitment remains blocked until the responsible people and handling procedure are identified.
+
+If a participant names a specific product, vendor, or service without having opted into that note category, do not write the name. If it entered an approved recording, pause and quarantine the recording and remove the name under the approved procedure before analysis; do not treat an accidental capture as consent.
 
 Use broad categories and paraphrased findings in public reporting. Remove names, contact details, organization and community names, precise locations, topology, addresses, device labels, URLs, and combinations that could identify a small site. Do not publish raw notes, recordings, configuration, activity, or participant quotes without separate explicit permission and a privacy review. Synthetic examples must be marked synthetic and must never be counted as study results.
 
@@ -137,6 +139,7 @@ Dry-run inputs below are invented, clearly synthetic, and not participant eviden
 | No consent | `SYN-H01` declines before the first question. | Stop before collecting answers or identity-linked refusal reason; do not proceed with prototype or recording. | The script stops at consent. No interview note is created; the aggregate completion count can record “not consented” only if the approved study data plan allows it. |
 | Withdrawal | `SYN-S02` withdraws during the proposed pilot window and asks to leave. | Stop study observation; give no penalty; do not mutate the gateway; mark the coded record withdrawn and follow only the pre-approved raw-data deletion/aggregation rule. | The withdrawal flow stops. Because the schedule/cutoff is still unset, the dry-run flags real collection as blocked rather than promising a deletion deadline. |
 | Sensitive incidental data | A fictional page shows `device-family-7` and `https://private.example/path?token=synthetic`. | Stop capture, hide the fixture, do not copy fields, discard/quarantine any artifact under the approved procedure, record only a coded redaction event. | The example is reduced to “redaction event”; the synthetic hostname/path/token are absent from the report output. |
+| Specific-name opt-in | `SYN-H04` mentions `SYN-PRODUCT-1` without opting into specific-name notes; a separate opted-in fixture uses `SYN-PRODUCT-2`. | In the first case, record only a tool class and omit the name. In the second, place the synthetic name only in restricted pseudonymized external notes; keep it out of repository/public output. | The no-opt-in note contains only the tool class. The opted-in sentinel is represented only by its study code in the external-note example and is absent from repository/public output. No external store or real participant record is created by this paper dry run. |
 | Moderator assistance | `SYN-H03` cannot locate a fictional category control; moderator gives the standard procedural hint. | Record A2, preserve the participant's own words, and do not label the task unassisted. | The result is marked assisted; it is not counted as independent completion. |
 | Founder/site independence | A hypothetical fifth location belongs to the same admin-controlled network as the founder environment. | Do not count it as an independent site. Require a distinct site owner/admin and network, separate consent, and post-founder ordering. | The candidate is excluded from the five-site count. |
 
