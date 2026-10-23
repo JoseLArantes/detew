@@ -8,7 +8,7 @@
 
 This document describes the intended V1 design from [PRODUCT](../PRODUCT.md), [ARCHITECTURE](../ARCHITECTURE.md), and [CONTEXT](../CONTEXT.md). It is not an audit of an implementation. The services, account permissions, socket protocols, host actions, and mitigations below remain proposals until their owning implementation tasks supply evidence. V1 does not protect a compromised OPNsense kernel or an actor who already controls appliance root.
 
-The activity store's design target is SQLite (ARC-10), but its exact package, version, and use remain subject to dependency admission. Naming SQLite here does not approve it for a package or release. SEC-04's vulnerability-reporting, supported-release, dependency-inventory, and signature/checksum publication obligations remain owned by M00-W01-T03; this threat model does not satisfy or accept them.
+The activity store's design target is SQLite (ARC-10), but its exact package, version, and use remain subject to dependency admission. Naming SQLite here does not approve it for a package or release. SEC-04 delivery is split per [MILESTONES §6](../MILESTONES.md#6-requirement-ownership): M00-W01-T03 supplies the reporting-plan/private-channel evidence, M09 supplies SBOM and candidate-provenance evidence, and M11 owns published release/verification instructions and real security/support/signing ownership. This threat model does not satisfy or accept those deliverables.
 
 ## Security goals and assumptions
 
@@ -115,7 +115,7 @@ Packet attachment, pf interaction, failure injection, destructive recovery, and 
 
 The greatest unresolved design risk is native classifier failure inside the inspection daemon. The selected shim narrows and documents the FFI contract, but does not create another process boundary. Before implementation is advertised as safe, M02 must measure memory/lifetime behavior and prove what the packet adapter does after classifier or engine death. If the required action cannot be reliably maintained, record an architecture change or a rejected capability; do not describe the failed process as isolated.
 
-The following reviewers own subsequent evidence: the maintainer owns scope and release decisions; the host/API owner owns OPNsense authentication, CSRF, and configd boundaries; the packet/native owner owns packet, FFI, attachment, and failure tests; the data owner owns source admission and provenance; the activity/UI owner owns collection, export, and retention; an independent security reviewer checks each boundary at M04/M09. SEC-04's publication obligations and vulnerability-reporting route are owned by M00-W01-T03; they are not specified, invented, or accepted here.
+The following reviewers own subsequent evidence: the maintainer owns scope and release decisions; the host/API owner owns OPNsense authentication, CSRF, and configd boundaries; the packet/native owner owns packet, FFI, attachment, and failure tests; the data owner owns source admission and provenance; the activity/UI owner owns collection, export, and retention; an independent security reviewer checks each boundary at M04/M09. The reporting-plan slice of SEC-04 belongs to M00-W01-T03; M09 and M11 own the later SBOM/provenance and public release/ownership evidence per [MILESTONES §6](../MILESTONES.md#6-requirement-ownership). This model does not specify or accept any of those deliverables.
 
 ## Source contracts
 
