@@ -8,7 +8,7 @@ assignees: ""
 
 ## What happened?
 
-<!-- Describe the observed behavior and why it is a problem. Remove private activity, credentials, and sensitive network details. -->
+<!-- Describe the observed behavior and impact. Remove private activity, credentials, appliance backups, and sensitive network details. -->
 
 ## What did you expect?
 
@@ -27,7 +27,12 @@ assignees: ""
 
 ## Evidence
 
-<!-- Include sanitized logs, test output, screenshots, or a minimal fixture when useful. -->
+<!-- Include sanitized logs, test output, screenshots, or a minimal synthetic fixture when useful. Review each artifact before posting. -->
+
+## Privacy check
+
+- [ ] This report contains no credentials, appliance backup, personal browsing history, or unrelated client data.
+- [ ] Any logs/screenshots are reviewed and redacted.
 
 ## Regression
 

@@ -1,1 +1,5 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/JoseLArantes/detew/security/advisories/new
+    about: Use the private reporting form. Do not post security details in a public issue.

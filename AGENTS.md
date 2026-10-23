@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Follow the human user's cur
 
 ## Current state and source of truth
 
-The repository currently contains product and development documents. The implementation layout in the architecture is proposed; crates, daemons, UI tooling, packages, and a validated lab are not present yet. Do not claim installation, protection, compatibility, performance, or completed milestones based on the documents.
+The repository contains its product foundation and a portable Rust/UI bootstrap. The UI is a local development preview; it does not inspect traffic or apply firewall changes. There is no packet adapter, OPNsense package, appliance service, production category data, or validated isolated lab. Do not claim installation, protection, compatibility, performance, or completed milestones based on the scaffold.
 
 Use these active documents:
 
@@ -86,7 +86,7 @@ Packet/lifecycle experiments run in the isolated lab with verified console recov
 
 ## Verification and evidence
 
-There are no implementation check scripts yet. M00 must establish and document exact entry points and locks. Do not invent successful test results or assume a future npm script exists. Once available:
+Use `./scripts/check-portable.sh` for the pinned portable checks, `./scripts/check-native.sh` for the FreeBSD/native check, and `./scripts/check-all.sh` for both. The native check reports unavailable with a non-zero status outside the required FreeBSD harness; portable success never implies native compatibility. The backlog management helper validates planning data only and is not a product quality gate. Do not invent successful test results or assume an undeclared command exists.
 
 | Change | Required relevant evidence |
 |---|---|

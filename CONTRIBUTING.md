@@ -2,7 +2,7 @@
 
 Detew is owned and maintained in [JoseLArantes/detew](https://github.com/JoseLArantes/detew). Original project material is licensed under [MIT](LICENSE). Contributors retain their copyright; contribution review does not transfer ownership to the repository owner.
 
-The repository is currently establishing its foundation. The product build, installation package, native lab, and runtime test entry points are not validated yet. M00 establishes the exact toolchain and commands; this guide defines the contributor workflow that will use them. The licensing/contribution documents provide the initial rights and review policy; their remaining clean-checkout and independent acceptance checks belong to [M00-W01-T02](docs/tasks/m00/M00-W01-T02.md).
+The repository is establishing its foundation. A portable Rust workspace and static UI development preview build locally; no product runtime, firewall integration, installation package, or isolated native lab has been validated. Follow the pinned commands below and record native checks as unavailable until their prerequisites and harness exist. Clean-checkout and independent acceptance checks are tracked by [M00-W01-T02](docs/tasks/m00/M00-W01-T02.md).
 
 ## Start here
 
@@ -15,11 +15,11 @@ Keep one coherent change per issue/PR. A contributor does not need to understand
 
 ## Issues
 
-Use the [bug report](https://github.com/JoseLArantes/detew/issues/new?template=bug_report.md), [feature request](https://github.com/JoseLArantes/detew/issues/new?template=feature_request.md), or [documentation issue](https://github.com/JoseLArantes/detew/issues/new?template=documentation.md) template. Search existing issues first, use a clear title, and include the smallest reproducible context.
+Use the [bug report](https://github.com/JoseLArantes/detew/issues/new?template=bug_report.md), [feature request](https://github.com/JoseLArantes/detew/issues/new?template=feature_request.md), [documentation issue](https://github.com/JoseLArantes/detew/issues/new?template=documentation.md), or [category correction](https://github.com/JoseLArantes/detew/issues/new?template=taxonomy_correction.md) template. Blank issues remain available when none fit. Search existing issues first, use a clear Conventional Commit-style prefix when it fits (`fix:`, `feat:`, `docs:`, `data:`), and include only the smallest useful context.
 
 Bug reports should include the observed behavior, expected behavior, exact version/revision, environment/topology, reliable reproduction steps, relevant logs with secrets and private activity removed, and whether the issue is a regression. Feature requests should explain the user problem, proposed outcome, alternatives, boundaries, and how success could be tested. Documentation reports should identify the page/section, confusing or incorrect text, and a proposed correction when possible.
 
-Do not put vulnerability details, credentials, appliance backups, private browsing history, or sensitive network captures in public issues. Until [M00-W01-T03](docs/tasks/m00/M00-W01-T03.md) establishes the private reporting route, do not claim that a public issue is a secure disclosure channel; ask a maintainer for the current private route through an existing trusted channel.
+Do not put vulnerability details, credentials, appliance backups, private browsing history, or sensitive network captures in public issues. Use the repository's [private vulnerability reporting route](SECURITY.md) for security issues.
 
 Blank issues remain enabled for cases that do not fit a template. Give them a descriptive title and explain why the existing templates do not fit.
 
@@ -81,26 +81,20 @@ Use a branch named `feat/<short-topic>`, `fix/<short-topic>`, `docs/<short-topic
 
 ## Checks and review
 
-Quality gates come from the implementation's unit, integration, and smoke tests. Planning and backlog helpers are not contributor prerequisites. M00 will pin the exact entry points; until then, the following shows the required gate shape and must not be reported as currently available commands:
+Quality gates come from unit, integration, and smoke tests. The portable bootstrap gate is available; native integration remains an explicit unavailable result until the isolated FreeBSD/OPNsense test harness is implemented. Planning/backlog helpers are not contributor quality gates.
 
 ```sh
-# Rust/core and service changes
-cargo fmt --check
-cargo clippy --workspace --all-targets --all-features -- -D warnings
-cargo test --workspace
+# Run the exact pinned portable checks from the repository root.
+./scripts/check-portable.sh
 
-# UI/host changes, when the affected package exists
-npm ci
-npm run lint
-npm test -- --run
-npm run build
+# Native checks report unavailable with exit code 3 until an implementation and lab exist.
+./scripts/check-native.sh
 
-# Integration and packaged smoke checks, when the affected target exists
-npm run test:integration
-npm run test:smoke
+# Run both and preserve portable/native status separately.
+./scripts/check-all.sh
 ```
 
-Use the repository's documented equivalent when M00 pins different commands or a task needs a native FreeBSD/OPNsense harness. Run the smallest relevant set locally, then the complete required set before requesting review. A contribution touching the packet path, native FFI, lifecycle, storage, packaging, or host integration must include the corresponding integration/smoke evidence; unit tests alone are insufficient. A UI change must exercise user-visible success, empty/loading, stale/error, permission, and conflict states where applicable.
+Run the smallest relevant set locally, then the complete portable gate before requesting review. A contribution touching the packet path, native FFI, lifecycle, storage, packaging, or host integration must include corresponding integration/smoke evidence; the unavailable bootstrap result cannot satisfy it. A UI change must exercise user-visible success, empty/loading, stale/error, permission, and conflict states where applicable.
 
 If a command is not available yet, do not invent a passing result. State it in the PR under “Tests” and link the task or blocker that will establish it. Keep test fixtures synthetic or safely curated and licensed. Remove secrets, credentials, appliance backups, and private activity from logs and screenshots.
 
@@ -128,4 +122,4 @@ Prepare a taxonomy/classification correction with provenance, expected labels, r
 
 Preserve upstream copyright/license material and update [third-party notices](THIRD_PARTY_NOTICES.md) and the dependency/data records. Detew's MIT grant does not replace other components' terms.
 
-The verified private vulnerability-reporting channel is still owned by [M00-W01-T03](docs/tasks/m00/M00-W01-T03.md). Do not put sensitive vulnerability or appliance details into a public issue. That task must establish an actual private route and owner; this guide does not fabricate an email address or claim a supported release.
+The active private vulnerability-reporting route and maintainer responsibilities are documented in [SECURITY.md](SECURITY.md). The project has no supported release yet. Do not put sensitive vulnerability or appliance details into a public issue.

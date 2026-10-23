@@ -10,7 +10,7 @@
 **Execution playbook:** [Development orchestration](DEVELOPMENT.md)\
 **Development instructions:** [AGENTS.md](../AGENTS.md)
 
-This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. M00 is **in progress** with the owner-approved MIT license and admission-policy work. Other milestones remain **planned**; task/milestone/gate acceptance uses recorded review and evidence.
+This document sequences development from repository bootstrap to a supported V1 release, then separately gated TLS and ecosystem work. It defines milestones and work packages; the linked task backlog owns individual task specifications and the GitHub issue crosswalk. M00 is **in progress** with governance and portable bootstrap work under review. Other milestones remain **planned**; task/milestone/gate acceptance uses recorded review and evidence.
 
 The PRD owns requirements, scope, acceptance targets, and release gates. PRODUCT owns behavioral and experience contracts. ARCHITECTURE owns implementation decisions and evidence gates. This document owns sequencing, dependencies, work-package IDs, and delivery evidence. DEVELOPMENT owns the execution/coordination process and run handoffs. A task cannot relax an upstream contract to fit its milestone. [Section 8](#8-document-synchronization-and-change-control) defines how changes remain connected.
 
@@ -131,7 +131,7 @@ No milestone ID or package ID above is an estimate. The task graph records concr
 
 ### M00: Project bootstrap and governance
 
-**Execution status — October 2, 2026:** JoseLArantes selected MIT and explicitly requested LICENSE alongside M00-W01-T01. The [license/admission policy](governance/LICENSE_POLICY.md) and [EV-M00-W01-T01](evidence/m00/EV-M00-W01-T01.md) record the artifacts, checks, and pending review/integration. M00-W01-T02 retains complete contributor/notice and clean-checkout acceptance; M00-W01-T03 retains the verified private reporting route. M00 exit and all release/architecture gates remain unaccepted.
+**Execution status — October 23, 2026:** JoseLArantes selected MIT and the [license/admission policy](governance/LICENSE_POLICY.md) records that decision. Portable Rust/UI scaffolding, check entry points, the unverified requirement ledger, and contribution templates are implemented. The exact portable check passes; the native check remains unavailable. GitHub private vulnerability reporting is enabled and [SECURITY.md](../SECURITY.md) records the reporting route and owner. The VM 110 console reaches the OPNsense menu, but its guest interfaces still share the household subnet; no packet tests or bypass baseline have run. Clean-checkout acceptance, independent reviews, isolated lab provisioning, and M00 exit remain open.
 
 **Outcome:** contributors can build and validate a small portable/native/UI change through documented entry points. The license and contribution boundary are explicit before implementation contributions are accepted.
 
@@ -141,7 +141,7 @@ No milestone ID or package ID above is an estimate. The task graph records concr
 
 | Work package | Deliverable and acceptance | Requirement inputs |
 |---|---|---|
-| M00-W01 | Record the software-license decision and dependency admission rules; add the enacted license only after that decision. Publish contributor/reviewer responsibilities and a private vulnerability-reporting route without inventing contact details. | OSS-01–03, SEC-04 |
+| M00-W01 | Record the enacted software-license decision and dependency admission rules. Publish contributor/reviewer responsibilities and a verified private vulnerability-reporting route without inventing contact details. | OSS-01–03, SEC-04 |
 | M00-W02 | Bootstrap the Cargo workspace, thin binaries, UI package, contract generation entry point, formatter/lint configuration, and exact version locks. Instantiate planned crates as responsibilities are implemented; empty directories do not count as component delivery. A clean checkout reproduces portable builds. | POL-01, OSS-03 |
 | M00-W03 | Define an isolated client/gateway/server lab, exact host/kernel/NIC/tool revisions, IPv4/IPv6 and VLAN/NAT paths, traffic generators, and console recovery. Record the bypass baseline and lab teardown procedure. | INS-07, OPS-03, OPS-09, QLT-01–02 |
 | M00-W04 | Establish provider-independent check scripts, portable versus native check jobs, fixture licensing/redaction rules, and the evidence manifest format. Failed/missing native checks cannot be reported as passing through a portable job. | SEC-02, OSS-02–03 |
@@ -383,9 +383,9 @@ The owner assembles evidence; the responsible maintainer records the decision wi
 
 ### 5.2 Evidence artifacts and measurement rules
 
-Store reviewed reports under a proposed `docs/evidence/` structure, created when real evidence exists. Each report identifies its evidence ID, milestone/package, requirement/ARC/gate IDs, exact code revision, host/NIC/topology/toolchain, dataset/catalog/schema versions, workload/corpus/fixture digests, commands/procedure, expected versus observed result, limits/failures, artifact location/digest, reviewer, and date. Reports containing private pilot context require a redacted public counterpart; do not publish sensitive raw captures.
+Store reviewed reports under `docs/evidence/`. Each report identifies its evidence ID, milestone/package, requirement/ARC/gate IDs, exact code revision, host/NIC/topology/toolchain, dataset/catalog/schema versions, workload/corpus/fixture digests, commands/procedure, expected versus observed result, limits/failures, artifact location/digest, reviewer, and date. Reports containing private pilot context require a redacted public counterpart; do not publish sensitive raw captures.
 
-Maintain a proposed `docs/evidence/requirements.csv` with one row per requirement and fields `requirement_id,scope,primary_milestone,task_ids,implementation_revision,evidence_ids,status,owner,limitations`. It starts with all requirements unverified when created in M00. This plan's ownership table is a planning map, not that implemented evidence ledger. Reports link to immutable evidence identities rather than a floating successful CI badge. Missing or stale evidence is explicit.
+`docs/evidence/requirements.csv` contains one row per requirement and fields `requirement_id,scope,primary_milestone,task_ids,implementation_revision,evidence_ids,status,owner,limitations`. It starts with all requirements unverified and has no invented owner, revision, or evidence. `node scripts/requirement-ledger.mjs` and the UI unit suite compare it with the PRD, milestone ownership, and planned task coverage. This plan's ownership table is a planning map, not that evidence ledger. Reports link to immutable evidence identities rather than a floating successful CI badge. Missing or stale evidence is explicit.
 
 For reference acceptance, retain the PRD's exact starting targets: at least 80% bypass goodput; p95 added RTT at most 5 ms; at least 20,000 flows and 500 new flows/second; ordinary activation/reconsideration within five seconds with p50/p95/p99; local interactive acknowledgment within 200 ms and common views within one second; a 72-hour soak; at least 98% precision and 90% recall per required category among eligible visible labeled destinations. Report category coverage across all attempted traffic separately and per-application results individually. These remain targets until measured. Use identical hardware/configuration for bypass and filtering comparisons; report overload/saturation separately from normal-load results.
 

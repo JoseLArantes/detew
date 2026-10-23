@@ -67,7 +67,7 @@ After accepting these outputs, recompute eligibility from the [task dependencies
 | [Task catalogs and views](tasks/README.md#sources-rendering-and-publication) | Stable task specifications, direct prerequisites, acceptance, required tests | Refine the selected task and preserve its identity. |
 | [GitHub issues](https://github.com/JoseLArantes/detew/issues) | Live ownership, workflow, blockers, review discussion, completion links | Coordinate current work and make its disposition visible. |
 | This playbook and execution checkpoints | Work-selection process, coordination rules, active-run handoff | Decide how to proceed and resume without losing context. |
-| Evidence reports and requirement ledger, once created in M00 | Executed results at exact revisions and reviewer acceptance | Establish whether an outcome or gate has actually been satisfied. |
+| Versioned evidence reports and the unverified `docs/evidence/requirements.csv` ledger | Executed results at exact revisions and reviewer acceptance | Establish whether an outcome or gate has actually been satisfied. |
 
 The [publication record](tasks/PUBLICATION.md), [task index](tasks/INDEX.md), and local task cards contain initial workflow snapshots. GitHub holds current task progress. Issue bodies and the source catalogs must agree on the task contract; comments and completion records carry execution history. A run checkpoint points to those records rather than creating a competing task board.
 
@@ -137,7 +137,7 @@ At each transition:
 7. **Commit:** commit all task-owned work with Conventional Commits and the required DCO sign-off. Record the commit hash as the accepted revision; work left only in the working tree does not satisfy task acceptance.
 8. **Record:** link the result and review disposition, close only the accepted task, recheck direct dependents and any gate review now possible, and save the checkpoint. Continue the next task only within the authorized work scope.
 
-M00 establishes exact product build/check commands. Until then, the backlog validator checks planning documents; it provides no runtime, native compatibility, or product-test evidence.
+M00's portable/native entry points are `./scripts/check-portable.sh`, `./scripts/check-native.sh`, and `./scripts/check-all.sh`. The planning backlog validator checks task documents only; it provides no runtime, native compatibility, or product-test evidence. A portable pass does not replace the FreeBSD/native check.
 
 ## 5. Task workflow and blockers
 
@@ -207,7 +207,7 @@ Write expected outcomes independently of the implementation. Assert actual enfor
 
 For UI changes, review simplicity alongside functional correctness: can the administrator understand scope, the reason for a decision, and confirmed change status without internal implementation knowledge? Visual review checks hierarchy, typography, spacing, alignment, focus, and consequential states in complete workflows. Screenshots support interaction and accessibility evidence.
 
-Store real reports according to the [milestone evidence contract](MILESTONES.md#52-evidence-artifacts-and-measurement-rules). The proposed evidence directories and requirement ledger are created by their M00 tasks. Use exact revisions and input/artifact identities; private pilot data needs an appropriately redacted public report.
+Store reports in `docs/evidence/` according to the [milestone evidence contract](MILESTONES.md#52-evidence-artifacts-and-measurement-rules). Validate the per-requirement ledger with `npm test`; its current rows are all unverified. Use exact revisions and input/artifact identities; private pilot data needs an appropriately redacted public report.
 
 The reviewer records one disposition: accepted, changes requested, or blocked by missing evidence/input. Identify the acceptance criteria checked, relevant failures, limitations, and evidence links. For acceptance, confirm that the [task definition of done](MILESTONES.md#73-definition-of-done-for-tasks) holds. Missing mandatory evidence keeps the task open.
 

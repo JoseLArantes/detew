@@ -10,7 +10,7 @@
 **Development guide:** [AGENTS.md](../AGENTS.md)\
 **Domain language:** [CONTEXT.md](CONTEXT.md)
 
-This is the final foundation document before detailed milestone and task planning. It selects the implementation stack, assigns ownership, specifies component boundaries and runtime mechanisms, and identifies the evidence needed to close a small set of integration decisions. It does not claim an implementation, successful prototype, measured capacity, or production support.
+This document selects the implementation stack, assigns ownership, specifies component boundaries and runtime mechanisms, and identifies the evidence needed to close integration decisions. The repository now has a minimal portable scaffold and local UI preview; neither is a functional filtering prototype, measured capacity result, or production support claim.
 
 The PRD owns requirements and release gates. The product definition owns policy meaning, user-visible behavior, and UI/UX outcomes. This document owns technical decisions and implementation constraints. The milestone plan owns sequence, dependencies, work-package IDs, and delivery evidence. Resolve discrepancies by updating the affected documents together; a library choice cannot silently change a product contract.
 
@@ -68,8 +68,8 @@ Detew-owned material uses the [MIT license](../LICENSE), selected by JoseLArante
 | Layer | Selection | Use and constraints |
 |---|---|---|
 | Initial host | OPNsense Community Edition 26.7 series, amd64, FreeBSD 15.1 base | Development integration target. Exact patch/package/kernel/NIC combination is pinned in the G0 lab report; no supported matrix exists yet. |
-| Core language | Rust, 2024 edition | Domain, evaluation, compilation, services, fixtures, and CLI. Pin an exact stable toolchain before the first implementation commit. |
-| Serialization/schema | `serde`, `serde_json`, `schemars`; JSON Schema 2020-12 | Rust wire DTOs generate schemas; semantic invariants remain Rust validation. Check the generator's supported dialect/version in the lockfile. |
+| Core language | Rust 1.99.1 stable, 2024 edition | Domain, evaluation, compilation, services, fixtures, and CLI. Pin in `rust-toolchain.toml`; this is a contributor build pin, not proof of the FreeBSD target. |
+| Serialization/schema | `serde` 1.0.229, `serde_json` 1.0.154, `schemars` 1.2.3; JSON Schema 2020-12 | Rust wire DTOs generate schemas; semantic invariants remain Rust validation. Exact crate resolution is committed in `Cargo.lock`. |
 | Domain IDs | UUIDs for stable objects; decimal-string counters on the wire | IDs do not depend on display names. Revision/generation/count fields must not lose precision in JavaScript. |
 | Hostname normalization | `idna`, standard IP parsing, a pinned public-suffix snapshot | One normalization version across imports, exceptions, tester, preview, and runtime. |
 | Scheduling | `chrono` / `chrono-tz`, explicit UTC and monotonic clock abstraction | Bundled timezone rules are identified in runtime compatibility metadata. No ambient locale or timezone changes policy meaning. |
@@ -93,13 +93,13 @@ The SQLite floor is deliberate: the project's WAL documentation identifies a cor
 |---|---|---|
 | Host controllers/models | Host-provided PHP, Phalcon/Volt, XML models/ACL/menu, Jinja templates through `configd` | Use the platform's installed versions. Do not bundle a second PHP/Python/framework runtime. |
 | Small host helpers | Host PHP/Python where the native integration requires them | Thin adapters and generated configuration; no second policy engine. Privileged operations remain narrow fixed actions. |
-| UI language/contracts | TypeScript with strict compiler settings; `json-schema-to-typescript` generation | Generated domain DTOs; typed API/result/error states; no unchecked `any` at trust boundaries. Verify the generator against the chosen schema subset/dialect. |
-| UI framework | React 19 major line | Locally packaged browser assets mounted in a Volt shell. Stable exact patch is pinned and security-reviewed at bootstrap. |
-| Build tool | Vite, stable compatible release | Static production assets and manifest. Development server is development-only. |
-| Build runtime/package manager | Node.js 24 LTS and npm | Build/test tooling only. Pin exact Node/npm versions and commit `package-lock.json`; install with `npm ci`. |
+| UI language/contracts | TypeScript 7.0.2 with strict compiler settings; `json-schema-to-typescript` 16.0.0 generation | Generated domain DTOs; typed API/result/error states; no unchecked `any` at trust boundaries. The generator supports only a documented subset of JSON Schema 2020-12; Ajv remains the validator for the complete dialect. |
+| UI framework | React and React DOM 19.3.1; React type packages 19.3.0 | Locally packaged browser assets mounted in a Volt shell. Exact patches and their licenses are recorded in the npm lock. |
+| Build tool | Vite 8.3.5 and `@vitejs/plugin-react` 6.1.2 | Static production assets and manifest. The plugin's Vite 8 peer range is satisfied. Development server is development-only. |
+| Build runtime/package manager | Node.js 24.22.1 LTS and bundled npm 11.19.1 | Build/test tooling only. Pin exact Node/npm versions and commit `package-lock.json`; install with `npm ci`. |
 | Server-state management | TanStack Query | Queries, operation polling, invalidation and freshness. Mutation retries require idempotency and must never silently overwrite conflicts. |
 | Tables | TanStack Table | Headless accessible table composition with server pagination/sorting. No giant browser-owned activity dataset. |
-| Form editing | React Hook Form, Ajv's 2020-12 implementation and `ajv-formats` | Client validation aids editing; authoritative validation/preview is server-side. Additional product constraints come from server errors. |
+| Form editing | React Hook Form, Ajv 8.20.0's 2020-12 implementation and `ajv-formats` | Client validation aids editing; authoritative validation/preview is server-side. Additional product constraints come from server errors. |
 | UI behavior primitives | Radix Primitives, wrapped in Detew-owned components | Focus, overlays, menus and dialogs; primitive use alone does not prove WCAG conformance. |
 | Styling | Tailwind CSS 4 utilities plus scoped CSS/custom properties | Disable global Preflight; prefix utilities; namespace Detew styles/tokens. Portaled content remains within a Detew theme wrapper. |
 | Icons | Locally bundled Lucide icons | Consistent strokes and labels; consequential actions are not unexplained icon-only buttons. |
@@ -107,15 +107,17 @@ The SQLite floor is deliberate: the project's WAL documentation identifies a cor
 | UI verification | Vitest, Testing Library, Playwright, axe-core | Component/interaction tests plus real-browser and manual accessibility workflows. |
 | Component documentation | Storybook, development-only | States, host-theme previews, long data, keyboard use and responsive fixtures. Never shipped as an appliance service. |
 
-React's documentation maintains major-line version references; Vite documents its supported Node floor. Node 24 is an LTS build baseline, not an appliance runtime dependency. [React versions](https://react.dev/versions), [Vite requirements](https://vite.dev/guide/), [Node release policy](https://nodejs.org/en/about/previous-releases)
+The bootstrap lock was selected on October 23, 2026. Rust 1.99.1 is an official stable release; Node 24.22.1 is the current LTS archive entry and bundles npm 11.19.1. React 19.3.1 is within the documented React 19 line. Vite 8.3.5 and plugin-react 6.1.2 satisfy their Node and peer-version requirements. Node is build tooling only, not an appliance runtime dependency. [Rust releases](https://blog.rust-lang.org/releases/), [Node 24.22.1 archive](https://nodejs.org/en/download/archive/v24.22.1), [React versions](https://react.dev/versions), [Vite 8 Node support](https://vite.dev/blog/announcing-vite8.html), [Vite guide](https://vite.dev/guide/)
+
+`json-schema-to-typescript` 16.0.0 is used only to generate the bootstrap DTO from the documented portable subset exercised by the fixture. Its upstream README describes partial 2019-09/2020-12 support and unsupported keywords; it does not establish semantic coverage for arbitrary 2020-12 schemas. Ajv 8.20.0 is imported through its dedicated 2020-12 implementation and validates the complete emitted schema. M01 must review this boundary against its actual contract constructs before adoption beyond the bootstrap fixture. [Generator support notes](https://github.com/bcherny/json-schema-to-typescript/blob/master/README.md), [Ajv dialect selection](https://ajv.js.org/guide/schema-language.html)
 
 Tailwind's global reset must be omitted because the host shell is outside Detew's styling authority. The implementation must follow the framework's documented browser compatibility and provide a visible unsupported-browser message where necessary. Confirm the actual target set during the host UI spike. [Tailwind Preflight](https://tailwindcss.com/docs/preflight), [Tailwind compatibility](https://tailwindcss.com/docs/compatibility)
 
 ### 2.3 Dependency and version policy
 
-Record exact versions in `rust-toolchain.toml`, `Cargo.lock`, `package-lock.json`, the native dependency/build manifest, and the supported host matrix. This document selects technologies and major baselines; it intentionally does not invent a tested exact dependency set before bootstrap.
+Record exact versions in `rust-toolchain.toml`, `Cargo.lock`, `.node-version`, `package.json`, `package-lock.json`, the native dependency/build manifest, and the supported host matrix. The bootstrap lock covers only its portable domain/schema and UI development inputs; it does not admit future packet, database, classifier, category-data, or appliance dependencies.
 
-Builds use committed locks and explicit host revisions, never a floating `latest` dependency or unpinned source branch. Native headers, classifier catalog extraction, and the shipped library must come from the same pinned release. Dependency updates are reviewed changes with schema/FFI/protocol/fixture checks and release notes where behavior changes.
+Builds use committed locks and explicit host revisions, never a floating `latest` dependency or unpinned source branch. The bootstrap npm configuration blocks package lifecycle scripts; a future dependency that requires them needs an explicit security review and scoped exception. Native headers, classifier catalog extraction, and the shipped library must come from the same pinned release. Dependency updates are reviewed changes with schema/FFI/protocol/fixture checks and release notes where behavior changes.
 
 Prefer stable releases, minimal feature sets, and maintained libraries. Record license, source, native code, build scripts, network behavior, target support, and transitive dependencies. UI tools execute only in the build environment. Reproduce and audit native dependency builds through the selected OPNsense build environment.
 
@@ -172,7 +174,7 @@ Control/reporting may restart independently. A classifier/library restart is an 
 
 ### 4.1 Proposed repository layout
 
-This layout describes future source organization; no implementation folders are created by this document.
+This layout describes the target source organization. The repository currently contains only bootstrap workspace crates and a development UI; the service, packet, host-integration, packaging, and other product components remain future work.
 
 ```text
 README.md               # project entry point and actual development stage

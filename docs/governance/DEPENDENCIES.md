@@ -2,20 +2,20 @@
 
 **Policy:** [License and dependency admission](LICENSE_POLICY.md)\
 **Maintainer:** JoseLArantes\
-**Baseline:** October 2, 2026
+**Baseline:** October 23, 2026
 
 ## 1. Current admission state
 
-The repository contains planning documents and the backlog management helper. Product crates, npm/native packages, vendored libraries, category datasets, and release artifacts are not present. The architecture's selections are candidates subject to exact-version licensing and technical admission. No entry below represents an admitted production dependency or a completed SBOM.
+The repository now contains a portable Rust workspace and a local React/Vite development preview with exact lockfiles. Those bootstrap dependencies and build tools have not been admitted for a production package; no packet adapter, native classifier, category dataset, or release artifact is present, and no SBOM is complete. The architecture's production selections remain candidates subject to exact-version rights and technical admission. See [M00-W02 evidence](../evidence/m00/EV-M00-W02-T01.md) for the pinned bootstrap inventory and remaining review boundary.
 
 | Candidate / family | Inventory class | License-review state and next evidence |
 |---|---|---|
 | nDPI core and chosen classifier catalog | Native runtime / headers / catalog | `blocked`: reviewed source observation uses LGPLv3-or-later in the API header; additional restricted components excluded from the required baseline. Pin the production file/feature set and prove obligations and ARCH-G02 results. |
 | Netmap or selected packet adapter | Native runtime / host | `proposed`: exact adapter/host source, per-file rights, linkage, and ARCH-G01 decision needed. |
 | OPNsense / FreeBSD host-provided components | Host | `proposed`: identify exact consumed components, copied templates/helpers, dependencies and notices; host presence is not approval to copy/relicense them. |
-| Rust crates in ARCHITECTURE §2.1 | Software runtime / transitives | `proposed`: exact lock/features/targets, upstream terms, native/build-script dependencies, and tests needed. |
-| React and other UI packages in ARCHITECTURE §2.2 | Software / browser assets / transitives | `proposed`: production locks and complete bundle inventory needed. React's pinned MIT text was reviewed as a checklist example only. |
-| Rust, Node/npm, UI test/build tools, gh/Python helper execution | Build/test/development | `proposed`: exact toolchain/tool records and redistributed/generated-material review needed; these tools are not bundled as product runtime by this record. |
+| Bootstrap Rust crates (`Cargo.lock`) | Scaffold runtime / transitives | `proposed`: exact lock and package license metadata are recorded; no crate is approved for a production appliance package until rights, target features, notices, and distribution use are reviewed. |
+| React/Vite/TypeScript/Ajv and UI tools (`ui/package-lock.json`) | Local preview/build/test | `proposed`: exact direct versions and lock are recorded; browser output and complete transitive notices need review before redistribution or host integration. |
+| Rust 1.99.1, Node 24.22.1, npm 11.19.1, shell/OS tools | Build/test | `proposed`: exact versions are pinned for reproducibility; toolchain output/redistribution and supported contributor environments remain under review. |
 | Category lists, application signatures, fixtures and corrections | Data | `proposed`: no baseline sources admitted. M03 must review source rights/provenance separately and establish lawful redistribution/update paths. |
 | Public-suffix/timezone snapshots, fonts/icons and other assets | Data / assets / embedded package material | `proposed`: pin each included source and review its license/attribution/derivation obligations separately. |
 

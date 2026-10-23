@@ -2,7 +2,7 @@
 
 Detew is an open source web and application filtering platform, delivered first as an OPNsense plugin. It aims to make category and application controls easy to configure, understand, and maintain across household, small-business, and organizational networks.
 
-**Project stage:** M00 bootstrap in progress. The owner selected MIT and the repository now includes the license and dependency admission documents. The product/architecture baseline is dated **October 2, 2026**. No engine, plugin, dataset, UI, supported hardware matrix, or release gate has been implemented or validated in this repository. There is no installation package yet.
+**Project stage:** M00 bootstrap in progress. The repository now has an exact portable Rust/UI toolchain, a schema-generation fixture, a requirement evidence ledger, and a development-only UI shell. No packet engine, OPNsense plugin, category dataset, or installation package exists. The live native lab is not isolated, so packet experiments and support claims are not justified by its current topology. M00 exit and all product release gates remain open.
 
 ## Development foundation
 
@@ -33,13 +33,13 @@ Full TLS/request inspection is a separate optional managed-device module after V
 
 The [milestone plan](docs/MILESTONES.md#2-milestone-sequence-and-dependencies) defines M00–M11 from bootstrap and canonical policy through feasibility, developer alpha, complete workflows, hardening, independent pilots, and V1. M12 covers optional TLS; M13 scopes selected ecosystem extensions.
 
-M00 has started with the licensing task; later milestones remain **planned**. Packet/classifier/data/host feasibility must close G0 before alpha acceptance. Independent pilot and usability evidence close G2; complete requirement evidence, distributable artifacts, and maintenance ownership close G3. Dates, budgets, and quality figures in the documents are planning targets until measured.
+M00 implementation is underway; later milestones remain **planned**. The only built UI is a clearly marked development preview and does not inspect or change traffic. Packet/classifier/data/host feasibility must close G0 before alpha acceptance. Independent pilot and usability evidence close G2; complete requirement evidence, distributable artifacts, and maintenance ownership close G3. Dates, budgets, and quality figures in the documents are planning targets until measured.
 
-Start development with [M00 bootstrap](docs/MILESTONES.md#m00-project-bootstrap-and-governance) and [M01 canonical contracts](docs/MILESTONES.md#m01-shared-contracts-and-canonical-policy-reference), selecting tasks whose entry conditions are met. Use the [task template](docs/MILESTONES.md#72-task-template) when refining or adding work. Build/check entry points and exact toolchain versions are established during M00. MIT is the owner's selected license for Detew-owned material; exact dependency/data admission remains separately gated.
+Start development with [M00 bootstrap](docs/MILESTONES.md#m00-project-bootstrap-and-governance) and [M01 canonical contracts](docs/MILESTONES.md#m01-shared-contracts-and-canonical-policy-reference), selecting tasks whose entry conditions are met. Use the [task template](docs/MILESTONES.md#72-task-template) when refining or adding work. See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for the exact portable/native check commands. MIT is the owner's selected license for Detew-owned material; exact dependency/data admission remains separately gated.
 
 Use the [development playbook](docs/DEVELOPMENT.md#1-start-a-development-run) to inspect current work, assign a bounded task, coordinate parallel contributors, and carry the result through validation, review, integration, and milestone decisions. It includes the initial eligible queue and checkpoint templates.
 
-The [task index](docs/tasks/INDEX.md), [dependency graph](docs/tasks/DEPENDENCIES.md), and [requirement coverage](docs/tasks/COVERAGE.md) make the backlog navigable. Each task has a corresponding issue in [JoseLArantes/detew](https://github.com/JoseLArantes/detew/issues), organized by milestone and scope/type/area/priority/status/size labels. Implementation remains unstarted; readiness requires accepted prerequisite outputs and current gate evidence.
+The [task index](docs/tasks/INDEX.md), [dependency graph](docs/tasks/DEPENDENCIES.md), and [requirement coverage](docs/tasks/COVERAGE.md) make the backlog navigable. Each task has a corresponding issue in [JoseLArantes/detew](https://github.com/JoseLArantes/detew/issues), organized by milestone and scope/type/area/priority/status/size labels. Portable bootstrap code is present; a green portable build does not establish native compatibility or readiness for M01.
 
 ## Research references
 
@@ -47,4 +47,4 @@ The [technology study](docs/open_research_01.md) and [reference collection](docs
 
 ## License and contributions
 
-Detew-owned software, tooling, and documentation are licensed under [MIT](LICENSE), copyright 2026 JoseLArantes. Third-party material retains its own terms. See the [contributor guide](CONTRIBUTING.md), [dependency register](docs/governance/DEPENDENCIES.md), and [notice responsibilities](THIRD_PARTY_NOTICES.md). The [licensing evidence report](docs/evidence/m00/EV-M00-W01-T01.md) records the owner decision, checks, and remaining review/integration status.
+Detew-owned software, tooling, and documentation are licensed under [MIT](LICENSE), copyright 2026 JoseLArantes. Third-party material retains its own terms. See the [contributor guide](CONTRIBUTING.md), [dependency register](docs/governance/DEPENDENCIES.md), [security policy](SECURITY.md), and [notice responsibilities](THIRD_PARTY_NOTICES.md). The [licensing evidence report](docs/evidence/m00/EV-M00-W01-T01.md) records the owner decision, checks, and remaining review/integration status.

@@ -37,7 +37,7 @@
       "MIT LICENSE with the owner-supplied copyright identity JoseLArantes, explicitly authorized alongside this decision."
     ],
     "acceptance": [
-      "The selected license, source/distribution obligations, compatibility review process, and maintainer acceptance are recorded; the current proposal is not treated as enacted.",
+      "The project owner's MIT selection and its scope, source/distribution obligations, compatibility review process, and maintainer acceptance are recorded as enacted.",
       "nDPI, Rust/npm dependencies, build tools, and category data have distinct review paths; unknown rights block admission.",
       "Contributor ownership/review obligations and permitted exceptions have an accountable approval path.",
       "No commercial product comparison or invented rights/contact details enter the decision.",
