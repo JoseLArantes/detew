@@ -477,7 +477,7 @@ List deferred neighboring behavior so a partial slice is not misreported as V1.
 - Resource, privacy, permissions, compatibility, and recovery constraints.
 - For UI: loading/empty/stale/error/conflict/permission states, locales and focus.
 - For packet behavior: IPv4/IPv6/path and observed enforcement evidence.
-- All task-owned changes are committed at an exact accepted revision; each task commit uses Conventional Commits and includes the required DCO sign-off.
+- All task-owned changes are committed at an exact accepted revision; each task commit uses Conventional Commits.
 
 ## Validation and evidence
 Exact commands/procedure, environment, expected results, report/artifact IDs.
@@ -499,7 +499,7 @@ Follow the [execution playbook](DEVELOPMENT.md#4-select-and-execute-work) to sch
 ### 7.3 Definition of done for tasks
 
 - The stated outcome works and the acceptance procedure has been executed on the appropriate environment. Record skipped/unavailable checks as missing evidence; do not present them as passing.
-- All task-owned implementation, tests, documentation, generated outputs, and evidence are committed at an exact revision. Every task-owned commit follows Conventional Commits and includes the required DCO sign-off; work that exists only in the working tree is not accepted.
+- All task-owned implementation, tests, documentation, generated outputs, and evidence are committed at an exact revision. Every task-owned commit follows Conventional Commits; work that exists only in the working tree is not accepted.
 - Shared contracts and generated artifacts are aligned; semantic expectations were not weakened to match the implementation.
 - Relevant bounds, permissions, visibility, failure/recovery, and compatibility cases are reviewed. Native/unsafe code has explicit ownership/lifetime/error review.
 - User-facing changes have tested interaction/state, localization, and accessibility appropriate to their scope; screenshots supplement functional evidence.

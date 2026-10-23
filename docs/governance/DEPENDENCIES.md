@@ -6,16 +6,17 @@
 
 ## 1. Current admission state
 
-The repository now contains a portable Rust workspace and a local React/Vite development preview with exact lockfiles. Those bootstrap dependencies and build tools have not been admitted for a production package; no packet adapter, native classifier, category dataset, or release artifact is present, and no SBOM is complete. The architecture's production selections remain candidates subject to exact-version rights and technical admission. See [M00-W02 evidence](../evidence/m00/EV-M00-W02-T01.md) for the pinned bootstrap inventory and remaining review boundary.
+The repository contains a portable Rust workspace and a local React/Vite development preview with exact lockfiles. M00-W02-T01 records the versions and must complete the license/notice inventory for dependencies and build inputs currently present, including any applicable artifacts. Those bootstrap inputs are not thereby admitted for a future production package. No packet adapter, native classifier, category dataset, SQLite implementation dependency, or release artifact is present. Do not treat absent future candidates as blocked work or require a production SBOM for them yet; review the exact component/version/files/features/use and artifact obligations when an implementation task proposes them. See [M00-W02 evidence](../evidence/m00/EV-M00-W02-T01.md) for the current bootstrap inventory and remaining review boundary.
 
 | Candidate / family | Inventory class | License-review state and next evidence |
 |---|---|---|
-| nDPI core and chosen classifier catalog | Native runtime / headers / catalog | `blocked`: reviewed source observation uses LGPLv3-or-later in the API header; additional restricted components excluded from the required baseline. Pin the production file/feature set and prove obligations and ARCH-G02 results. |
-| Netmap or selected packet adapter | Native runtime / host | `proposed`: exact adapter/host source, per-file rights, linkage, and ARCH-G01 decision needed. |
+| nDPI core and chosen classifier catalog | Native runtime / headers / catalog | `deferred`: reviewed source observation uses LGPLv3-or-later in the API header; additional restricted components excluded from the required baseline. Pin the production file/feature set and prove obligations and ARCH-G02 results when the classifier task proposes a concrete release/use. |
+| Netmap or selected packet adapter | Native runtime / host | `deferred`: exact adapter/host source, per-file rights, linkage, and ARCH-G01 decision are reviewed when a concrete candidate is proposed. |
 | OPNsense / FreeBSD host-provided components | Host | `proposed`: identify exact consumed components, copied templates/helpers, dependencies and notices; host presence is not approval to copy/relicense them. |
-| Bootstrap Rust crates (`Cargo.lock`) | Scaffold runtime / transitives | `proposed`: exact lock and package license metadata are recorded; no crate is approved for a production appliance package until rights, target features, notices, and distribution use are reviewed. |
-| React/Vite/TypeScript/Ajv and UI tools (`ui/package-lock.json`) | Local preview/build/test | `proposed`: exact direct versions and lock are recorded; browser output and complete transitive notices need review before redistribution or host integration. |
-| Rust 1.99.1, Node 24.22.1, npm 11.19.1, shell/OS tools | Build/test | `proposed`: exact versions are pinned for reproducibility; toolchain output/redistribution and supported contributor environments remain under review. |
+| Bootstrap Rust crates (`Cargo.lock`) | Scaffold runtime / transitives | `under_review`: exact lock and package license metadata are recorded; current source/build notice obligations and target/feature scope are being inventoried. Production appliance inclusion needs its own artifact-specific review. |
+| React/Vite/TypeScript/Ajv and UI tools (`ui/package-lock.json`) | Local preview/build/test | `under_review`: exact lock is recorded; optional platform packages, emitted browser output, and applicable notices are reviewed for the current use. Host integration/redistribution needs its own artifact-specific review. |
+| Rust 1.99.1, Node 24.22.1, npm 11.19.1, shell/OS tools | Build/test | `under_review`: exact current build inputs are pinned for reproducibility; emitted/redistributed material and supported contributor environments are recorded separately. |
+| SQLite activity-store implementation | Future runtime design | `deferred`: architecture selects the design and a conditional WAL-reset security floor, but no concrete SQLite package/version or implementation input exists in the bootstrap. The owning implementation task must complete exact rights, notice, and artifact review before inclusion. |
 | Category lists, application signatures, fixtures and corrections | Data | `proposed`: no baseline sources admitted. M03 must review source rights/provenance separately and establish lawful redistribution/update paths. |
 | Public-suffix/timezone snapshots, fonts/icons and other assets | Data / assets / embedded package material | `proposed`: pin each included source and review its license/attribution/derivation obligations separately. |
 
@@ -23,7 +24,7 @@ The nDPI licensing observation uses commit `11f0e5ee52275e18135a163910c1eb2d2ad7
 
 ## 2. Record fields
 
-Create an individual record before admitting a dependency/source. Keep software, native/build tools, host use, data, and assets independently traceable; one family row above does not replace per-component records.
+Create an individual record before admitting a concrete dependency/source. Keep software, native/build tools, host use, data, and assets independently traceable; one family row above does not replace per-component records. Do not create speculative production records for absent future candidates; their full review starts when a task proposes exact components and use.
 
 | Field | Required content |
 |---|---|

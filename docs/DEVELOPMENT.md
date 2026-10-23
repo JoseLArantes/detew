@@ -134,7 +134,7 @@ At each transition:
 4. **Validate:** run the checks required by the task on the appropriate environment. Retain positive, negative, failure, and relevant resource/privacy outcomes. Record unavailable checks explicitly.
 5. **Review:** provide the actual diff, revision, evidence, and limitations to the reviewer. Resolve requested changes and rerun the checks affected by those changes.
 6. **Integrate:** use the established contribution workflow. Reconcile overlapping changes, check the integrated contracts/generated outputs, and run checks affected by integration. Evidence must remain applicable to the accepted revision; material behavior/dependency changes require updated evidence and renewed review before closure.
-7. **Commit:** commit all task-owned work with Conventional Commits and the required DCO sign-off. Record the commit hash as the accepted revision; work left only in the working tree does not satisfy task acceptance.
+7. **Commit:** commit all task-owned work with Conventional Commits. Record the commit hash as the accepted revision; work left only in the working tree does not satisfy task acceptance.
 8. **Record:** link the result and review disposition, close only the accepted task, recheck direct dependents and any gate review now possible, and save the checkpoint. Continue the next task only within the authorized work scope.
 
 M00's portable/native entry points are `./scripts/check-portable.sh`, `./scripts/check-native.sh`, and `./scripts/check-all.sh`. The planning backlog validator checks task documents only; it provides no runtime, native compatibility, or product-test evidence. A portable pass does not replace the FreeBSD/native check.

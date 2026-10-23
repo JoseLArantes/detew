@@ -52,7 +52,7 @@ Commercial product comparisons and vendor product references are excluded. Refer
 | ARC-07 | Local in-memory category indexes compiled from admitted sources | Selected; capacity validated at G0/G2 | No synchronous database/cloud lookup in the packet path. Preparation accounts for active and candidate memory simultaneously. |
 | ARC-08 | Native OPNsense model is the source of desired configuration | Selected | No competing SQLite, YAML, or daemon-owned configuration authority. Runtime artifacts and journals are derived state. |
 | ARC-09 | Versioned local Unix IPC; same-origin native administrative API | Selected | Avoid a second public server, account system, distributed broker, or TLS mesh on the appliance. |
-| ARC-10 | SQLite activity storage owned by one activity daemon | Selected | Bounded local queries/retention with straightforward recovery. It has no role in packet verdicts or desired policy ownership. |
+| ARC-10 | SQLite activity storage owned by one activity daemon | Selected design; exact dependency admission deferred | Bounded local queries/retention with straightforward recovery. It has no role in packet verdicts or desired policy ownership. The concrete package/version and artifact use remain subject to review by the implementation task before inclusion. |
 | ARC-11 | React and TypeScript application mounted in a native OPNsense page | Selected; integration validated at G0 | Support a polished component system while retaining host authentication, ACLs, CSRF, and outer navigation. |
 | ARC-12 | Generated schemas/types and server-authoritative validation | Selected | Keep UI/API/runtime objects aligned without reproducing the policy algorithm in JavaScript or PHP. |
 | ARC-13 | Optional TLS termination is a separate service/module | Deferred to T1 | Isolate key handling, trust enrollment, protocol implementation, and additional resource/failure behavior. |
@@ -79,13 +79,13 @@ Detew-owned material uses the [MIT license](../LICENSE), selected by JoseLArante
 | Control concurrency | `tokio` with bounded queues/tasks; blocking jobs in restricted workers | Async service orchestration, IPC, updates, and status. The packet worker loop is not a Tokio task. |
 | Data downloads | `reqwest` with `rustls`, reviewed provider/root configuration | Control-side only; approved URLs, bounded redirects/downloads, explicit source trust. Validate selected crypto dependencies on FreeBSD. |
 | Integrity/authenticity | SHA-256 artifact digests; Ed25519 verification using maintained Rust libraries | Integrity, signature provenance, and policy correctness remain separate claims. |
-| Activity storage | `rusqlite` with a pinned audited SQLite amalgamation | Activity daemon owns SQL. SQLite must contain the WAL-reset fix: baseline 3.51.3 or newer, with security review of the exact shipped version. |
+| Activity storage | `rusqlite` with a pinned audited SQLite amalgamation | Activity daemon owns SQL. Any proposed SQLite input must contain the WAL-reset fix (design floor 3.51.3 or newer); review its exact component, version, files/features, license, notices, and artifact use in the implementation task before inclusion. |
 | Diagnostics | `tracing` outside packet forwarding; typed counters and bounded event queues inside it | No synchronous filesystem logging from packet workers. |
 | Service lifecycle | FreeBSD `rc.d` and OPNsense `configd` | Start/stop/status/owned attachment actions; no systemd assumption. |
 
 Rust's target matrix includes `x86_64-unknown-freebsd`; that does not establish Detew's native-library or packet-adapter compatibility. OPNsense's 26.7 release documents its FreeBSD/PHP/Python platform baseline. [Rust targets](https://doc.rust-lang.org/rustc/platform-support.html), [OPNsense 26.7](https://docs.opnsense.org/releases/CE_26.7.html)
 
-The SQLite floor is deliberate: the project's WAL documentation identifies a corruption fix in 3.51.3 and selected backports. Detew chooses the newer-version baseline rather than relying on an unidentified host backport. [SQLite WAL and fix](https://www.sqlite.org/wal.html#walresetbug)
+The SQLite floor is deliberate: the project's WAL documentation identifies a corruption fix in 3.51.3 and selected backports. Detew chooses the newer-version baseline rather than relying on an unidentified host backport. This is a design guardrail, not a current bootstrap dependency pin or admission record; exact licensing and notice review begins when an implementation task proposes the concrete package/version and use. [SQLite WAL and fix](https://www.sqlite.org/wal.html#walresetbug)
 
 ### 2.2 Host integration and frontend
 

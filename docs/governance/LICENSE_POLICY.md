@@ -72,6 +72,8 @@ Data review records publisher and provenance, exact terms and snapshot, permitte
 
 ## 4. Admission checklist and decision
 
+Apply the full checklist to a concrete dependency, data source, or asset proposal before it is included or distributed. Do not require a production admission package for absent future candidates; defer their exact version, file/feature, use, and artifact review until a task proposes them. M00-W02-T01 records the current bootstrap and build inputs and their applicable notice obligations. Reassess a current item when its version, included files/features, or distribution use materially changes.
+
 The proposer prepares the [inventory fields](DEPENDENCIES.md#2-record-fields) and checks each item:
 
 1. **Identify:** exact upstream/revision/archive digest, package/file set, features, source of truth, purpose, owner, and alternatives.
@@ -87,7 +89,7 @@ Use `proposed`, `under_review`, `admitted`, `blocked`, or `rejected` in the regi
 
 ## 5. Contribution and notice responsibilities
 
-Original contributions use the project's MIT license. Contributors certify that they have permission to submit their work and identify incorporated third-party material; employer-owned or copied work needs the necessary rights. The [contributor guide](../../CONTRIBUTING.md) defines the sign-off and review procedure. There is no copyright-assignment or separate CLA requirement in this baseline.
+Original contributions are submitted under the project's MIT terms; contributors retain their copyright. By submitting original work, a contributor confirms they have the right to submit it under those terms. Identify incorporated third-party material, its source, and applicable terms. Preserve required upstream notices and license texts. Work with unclear rights and data without redistribution permission cannot be accepted or bundled. No CLA or commit sign-off is required. The [contributor guide](../../CONTRIBUTING.md) defines the rights statement and provenance procedure.
 
 Contributors own accurate provenance and proposed inventory changes. Reviewers check the license/use analysis and required evidence. Maintainers record decisions; package/release owners assemble and verify [third-party notices](../../THIRD_PARTY_NOTICES.md), license texts, source/patch material, and separate software/data manifests. A generated SPDX/SBOM record supports this process without replacing review.
 

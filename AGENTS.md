@@ -16,7 +16,7 @@ Use these active documents:
 6. [docs/MILESTONES.md](docs/MILESTONES.md): sequencing, dependencies, work packages, requirement ownership, and task template.
 7. [docs/tasks/README.md](docs/tasks/README.md): detailed task specifications, accepted-output dependencies, testing/evidence, labels, and GitHub crosswalk.
 8. [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md): execution orchestration, live-state ownership, parallel work, review/integration, gate advancement, and run checkpoints.
-9. [docs/governance/LICENSE_POLICY.md](docs/governance/LICENSE_POLICY.md), [dependency register](docs/governance/DEPENDENCIES.md), and [CONTRIBUTING.md](CONTRIBUTING.md): enacted MIT license, third-party/source admission, ownership/sign-off, and notice responsibilities.
+9. [docs/governance/LICENSE_POLICY.md](docs/governance/LICENSE_POLICY.md), [dependency register](docs/governance/DEPENDENCIES.md), and [CONTRIBUTING.md](CONTRIBUTING.md): enacted MIT license, third-party/source admission, contribution rights, and notice responsibilities.
 
 The foundation documents above define product scope and development requirements. The research documents in `docs/open_research_*.md` provide technical background. Keep commercial product comparisons, inspiration names, and links out of product/development definitions. Actual open source dependencies, host documentation, and standards are appropriate technical references.
 

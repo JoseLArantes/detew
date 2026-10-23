@@ -111,7 +111,7 @@ The [architecture document](ARCHITECTURE.md) selects the development stack and o
 | Packet integration | Portable packet contract; Netmap preferred initial candidate, Divert comparison candidate | ARCH-G01 selects one supported production adapter at G0 |
 | Native host integration | OPNsense PHP/XML/Volt/configd conventions and same-origin APIs | Selected; ARCH-G04 validates permissions, revisions, restore and frontend integration |
 | UI implementation | React 19, strict TypeScript, Vite, scoped Tailwind/Radix components inside a native page | Selected baseline; host compatibility and usability still require prototype evidence |
-| Activity storage | Patched, pinned SQLite via rusqlite in a separate activity daemon | Selected; ARCH-G05 validates retention/write-rate/capacity |
+| Activity storage | SQLite via rusqlite in a separate activity daemon | Design selected; exact package/version/use admission and required notices are completed by the implementation task before inclusion; ARCH-G05 validates retention/write-rate/capacity |
 | Bundle storage | Immutable local artifacts and a versioned activation/operation journal | Selected mechanism; durability and recovery tested before release |
 | Initial software license | MIT for Detew-owned software, tooling, and documentation | Selected by JoseLArantes; enacted in [LICENSE](../LICENSE); dependencies/data require separate admission |
 
