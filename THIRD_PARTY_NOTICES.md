@@ -2,9 +2,9 @@
 
 Detew-owned software, project tooling, and documentation use the [MIT license](LICENSE), with the original project copyright notice `Copyright (c) 2026 JoseLArantes`. Material carrying an explicit different notice retains its own terms.
 
-This is the notice framework for the planning repository, not a release notice bundle. No product dependencies, classifier binary/catalog, vendored libraries, or baseline category datasets have been admitted or packaged here. External tools used to read documents or manage the backlog are not thereby bundled with Detew.
+This is the notice framework for the source repository, not a release notice bundle. Current Rust and UI dependencies have bootstrap-scoped review in [EV-M00-W02-T01](docs/evidence/m00/EV-M00-W02-T01.md); no production dependency admission is claimed. The local generated UI preview is ignored and is not distributed. No classifier binary/catalog, vendored library, baseline category dataset, or release package is present. Separately installed toolchains and tools are not thereby bundled with Detew.
 
-The [dependency register](docs/governance/DEPENDENCIES.md) distinguishes proposed components from admitted inputs. The [admission policy](docs/governance/LICENSE_POLICY.md) governs each actual inclusion. Public standard license texts and source links used in review do not admit the referenced implementation.
+The [dependency register](docs/governance/DEPENDENCIES.md) distinguishes current bootstrap inputs, proposed components, and admitted product inputs. The [admission policy](docs/governance/LICENSE_POLICY.md) governs each actual inclusion. Public standard license texts and source links used in review do not admit the referenced implementation.
 
 ## When a component is included
 
