@@ -24,58 +24,67 @@
   "properties": {
     "schemaVersion": { "const": 1 },
     "taskId": { "type": "string", "pattern": "^M[0-9]{2}-W[0-9]{2}-T[0-9]{2}$" },
-    "requirements": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-    "architectureDecisions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-    "gates": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "requirements": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" }, "uniqueItems": true },
+    "architectureDecisions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" }, "uniqueItems": true },
+    "gates": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" }, "uniqueItems": true },
     "revision": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
     "environment": {
       "type": "object",
       "minProperties": 1,
-      "additionalProperties": { "type": "string" }
+      "additionalProperties": { "type": "string", "minLength": 1, "pattern": "\\S" }
     },
     "inputs": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["name", "version", "sha256"],
         "properties": {
-          "name": { "type": "string" },
-          "version": { "type": "string" },
+          "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "version": { "type": "string", "minLength": 1, "pattern": "\\S" },
           "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
         }
       }
     },
-    "procedure": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-    "expected": { "type": "array", "items": { "type": "string" } },
-    "observed": { "type": "array", "items": { "type": "string" } },
-    "limitations": { "type": "array", "items": { "type": "string" } },
+    "procedure": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+    "expected": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+    "observed": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+    "limitations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
     "reviewers": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["name", "role", "status"],
         "properties": {
-          "name": { "type": "string" },
-          "role": { "type": "string" },
+          "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "role": { "type": "string", "minLength": 1, "pattern": "\\S" },
           "status": { "enum": ["pending", "accepted", "changes_requested"] },
-          "reviewedAt": { "type": "string" }
+          "reviewedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
         }
       }
     },
-    "recordedAt": { "type": "string" },
+    "recordedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
     "checks": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["name", "result", "command", "details"],
         "properties": {
-          "name": { "type": "string" },
+          "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
           "result": { "enum": ["pass", "fail", "skipped", "unavailable"] },
-          "command": { "type": "string" },
-          "details": { "type": "string" }
+          "command": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "details": { "type": "string", "minLength": 1, "pattern": "\\S" }
         }
       }
     }

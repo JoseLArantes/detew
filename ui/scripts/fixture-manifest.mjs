@@ -4,7 +4,7 @@ import { readFile, realpath } from "node:fs/promises";
 import path from "node:path";
 
 const prohibitedMarker =
-  /(?:DETEW-SYNTHETIC-SECRET:|(?:password|token|api[_-]?key)\s*[=:]\s*[^\s"']+)/i;
+  /(?:DETEW-SYNTHETIC-SECRET:|["']?(?:password|passphrase|secret|token|access[_-]?token|refresh[_-]?token|api[_-]?key|authorization)["']?\s*[=:]\s*["']?[^\s"'`,}\]]+)/i;
 const allowedKinds = new Set(["synthetic", "licensed_public"]);
 
 export async function validateFixtureManifest(manifestPath) {

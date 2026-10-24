@@ -45,10 +45,32 @@ test("synthetic fixtures with explicit redistribution rights and matching digest
 
 test("missing redistribution permission is rejected", async (t) => {
   const root = await fixtureDirectory(t);
-  const manifestPath = await writeManifest(root, Buffer.from('{"sample":true}\n'), {
-    redistribution: false,
-  });
-  await assert.rejects(validateFixtureManifest(manifestPath), /redistribution permission/);
+  const contents = Buffer.from('{"sample":true}\n');
+  const deniedPermission = await writeManifest(root, contents, { redistribution: false });
+  await assert.rejects(validateFixtureManifest(deniedPermission), /redistribution permission/);
+
+  const missingPermission = await writeManifest(root, contents, { redistribution: undefined });
+  await assert.rejects(validateFixtureManifest(missingPermission), /redistribution permission/);
+});
+
+test("missing license and provenance are rejected", async (t) => {
+  const root = await fixtureDirectory(t);
+  const contents = Buffer.from('{"sample":true}\n');
+  const missingLicense = await writeManifest(root, contents, { license: undefined });
+  await assert.rejects(validateFixtureManifest(missingLicense), /exact license are required/);
+
+  const missingProvenance = await writeManifest(root, contents, { provenance: undefined });
+  await assert.rejects(validateFixtureManifest(missingProvenance), /provenance is required/);
+});
+
+test("missing or malformed fixture digests are rejected", async (t) => {
+  const root = await fixtureDirectory(t);
+  const contents = Buffer.from('{"sample":true}\n');
+  const missingDigest = await writeManifest(root, contents, { sha256: undefined });
+  await assert.rejects(validateFixtureManifest(missingDigest), /lowercase SHA-256 digest/);
+
+  const mismatchedDigest = await writeManifest(root, contents, { sha256: "a".repeat(64) });
+  await assert.rejects(validateFixtureManifest(mismatchedDigest), /digest mismatch/);
 });
 
 test("credential-like content is rejected even when marked synthetic", async (t) => {
@@ -57,6 +79,12 @@ test("credential-like content is rejected even when marked synthetic", async (t)
     root,
     Buffer.from("DETEW-SYNTHETIC-SECRET: example-only\n"),
   );
+  await assert.rejects(validateFixtureManifest(manifestPath), /credential-like marker/);
+});
+
+test("quoted JSON credential fields are rejected", async (t) => {
+  const root = await fixtureDirectory(t);
+  const manifestPath = await writeManifest(root, Buffer.from('{"token":"example-only"}\n'));
   await assert.rejects(validateFixtureManifest(manifestPath), /credential-like marker/);
 });
 

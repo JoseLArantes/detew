@@ -33,7 +33,7 @@ cargo test --workspace --all-features --locked
 
 cd "$repo_root/ui"
 npm ci
-npm run contracts:generate
+# Validation must compare committed generated contracts without rewriting them.
 npm run contracts:check
 npm run check:boundaries
 npm run check:fixtures
