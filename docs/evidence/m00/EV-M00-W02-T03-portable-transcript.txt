@@ -1,0 +1,163 @@
+PASS: pinned portable tools (rustc 1.99.1 (58cf8f9c3 2026-10-13), v24.22.1, npm 11.19.1)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde_json v1.0.154
+   Compiling ref-cast v1.0.27
+   Compiling serde v1.0.229
+    Checking memchr v2.8.3
+    Checking itoa v1.0.18
+    Checking dyn-clone v1.0.20
+   Compiling syn v3.0.9
+   Compiling serde_derive_internals v0.30.0
+   Compiling ref-cast-impl v1.0.27
+   Compiling serde_derive v1.0.229
+   Compiling schemars_derive v1.2.3
+    Checking schemars v1.2.3
+    Checking detew-domain v0.1.0 (<clean-checkout>/crates/detew-domain)
+    Checking detew-policy v0.1.0 (<clean-checkout>/crates/detew-policy)
+    Checking detew-schema-gen v0.1.0 (<clean-checkout>/crates/detew-schema-gen)
+    Checking detew-reference v0.1.0 (<clean-checkout>/crates/detew-reference)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.83s
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.18
+   Compiling dyn-clone v1.0.20
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling ref-cast v1.0.27
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.154
+   Compiling schemars v1.2.3
+   Compiling detew-domain v0.1.0 (<clean-checkout>/crates/detew-domain)
+   Compiling detew-policy v0.1.0 (<clean-checkout>/crates/detew-policy)
+   Compiling detew-schema-gen v0.1.0 (<clean-checkout>/crates/detew-schema-gen)
+   Compiling detew-reference v0.1.0 (<clean-checkout>/crates/detew-reference)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.99s
+     Running unittests src/lib.rs (<isolated-cargo-target>/debug/deps/detew_domain-88e9314b97b66e30)
+
+running 2 tests
+test tests::bootstrap_fixture_round_trips ... ok
+test tests::unknown_fields_are_rejected ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (<isolated-cargo-target>/debug/deps/detew_policy-cc629648f9152625)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (<isolated-cargo-target>/debug/deps/detew_reference-f153a726572069fd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (<isolated-cargo-target>/debug/deps/detew_schema_gen-e3f02a728ce1a8a5)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests detew_domain
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests detew_policy
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+added 44 packages, and audited 45 packages in 1s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+
+> @detew/ui@0.1.0 contracts:generate
+> node scripts/generate-contracts.mjs
+
+Generated Rust schema and TypeScript DTO.
+
+> @detew/ui@0.1.0 contracts:check
+> node scripts/check-generated-contracts.mjs
+
+Generated schema and TypeScript DTO match committed output.
+
+> @detew/ui@0.1.0 check:boundaries
+> node scripts/check-boundaries.mjs
+
+Portable crate runtime dependency allowlists are satisfied.
+
+> @detew/ui@0.1.0 check:fixtures
+> node scripts/check-fixtures.mjs
+
+Fixture manifest valid (2 synthetic fixtures).
+
+> @detew/ui@0.1.0 typecheck
+> tsc --noEmit
+
+
+> @detew/ui@0.1.0 lint
+> biome check src test scripts vite.config.mjs
+
+Checked 18 files in 20ms. No fixes applied.
+
+> @detew/ui@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ bootstrap contract accepts only the closed fixture shape (24.962542ms)
+✔ portable crate runtime dependencies satisfy their allowlists (73.005208ms)
+✔ a network dependency injected into the domain crate is rejected (99.825917ms)
+✔ evidence manifest schema requires reproducible inputs and honest check results (28.631084ms)
+✔ synthetic fixtures with explicit redistribution rights and matching digests pass (17.336208ms)
+✔ missing redistribution permission is rejected (3.704ms)
+✔ credential-like content is rejected even when marked synthetic (3.695916ms)
+✔ a fixture path that escapes the repository is rejected (2.683625ms)
+✔ security reports are routed privately rather than through a public issue (1.306625ms)
+✔ category corrections require public or synthetic evidence and a privacy review (0.451875ms)
+✔ contributor guidance and PR template use Conventional Commits without DCO or CLA barriers (1.023167ms)
+✔ the TypeScript lint configuration rejects explicit any at a boundary (55.909791ms)
+✔ every PRD requirement has one unverified milestone and task evidence row (1.112875ms)
+✔ the ledger rejects duplicate and missing requirement IDs (0.270667ms)
+✔ the ledger rejects a fabricated revision or evidence reference (0.636625ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 312.8525
+
+> @detew/ui@0.1.0 build
+> vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/.vite/manifest.json          0.18 kB │ gzip:  0.14 kB
+dist/index.html                   0.60 kB │ gzip:  0.36 kB
+dist/assets/index-D9YLM4KR.css    9.94 kB │ gzip:  3.00 kB
+dist/assets/index-AdoCPASy.js   225.09 kB │ gzip: 70.14 kB │ map: 1,056.24 kB
+
+✓ built in 345ms
+PASS: all portable checks completed. Native checks remain a separate result.
