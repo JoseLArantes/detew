@@ -16,7 +16,7 @@ test("evidence manifest schema requires reproducible inputs and honest check res
     taskId: "M00-W04-T01",
     requirements: ["OSS-02"],
     architectureDecisions: ["ARC-14"],
-    gates: [],
+    gates: ["milestone acceptance"],
     revision: "a".repeat(40),
     environment: { os: "macOS" },
     inputs: [{ name: "Rust", version: "1.99.1", sha256: "b".repeat(64) }],
@@ -38,6 +38,30 @@ test("evidence manifest schema requires reproducible inputs and honest check res
 
   assert.equal(validate(manifest), true, ajv.errorsText(validate.errors));
   assert.equal(validate({ ...manifest, revision: "unknown" }), false);
+  assert.equal(validate({ ...manifest, requirements: [] }), false);
+  assert.equal(validate({ ...manifest, gates: [] }), false);
+  assert.equal(validate({ ...manifest, inputs: [] }), false);
+  assert.equal(validate({ ...manifest, expected: [] }), false);
+  assert.equal(validate({ ...manifest, observed: [] }), false);
+  assert.equal(validate({ ...manifest, limitations: [] }), false);
+  assert.equal(validate({ ...manifest, reviewers: [] }), false);
+  assert.equal(validate({ ...manifest, checks: [] }), false);
+  assert.equal(validate({ ...manifest, recordedAt: "yesterday" }), false);
+  assert.equal(
+    validate({
+      ...manifest,
+      reviewers: [
+        {
+          name: "Reviewer",
+          role: "independent",
+          status: "accepted",
+          reviewedAt: "yesterday",
+        },
+      ],
+    }),
+    false,
+    "review timestamps use an explicit ISO 8601 form",
+  );
   assert.equal(
     validate({ ...manifest, checks: [{ ...manifest.checks[0], result: "pass" }] }),
     true,
