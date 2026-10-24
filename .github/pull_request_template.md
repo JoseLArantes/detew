@@ -13,6 +13,15 @@
 - [ ] Product, architecture, milestone, task, generated-contract, or notice changes are synchronized where applicable.
 - [ ] New dependencies/data/assets follow the admission policy.
 - Third-party material, source, applicable terms, and required notices (if any):
+- Foundation impact (affected contracts, tasks, gates, dependencies, or “None”):
+- Change scope and visibility (affected sites, profiles, devices, services, or data):
+
+This template records a reviewable change; it does not authorize deployment or publication of local data.
+
+## Expected and observed outcome
+
+- Expected:
+- Observed:
 
 ## Tests
 
@@ -22,6 +31,9 @@
 - Integration:
 - Smoke:
 - Manual/accessibility or native-lab checks:
+- Exact tested revision and relevant tool/environment versions:
+- Evidence report or supporting synthetic example:
+- Redaction preview for logs, screenshots, or fixtures (or “None”):
 
 <!-- If a check is unavailable, name the environment/prerequisite and the task that will provide it. -->
 

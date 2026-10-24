@@ -18,10 +18,31 @@ test("security reports are routed privately rather than through a public issue",
 
 test("category corrections require public or synthetic evidence and a privacy review", () => {
   const template = read(".github/ISSUE_TEMPLATE/taxonomy_correction.md");
+  assert.match(template, /Local correction drafts stay on the contributor's device/);
   assert.match(template, /publicly reproducible hostname or synthetic example/);
   assert.match(template, /personal browsing record/);
   assert.match(template, /Source and rights/);
   assert.match(template, /Privacy review/);
+  assert.match(
+    template,
+    /deliberately authorize this reviewed content to be submitted as a public issue/,
+  );
+  assert.match(template, /Redaction preview/);
+});
+
+test("bug and feature forms capture versions, scope, expected behavior, and safe context", () => {
+  const bug = read(".github/ISSUE_TEMPLATE/bug_report.md");
+  const feature = read(".github/ISSUE_TEMPLATE/feature_request.md");
+  assert.match(bug, /Detew version\/commit/);
+  assert.match(bug, /What did you expect\?/);
+  assert.match(bug, /Impact scope/);
+  assert.match(bug, /redaction preview/);
+  assert.match(feature, /PRD requirement, task, architecture decision/);
+  assert.match(feature, /Current Detew version\/revision/);
+  assert.match(feature, /Scope and visibility/);
+  assert.match(feature, /expected outcome/);
+  assert.match(feature, /Redaction preview/);
+  assert.match(feature, /Do not attach browsing records, credentials, appliance backups/);
 });
 
 test("contributor guidance and PR template use Conventional Commits without DCO or CLA barriers", () => {
@@ -39,4 +60,9 @@ test("contributor guidance and PR template use Conventional Commits without DCO 
   assert.match(pullRequest, /Unit:/);
   assert.match(pullRequest, /Integration:/);
   assert.match(pullRequest, /Smoke:/);
+  assert.match(pullRequest, /Foundation impact.*contracts, tasks, gates, dependencies/);
+  assert.match(pullRequest, /Expected and observed outcome/);
+  assert.match(pullRequest, /Exact tested revision and relevant tool\/environment versions/);
+  assert.match(pullRequest, /Redaction preview/);
+  assert.match(pullRequest, /does not authorize deployment or publication of local data/);
 });

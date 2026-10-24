@@ -12,22 +12,28 @@ assignees: ""
 
 ## What did you expect?
 
+## Related context (if known)
+
+- PRD requirement, task, or related issue:
+- Evidence ID or revision:
+
 ## Reproduction
 
 1.
 2.
 3.
 
-## Environment
+## Impact and environment
 
+- Impact scope (site, profile, device, or service; use synthetic IDs):
 - Detew version/commit:
 - OPNsense/FreeBSD version:
 - Hardware/NIC/topology:
 - IPv4, IPv6, or both:
 
-## Evidence
+## Evidence and redaction preview
 
-<!-- Include sanitized logs, test output, screenshots, or a minimal synthetic fixture when useful. Review each artifact before posting. -->
+<!-- List any sanitized logs, test output, screenshots, or synthetic fixture and summarize what was removed. Use “None” if there are no attachments. Never include credentials, personal browsing activity, or appliance backups. -->
 
 ## Privacy check
 
