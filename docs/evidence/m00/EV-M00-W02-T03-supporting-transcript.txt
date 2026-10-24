@@ -1,0 +1,132 @@
+M00-W02-T03 supporting command transcript
+Captured on 2026-10-23 (America/Sao_Paulo); paths normalized.
+
+--- Pinned host and tools ---
+host: Darwin mini.local 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:28:24 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6020 arm64
+ProductName:		macOS
+ProductVersion:		26.5.2
+BuildVersion:		25F84
+architecture: arm64
+rustc: rustc 1.99.1 (58cf8f9c3 2026-10-13)
+cargo: cargo 1.99.1 (5f94df478 2026-08-27)
+rustup: 1.99.1-aarch64-apple-darwin (overridden by '<clean-checkout>/rust-toolchain.toml')
+node: v24.22.1
+npm: 11.19.1
+npm ignore-scripts: true
+npm engine-strict: true
+
+--- Lock and runtime archive digests ---
+36de95a2454b4adf7c8d3afe6e5c5f71d3a609e39755768895fe5d5045c9500a  Cargo.lock
+ee53a8551234d5e0df22ac1fd4a95cd3e3eb2c29e2474eae6f2d03e3e80011a1  ui/package-lock.json
+c979a7d4d66b770a4d59d6d56e3c078aeab1993af658480bfd1f89f90220457d  rust-toolchain.toml
+d9f318747a126ce2247661af67852b185def7789492eabfad7bba322be087c33  .node-version
+ace91470abac0e12a3504b9f2941a833a388049a3494d8a3a3588c2f917a4d61  ui/package.json
+761290ca38d627b5dfde3b3a20b9f398165e2ef458afbb4dcef590c05f5cb766  .npmrc
+fdfbffc969c0f604beff0124d409b33a43b53f5c681d6220f80023e0d6df9dc4  <isolated-run>/toolchain/SHASUMS256.txt
+89c682593d76cd44233fa53b1563264e7de9cbb189cad169135c5b4fadfbc0a7  <isolated-run>/toolchain/node-v24.22.1-darwin-arm64.tar.gz
+
+--- Cargo dependency fetch ---
+
+$ cargo fetch --locked
+
+exit 0
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded ref-cast v1.0.27
+  Downloaded serde_derive_internals v0.30.0
+  Downloaded ref-cast-impl v1.0.27
+  Downloaded serde_core v1.0.229
+  Downloaded dyn-clone v1.0.20
+  Downloaded itoa v1.0.18
+  Downloaded schemars_derive v1.2.3
+  Downloaded quote v1.0.47
+  Downloaded zmij v1.0.23
+  Downloaded unicode-ident v1.0.27
+  Downloaded proc-macro2 v1.0.107
+  Downloaded serde_derive v1.0.229
+  Downloaded serde v1.0.229
+  Downloaded schemars v1.2.3
+  Downloaded memchr v2.8.3
+  Downloaded serde_json v1.0.154
+  Downloaded syn v3.0.9
+
+--- Resolved Cargo dependencies (depth 2) ---
+detew-domain v0.1.0 (<clean-checkout>/crates/detew-domain)
+├── schemars v1.2.3
+│   ├── dyn-clone v1.0.20
+│   ├── ref-cast v1.0.27
+│   ├── schemars_derive v1.2.3 (proc-macro)
+│   ├── serde v1.0.229
+│   └── serde_json v1.0.154
+└── serde v1.0.229 (*)
+[dev-dependencies]
+└── serde_json v1.0.154 (*)
+
+detew-policy v0.1.0 (<clean-checkout>/crates/detew-policy)
+└── detew-domain v0.1.0 (<clean-checkout>/crates/detew-domain) (*)
+
+detew-reference v0.1.0 (<clean-checkout>/crates/detew-reference)
+└── detew-policy v0.1.0 (<clean-checkout>/crates/detew-policy) (*)
+
+detew-schema-gen v0.1.0 (<clean-checkout>/crates/detew-schema-gen)
+├── detew-domain v0.1.0 (<clean-checkout>/crates/detew-domain) (*)
+├── schemars v1.2.3 (*)
+└── serde_json v1.0.154 (*)
+
+--- Resolved direct npm dependencies ---
+
+$ cd ui && npm ls --depth=0
+@detew/ui@0.1.0 <clean-checkout>/ui
+├── @biomejs/biome@2.4.6
+├── @types/react-dom@19.3.0
+├── @types/react@19.3.0
+├── @vitejs/plugin-react@6.1.2
+├── ajv@8.20.0
+├── json-schema-to-typescript@16.0.0
+├── react-dom@19.3.1
+├── react@19.3.1
+├── typescript@7.0.2
+└── vite@8.3.5
+
+
+--- Wrong Node guard ---
+
+$ ./scripts/check-portable.sh (default PATH: Node v23.11.0, npm 10.9.2)
+
+exit 1
+FAIL: expected Node v24.22.1, found v23.11.0
+
+--- Wrong Rust guard ---
+
+$ RUSTUP_TOOLCHAIN=1.95 ./scripts/check-portable.sh
+
+exit 1
+FAIL: expected rustc 1.99.1, found rustc 1.95.0 (59807616e 2026-04-14)
+
+--- Native check outside FreeBSD harness ---
+
+$ ./scripts/check-native.sh
+
+exit 3 (expected unavailable result)
+UNAVAILABLE: native check requires the pinned FreeBSD/OPNsense lab; current system is Darwin.
+
+--- Repeated contract generation ---
+
+> @detew/ui@0.1.0 contracts:generate
+> node scripts/generate-contracts.mjs
+
+Generated Rust schema and TypeScript DTO.
+
+> @detew/ui@0.1.0 contracts:generate
+> node scripts/generate-contracts.mjs
+
+Generated Rust schema and TypeScript DTO.
+b5f79bb988f68fc4d914ba313b2196bc48b1e9cc5831d93bcc83bfe5fc3e23c1  contracts/schemas/bootstrap-info.v1.json
+61d4b62e649b68d327c686466214fd3a96924bb4c0ffa11406ed8ea4e716b50b  ui/src/contracts/generated/bootstrap-info.ts
+
+--- UI build artifact hashes ---
+630691c06992e1c1eb505a10f037a8830556768a220a38ec9ca1612e632ba94f  ui/dist/.vite/manifest.json
+327471bb5a7d1d69305bc48ec62cbe8343f03d24fb45b0bf007f507c70ec40ad  ui/dist/assets/index-AdoCPASy.js
+bbc6cdbe27344d542ba3e639eb45a36f6be951e4cd0bbe8d9246c78fe271482c  ui/dist/assets/index-AdoCPASy.js.map
+b7abde9dc580695facb44e2cd4d6f2790d380c851afe356692e9fc243a267f0f  ui/dist/assets/index-D9YLM4KR.css
+5bba4230708b16c0a4bd1878cc08edc9290121143a958c6fb0f9a93dae84324a  ui/dist/index.html
