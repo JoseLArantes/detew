@@ -24,7 +24,7 @@ MIT permits use, modification, redistribution, sublicensing, and sale, subject t
 
 Use the unmodified MIT terms. Do not add a noncommercial restriction, special business-use approval, attribution beyond the license, or a requirement to disclose all downstream modifications. Different terms for third-party components remain separately visible. [Apache-2.0 terms](https://www.apache.org/licenses/LICENSE-2.0), [GPL-3.0 terms](https://spdx.org/licenses/GPL-3.0-or-later.html)
 
-The owner has accepted the MIT choice. This record defines the admission process; each actual dependency still requires its own evidence and approval. The [evidence report](../evidence/m00/EV-M00-W01-T01.md) distinguishes completed document checks from pending task review and integration.
+The owner has accepted the MIT choice. This record defines the admission process; each actual dependency still requires its own evidence and approval. The [evidence report](../evidence/m00/EV-M00-W01-T01.md) records the original preparation review and the current integrated-tree audit, including remaining per-component admission and release gates.
 
 ## 2. Admission principles
 
