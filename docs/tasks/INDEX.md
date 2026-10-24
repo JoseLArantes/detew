@@ -5,17 +5,17 @@ Generated from the three versioned source catalogs. Each row is one development 
 | Order | Task | Title | Milestone | Scope | Initial status | GitHub |
 |---|---|---|---|---|---|---|
 | 1 | [M00-W01-T01](m00/M00-W01-T01.md) | Decide the software license and dependency admission policy | M00 | V1 | ready | [#1](https://github.com/JoseLArantes/detew/issues/1) |
-| 2 | [M00-W01-T02](m00/M00-W01-T02.md) | Enact the approved license and contributor review workflow | M00 | V1 | blocked | [#2](https://github.com/JoseLArantes/detew/issues/2) |
+| 2 | [M00-W01-T02](m00/M00-W01-T02.md) | Enact the approved license and contributor review workflow | M00 | V1 | ready | [#2](https://github.com/JoseLArantes/detew/issues/2) |
 | 3 | [M00-W01-T03](m00/M00-W01-T03.md) | Publish a verified private vulnerability-reporting process | M00 | V1 | ready | [#3](https://github.com/JoseLArantes/detew/issues/3) |
-| 4 | [M00-W02-T01](m00/M00-W02-T01.md) | Pin exact portable, native, and frontend build inputs | M00 | V1 | blocked | [#4](https://github.com/JoseLArantes/detew/issues/4) |
-| 5 | [M00-W02-T02](m00/M00-W02-T02.md) | Bootstrap the minimal Rust workspace, UI package, and generation entry point | M00 | V1 | blocked | [#5](https://github.com/JoseLArantes/detew/issues/5) |
-| 6 | [M00-W02-T03](m00/M00-W02-T03.md) | Verify reproducible bootstrap from an independent clean checkout | M00 | V1 | blocked | [#6](https://github.com/JoseLArantes/detew/issues/6) |
+| 4 | [M00-W02-T01](m00/M00-W02-T01.md) | Pin exact portable, native, and frontend build inputs | M00 | V1 | ready | [#4](https://github.com/JoseLArantes/detew/issues/4) |
+| 5 | [M00-W02-T02](m00/M00-W02-T02.md) | Bootstrap the minimal Rust workspace, UI package, and generation entry point | M00 | V1 | ready | [#5](https://github.com/JoseLArantes/detew/issues/5) |
+| 6 | [M00-W02-T03](m00/M00-W02-T03.md) | Verify reproducible bootstrap from an independent clean checkout | M00 | V1 | ready | [#6](https://github.com/JoseLArantes/detew/issues/6) |
 | 7 | [M00-W03-T01](m00/M00-W03-T01.md) | Specify the isolated dual-stack lab and console recovery plan | M00 | V1 | ready | [#7](https://github.com/JoseLArantes/detew/issues/7) |
-| 8 | [M00-W03-T02](m00/M00-W03-T02.md) | Provision the lab and capture repeatable bypass baselines | M00 | V1 | blocked | [#8](https://github.com/JoseLArantes/detew/issues/8) |
-| 9 | [M00-W04-T01](m00/M00-W04-T01.md) | Create portable/native check entry points and evidence formats | M00 | V1 | blocked | [#9](https://github.com/JoseLArantes/detew/issues/9) |
+| 8 | [M00-W03-T02](m00/M00-W03-T02.md) | Provision the lab and capture repeatable bypass baselines | M00 | V1 | ready | [#8](https://github.com/JoseLArantes/detew/issues/8) |
+| 9 | [M00-W04-T01](m00/M00-W04-T01.md) | Create portable/native check entry points and evidence formats | M00 | V1 | ready | [#9](https://github.com/JoseLArantes/detew/issues/9) |
 | 10 | [M00-W04-T02](m00/M00-W04-T02.md) | Validate check isolation, fixture rules, and evidence reproducibility | M00 | V1 | blocked | [#10](https://github.com/JoseLArantes/detew/issues/10) |
 | 11 | [M00-W05-T01](m00/M00-W05-T01.md) | Review the threat model and privilege/trust inventory | M00 | V1 | ready | [#11](https://github.com/JoseLArantes/detew/issues/11) |
-| 12 | [M00-W05-T02](m00/M00-W05-T02.md) | Create the unverified requirement ledger and reviewable contribution templates | M00 | V1 | blocked | [#12](https://github.com/JoseLArantes/detew/issues/12) |
+| 12 | [M00-W05-T02](m00/M00-W05-T02.md) | Create the unverified requirement ledger and reviewable contribution templates | M00 | V1 | ready | [#12](https://github.com/JoseLArantes/detew/issues/12) |
 | 13 | [M01-W01-T01](m01/M01-W01-T01.md) | Define authoritative wire types and explicit policy/evidence contexts | M01 | V1 | blocked | [#13](https://github.com/JoseLArantes/detew/issues/13) |
 | 14 | [M01-W01-T02](m01/M01-W01-T02.md) | Generate schemas/TypeScript and prove boundary round-trip parity | M01 | V1 | blocked | [#14](https://github.com/JoseLArantes/detew/issues/14) |
 | 15 | [M01-W02-T01](m01/M01-W02-T01.md) | Implement shared hostname, IDNA, and IP normalization | M01 | V1 | blocked | [#15](https://github.com/JoseLArantes/detew/issues/15) |
@@ -38,7 +38,7 @@ Generated from the three versioned source catalogs. Each row is one development 
 | 32 | [M02-W05-T02](m02/M02-W05-T02.md) | Accept or reject classifier/catalog feasibility at ARCH-G02 | M02 | V1 | blocked | [#32](https://github.com/JoseLArantes/detew/issues/32) |
 | 33 | [M03-W01-T01](m03/M03-W01-T01.md) | Define the stable three-category taxonomy and bilingual boundaries | M03 | V1 | blocked | [#33](https://github.com/JoseLArantes/detew/issues/33) |
 | 34 | [M03-W01-T02](m03/M03-W01-T02.md) | Validate taxonomy/provider mappings and multi-label semantics | M03 | V1 | blocked | [#34](https://github.com/JoseLArantes/detew/issues/34) |
-| 35 | [M03-W02-T01](m03/M03-W02-T01.md) | Audit candidate sources for redistribution, provenance, and freshness | M03 | V1 | blocked | [#35](https://github.com/JoseLArantes/detew/issues/35) |
+| 35 | [M03-W02-T01](m03/M03-W02-T01.md) | Audit candidate sources for redistribution, provenance, and freshness | M03 | V1 | ready | [#35](https://github.com/JoseLArantes/detew/issues/35) |
 | 36 | [M03-W02-T02](m03/M03-W02-T02.md) | Approve source manifests and the maintenance/eligibility contract | M03 | V1 | blocked | [#36](https://github.com/JoseLArantes/detew/issues/36) |
 | 37 | [M03-W03-T01](m03/M03-W03-T01.md) | Implement bounded normalization/import and deterministic FST compilation | M03 | V1 | blocked | [#37](https://github.com/JoseLArantes/detew/issues/37) |
 | 38 | [M03-W03-T02](m03/M03-W03-T02.md) | Verify artifact decoding, lookup parity, and peak preparation budgets | M03 | V1 | blocked | [#38](https://github.com/JoseLArantes/detew/issues/38) |

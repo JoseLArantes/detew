@@ -83,17 +83,17 @@ Layers count prerequisite depth, not sprints or delivery duration. Each mileston
 | Task | Direct prerequisites | Initial status |
 |---|---|---|
 | [M00-W01-T01](m00/M00-W01-T01.md) | none | ready |
-| [M00-W01-T02](m00/M00-W01-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M00-W01-T02](m00/M00-W01-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md) | ready |
 | [M00-W01-T03](m00/M00-W01-T03.md) | [M00-W01-T02](m00/M00-W01-T02.md) | ready |
-| [M00-W02-T01](m00/M00-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
-| [M00-W02-T02](m00/M00-W02-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W02-T01](m00/M00-W02-T01.md) | blocked |
-| [M00-W02-T03](m00/M00-W02-T03.md) | [M00-W02-T02](m00/M00-W02-T02.md) | blocked |
+| [M00-W02-T01](m00/M00-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | ready |
+| [M00-W02-T02](m00/M00-W02-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W02-T01](m00/M00-W02-T01.md) | ready |
+| [M00-W02-T03](m00/M00-W02-T03.md) | [M00-W02-T02](m00/M00-W02-T02.md) | ready |
 | [M00-W03-T01](m00/M00-W03-T01.md) | none | ready |
-| [M00-W03-T02](m00/M00-W03-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md), [M00-W02-T01](m00/M00-W02-T01.md), [M00-W03-T01](m00/M00-W03-T01.md) | blocked |
-| [M00-W04-T01](m00/M00-W04-T01.md) | [M00-W02-T02](m00/M00-W02-T02.md), [M00-W01-T02](m00/M00-W01-T02.md) | blocked |
+| [M00-W03-T02](m00/M00-W03-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md), [M00-W02-T01](m00/M00-W02-T01.md), [M00-W03-T01](m00/M00-W03-T01.md) | ready |
+| [M00-W04-T01](m00/M00-W04-T01.md) | [M00-W02-T02](m00/M00-W02-T02.md), [M00-W01-T02](m00/M00-W01-T02.md) | ready |
 | [M00-W04-T02](m00/M00-W04-T02.md) | [M00-W04-T01](m00/M00-W04-T01.md), [M00-W02-T03](m00/M00-W02-T03.md), [M00-W03-T02](m00/M00-W03-T02.md) | blocked |
 | [M00-W05-T01](m00/M00-W05-T01.md) | none | ready |
-| [M00-W05-T02](m00/M00-W05-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W05-T01](m00/M00-W05-T01.md), [M00-W04-T01](m00/M00-W04-T01.md) | blocked |
+| [M00-W05-T02](m00/M00-W05-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W05-T01](m00/M00-W05-T01.md), [M00-W04-T01](m00/M00-W04-T01.md) | ready |
 | [M01-W01-T01](m01/M01-W01-T01.md) | [M00-W01-T03](m00/M00-W01-T03.md), [M00-W02-T03](m00/M00-W02-T03.md), [M00-W03-T02](m00/M00-W03-T02.md), [M00-W04-T02](m00/M00-W04-T02.md), [M00-W05-T02](m00/M00-W05-T02.md) | blocked |
 | [M01-W01-T02](m01/M01-W01-T02.md) | [M01-W01-T01](m01/M01-W01-T01.md) | blocked |
 | [M01-W02-T01](m01/M01-W02-T01.md) | [M01-W01-T01](m01/M01-W01-T01.md) | blocked |
@@ -116,7 +116,7 @@ Layers count prerequisite depth, not sprints or delivery duration. Each mileston
 | [M02-W05-T02](m02/M02-W05-T02.md) | [M02-W03-T02](m02/M02-W03-T02.md), [M02-W04-T02](m02/M02-W04-T02.md), [M02-W05-T01](m02/M02-W05-T01.md) | blocked |
 | [M03-W01-T01](m03/M03-W01-T01.md) | [M01-W05-T02](m01/M01-W05-T02.md) | blocked |
 | [M03-W01-T02](m03/M03-W01-T02.md) | [M03-W01-T01](m03/M03-W01-T01.md), [M01-W03-T02](m01/M01-W03-T02.md) | blocked |
-| [M03-W02-T01](m03/M03-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
+| [M03-W02-T01](m03/M03-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | ready |
 | [M03-W02-T02](m03/M03-W02-T02.md) | [M03-W02-T01](m03/M03-W02-T01.md), [M03-W01-T02](m03/M03-W01-T02.md) | blocked |
 | [M03-W03-T01](m03/M03-W03-T01.md) | [M03-W01-T02](m03/M03-W01-T02.md), [M03-W02-T02](m03/M03-W02-T02.md), [M01-W02-T02](m01/M01-W02-T02.md), [M01-W04-T02](m01/M01-W04-T02.md) | blocked |
 | [M03-W03-T02](m03/M03-W03-T02.md) | [M03-W03-T01](m03/M03-W03-T01.md) | blocked |
