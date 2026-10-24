@@ -15,6 +15,15 @@ npm: 11.19.1
 npm ignore-scripts: true
 npm engine-strict: true
 
+--- Initial isolated cache state ---
+The run root came from a fresh `mktemp -d` call (the unique path is redacted). Separate Cargo and npm cache/build directories were created under that root.
+$ mkdir -p <run-root>/cargo-home <run-root>/cargo-target <run-root>/npm-cache
+$ for d in <run-root>/cargo-home <run-root>/cargo-target <run-root>/npm-cache; do if [ -n "$(ls -A "$d")" ]; then printf CACHE_NOT_EMPTY; exit 2; fi; done
+Observed: the loop returned success and printed no `CACHE_NOT_EMPTY` marker.
+The two following wrong-toolchain preflight checks exited before dependency installation and did not access these directories. The setup wrapper then recorded:
+cache_initial_state=empty
+
+
 --- Lock and runtime archive digests ---
 36de95a2454b4adf7c8d3afe6e5c5f71d3a609e39755768895fe5d5045c9500a  Cargo.lock
 ee53a8551234d5e0df22ac1fd4a95cd3e3eb2c29e2474eae6f2d03e3e80011a1  ui/package-lock.json
