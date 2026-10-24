@@ -6,7 +6,7 @@ Read the linked task specification before scheduling. Dependencies are accepted-
 |---|---|---|---|---|
 | [M00-W01-T01](M00-W01-T01.md) | Decide the software license and dependency admission policy | none | ready | [#1](https://github.com/JoseLArantes/detew/issues/1) |
 | [M00-W01-T02](M00-W01-T02.md) | Enact the approved license and contributor review workflow | [M00-W01-T01](../m00/M00-W01-T01.md) | blocked | [#2](https://github.com/JoseLArantes/detew/issues/2) |
-| [M00-W01-T03](M00-W01-T03.md) | Publish a verified private vulnerability-reporting process | [M00-W01-T02](../m00/M00-W01-T02.md) | blocked | [#3](https://github.com/JoseLArantes/detew/issues/3) |
+| [M00-W01-T03](M00-W01-T03.md) | Publish a verified private vulnerability-reporting process | [M00-W01-T02](../m00/M00-W01-T02.md) | ready | [#3](https://github.com/JoseLArantes/detew/issues/3) |
 | [M00-W02-T01](M00-W02-T01.md) | Pin exact portable, native, and frontend build inputs | [M00-W01-T01](../m00/M00-W01-T01.md) | blocked | [#4](https://github.com/JoseLArantes/detew/issues/4) |
 | [M00-W02-T02](M00-W02-T02.md) | Bootstrap the minimal Rust workspace, UI package, and generation entry point | [M00-W01-T02](../m00/M00-W01-T02.md), [M00-W02-T01](../m00/M00-W02-T01.md) | blocked | [#5](https://github.com/JoseLArantes/detew/issues/5) |
 | [M00-W02-T03](M00-W02-T03.md) | Verify reproducible bootstrap from an independent clean checkout | [M00-W02-T02](../m00/M00-W02-T02.md) | blocked | [#6](https://github.com/JoseLArantes/detew/issues/6) |
