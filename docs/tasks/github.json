@@ -7,7 +7,7 @@
       "node_id": "I_kwDOU5eYE88AAAABUtaGIg",
       "id": 5684758050,
       "url": "https://github.com/JoseLArantes/detew/issues/1",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W01-T02": {
       "number": 2,
@@ -21,35 +21,35 @@
       "node_id": "I_kwDOU5eYE88AAAABUtaIGA",
       "id": 5684758552,
       "url": "https://github.com/JoseLArantes/detew/issues/3",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W02-T01": {
       "number": 4,
       "node_id": "I_kwDOU5eYE88AAAABUtaKHA",
       "id": 5684759068,
       "url": "https://github.com/JoseLArantes/detew/issues/4",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W02-T02": {
       "number": 5,
       "node_id": "I_kwDOU5eYE88AAAABUtaLLA",
       "id": 5684759340,
       "url": "https://github.com/JoseLArantes/detew/issues/5",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W02-T03": {
       "number": 6,
       "node_id": "I_kwDOU5eYE88AAAABUtaMIg",
       "id": 5684759586,
       "url": "https://github.com/JoseLArantes/detew/issues/6",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W03-T01": {
       "number": 7,
       "node_id": "I_kwDOU5eYE88AAAABUtaNvA",
       "id": 5684759996,
       "url": "https://github.com/JoseLArantes/detew/issues/7",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W03-T02": {
       "number": 8,
@@ -63,7 +63,7 @@
       "node_id": "I_kwDOU5eYE88AAAABUtaP8Q",
       "id": 5684760561,
       "url": "https://github.com/JoseLArantes/detew/issues/9",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W04-T02": {
       "number": 10,
@@ -77,14 +77,14 @@
       "node_id": "I_kwDOU5eYE88AAAABUtaSNA",
       "id": 5684761140,
       "url": "https://github.com/JoseLArantes/detew/issues/11",
-      "state": "open"
+      "state": "closed"
     },
     "M00-W05-T02": {
       "number": 12,
       "node_id": "I_kwDOU5eYE88AAAABUtaS6g",
       "id": 5684761322,
       "url": "https://github.com/JoseLArantes/detew/issues/12",
-      "state": "open"
+      "state": "closed"
     },
     "M01-W01-T01": {
       "number": 13,
@@ -2649,7 +2649,7 @@
       "issue_number": 3,
       "change": "Product Owner removed the separate non-maintainer GitHub session requirement after verifying the enabled private-reporting route and blank advisory workflow in the available authenticated session; accepted predecessor #2 is reconciled in evidence.",
       "catalog_digest": "3ac4a2be5ff221177dee91f1de88e41aafeac8053ed386627345f301ee6699d2",
-      "execution_state": "PR #171 is open with the issue body reconciled and issue #3 OPEN/status:in-review; the prior task-level recommendation and Product Owner acceptance are recorded; final review of the current PR head and integration are pending."
+      "execution_state": "PR #171 accepted at reviewed head 960b7f928bc6a9467d47bf53462ada7d931ebd4a, squash-merged as a88e96cc59ab6b7c27b2cfb50ee2f9711dd8b6c2; issue #3 completion record updated and closed at 2026-10-24T23:01:48Z; T03 outcome accepted; unrelated M00 gates remain unaccepted"
     }
   ]
 }
