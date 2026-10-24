@@ -2,7 +2,7 @@ M00-W02-T03 supporting command transcript
 Captured on 2026-10-23 (America/Sao_Paulo); paths normalized.
 
 --- Pinned host and tools ---
-host: Darwin mini.local 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:28:24 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6020 arm64
+host: Darwin [redacted-host] 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:28:24 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6020 arm64
 ProductName:		macOS
 ProductVersion:		26.5.2
 BuildVersion:		25F84
@@ -111,19 +111,17 @@ exit 3 (expected unavailable result)
 UNAVAILABLE: native check requires the pinned FreeBSD/OPNsense lab; current system is Darwin.
 
 --- Repeated contract generation ---
-
-> @detew/ui@0.1.0 contracts:generate
-> node scripts/generate-contracts.mjs
-
-Generated Rust schema and TypeScript DTO.
-
-> @detew/ui@0.1.0 contracts:generate
-> node scripts/generate-contracts.mjs
-
-Generated Rust schema and TypeScript DTO.
+Run 1 (generation invoked by scripts/check-portable.sh):
 b5f79bb988f68fc4d914ba313b2196bc48b1e9cc5831d93bcc83bfe5fc3e23c1  contracts/schemas/bootstrap-info.v1.json
 61d4b62e649b68d327c686466214fd3a96924bb4c0ffa11406ed8ea4e716b50b  ui/src/contracts/generated/bootstrap-info.ts
-
+Run 2 (npm run contracts:generate):
+b5f79bb988f68fc4d914ba313b2196bc48b1e9cc5831d93bcc83bfe5fc3e23c1  contracts/schemas/bootstrap-info.v1.json
+61d4b62e649b68d327c686466214fd3a96924bb4c0ffa11406ed8ea4e716b50b  ui/src/contracts/generated/bootstrap-info.ts
+Run 3 (npm run contracts:generate):
+b5f79bb988f68fc4d914ba313b2196bc48b1e9cc5831d93bcc83bfe5fc3e23c1  contracts/schemas/bootstrap-info.v1.json
+61d4b62e649b68d327c686466214fd3a96924bb4c0ffa11406ed8ea4e716b50b  ui/src/contracts/generated/bootstrap-info.ts
+Command: cmp generation-hashes-1.txt generation-hashes-2.txt; cmp generation-hashes-2.txt generation-hashes-3.txt
+exit 0; both comparisons passed.
 --- UI build artifact hashes ---
 630691c06992e1c1eb505a10f037a8830556768a220a38ec9ca1612e632ba94f  ui/dist/.vite/manifest.json
 327471bb5a7d1d69305bc48ec62cbe8343f03d24fb45b0bf007f507c70ec40ad  ui/dist/assets/index-AdoCPASy.js
