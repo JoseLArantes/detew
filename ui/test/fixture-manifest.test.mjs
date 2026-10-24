@@ -82,6 +82,12 @@ test("credential-like content is rejected even when marked synthetic", async (t)
   await assert.rejects(validateFixtureManifest(manifestPath), /credential-like marker/);
 });
 
+test("quoted JSON credential fields are rejected", async (t) => {
+  const root = await fixtureDirectory(t);
+  const manifestPath = await writeManifest(root, Buffer.from('{"token":"example-only"}\n'));
+  await assert.rejects(validateFixtureManifest(manifestPath), /credential-like marker/);
+});
+
 test("a fixture path that escapes the repository is rejected", async (t) => {
   const root = await fixtureDirectory(t);
   const manifestPath = await writeManifest(root, Buffer.from("safe\n"), {
