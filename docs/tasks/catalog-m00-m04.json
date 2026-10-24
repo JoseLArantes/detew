@@ -156,19 +156,19 @@
       "ARC-15"
     ],
     "gates": [],
-    "outcome": "Security reporters can use a maintainer-verified private channel and understand response/support responsibilities.",
+    "outcome": "The repository exposes a verified GitHub private-reporting route and states maintainer response/support responsibilities.",
     "deliverables": [
       "Security policy with a verified private reporting route and triage/escalation responsibilities.",
       "Explicit initial supported-release status and urgent-update ownership record."
     ],
     "acceptance": [
-      "A real maintainer-provided reporting channel is verified; a placeholder or invented address cannot complete the task.",
+      "The repository's private vulnerability-reporting setting is enabled and the documented route reaches GitHub's private advisory workflow; a placeholder or invented address cannot complete the task.",
       "The policy identifies private reporting, public disclosure coordination, dependency triage, and emergency release responsibilities; if the sole maintainer is unavailable, the absence of alternate escalation or backup disclosure handoff is explicit.",
       "No release is claimed supported before it exists; unavailable channel, ownership, response, or fallback is stated plainly as a visible limitation.",
       "The reporting process does not automatically collect appliance diagnostics or private browsing history."
     ],
     "tests": [
-      "With channel owner authorization, verify that the documented route reaches the intended private destination without sending real vulnerability or appliance data.",
+      "Verify that private vulnerability reporting is enabled, then open the documented route from the signed-out Security page and an available authenticated session. Confirm the sign-in gate and GitHub advisory workflow load; record the observed session role. Do not enter data, create a draft, or submit a report.",
       "Tabletop a native-library vulnerability and an absent maintainer response; record the documented escalation and disclosure handoff, or explicitly state that no alternate escalation or backup handoff exists."
     ],
     "constraints": [
@@ -176,7 +176,7 @@
       "This task delivers its bounded milestone outcome; it does not establish V1 release support or final quality acceptance."
     ],
     "evidence": [
-      "EV-M00-W01-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review; include the non-submitting reporter-route check and absent-maintainer tabletop."
+      "EV-M00-W01-T03: versioned report containing exact revision/environment/input digests, reproducible procedure, expected and observed results, limitations, and recorded review; include the enabled-setting and non-submitting private-route checks, observed session role, and absent-maintainer tabletop."
     ],
     "refinement_notes": [
       "The maintainer must supply and accept the private reporting channel and ownership; planning can specify the process but cannot fabricate these inputs. If the project has one maintainer, record the lack of backup escalation or handoff instead of inventing a contact or response window."

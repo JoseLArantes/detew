@@ -84,7 +84,7 @@ Layers count prerequisite depth, not sprints or delivery duration. Each mileston
 |---|---|---|
 | [M00-W01-T01](m00/M00-W01-T01.md) | none | ready |
 | [M00-W01-T02](m00/M00-W01-T02.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
-| [M00-W01-T03](m00/M00-W01-T03.md) | [M00-W01-T02](m00/M00-W01-T02.md) | blocked |
+| [M00-W01-T03](m00/M00-W01-T03.md) | [M00-W01-T02](m00/M00-W01-T02.md) | ready |
 | [M00-W02-T01](m00/M00-W02-T01.md) | [M00-W01-T01](m00/M00-W01-T01.md) | blocked |
 | [M00-W02-T02](m00/M00-W02-T02.md) | [M00-W01-T02](m00/M00-W01-T02.md), [M00-W02-T01](m00/M00-W02-T01.md) | blocked |
 | [M00-W02-T03](m00/M00-W02-T03.md) | [M00-W02-T02](m00/M00-W02-T02.md) | blocked |

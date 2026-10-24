@@ -6,7 +6,7 @@ Generated from the three versioned source catalogs. Each row is one development 
 |---|---|---|---|---|---|---|
 | 1 | [M00-W01-T01](m00/M00-W01-T01.md) | Decide the software license and dependency admission policy | M00 | V1 | ready | [#1](https://github.com/JoseLArantes/detew/issues/1) |
 | 2 | [M00-W01-T02](m00/M00-W01-T02.md) | Enact the approved license and contributor review workflow | M00 | V1 | blocked | [#2](https://github.com/JoseLArantes/detew/issues/2) |
-| 3 | [M00-W01-T03](m00/M00-W01-T03.md) | Publish a verified private vulnerability-reporting process | M00 | V1 | blocked | [#3](https://github.com/JoseLArantes/detew/issues/3) |
+| 3 | [M00-W01-T03](m00/M00-W01-T03.md) | Publish a verified private vulnerability-reporting process | M00 | V1 | ready | [#3](https://github.com/JoseLArantes/detew/issues/3) |
 | 4 | [M00-W02-T01](m00/M00-W02-T01.md) | Pin exact portable, native, and frontend build inputs | M00 | V1 | blocked | [#4](https://github.com/JoseLArantes/detew/issues/4) |
 | 5 | [M00-W02-T02](m00/M00-W02-T02.md) | Bootstrap the minimal Rust workspace, UI package, and generation entry point | M00 | V1 | blocked | [#5](https://github.com/JoseLArantes/detew/issues/5) |
 | 6 | [M00-W02-T03](m00/M00-W02-T03.md) | Verify reproducible bootstrap from an independent clean checkout | M00 | V1 | blocked | [#6](https://github.com/JoseLArantes/detew/issues/6) |
